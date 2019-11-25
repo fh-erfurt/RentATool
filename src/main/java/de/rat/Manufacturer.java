@@ -1,7 +1,7 @@
 package de.rat;
 
 public class Manufacturer {
-    private static short  manufacturerId=0;
+
     private String name;
     private String address;
    private String agent;
@@ -13,14 +13,12 @@ public class Manufacturer {
         this.address = address;
         this.agent = agent;
         this.phoneNumber = phoneNumber;
-        manufacturerId++;
+
     }
 
 
 
-    public short getManufacturerId() {
-        return manufacturerId;
-    }
+
 
     public String getName() {
         return name;
@@ -36,10 +34,6 @@ public class Manufacturer {
 
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    public void setManufacturerId(short manufacturerId) {
-        this.manufacturerId = manufacturerId;
     }
 
     public void setName(String name) {
