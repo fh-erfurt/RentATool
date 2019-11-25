@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ToolTest {
 
-
+/*
     @Test
     void increased_the_id_when_object_are_created() {
 
@@ -18,4 +18,6 @@ class ToolTest {
         //Assertions.assertEquals(1, Werkzeug1.getToolId());
 
     }
+
+ */
 }

@@ -51,4 +51,11 @@ public class Manufacturer {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public void changeManufacture(String name, String address, String agent, String phoneNumber) {
+        this.name=name;
+        this.address=address;
+        this.agent=agent;
+        this.phoneNumber=phoneNumber;
+    }
 }
