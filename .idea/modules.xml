@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RentATool.iml" filepath="$PROJECT_DIR$/.idea/RentATool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/RentATool.iml" filepath="$PROJECT_DIR$/src/main/RentATool.iml" />
     </modules>
   </component>
 </project>
