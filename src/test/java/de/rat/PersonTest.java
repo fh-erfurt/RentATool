@@ -8,9 +8,9 @@ class PersonTest {
 
     @Test
     void get_the_employee_all_attributes_from_the_person_class() {
-        Address address = new Address();
+        Address address = new Address("Straße", 5, 12354, "Erfurt", "Germany");
         Account account = new Account();
-        Department department = new Department();
+        Department department = new Department("anvfsapfovb");
 
         Employee employee1 = new Employee("Steinbrecher", "Danny", "2019.11.15", address, account, department, null);
 
