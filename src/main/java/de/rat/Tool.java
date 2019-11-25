@@ -1,19 +1,19 @@
 package de.rat;
 
 public class Tool {
-    private short toolId;
-    private short itemId;
-    private short manufacturerId;
+    private static int toolId;
+    private int itemId;
+    private int manufacturerId;
     private String description;
     private String category;
     private String stock;
     private String toolStatus;
     private double rentPrice;
 
-    public Tool(short toolId, short itemId, short manufacturerId, String description,
+    public Tool(int itemId, int manufacturerId, String description,
                 String category, String stock, String toolStatus, double rentPrice)
     {
-        this.toolId = toolId;
+        toolId++;
         this.itemId = itemId;
         this.manufacturerId = manufacturerId;
         this.description = description;
@@ -24,7 +24,7 @@ public class Tool {
     }
 
 
-    public short getToolId() {
+    public int getToolId() {
         return toolId;
     }
 
@@ -32,7 +32,7 @@ public class Tool {
         this.toolId = toolId;
     }
 
-    public short getItemId() {
+    public int getItemId() {
         return itemId;
     }
 
@@ -40,7 +40,7 @@ public class Tool {
         this.itemId = itemId;
     }
 
-    public short getManufacturerId() {
+    public int getManufacturerId() {
         return manufacturerId;
     }
 
