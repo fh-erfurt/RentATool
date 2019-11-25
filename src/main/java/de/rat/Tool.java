@@ -1,21 +1,17 @@
 package de.rat;
 
 public class Tool {
-    private static int toolId;
-    private int itemId;
-    private int manufacturerId;
+    private String itemId; // this is a ID that comes from the manufacturer. Like this: A120-B20W
+    private Manufacturer manufacturer;
     private String description;
-    private String category;
-    private String stock;
+    private String category;    // maybe class Category?
+    private String stock;   // where can i find the tool in my warehouse - rename from stock to toolLocation?
     private String toolStatus;
     private double rentPrice;
 
-    public Tool(int itemId, int manufacturerId, String description,
-                String category, String stock, String toolStatus, double rentPrice)
-    {
-        toolId++;
+    public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, String toolStatus, double rentPrice) {
         this.itemId = itemId;
-        this.manufacturerId = manufacturerId;
+        this.manufacturer = manufacturer;
         this.description = description;
         this.category = category;
         this.stock = stock;
@@ -23,29 +19,20 @@ public class Tool {
         this.rentPrice = rentPrice;
     }
 
-
-    public int getToolId() {
-        return toolId;
-    }
-
-    public void setToolId(short toolId) {
-        this.toolId = toolId;
-    }
-
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(short itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
-    public int getManufacturerId() {
-        return manufacturerId;
+    public Manufacturer getManufacturer() {
+        return manufacturer;
     }
 
-    public void setManufacturerId(short manufacturerId) {
-        this.manufacturerId = manufacturerId;
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
     public String getDescription() {
