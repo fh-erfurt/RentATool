@@ -11,4 +11,12 @@ public class Customer extends Person{
         super(lastname, firstname, birthday, address, account);
         this.phoneNumber = phoneNumber;
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
