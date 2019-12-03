@@ -19,8 +19,10 @@ public class Department {
     public void setDepName(String depName) {
         this.depName = depName;
     }
+
+
     boolean changeDepartment(String newName){
-       // we need a list with alle Departmentsname first
+
       return true;
     }
 }

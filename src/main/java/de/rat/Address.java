@@ -57,7 +57,7 @@ public class Address {
     }
 
     public boolean checkAddress(String street, int hauseNr, int zip, String city, String country) {
-        boolean check=false;
+        boolean check = false;
         if(this.street==street && this.hauseNr==hauseNr &&  this.zip==zip  && this.city== city &&  this.country==country){
             check=true;
         }

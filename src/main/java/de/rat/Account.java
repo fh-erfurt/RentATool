@@ -39,21 +39,47 @@ public class Account {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(Employee employee) {
+        this.password = this.createPasswort(employee);
     }
 
-    public void setChanged() {
+    public void setPassword(Customer customer) {
+        this.password = this.createPasswort(customer);
+    }
+
+    public void setChanged()
+    {
         this.changed = LocalDate.now();
     }
-    public void changeAccount(String role, String email, String password){
+
+
+    public void changeAccount(String role, String email, Employee person){
         this.setRole(role);
         this.setEmail(email);
-        this.setPassword(password);
+        this.setPassword(person);
         this.setChanged();
 
     }
-    public boolean createPasswort(){
-        return true;
+
+    public void changeAccount(String role, String email, Customer person){
+        this.setRole(role);
+        this.setEmail(email);
+        this.setPassword(person);
+        this.setChanged();
+
+    }
+    public String createPasswort(Employee person)
+    {
+    String password = person.getFirstname()+person.getLastname()+person.getBirthday();
+
+        return password;
+    }
+
+
+    public String createPasswort(Customer person)
+    {
+        String password = person.getFirstname()+person.getLastname()+person.getBirthday();
+
+        return password;
     }
 }
