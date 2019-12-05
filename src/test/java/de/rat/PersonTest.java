@@ -9,13 +9,11 @@ class PersonTest {
 
     @Test
     void get_the_employee_all_attributes_from_the_person_class() {
-        Address address = new Address("Straße", 5, 12354, "Erfurt", "Germany");
-        Account account = new Account();
         Department department = new Department("anvfsapfovb");
-        Employee employee1 = new Employee("Steinbrecher", "Danny", "2019.11.15", address, account, department, null);
+        Employee employee1 = new Employee("Steinbrecher", "Danny", "2019.11.15", "Hans", "wurst@t.de", "122346" ,
+                "Straße", 5, 12354, "Erfurt", "Germany",
+                department, null);
 
-        Assertions.assertEquals(address, employee1.getAddress());
-        Assertions.assertEquals(account, employee1.getAccount());
         Assertions.assertEquals(department, employee1.getDepartment());
         Assertions.assertEquals("Steinbrecher", employee1.getLastname());
         Assertions.assertEquals("Danny", employee1.getFirstname());
@@ -23,6 +21,23 @@ class PersonTest {
         Assertions.assertEquals(null, employee1.getSupervisor());
 
 
+    }
+
+    @Test
+    void was_the_person_added_to_the_list(){
+        Department department = new Department("anvfsapfovb");
+        Employee employee1 = new Employee("Steinbrecher", "Danny", "2019.11.15", "Hans", "wurst@t.de", "122346" ,
+                "Straße", 5, 12354, "Erfurt", "Germany",
+                department, null);
+        Employee employee2= new Employee("Peter", "Hans", "2019.11.15", "Hans", "wurst@t.de", "122346" ,
+                "Straße", 5, 12354, "Erfurt", "Germany",
+                department, null);
+
+        Customer cutomer= new Customer("Peter", "Hans", "2019.11.15", "Hans", "wurst@t.de", "122346" ,
+                "Straße", 5, 12354, "Erfurt", "Germany",
+                "234234234");
+        Assertions.assertEquals(2, Person.employeeList.size());
+        Assertions.assertEquals(1, Person.customerList.size());
     }
 
 }

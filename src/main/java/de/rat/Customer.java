@@ -5,11 +5,14 @@ import java.text.DateFormat;
 public class Customer extends Person{
 
     private String phoneNumber;
-
-
-    public Customer(String lastname, String firstname, String birthday, Address address, Account account, String phoneNumber) {
-        super(lastname, firstname, birthday, address, account);
+    Customer(String lastname, String firstname, String birthday,
+                    String role, String email, String password,
+                    String street, int hauseNr, int zip, String city, String country,
+                    String phoneNumber)
+    {
+        super(lastname, firstname, birthday, role, email,  password, street, hauseNr,  zip,  city,  country);
         this.phoneNumber = phoneNumber;
+        customerList.add(this); // add the customer to the list in the main class
     }
 
     public String getPhoneNumber() {

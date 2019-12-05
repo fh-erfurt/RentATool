@@ -7,13 +7,18 @@ public class Employee extends Person{
    private Department department;
    private Employee supervisor;
 
-    public Employee(String lastname, String firstname, String birthday, Address address, Account account, Department department, Employee supervisor) {
-        super(lastname, firstname, birthday, address, account);
+    Employee(String lastname, String firstname, String birthday,
+             String role, String email, String password,
+             String street, int hauseNr, int zip, String city, String country,
+             Department department, Employee supervisor)
+    {
+        super(lastname, firstname, birthday, role, email,  password, street, hauseNr,  zip,  city,  country);
         this.department = department;
         this.supervisor = supervisor;
+        employeeList.add(this); //add the employee to the list in the main class
     }
 
-    public Department getDepartment() {
+    Department getDepartment() {
         return department;
     }
 
@@ -21,7 +26,7 @@ public class Employee extends Person{
         this.department = department;
     }
 
-    public Employee getSupervisor() {
+    Employee getSupervisor() {
         return supervisor;
     }
 
