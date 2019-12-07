@@ -1,4 +1,5 @@
 package de.rat;
 
-public class RentProcess {
+public class
+RentProcess {
 }
