@@ -8,6 +8,7 @@ public class Station {
     private String description;
     private int numberOfBoxes;
     private Address address;
+    /* tool management */
     private ArrayList<Tool> boxesOfTools= new ArrayList<Tool>();
 
 
@@ -15,7 +16,6 @@ public class Station {
         this.description = description;
         this.numberOfBoxes = numberOfBoxes;
         this.address = address;
-
 
     }
 
@@ -50,29 +50,28 @@ public class Station {
     public boolean addToolToBox(Tool tool) {
 
         int ToolCounter = boxesOfTools.size();
+        /* check that is enough space in a station */
         if (numberOfBoxes <= boxesOfTools.size()) {
-            System.out.println("Boxen sind voll");
+            System.out.println("Alle Boxen sind bereits in Benutzung");
             return false;
         }
         else {
             boxesOfTools.add(tool);
-
-            if (boxesOfTools.size() > ToolCounter) {
-                return true;
-                } else {
-                return false;
-                }
-            }
+            return true;
+                          }
         }
 
         public Tool removeToolFromBox(Tool wantedTool) {
 
+        /*check that the right tool is in on of the boxes */
          for (Tool foundedTool : boxesOfTools) {
                 if (foundedTool.equals(wantedTool)) {
 
                     boxesOfTools.remove(foundedTool);
                     return foundedTool;
                 }
-            }       return null;
+            }
+            System.out.println("Werkzeug nicht in der Station vorhanden");
+            return null;
         }
 }
