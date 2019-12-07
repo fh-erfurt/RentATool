@@ -9,19 +9,19 @@ class ManufacturerTest {
 
     @Before public void initialize()
     {
-        Manufacturer manufacture=new Manufacturer("Bosch","Bosch-Str.1a","Herr Bosch","05642-45545559");
-        Manufacturer manufacture2=new Manufacturer("Siemens","Siemens-Str.1a","Herr Siemens","05642-4584565465759");
-        Manufacturer manufacture3=new Manufacturer("Einhell","Einhell-Str.1a","Herr Einhell","05642-4554654659");
 
     }
 
 @Test
     void can_changed_the_attributes_of_manufacturer()
 {
-    Manufacturer manufacture=new Manufacturer("Bosch","Bosch-Str.1a","Herr Bosch","05642-458759");
-    manufacture.changeManufacture("Makita", "Makita-Str. 2a","Herr Makita","9999-9999");
+    Address address1=new Address("Bosch-Str.1",1,99425,"Weimar","DE");
+    Address address2=new Address("Bosch-Str.1",1,99425,"Erfurt","DE");
+    Address address3=new Address("Bosch-Str.1",1,99425,"Leipzig","DE");
+    Manufacturer manufacture=new Manufacturer("Bosch",address1,"Herr Bosch","05642-458759");
+    manufacture.changeManufacture("Makita", address2,"Herr Makita","9999-9999");
     assertEquals("Makita", manufacture.getName());
-    assertEquals("Makita-Str. 2a", manufacture.getAddress());
+    assertEquals(address2, manufacture.getAddress());
     assertEquals("Herr Makita", manufacture.getAgent());
     assertEquals("9999-9999", manufacture.getPhoneNumber());
 
@@ -31,12 +31,15 @@ class ManufacturerTest {
 @Test
     void was_the_manufacturer_added_to_the_list()
 {
-    Manufacturer manufacture3=new Manufacturer("Einhell","Einhell-Str.1a","Herr Einhell","05642-4554654659");
-    Manufacturer manufacture2=new Manufacturer("Siemens","Siemens-Str.1a","Herr Siemens","05642-4584565465759");
+    Address address1=new Address("Bosch-Str.1",1,99425,"Weimar","DE");
+    Address address2=new Address("Bosch-Str.1",1,99425,"Erfurt","DE");
+    Address address3=new Address("Bosch-Str.1",1,99425,"Leipzig","DE");
+    Manufacturer manufacture3=new Manufacturer("Einhell",address1,"Herr Einhell","05642-4554654659");
+    Manufacturer manufacture2=new Manufacturer("Siemens",address2,"Herr Siemens","05642-4584565465759");
     assertEquals(2,Manufacturer.manufacturerList.size());
 
-    Manufacturer manufacture4=new Manufacturer("Einhell","Einhell-Str.1a","Herr Einhell","05642-4554654659");
-    Manufacturer manufacture5=new Manufacturer("Siemens","Siemens-Str.1a","Herr Siemens","05642-4584565465759");
+    Manufacturer manufacture4=new Manufacturer("Einhell",address3,"Herr Einhell","05642-4554654659");
+    Manufacturer manufacture5=new Manufacturer("Siemens",address2,"Herr Siemens","05642-4584565465759");
     assertEquals(4,Manufacturer.manufacturerList.size());
 
 }

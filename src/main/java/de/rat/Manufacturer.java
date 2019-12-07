@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Manufacturer {
 
     private String name;
-    private String address;
+    private Address address;
     private String agent;
     private String phoneNumber;
     static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
 
 
-    public Manufacturer( String name, String address, String agent, String phoneNumber) {
+    public Manufacturer( String name, Address address, String agent, String phoneNumber) {
         this.name = name;
         this.address = address;
         this.agent = agent;
@@ -27,7 +27,7 @@ public class Manufacturer {
         return name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
@@ -43,7 +43,7 @@ public class Manufacturer {
         this.name = name;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -55,7 +55,7 @@ public class Manufacturer {
         this.phoneNumber = phoneNumber;
     }
 
-    public void changeManufacture(String name, String address, String agent, String phoneNumber) {
+    public void changeManufacture(String name, Address address, String agent, String phoneNumber) {
         this.name=name;
         this.address=address;
         this.agent=agent;
