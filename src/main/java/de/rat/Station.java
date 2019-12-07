@@ -1,6 +1,7 @@
 package de.rat;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Station {
 
@@ -42,19 +43,36 @@ public class Station {
         this.address = address;
     }
 
+    public int getNumberOfTools() {
+        return this.boxesOfTools.size();
+    }
+
     public boolean addToolToBox(Tool tool) {
 
         int ToolCounter = boxesOfTools.size();
-        boxesOfTools.add(tool);
+        if (numberOfBoxes <= boxesOfTools.size()) {
+            System.out.println("Boxen sind voll");
+            return false;
+        }
+        else {
+            boxesOfTools.add(tool);
 
-            if(boxesOfTools.size() > ToolCounter){
+            if (boxesOfTools.size() > ToolCounter) {
                 return true;
-            }
-            else{
+                } else {
                 return false;
+                }
             }
         }
 
+        public Tool removeToolFromBox(Tool wantedTool) {
 
+         for (Tool foundedTool : boxesOfTools) {
+                if (foundedTool.equals(wantedTool)) {
 
+                    boxesOfTools.remove(foundedTool);
+                    return foundedTool;
+                }
+            }       return null;
+        }
 }

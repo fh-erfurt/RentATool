@@ -27,7 +27,6 @@ class ManufacturerTest {
 
 }
 
-
 @Test
     void was_the_manufacturer_added_to_the_list()
 {
