@@ -1,11 +1,14 @@
 package de.rat;
 
+import java.util.ArrayList;
+
 public class Manufacturer {
 
     private String name;
     private String address;
-   private String agent;
-   private String phoneNumber;
+    private String agent;
+    private String phoneNumber;
+    static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
 
 
     public Manufacturer( String name, String address, String agent, String phoneNumber) {
@@ -13,7 +16,7 @@ public class Manufacturer {
         this.address = address;
         this.agent = agent;
         this.phoneNumber = phoneNumber;
-
+        manufacturerList.add(this); //add the manufacturer to the ArrayList
     }
 
 
