@@ -9,7 +9,7 @@ public class Station {
     private int numberOfBoxes;
     private Address address;
     /* tool management */
-    private ArrayList<Tool> boxesOfTools= new ArrayList<Tool>();
+    protected ArrayList<Tool> boxesOfTools= new ArrayList<Tool>();
 
 
     public Station(String description, int numberOfBoxes, Address address) {
