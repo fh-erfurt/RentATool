@@ -60,6 +60,32 @@ public class Customer extends Person{
         userBill.getListOfRentProcesses().add(rentedTool);
         this.companyName.getOpenBills().add(userBill);
 
+
         return true;
     }
+
+
+    public boolean returnTool(Tool choosenTool,Station returnStation){
+
+        returnStation.addToolToBox(choosenTool);
+        for (Bill foundedBill : this.companyName.getOpenBills())
+        {
+            if (foundedBill.getCustomer().equals(this))
+            {
+                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses())
+                {
+                    if (foundedProcesses.getRentedTool().equals(choosenTool))
+                    {
+                        foundedProcesses.setReturnDate(null); //ToDo;
+                        foundedProcesses.setReturnStation(returnStation);
+                        //closeBills();
+                        return true;
+                    }
+                }
+
+            }
+        }
+        return false;
+    }
 }
+

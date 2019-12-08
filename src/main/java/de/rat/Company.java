@@ -60,9 +60,17 @@ public class Company {
 
     public boolean closeBill(Customer customer){
 
-        int i= 3*4;
-
+        for (Bill foundedBill : this.openBills)
+        {
+            if (foundedBill.getCustomer().equals(this))
+            {
+                foundedBill.getListOfRentProcesses().add(rentedTool);
+                return true;
+            }
+        }
         return true;
     }
+
+
 }
 
