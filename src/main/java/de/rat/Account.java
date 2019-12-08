@@ -8,11 +8,17 @@ public class Account {
     private String password;
     private LocalDate changed;
 
-    public Account(String role, String email, String password) {
-        this.role = role;
+    public Account(String email) {
         this.email = email;
-        this.password = password;
         this.changed = LocalDate.now();
+        this.role="customer";
+        this.password=createPasswort();
+    }
+
+    public Account (String role, String lastname, String firstname){
+        this.role= role;
+        this.email= lastname+"."+firstname+"@rat.de";
+        this.password= createPasswort();
     }
 
     public String getRole() {
@@ -68,18 +74,11 @@ public class Account {
         this.setChanged();
 
     }
-    public String createPasswort(Employee person)
+    public String createPasswort(Person )
     {
-    String password = person.getFirstname()+person.getLastname()+person.getBirthday();
+            String password= "abc"+123;
 
         return password;
     }
 
-
-    public String createPasswort(Customer person)
-    {
-        String password = person.getFirstname()+person.getLastname()+person.getBirthday();
-
-        return password;
-    }
 }

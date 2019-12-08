@@ -4,9 +4,9 @@ public class Tool {
     private String itemId; // this is a ID that comes from the manufacturer. Like this: A120-B20W
     private Manufacturer manufacturer;
     private String description;
-    private String category;    // maybe class Category?
+    private String category;    // enum(elctro, akku, gas, manual)
     private String stock;   // where can i find the tool in my warehouse - rename from stock to toolLocation?
-    private String toolStatus;
+    private String toolStatus;     // Enum (available, isRented, isBroken, isInRepair)
     private double rentPrice;
 
     public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, String toolStatus, double rentPrice) {
