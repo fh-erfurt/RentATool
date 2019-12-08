@@ -55,9 +55,6 @@ public class Account {
         this.password = this.password;
     }
 
-    /*public void setPassword(Customer customer) {
-        this.password = this.createPasswort(customer);
-    }*/
 
     public void setChanged()
     {
@@ -65,26 +62,15 @@ public class Account {
     }
 
 
-    public void changeAccount(String role, String email, Employee person){
+    public void changeAccount(String role, String email, Person person){
         this.setRole(role);
         this.setEmail(email);
-       // this.setPassword(person);
+        this.setPassword(person.createPassword(person.getFirstname(),person.getLastname()));
         this.setChanged();
 
     }
 
-    public void changeAccount(String role, String email, Customer person){
-        this.setRole(role);
-        this.setEmail(email);
-        //this.setPassword(person);
-        this.setChanged();
 
-    }
-  /*  public String createPasswort()
-    {
-            String password= "abc"+123;
 
-        return password;
-    }*/
 
 }
