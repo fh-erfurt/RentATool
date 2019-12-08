@@ -1,5 +1,6 @@
 package de.rat;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -7,6 +8,8 @@ public class Customer extends Person{
 
     private String phoneNumber;
     private Company companyName;
+    private ArrayList<Tool> rentedTools= new ArrayList<Tool>();
+
     Customer(String lastname, String firstname, GregorianCalendar birthday,
              String email, String street, int hauseNr, int zip, String city, String country, String phoneNumber,Company companyName)
     {
@@ -37,5 +40,26 @@ public class Customer extends Person{
             }
         }
         return false;
+    }
+
+
+    public boolean rentATool(Tool wantedTool,Station pickupStation) {
+
+        this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
+        RentProcess rentedTool = new RentProcess(wantedTool);
+
+        for (Bill foundedBill : this.companyName.getOpenBills())
+        {
+            if (foundedBill.getCustomer().equals(this))
+            {
+                foundedBill.getListOfRentProcesses().add(rentedTool);
+                return true;
+            }
+        }
+        Bill userBill = new Bill(this, pickupStation);
+        userBill.getListOfRentProcesses().add(rentedTool);
+        this.companyName.getOpenBills().add(userBill);
+
+        return true;
     }
 }

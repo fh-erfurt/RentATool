@@ -16,12 +16,11 @@ public class Bill {
     /* several rent processes for on bill possible*/
     private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
-    public Bill (int billNumber,Customer customer,Date date,Station rentStation,RentProcess rentProcess){
-        this.billNumber=billNumber;
+    public Bill (Customer customer,Station rentStation){
+        this.billNumber=1234;  //ToDo
         this.customer=customer;
-        this.rentDate=date;
+        this.rentDate=null; //ToDO
         this.rentStation=rentStation;
-        listOfRentProcesses.add(rentProcess);
         this.billDate=null;
         this.discount=0;
         this.fullRentPrice=0;
@@ -56,6 +55,9 @@ public class Bill {
         return discount;
     }
 
+    public ArrayList<RentProcess> getListOfRentProcesses() {
+        return listOfRentProcesses;
+    }
 
     /*Setter*/
     public void setBillNumber(int billNumber) {
