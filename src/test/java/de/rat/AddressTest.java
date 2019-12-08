@@ -10,7 +10,7 @@ class AddressTest {
 
     @Test
 
-    public void get_the_Attribute_of_class_Address(){
+     void get_the_Attribute_of_class_Address(){
     // When
        String street = address1.getStreet();
         String city = address1.getCity();
@@ -28,7 +28,7 @@ class AddressTest {
     }
 
     @Test
-    public void set_the_Attribute_of_class_Address() {
+     void set_the_Attribute_of_class_Address() {
         //When
       /*  address1.setStreet("Linde 2");
         address1.setCity("Erfurt");
@@ -44,7 +44,7 @@ class AddressTest {
         assertEquals("FR",address1.getCountry());
 
     }
-    }
+
 
 }
 
