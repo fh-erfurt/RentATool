@@ -2,16 +2,17 @@ package de.rat;
 
 import java.util.ArrayList;
 
-public class Warehouse {
+public class Company {
 
     private String CompanyName;
-    private ArrayList<Bill>openbills = new ArrayList<Bill>();
-    private ArrayList<Bill>closedbills = new ArrayList<Bill>();
+    private ArrayList<Bill>openBills = new ArrayList<Bill>();
+    private ArrayList<Bill>closedBills = new ArrayList<Bill>();
     private ArrayList<Tool> Stock= new ArrayList<Tool>();
     private ArrayList<Employee> employees= new ArrayList<Employee>();
 
 
-    public Warehouse(String CompanyName) {
+    /*Getter*/
+    public Company(String CompanyName) {
         this.CompanyName=CompanyName;
     }
 
@@ -23,20 +24,22 @@ public class Warehouse {
         CompanyName = companyName;
     }
 
-    public ArrayList<Bill> getOpenbills() {
-        return openbills;
+    public ArrayList<Bill> getOpenBills() {
+        return openBills;
+    }
+    public ArrayList<Bill> getClosedBills() {
+        return closedBills;
     }
 
-    public void setOpenbills(ArrayList<Bill> openbills) {
-        this.openbills = openbills;
+    /*Setter*/
+    public void setOpenbills(ArrayList<Bill> openBills) {
+        this.openBills= openBills;
     }
 
-    public ArrayList<Bill> getClosedbills() {
-        return closedbills;
-    }
 
-    public void setClosedbills(ArrayList<Bill> closedbills) {
-        this.closedbills = closedbills;
+
+    public void setClosedBills(ArrayList<Bill> closedbills) {
+        this.closedBills = closedbills;
     }
 
     public ArrayList<Tool> getStock() {
