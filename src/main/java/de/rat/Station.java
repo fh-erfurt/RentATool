@@ -19,6 +19,7 @@ public class Station {
 
     }
 
+    /*Getter*/
     public String getDescription() {
         return description;
     }
@@ -31,6 +32,7 @@ public class Station {
         return address;
     }
 
+    /*Setter*/
     public void setDescription(String description) {
         this.description = description;
     }
@@ -43,30 +45,36 @@ public class Station {
         this.address = address;
     }
 
+    /*methods*/
     public int getNumberOfTools() {
         return this.boxesOfTools.size();
     }
 
-    public boolean addToolToBox(Tool tool) {
+    public boolean addToolToBox(Tool tool)
+        {
 
         int ToolCounter = boxesOfTools.size();
         /* check that is enough space in a station */
-        if (numberOfBoxes <= boxesOfTools.size()) {
+        if (numberOfBoxes <= boxesOfTools.size())
+            {
             System.out.println("Alle Boxen sind bereits in Benutzung");
             return false;
         }
-        else {
+        else
+            {
             boxesOfTools.add(tool);
             return true;
-                          }
+             }
         }
 
-        public Tool removeToolFromBox(Tool wantedTool) {
+    public Tool removeToolFromBox(Tool wantedTool)
+        {
 
         /*check that the right tool is in on of the boxes */
-         for (Tool foundedTool : boxesOfTools) {
-                if (foundedTool.equals(wantedTool)) {
-
+        for (Tool foundedTool : boxesOfTools)
+            {
+                if (foundedTool.equals(wantedTool))
+                {
                     boxesOfTools.remove(foundedTool);
                     return foundedTool;
                 }
