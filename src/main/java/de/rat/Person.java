@@ -2,18 +2,20 @@ package de.rat;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public abstract class Person {
 
     private final String lastname;
     private String firstname;
-    private String birthday;    // TODO updated to DateFormat
+    private GregorianCalendar birthday;    // TODO updated to DateFormat
     private Address address;
     protected Account account;
     static ArrayList<Person> customerList =  new ArrayList<Person>(); // TODO merge the two lists
     static ArrayList<Person> employeeList = new ArrayList<Person>();
 
-    public Person(String lastname, String firstname, String birthday,
+    public Person(String lastname, String firstname, GregorianCalendar birthday,
                   String street, int hauseNr, int zip, String city, String country) {
 
         this.lastname = lastname;
@@ -22,8 +24,16 @@ public abstract class Person {
         this.address = new Address(street, hauseNr, zip, city, country);
     }
 
-    public String createPassword(String lastname, String firstname) {
-        return lastname;
+    String createPassword(String lastname, String firstname, GregorianCalendar birthday) {
+
+        //da241289st
+        String shortFirstname = firstname.substring(0,2).toLowerCase();
+        String shortLastname = lastname.substring(0,2).toLowerCase();
+        int shortDay = birthday.get(Calendar.DATE);
+        int shortMonth = (birthday.get(Calendar.MONTH) + 1 );
+        String shortYear = Integer.toString(birthday.get(Calendar.YEAR)).substring(2,4);
+
+        return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
 
 
@@ -35,7 +45,7 @@ public abstract class Person {
         return firstname;
     }
 
-    public String getBirthday() {
+    public Calendar getBirthday() {
         return birthday;
     }
 
