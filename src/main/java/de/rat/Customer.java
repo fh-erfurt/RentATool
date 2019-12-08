@@ -78,7 +78,7 @@ public class Customer extends Person{
                     {
                         foundedProcesses.setReturnDate(null); //ToDo;
                         foundedProcesses.setReturnStation(returnStation);
-                        //closeBills();
+
                         return true;
                     }
                 }

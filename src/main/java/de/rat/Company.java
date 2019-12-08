@@ -58,16 +58,27 @@ public class Company {
         this.employees = employees;
     }
 
-    public boolean closeBill(Customer customer){
+    public boolean closeBill(Customer customer, int discount){
 
-        for (Bill foundedBill : this.openBills)
+        for (Bill foundedBill :openBills)
         {
-            if (foundedBill.getCustomer().equals(this))
+            if (foundedBill.getCustomer().equals(customer))
             {
-                foundedBill.getListOfRentProcesses().add(rentedTool);
+                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses())
+                {
+                    if (foundedProcesses.getReturnStation() == null)  //ToDo über Date anpassen
+                    {
+                        return false;
+                    }
+                }
+                foundedBill.setDiscount(discount);
+                foundedBill.setFullRentPrice();
+                openBills.remove(foundedBill);
+                closedBills.add(foundedBill);
                 return true;
             }
         }
+
         return true;
     }
 

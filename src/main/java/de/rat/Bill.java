@@ -12,7 +12,7 @@ public class Bill {
     private Station rentStation;
     private Date billDate;
     private int discount;
-    private float fullRentPrice;
+    private double fullRentPrice;
     /* several rent processes for on bill possible*/
     private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
@@ -47,7 +47,7 @@ public class Bill {
         return billDate;
     }
 
-    public float getFullRentPrice() {
+    public double getFullRentPrice() {
         return fullRentPrice;
     }
 
@@ -85,4 +85,15 @@ public class Bill {
     }
 
     /*methods*/
+
+    public void setFullRentPrice() {
+
+
+        for (RentProcess foundedProcesses :listOfRentProcesses)
+        {
+            this.fullRentPrice += foundedProcesses.getRentedTool().getRentPrice();  //ToDo date adden
+        }
+
+        this.fullRentPrice= this.fullRentPrice*discount/100;
+    }
 }
