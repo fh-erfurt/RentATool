@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 public class Customer extends Person{
 
     private String phoneNumber;
-    private Company companyName;
+    private Company company;
     private ArrayList<Tool> rentedTools= new ArrayList<Tool>();
 
     Customer(String lastname, String firstname, GregorianCalendar birthday,
@@ -16,7 +16,7 @@ public class Customer extends Person{
         super(lastname, firstname, birthday, street, hauseNr,  zip,  city,  country);
         this.account = new Account(Role.CUSTOMER, email, createPassword(lastname, firstname, birthday));
         this.phoneNumber = phoneNumber;
-        this.companyName=companyName;
+        this.company=companyName;
         customerList.add(this); // add the customer to the list in the main class
     }
 
@@ -30,11 +30,11 @@ public class Customer extends Person{
 
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
-        for (Tool foundedTool : companyName.getStock())
+        for (Tool foundedTool : company.getStock())
         {
             if (foundedTool.equals(wantedTool))
             {
-                companyName.getStock().remove(wantedTool);
+                company.getStock().remove(wantedTool);
                 pickupStation.addToolToBox(wantedTool);
                 return true;
             }
@@ -48,7 +48,7 @@ public class Customer extends Person{
         this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
         RentProcess rentedTool = new RentProcess(wantedTool);
 
-        for (Bill foundedBill : this.companyName.getOpenBills())
+        for (Bill foundedBill : this.company.getOpenBills())
         {
             if (foundedBill.getCustomer().equals(this))
             {
@@ -58,7 +58,7 @@ public class Customer extends Person{
         }
         Bill userBill = new Bill(this, pickupStation);
         userBill.getListOfRentProcesses().add(rentedTool);
-        this.companyName.getOpenBills().add(userBill);
+        this.company.getOpenBills().add(userBill);
 
 
         return true;
@@ -68,7 +68,7 @@ public class Customer extends Person{
     public boolean returnTool(Tool choosenTool,Station returnStation){
 
         returnStation.addToolToBox(choosenTool);
-        for (Bill foundedBill : this.companyName.getOpenBills())
+        for (Bill foundedBill : this.company.getOpenBills())
         {
             if (foundedBill.getCustomer().equals(this))
             {

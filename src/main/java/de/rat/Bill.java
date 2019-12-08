@@ -10,7 +10,7 @@ public class Bill {
     private Customer customer;
     private Date rentDate;
     private Station rentStation;
-    private Date billDate;
+    private Date billDate; // Todo Anfangs oder Enddatum?
     private int discount;
     private double fullRentPrice;
     /* several rent processes for on bill possible*/

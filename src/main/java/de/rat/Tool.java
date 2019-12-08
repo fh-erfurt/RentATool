@@ -5,7 +5,7 @@ public class Tool {
     private Manufacturer manufacturer;
     private String description;
     private String category;    // enum(elctro, akku, gas, manual)
-    private String stock;   // where can i find the tool in my warehouse - rename from stock to toolLocation?
+    private String stock;   // delete
     private String toolStatus;     // Enum (available, isRented, isBroken, isInRepair)
     private double rentPrice;
 

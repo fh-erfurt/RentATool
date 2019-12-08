@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Company {
 
-    private String CompanyName;
+    private String companyName;
     private ArrayList<Bill>openBills = new ArrayList<Bill>();
     private ArrayList<Bill>closedBills = new ArrayList<Bill>();
     private ArrayList<Tool> Stock= new ArrayList<Tool>();
@@ -12,16 +12,16 @@ public class Company {
 
 
     /*Getter*/
-    public Company(String CompanyName) {
-        this.CompanyName=CompanyName;
+    public Company(String companyName) {
+        this.companyName=companyName;
     }
 
     public String getCompanyName() {
-        return CompanyName;
+        return companyName;
     }
 
     public void setCompanyName(String companyName) {
-        CompanyName = companyName;
+        this.companyName = companyName;
     }
 
     public ArrayList<Bill> getOpenBills() {
@@ -35,8 +35,6 @@ public class Company {
     public void setOpenbills(ArrayList<Bill> openBills) {
         this.openBills= openBills;
     }
-
-
 
     public void setClosedBills(ArrayList<Bill> closedbills) {
         this.closedBills = closedbills;
