@@ -12,13 +12,13 @@ public class Account {
         this.email = email;
         this.changed = LocalDate.now();
         this.role="customer";
-        this.password=createPasswort();
+        this.password="ddd";
     }
 
     public Account (String role, String lastname, String firstname){
         this.role= role;
         this.email= lastname+"."+firstname+"@rat.de";
-        this.password= createPasswort();
+        this.password= "ddd";
     }
 
     public String getRole() {
@@ -45,13 +45,13 @@ public class Account {
         this.email = email;
     }
 
-    public void setPassword(Employee employee) {
-        this.password = this.createPasswort(employee);
+    public void setPassword(String password) {
+        this.password = this.password;
     }
 
-    public void setPassword(Customer customer) {
+    /*public void setPassword(Customer customer) {
         this.password = this.createPasswort(customer);
-    }
+    }*/
 
     public void setChanged()
     {
@@ -62,7 +62,7 @@ public class Account {
     public void changeAccount(String role, String email, Employee person){
         this.setRole(role);
         this.setEmail(email);
-        this.setPassword(person);
+       // this.setPassword(person);
         this.setChanged();
 
     }
@@ -70,15 +70,15 @@ public class Account {
     public void changeAccount(String role, String email, Customer person){
         this.setRole(role);
         this.setEmail(email);
-        this.setPassword(person);
+        //this.setPassword(person);
         this.setChanged();
 
     }
-    public String createPasswort()
+  /*  public String createPasswort()
     {
             String password= "abc"+123;
 
         return password;
-    }
+    }*/
 
 }
