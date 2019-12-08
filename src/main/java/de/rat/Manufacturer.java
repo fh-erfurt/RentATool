@@ -61,4 +61,14 @@ public class Manufacturer {
         this.agent=agent;
         this.phoneNumber=phoneNumber;
     }
+
+    public void removeFromManufacturerList(String wantedManufacturer) {
+
+        for (Manufacturer foundedManufacturer : manufacturerList) {
+            if (foundedManufacturer.getName().equals(wantedManufacturer)) {
+                manufacturerList.remove(foundedManufacturer);
+
+            }
+        }
+    }
 }

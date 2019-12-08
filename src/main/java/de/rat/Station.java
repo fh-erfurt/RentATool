@@ -16,7 +16,6 @@ public class Station {
         this.description = description;
         this.numberOfBoxes = numberOfBoxes;
         this.address = address;
-
     }
 
     /*Getter*/
