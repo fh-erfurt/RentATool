@@ -22,7 +22,7 @@ public class Department {
 
 
     boolean changeDepartment(String newName){
-
+    // es muss enum gemacht werden.
       return true;
     }
 }
