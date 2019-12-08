@@ -62,7 +62,7 @@ public class Address {
             check=true;
         }
         return check;
-    }
+    } 
     public boolean changeAddress(String street, int hauseNr, int zip, String city, String country){
         boolean check=false;
         if(this.checkAddress(street, hauseNr, zip, city, country))
