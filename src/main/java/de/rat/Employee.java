@@ -1,8 +1,5 @@
 package de.rat;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Employee extends Person{
