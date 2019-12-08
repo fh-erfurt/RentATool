@@ -7,11 +7,11 @@ import java.util.GregorianCalendar;
 
 public abstract class Person {
 
-    private final String lastname;
-    private String firstname;
+    private final      String lastname;
+    private            String firstname;
     private GregorianCalendar birthday;    // TODO updated to DateFormat
-    private Address address;
-    protected Account account;
+    private           Address address;
+    protected         Account account;
     static ArrayList<Person> customerList =  new ArrayList<Person>(); // TODO merge the two lists
     static ArrayList<Person> employeeList = new ArrayList<Person>();
 
@@ -45,7 +45,7 @@ public abstract class Person {
         return firstname;
     }
 
-    public Calendar getBirthday() {
+    public GregorianCalendar getBirthday() {
         return birthday;
     }
 
