@@ -1,17 +1,20 @@
 package de.rat;
 
 import java.time.LocalDate;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
+
 
 public class Account {
-    private String role;
+    private Role role;
     private String email;
     private String password;
     private LocalDate changed;
 
-    public Account(String email) {
+    public Account(Role role,String email) {
         this.email = email;
         this.changed = LocalDate.now();
-        this.role="customer";
+        this.role=role ;
         this.password="ddd";
     }
 
@@ -21,14 +24,14 @@ public class Account {
 //        this.password= "ddd";
 //    }
 
-    public Account (String role, String email, String password){
+    public Account (Role role, String email, String password){
         this.role= role;
         this.email= email;
         this.password= password;
     }
 
-    public String getRole() {
-        return role;
+    public Role getRole() {
+        return this.role;
     }
 
     public String getEmail() {
@@ -43,7 +46,7 @@ public class Account {
         return changed;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -55,9 +58,6 @@ public class Account {
         this.password = this.password;
     }
 
-    /*public void setPassword(Customer customer) {
-        this.password = this.createPasswort(customer);
-    }*/
 
     public void setChanged()
     {
@@ -65,26 +65,16 @@ public class Account {
     }
 
 
-    public void changeAccount(String role, String email, Employee person){
+    public void changeAccount(Role role, String email, Person person){
         this.setRole(role);
         this.setEmail(email);
-       // this.setPassword(person);
+
+        this.setPassword(person.createPassword(person.getFirstname(),person.getLastname(),person.getBirthday()));
         this.setChanged();
 
     }
 
-    public void changeAccount(String role, String email, Customer person){
-        this.setRole(role);
-        this.setEmail(email);
-        //this.setPassword(person);
-        this.setChanged();
 
-    }
-  /*  public String createPasswort()
-    {
-            String password= "abc"+123;
 
-        return password;
-    }*/
 
 }

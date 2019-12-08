@@ -30,4 +30,5 @@ public class Employee extends Person{
     public Employee getSupervisor() {
         return supervisor;
     }
+
 }
