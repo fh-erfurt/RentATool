@@ -36,6 +36,7 @@ class ManufacturerTest {
     Manufacturer manufacture5=new Manufacturer("Siemens",address2,"Herr Siemens","05642-4584565465759");
     assertEquals(4,Manufacturer.manufacturerList.size());
 
+
 }
 
 

@@ -1,6 +1,7 @@
 package de.rat;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 public class Customer extends Person{
 
@@ -21,5 +22,10 @@ public class Customer extends Person{
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean reserveTool(String toolname, Date pickupDate, Station pickupStation){
+
+        return true;
     }
 }
