@@ -74,7 +74,7 @@ public class Account {
         this.setChanged();
 
     }
-    public String createPasswort(Person )
+    public String createPasswort()
     {
             String password= "abc"+123;
 
