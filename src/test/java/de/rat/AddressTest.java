@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AddressTest {
-
+    // given
     Address address1=new Address("Bosch-Str.1",1,99425,"Weimar","DE");
 
 
     @Test
 
-    public void get_the_Attribute_of_class_Address(){
+     void get_the_Attribute_of_class_Address(){
     // When
        String street = address1.getStreet();
         String city = address1.getCity();
@@ -28,13 +28,13 @@ class AddressTest {
     }
 
     @Test
-    public void set_the_Attribute_of_class_Address() {
+     void set_the_Attribute_of_class_Address() {
         //When
-      /*  address1.setStreet("Linde 2");
+        address1.setStreet("Linde 2");
         address1.setCity("Erfurt");
         address1.setCountry("FR");
         address1.setHauseNr(3);
-        address1.setZip(12345);*/
+        address1.setZip(12345);
 
         //Then
         assertEquals("Linde 2",address1.getStreet());
@@ -44,7 +44,20 @@ class AddressTest {
         assertEquals("FR",address1.getCountry());
 
     }
+
+    @Test
+    void should_give_true_when_the_Address_available()
+    {
+        assertEquals(false,address1.checkAddress("Linde 2",1,99425,"Weimar","DE"));
+        assertEquals(true,address1.checkAddress("Bosch-Str.1",1,99425,"Weimar","DE"));
     }
+
+    @Test
+    void should_be_able_to_chnage_the_address(){
+        assertEquals(true,address1.changeAddress("Linde 2",1,99425,"Weimar","DE"));
+        assertEquals("Linde 2",address1.getStreet());
+    }
+
 
 }
 
