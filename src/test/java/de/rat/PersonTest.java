@@ -1,15 +1,9 @@
 package de.rat;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class PersonTest {
 
@@ -20,17 +14,17 @@ class PersonTest {
     private Department deptManagement = new Department("Geschaeftsleitung");
 
     // Setup Employees
-    private Employee empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019,Calendar.DECEMBER,15),
+    private Employee empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019,GregorianCalendar.DECEMBER,15),
         "Johannesstraße", 5, 99084, "Erfurt", "Germany", deptManagement, null);
-    private Employee empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, Calendar.FEBRUARY,5),
+    private Employee empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, GregorianCalendar.FEBRUARY,5),
         "Michaelistraße", 17, 99086, "Erfurt", "Germany", deptLogistics, empDanny);
-    private Employee empJonas = new Employee("Casio", "Jonas", new GregorianCalendar(2000, Calendar.OCTOBER,30),
+    private Employee empJonas = new Employee("Casio", "Jonas", new GregorianCalendar(2000, GregorianCalendar.OCTOBER,30),
         "Leipzigerstraße", 99, 99084, "Weimar", "Germany", deptRental, empDanny);
 
     // Setup Customer
-    private Customer custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, Calendar.AUGUST,29), "maria.schmidt@web.de",
+    private Customer custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST,29), "maria.schmidt@web.de",
         "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
-    private Customer custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, Calendar.DECEMBER,17), "crazyemail@web.de",
+    private Customer custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER,17), "crazyemail@web.de",
         "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
 
 

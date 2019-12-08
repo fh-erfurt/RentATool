@@ -1,8 +1,6 @@
 package de.rat;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public abstract class Person {
@@ -29,9 +27,9 @@ public abstract class Person {
         //da241289st
         String shortFirstname = firstname.substring(0,2).toLowerCase();
         String shortLastname = lastname.substring(0,2).toLowerCase();
-        int shortDay = birthday.get(Calendar.DATE);
-        int shortMonth = (birthday.get(Calendar.MONTH) + 1 );
-        String shortYear = Integer.toString(birthday.get(Calendar.YEAR)).substring(2,4);
+        int shortDay = birthday.get(GregorianCalendar.DATE);
+        int shortMonth = (birthday.get(GregorianCalendar.MONTH) + 1 );
+        String shortYear = Integer.toString(birthday.get(GregorianCalendar.YEAR)).substring(2,4);
 
         return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
@@ -45,7 +43,7 @@ public abstract class Person {
         return firstname;
     }
 
-    public Calendar getBirthday() {
+    public GregorianCalendar getBirthday() {
         return birthday;
     }
 
