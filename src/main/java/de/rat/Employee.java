@@ -18,24 +18,16 @@ public class Employee extends Person{
         employeeList.add(this); //add the employee to the list in the main class
     }
 
-    Department getDepartment() {
+
+    private String  createEmail(String lastname, String firstname){
+        return lastname + "." + firstname + "@rat.de";
+    }
+
+    public Department getDepartment() {
         return department;
     }
 
-    private String  createEmail(String lastname, String firstname){
-        return firstname;
-    }
-
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    Employee getSupervisor() {
+    public Employee getSupervisor() {
         return supervisor;
-    }
-
-    public void setSupervisor(Employee supervisor) {
-        this.supervisor = supervisor;
     }
 }

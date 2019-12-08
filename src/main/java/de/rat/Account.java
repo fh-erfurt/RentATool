@@ -15,10 +15,16 @@ public class Account {
         this.password="ddd";
     }
 
-    public Account (String role, String lastname, String firstname){
+//    public Account (String role, String lastname, String firstname){
+//        this.role= role;
+//        this.email= lastname+"."+firstname+"@rat.de";
+//        this.password= "ddd";
+//    }
+
+    public Account (String role, String email, String password){
         this.role= role;
-        this.email= lastname+"."+firstname+"@rat.de";
-        this.password= "ddd";
+        this.email= email;
+        this.password= password;
     }
 
     public String getRole() {

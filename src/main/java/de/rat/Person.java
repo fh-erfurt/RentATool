@@ -22,48 +22,36 @@ public abstract class Person {
         this.address = new Address(street, hauseNr, zip, city, country);
     }
 
+    public String createPassword(String lastname, String firstname) {
+        return lastname;
+    }
 
 
     public String getLastname() {
         return lastname;
     }
 
-
-    public String createPassword(String lastname, String firstname) {
-        return lastname;
-    }
-
-
-
     public String getFirstname() {
         return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
     }
 
     public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
     public Address getAddress() {
         return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
     }
 
     public Account getAccount() {
         return account;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public static ArrayList<Person> getCustomerList() {
+        return customerList;
+    }
+
+    public static ArrayList<Person> getEmployeeList() {
+        return employeeList;
     }
 }
