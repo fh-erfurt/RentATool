@@ -7,9 +7,7 @@ public class Customer extends Person{
 
     private String phoneNumber;
     Customer(String lastname, String firstname, String birthday,
-             String email,
-                    String street, int hauseNr, int zip, String city, String country,
-                    String phoneNumber)
+             String email, String street, int hauseNr, int zip, String city, String country, String phoneNumber)
     {
         super(lastname, firstname, birthday, street, hauseNr,  zip,  city,  country);
         this.account = new Account("Kunde", email, createPassword(lastname, firstname));
