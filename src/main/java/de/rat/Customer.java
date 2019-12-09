@@ -36,6 +36,19 @@ public class Customer extends Person{
         return rentedTools;
     }
 
+    public void getToolFromStation(){
+        // TODO: Tool aus Station entnehmen
+        // TODO: Tool in Inventar legen
+    }
+
+    public void returnToolToStation(){
+        // TODO: Tool aus Inventar entnehmen
+        // TODO: Tool in Station legen
+    }
+
+
+
+    /*
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
         // TODO: extra Tool Status prüfen
@@ -99,5 +112,7 @@ public class Customer extends Person{
 
     // prüfe alle Werkzeuge in der Station, ob ein Flag gesetzt ist, welcher sagt, dass das Werkzeug zurückgegeben wurde
     //packe alle diese Werzeuge zurück in die Company
+
+     */
 }
 

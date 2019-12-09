@@ -1,6 +1,7 @@
 package de.rat;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class Rental {
 
@@ -10,8 +11,13 @@ public class Rental {
     public Rental() {
     }
 
-    public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer) {
+    public void rentProcess(Tool wantedTool, Station pickupStation, Customer customer) {
+        // TODO: BIll erstellen
+        // TODO: RentProcess erstellen
+        // TODO: Werkzeug aus Lager nehmen
+        // TODO: Werkzeig in Station stecken
 
+        /*
         Tool searchedTool = pickupStation.removeToolFromBox(wantedTool);
         if(searchedTool != null){
             customer.getRentedTools().add(searchedTool);
@@ -24,11 +30,32 @@ public class Rental {
         }
 
         return false;
+         */
     }
+
+    public void returnProcess(Station station, Customer customer, Tool tool, GregorianCalendar date, Warehouse warehouse){
+
+        // TODO: Werkzeig aus Station nehmen
+        // TODO: Werkzeug in Lager bringen
+        // TODO: RentProcess abschließen
+        // TODO: BIll abschließen, wenn nötig
+
+
+        /*
+        Bill bill = findOrCreateOpenBillFromCustomer(station, customer);
+        RentProcess rentprocess = bill.findRentProcess(tool);
+        rentprocess.completeRentProcess(tool,station, date, customer);
+
+        Tool removedTool = station.removeToolFromBox(tool);
+        warehouse.putToolInWarehouse(tool);
+        */
+
+    }
+
 
     public Bill findOrCreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         for (Bill foundedBill : customer.getCompany().getOpenBills()) {
-            if (foundedBill.getCustomer().equals(this)) {
+            if (foundedBill.getCustomer().equals(customer)) {
                 return foundedBill;
             }
         }
@@ -36,7 +63,4 @@ public class Rental {
         customer.getCompany().getOpenBills().add(newBill);
         return newBill;
     }
-
-
-
 }
