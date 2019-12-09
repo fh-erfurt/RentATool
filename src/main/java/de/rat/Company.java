@@ -92,6 +92,8 @@ public class Company {
         return null;
     }
 
+    // TODO: Wir ein Werkzeug vom Lager in die Station gebracht, darf es nicht mehr im Lager liegen -> TEST (gehört zur Company)
+    // TODO: Funktion um Werkzeug aus Lager zu entnehmen
 
 }
 

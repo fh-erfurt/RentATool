@@ -32,6 +32,9 @@ public class Customer extends Person{
         return company;
     }
 
+
+
+
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
         // TODO: extra Tool Status prüfen
@@ -48,12 +51,18 @@ public class Customer extends Person{
 
     public boolean rentATool(Tool wantedTool,Station pickupStation) {
 
-        this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
-        RentProcess rentedTool = new RentProcess(wantedTool);
-        Bill userBill =  this.findOrCreateOpenBillFromCustomer(this, pickupStation);
+        Tool searchedTool = pickupStation.removeToolFromBox(wantedTool);
+        if(searchedTool != null){
+            this.rentedTools.add(searchedTool);
 
-        userBill.getListOfRentProcesses().add(rentedTool);
+        RentProcess rentProcess = new RentProcess(wantedTool);
+        Bill bill =  this.findOrCreateOpenBillFromCustomer(this, pickupStation);
+
+        bill.getListOfRentProcesses().add(rentProcess);
         return true;
+        }
+
+        return false;
     }
 
     public Bill findOrCreateOpenBillFromCustomer(Customer customer, Station pickupStation){
@@ -72,7 +81,7 @@ public class Customer extends Person{
 
 
 
-    public boolean returnTool(Tool choosenTool,Station returnStation){
+    public boolean returnToolToStation(Tool choosenTool,Station returnStation){
 
         returnStation.addToolToBox(choosenTool);
         for (Bill foundedBill : this.company.getOpenBills())

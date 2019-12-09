@@ -39,14 +39,16 @@ class PersonTest {
 
         drill = new Tool("123", bosch, "Bohrer", "Handwerkzeug", "1-4-5", ToolStatus.AVAILABLE, 3.0);
         hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", ToolStatus.ISINREPAIR, 2.5);
-        welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.AVAILABLE, 3.5);
+        welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.ISRENTED, 3.5);
 
         rentATool.getStock().add(drill);
         rentATool.getStock().add(hammer);
 
-       deptRental = new Department("Verleih");
-       deptLogistics = new Department("Logistik");
-       deptManagement = new Department("Geschaeftsleitung");
+        station1.addToolToBox(welder);
+
+        deptRental = new Department("Verleih");
+        deptLogistics = new Department("Logistik");
+        deptManagement = new Department("Geschaeftsleitung");
 
         empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
                 "Johannesstraße", 5, 99084, "Erfurt", "Germany", deptManagement, null);
@@ -64,25 +66,24 @@ class PersonTest {
 
 
     // Main Test --------------------------------
+
+
     @Test
-    void can_an_employee_pick_a_tool_from_the_stock(){
-        Assertions.assertEquals(drill, rentATool.findToolInStockOfCompany(drill));
+    void can_an_customer_put_a_tool_in_his_rentedTool_inventory_from_a_station(){
+        Assertions.assertEquals(welder, station1.removeToolFromBox(welder));
     }
 
     @Test
-    void schould_give_null_if_the_searched_tool_is_not_in_the_stock(){
-        Assertions.assertNull(rentATool.findToolInStockOfCompany(hammer));
-    }
-
-    @Test
-    void schould_give_null_if_the_searched_tool_is_not_available(){
-        Assertions.assertNull(rentATool.findToolInStockOfCompany(welder));
+    void should_give_null_if_the_searched_tool_is_not_in_the_station(){
+        Assertions.assertNull(station1.removeToolFromBox(drill));
     }
 
     @Test
     void can_cutomer_rent_a_tool(){
         custLudwig.rentATool(drill, station1);
     }
+
+
 
 
 
