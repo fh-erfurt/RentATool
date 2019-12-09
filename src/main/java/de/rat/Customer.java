@@ -30,17 +30,16 @@ public class Customer extends Person{
 
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
-        for (Tool foundedTool : company.getStock())
-        {
-            if (foundedTool.equals(wantedTool))
-            {
-                company.getStock().remove(wantedTool);
-                pickupStation.addToolToBox(wantedTool);
-                return true;
-            }
+        Tool findTool = wantedTool.findToolInStockOfCompany(company);
+
+        if(findTool != null){
+            company.getStock().remove(findTool);
+            pickupStation.addToolToBox(findTool);
+            return true;
         }
         return false;
     }
+
 
 
     public boolean rentATool(Tool wantedTool,Station pickupStation) {

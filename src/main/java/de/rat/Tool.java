@@ -74,4 +74,17 @@ public class Tool {
     public void setRentPrice(double rentPrice) {
         this.rentPrice = rentPrice;
     }
+
+
+    // Methods ---
+    public Tool findToolInStockOfCompany( Company company){
+        for (Tool foundedTool : company.getStock())
+        {
+            if (foundedTool.equals(this))
+            {
+                return foundedTool;
+            }
+        }
+        return null;
+    }
 }
