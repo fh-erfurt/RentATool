@@ -6,10 +6,10 @@ public class Tool {
     private String description;
     private String category;    // TODO: enum(elctro, akku, gas, manual)
     private String stock;   // delete
-    private String toolStatus;     // TODO: Enum (available, isRented, isBroken, isInRepair)
+    private ToolStatus toolStatus;     // TODO: Enum (available, isRented, isBroken, isInRepair)
     private double rentPrice;
 
-    public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, String toolStatus, double rentPrice) {
+    public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, ToolStatus toolStatus, double rentPrice) {
         this.itemId = itemId;
         this.manufacturer = manufacturer;
         this.description = description;
@@ -59,11 +59,10 @@ public class Tool {
         this.stock = stock;
     }
 
-    public String getToolStatus() {
-        return toolStatus;
+    public ToolStatus getToolStatus() { return toolStatus;
     }
 
-    public void setToolStatus(String toolStatus) {
+    public void setToolStatus(ToolStatus toolStatus) {
         this.toolStatus = toolStatus;
     }
 

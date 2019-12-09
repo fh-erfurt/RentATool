@@ -11,9 +11,9 @@ class StationTest {
     Address testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
     Station station = new Station("S1", 3, testaddress);
     Manufacturer Bosch = new Manufacturer("Bosch",testaddress,"Mr Smith","123456");
-    Tool testtool = new Tool("123",Bosch,"Hammer","Handwerkzeug","1-4-5","available",3.5);
-    Tool testtool1 = new Tool("AAA",Bosch,"Säge","Handwerkzeug","1-4-3","available",3.0);
-    Tool testtool2 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2","available",4.0);
+    Tool testtool = new Tool("123",Bosch,"Hammer","Handwerkzeug","1-4-5",ToolStatus.AVAILABLE,3.5);
+    Tool testtool1 = new Tool("AAA",Bosch,"Säge","Handwerkzeug","1-4-3",ToolStatus.AVAILABLE,3.0);
+    Tool testtool2 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
 
 
     /*#############################################################*/

@@ -84,7 +84,7 @@ public class Company {
     public Tool findToolInStockOfCompany( Tool tool){
         for (Tool foundedTool : this.getStock()) {
             if (foundedTool.equals(tool)) {
-                if(foundedTool.getToolStatus() == toolStatus.AVAILABLE) {
+                if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
                     return foundedTool;
                 }
             }

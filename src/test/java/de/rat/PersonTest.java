@@ -37,9 +37,9 @@ class PersonTest {
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         station1 = new Station("S1", 3, musterhausen);
 
-        drill = new Tool("123", bosch, "Bohrer", "Handwerkzeug", "1-4-5", "available", 3.0);
-        hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", "available", 2.5);
-        welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", "available", 3.5);
+        drill = new Tool("123", bosch, "Bohrer", "Handwerkzeug", "1-4-5", ToolStatus.AVAILABLE, 3.0);
+        hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", ToolStatus.ISINREPAIR, 2.5);
+        welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.AVAILABLE, 3.5);
 
         rentATool.getStock().add(drill);
         rentATool.getStock().add(hammer);
@@ -71,11 +71,11 @@ class PersonTest {
 
     @Test
     void schould_give_null_if_the_searched_tool_is_not_in_the_stock(){
-        Assertions.assertNull(rentATool.findToolInStockOfCompany(welder));
+        Assertions.assertNull(rentATool.findToolInStockOfCompany(hammer));
     }
 
     @Test
-    void schould_give_null_if_the_searched_tool_is_not_in_the_stock(){
+    void schould_give_null_if_the_searched_tool_is_not_available(){
         Assertions.assertNull(rentATool.findToolInStockOfCompany(welder));
     }
 

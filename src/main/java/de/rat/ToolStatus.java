@@ -1,5 +1,5 @@
 package de.rat;
 
-public enum toolStatus {
+public enum ToolStatus {
     AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
 }
