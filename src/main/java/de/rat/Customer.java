@@ -28,6 +28,10 @@ public class Customer extends Person{
         this.phoneNumber = phoneNumber;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
         Tool findTool = wantedTool.findToolInStockOfCompany(company);
@@ -42,19 +46,21 @@ public class Customer extends Person{
 
 
 
+
+
     public boolean rentATool(Tool wantedTool,Station pickupStation) {
 
         this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
         RentProcess rentedTool = new RentProcess(wantedTool);
+        Bill foundedBill =  new Bill(this, pickupStation).findOpenBillFromCustomer(this);
 
-        for (Bill foundedBill : this.company.getOpenBills())
-        {
-            if (foundedBill.getCustomer().equals(this))
+            if (foundedBill != null)
             {
                 foundedBill.getListOfRentProcesses().add(rentedTool);
                 return true;
             }
-        }
+
+            // ToDo: Refactor Bill
         Bill userBill = new Bill(this, pickupStation);
         userBill.getListOfRentProcesses().add(rentedTool);
         this.company.getOpenBills().add(userBill);
