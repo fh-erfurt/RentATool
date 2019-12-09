@@ -22,6 +22,12 @@ class PersonTest {
 
     private Company rentATool;
 
+    private Address testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+    private Station station = new Station("S1", 3, testaddress);
+    private Manufacturer Bosch = new Manufacturer("Bosch",testaddress,"Mr Smith","123456");
+    private Tool testtool = new Tool("123",Bosch,"Hammer","Handwerkzeug","1-4-5","available",3.5);
+
+
     @BeforeEach
     void setupDepartments(){
        deptRental = new Department("Verleih");
@@ -45,6 +51,13 @@ class PersonTest {
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651",rentATool);
         custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
                 "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854", rentATool);
+    }
+
+    @Test
+    void can_cutomer_rent_a_tool(){
+        station.addToolToBox(testtool);
+        custLudwig.rentATool(testtool,  station);
+
     }
 
     @Test

@@ -34,6 +34,7 @@ public class Customer extends Person{
 
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
+        // TODO: extra Tool Status prüfen
         Tool findTool = wantedTool.findToolInStockOfCompany(company);
 
         if(findTool != null){
@@ -41,6 +42,7 @@ public class Customer extends Person{
             pickupStation.addToolToBox(findTool);
             return true;
         }
+
         return false;
     }
 
@@ -48,10 +50,24 @@ public class Customer extends Person{
 
         this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
         RentProcess rentedTool = new RentProcess(wantedTool);
-        Bill userBill =  new Bill(this, pickupStation).findOrCreateOpenBillFromCustomer(this, pickupStation);
+        Bill userBill =  this.findOrCreateOpenBillFromCustomer(this, pickupStation);
 
         userBill.getListOfRentProcesses().add(rentedTool);
         return true;
+    }
+
+    public Bill findOrCreateOpenBillFromCustomer(Customer customer, Station pickupStation){
+        for (Bill foundedBill : customer.getCompany().getOpenBills())
+        {
+            if (foundedBill.getCustomer().equals(customer))
+            {
+                return foundedBill;
+            }
+        }
+        Bill newBill = new Bill(customer, pickupStation);
+        this.getCompany().getOpenBills().add(newBill);
+        return newBill;
+
     }
 
     public boolean returnTool(Tool choosenTool,Station returnStation){
@@ -76,5 +92,9 @@ public class Customer extends Person{
         }
         return false;
     }
+
+    // TODO: returnToolToCompany
+    // prüfe alle Werkzeuge in der Station, ob ein Flag gesetzt ist, welcher sagt, dass das Werkzeug zurückgegeben wurde
+    //packe alle diese Werzeuge zurück in die Company
 }
 
