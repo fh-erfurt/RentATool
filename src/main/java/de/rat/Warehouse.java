@@ -12,12 +12,12 @@ public class Warehouse {
         return Stock;
     }
 
-    public boolean putToolInWarehouse(Tool tool){
-        return true;
+    public void putToolInWarehouse(Tool tool){
+        //TODO: Werkzeug einlagern
     }
 
-    public boolean removeToolFromWarehouse(Tool tool){
-        return true;
+    public void removeToolFromWarehouse(Tool tool){
+        //TODO: Werkzeug aus Lager nehmen und übergeben
     }
 
 
