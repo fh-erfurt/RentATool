@@ -2,8 +2,7 @@ package de.rat;
 
 import java.util.Date;
 
-public class
-RentProcess {
+public class RentProcess {
     private Tool rentedTool;
     private Date returnDate;
     private Station returnStation;
