@@ -4,9 +4,9 @@ public class Tool {
     private String itemId; // this is a ID that comes from the manufacturer. Like this: A120-B20W
     private Manufacturer manufacturer;
     private String description;
-    private String category;    // enum(elctro, akku, gas, manual)
+    private String category;    // TODO: enum(elctro, akku, gas, manual)
     private String stock;   // delete
-    private String toolStatus;     // Enum (available, isRented, isBroken, isInRepair)
+    private String toolStatus;     // TODO: Enum (available, isRented, isBroken, isInRepair)
     private double rentPrice;
 
     public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, String toolStatus, double rentPrice) {
@@ -77,14 +77,5 @@ public class Tool {
 
 
     // Methods ---
-    public Tool findToolInStockOfCompany( Company company){
-        for (Tool foundedTool : company.getStock())
-        {
-            if (foundedTool.equals(this))
-            {
-                return foundedTool;
-            }
-        }
-        return null;
-    }
+
 }

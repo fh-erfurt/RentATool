@@ -81,5 +81,17 @@ public class Company {
     }
 
 
+    public Tool findToolInStockOfCompany( Tool tool){
+        for (Tool foundedTool : this.getStock()) {
+            if (foundedTool.equals(tool)) {
+                if(foundedTool.getToolStatus() == toolStatus.AVAILABLE) {
+                    return foundedTool;
+                }
+            }
+        }
+        return null;
+    }
+
+
 }
 
