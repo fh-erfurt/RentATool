@@ -44,31 +44,15 @@ public class Customer extends Person{
         return false;
     }
 
-
-
-
-
     public boolean rentATool(Tool wantedTool,Station pickupStation) {
 
         this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
         RentProcess rentedTool = new RentProcess(wantedTool);
-        Bill foundedBill =  new Bill(this, pickupStation).findOpenBillFromCustomer(this);
+        Bill userBill =  new Bill(this, pickupStation).findOpenBillFromCustomer(this, pickupStation);
 
-            if (foundedBill != null)
-            {
-                foundedBill.getListOfRentProcesses().add(rentedTool);
-                return true;
-            }
-
-            // ToDo: Refactor Bill
-        Bill userBill = new Bill(this, pickupStation);
         userBill.getListOfRentProcesses().add(rentedTool);
-        this.company.getOpenBills().add(userBill);
-
-
         return true;
     }
-
 
     public boolean returnTool(Tool choosenTool,Station returnStation){
 

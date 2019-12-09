@@ -1,6 +1,5 @@
 package de.rat;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,7 +46,6 @@ class PersonTest {
         custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
                 "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854", rentATool);
     }
-
 
     @Test
     void create_correct_password_for_customer_and_employee(){
