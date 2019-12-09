@@ -97,7 +97,7 @@ public class Bill {
         this.fullRentPrice= this.fullRentPrice*discount/100;
     }
 
-    public Bill findOpenBillFromCustomer(Customer customer, Station pickupStation){
+    public Bill findOrCreateOpenBillFromCustomer(Customer customer, Station pickupStation){
         for (Bill foundedBill : customer.getCompany().getOpenBills())
         {
             if (foundedBill.getCustomer().equals(customer))

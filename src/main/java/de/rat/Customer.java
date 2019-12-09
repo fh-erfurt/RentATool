@@ -48,7 +48,7 @@ public class Customer extends Person{
 
         this.rentedTools.add(pickupStation.removeToolFromBox(wantedTool));
         RentProcess rentedTool = new RentProcess(wantedTool);
-        Bill userBill =  new Bill(this, pickupStation).findOpenBillFromCustomer(this, pickupStation);
+        Bill userBill =  new Bill(this, pickupStation).findOrCreateOpenBillFromCustomer(this, pickupStation);
 
         userBill.getListOfRentProcesses().add(rentedTool);
         return true;
