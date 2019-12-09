@@ -32,8 +32,9 @@ public class Customer extends Person{
         return company;
     }
 
-
-
+    public ArrayList<Tool> getRentedTools() {
+        return rentedTools;
+    }
 
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
 
@@ -56,7 +57,7 @@ public class Customer extends Person{
             this.rentedTools.add(searchedTool);
 
         RentProcess rentProcess = new RentProcess(wantedTool);
-        Bill bill =  this.findOrCreateOpenBillFromCustomer(this, pickupStation);
+        Bill bill =  this.findOrCreateOpenBillFromCustomer(pickupStation);
 
         bill.getListOfRentProcesses().add(rentProcess);
         return true;
@@ -65,15 +66,13 @@ public class Customer extends Person{
         return false;
     }
 
-    public Bill findOrCreateOpenBillFromCustomer(Customer customer, Station pickupStation){
-        for (Bill foundedBill : this.getCompany().getOpenBills())
-        {
-            if (foundedBill.getCustomer().equals(customer))
-            {
+    public Bill findOrCreateOpenBillFromCustomer(Station pickupStation){
+        for (Bill foundedBill : this.getCompany().getOpenBills()) {
+            if (foundedBill.getCustomer().equals(this)) {
                 return foundedBill;
             }
         }
-        Bill newBill = new Bill(customer, pickupStation);
+        Bill newBill = new Bill(this, pickupStation);
         this.getCompany().getOpenBills().add(newBill);
         return newBill;
     }
@@ -81,30 +80,23 @@ public class Customer extends Person{
 
 
 
-    public boolean returnToolToStation(Tool choosenTool,Station returnStation){
-
-        returnStation.addToolToBox(choosenTool);
-        for (Bill foundedBill : this.company.getOpenBills())
-        {
-            if (foundedBill.getCustomer().equals(this))
-            {
-                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses())
-                {
-                    if (foundedProcesses.getRentedTool().equals(choosenTool))
-                    {
-                        foundedProcesses.setReturnDate(null); //ToDo;
+    public boolean returnToolToStation(Tool tool, Station returnStation, GregorianCalendar Date){
+        returnStation.addToolToBox(tool);
+        for (Bill foundedBill : this.company.getOpenBills()) {
+            if (foundedBill.getCustomer().equals(this)) {
+                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses()) {
+                    if (foundedProcesses.getRentedTool().equals(tool)) {
+                        foundedProcesses.setReturnDate(null);    //TODO: Null in Date
                         foundedProcesses.setReturnStation(returnStation);
-
                         return true;
                     }
                 }
-
             }
         }
         return false;
     }
 
-    // TODO: returnToolToCompany
+
     // prüfe alle Werkzeuge in der Station, ob ein Flag gesetzt ist, welcher sagt, dass das Werkzeug zurückgegeben wurde
     //packe alle diese Werzeuge zurück in die Company
 }

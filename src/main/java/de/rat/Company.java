@@ -94,6 +94,7 @@ public class Company {
 
     // TODO: Wir ein Werkzeug vom Lager in die Station gebracht, darf es nicht mehr im Lager liegen -> TEST (gehört zur Company)
     // TODO: Funktion um Werkzeug aus Lager zu entnehmen
+    // TODO: returnToolToCompany - Ein werkzeug aus der Station in das Lager legen
 
 }
 

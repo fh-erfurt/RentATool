@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class RentProcess {
     private Tool rentedTool;
-    private Date returnDate;
+    private Date returnDate;     //TODO: Date in Gregorian Calender
     private Station returnStation;
 
     public RentProcess (Tool rentedTool){
@@ -26,6 +26,8 @@ public class RentProcess {
         return returnDate;
     }
 
+
+    //TODO: Date in Gregorian Calender
     /*Setter*/
     public void setReturnDate(Date returnDate) {
         this.returnDate = returnDate;
