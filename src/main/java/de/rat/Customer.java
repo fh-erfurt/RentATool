@@ -1,7 +1,6 @@
 package de.rat;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Customer extends Person{

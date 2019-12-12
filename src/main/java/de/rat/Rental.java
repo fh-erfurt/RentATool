@@ -11,11 +11,15 @@ public class Rental {
     public Rental() {
     }
 
-    public void rentProcess(Tool wantedTool, Station pickupStation, Customer customer) {
-        // TODO: BIll erstellen
-        // TODO: RentProcess erstellen
-        // TODO: Werkzeug aus Lager nehmen
-        // TODO: Werkzeig in Station stecken
+    public void rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
+
+        // TODO: prüfe ob Werkzeug vorhanden
+        // TODO: prüfe ob platz in Station - Methode der Station aufrufen
+        Tool searchedTool = warehouse.removeToolFromWarehouse(wantedTool);
+        Bill bill = this.findOrCreateOpenBillFromCustomer(pickupStation, customer);
+        RentProcess rentProcess = new RentProcess(searchedTool);
+        bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
+        pickupStation.addToolToBox(searchedTool);
 
         /*
         Tool searchedTool = pickupStation.removeToolFromBox(wantedTool);

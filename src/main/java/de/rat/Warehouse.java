@@ -16,10 +16,22 @@ public class Warehouse {
         //TODO: Werkzeug einlagern
     }
 
-    public void removeToolFromWarehouse(Tool tool){
+    public Tool removeToolFromWarehouse(Tool tool){
         //TODO: Werkzeug aus Lager nehmen und übergeben
+        return tool;
     }
 
+    // TODO: Method aus der Company hier eingefügt - muss angepasst werden
+    public Tool findToolInStockOfCompany( Tool tool){
+        for (Tool foundedTool : this.getStock()) {
+            if (foundedTool.equals(tool)) {
+                if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
+                    return foundedTool;
+                }
+            }
+        }
+        return null;
+    }
 
 
 }

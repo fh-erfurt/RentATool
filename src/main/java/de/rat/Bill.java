@@ -97,5 +97,30 @@ public class Bill {
         this.fullRentPrice= this.fullRentPrice*discount/100;
     }
 
+    // TODO: Method aus der Company hier eingefügt - muss angepasst werden
+    public boolean closeBill(Customer customer, int discount){
+
+        for (Bill foundedBill :openBills)
+        {
+            if (foundedBill.getCustomer().equals(customer))
+            {
+                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses())
+                {
+                    if (foundedProcesses.getReturnStation() == null)  //ToDo über Date anpassen
+                    {
+                        return false;
+                    }
+                }
+                foundedBill.setDiscount(discount);
+                foundedBill.setFullRentPrice();
+                openBills.remove(foundedBill);
+                closedBills.add(foundedBill);
+                return true;
+            }
+        }
+
+        return true;
+    }
+    // TODO: Method: add new Rent Process
 
 }
