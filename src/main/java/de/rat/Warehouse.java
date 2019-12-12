@@ -18,6 +18,7 @@ public class Warehouse {
 
     public Tool removeToolFromWarehouse(Tool tool){
         //TODO: Werkzeug aus Lager nehmen und übergeben
+        // TODO: Wird ein Werkzeug vom Lager in die Station gebracht, darf es nicht mehr im Lager liegen -> TEST (gehört zur Company)
         return tool;
     }
 
@@ -32,6 +33,9 @@ public class Warehouse {
         }
         return null;
     }
+
+
+
 
 
 }

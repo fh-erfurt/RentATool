@@ -11,49 +11,36 @@ public class Rental {
     public Rental() {
     }
 
-    public void rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
+    public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        // TODO: prüfe ob Werkzeug vorhanden
         // TODO: prüfe ob platz in Station - Methode der Station aufrufen
-        Tool searchedTool = warehouse.removeToolFromWarehouse(wantedTool);
-        Bill bill = this.findOrCreateOpenBillFromCustomer(pickupStation, customer);
-        RentProcess rentProcess = new RentProcess(searchedTool);
-        bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
-        pickupStation.addToolToBox(searchedTool);
-
-        /*
-        Tool searchedTool = pickupStation.removeToolFromBox(wantedTool);
-        if(searchedTool != null){
-            customer.getRentedTools().add(searchedTool);
-
-            RentProcess rentProcess = new RentProcess(wantedTool);
-            Bill bill =  this.findOrCreateOpenBillFromCustomer(pickupStation, customer);
-
-            bill.getListOfRentProcesses().add(rentProcess);
-            return true;
+        if(pickupStation.isVoll()){
+            return false;
         }
 
-        return false;
-         */
+        // TODO: prüfe ob Werkzeug vorhanden
+        Tool searchedTool = warehouse.removeToolFromWarehouse(wantedTool);
+        if(searchedTool == null){
+            return false;
+        }
+
+        Bill bill = this.findOrCreateOpenBillFromCustomer(pickupStation, customer);
+        RentProcess rentProcess = new RentProcess(searchedTool);
+
+        bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
+        pickupStation.addToolToBox(searchedTool);
+        return true;
     }
 
-    public void returnProcess(Station station, Customer customer, Tool tool, GregorianCalendar date, Warehouse warehouse){
+    public void returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
 
-        // TODO: Werkzeig aus Station nehmen
-        // TODO: Werkzeug in Lager bringen
-        // TODO: RentProcess abschließen
-        // TODO: BIll abschließen, wenn nötig
-
-
-        /*
-        Bill bill = findOrCreateOpenBillFromCustomer(station, customer);
-        RentProcess rentprocess = bill.findRentProcess(tool);
-        rentprocess.completeRentProcess(tool,station, date, customer);
-
-        Tool removedTool = station.removeToolFromBox(tool);
-        warehouse.putToolInWarehouse(tool);
-        */
-
+        // TODO: prüfungen einfügen
+        Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
+        warehouse.putToolInWarehouse(searchedTool);
+        Bill bill = findOrCreateOpenBillFromCustomer(removeStation, customer);    // TODO: es muss eine Bill da sein, wie prüft man das?
+        RentProcess rentprocess = bill.findRentProcess(searchedTool);
+        rentprocess.completeRentProcess(searchedTool,removeStation, date, customer);
+        bill.closeBill(); //TODO: soll das automatisch passieren, oder manuel?
     }
 
 

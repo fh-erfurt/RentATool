@@ -83,5 +83,5 @@ public class Station {
             return null;
         }
 
-        // TODO: eine Methode um zu prüfen, ob noch platy in der Station ist
+        // TODO: eine Methode um zu prüfen, ob noch platz in der Station ist
 }

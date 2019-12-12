@@ -42,6 +42,8 @@ public class RentProcess {
     }
 
     /*methods*/
+
+    // TODO: Methode: completeRentProcess(tool,station, date, customer); erstellen
 }
 
 
