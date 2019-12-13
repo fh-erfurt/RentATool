@@ -41,8 +41,8 @@ class PersonTest {
         hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", ToolStatus.ISINREPAIR, 2.5);
         welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.ISRENTED, 3.5);
 
-        rentATool.getStock().add(drill);
-        rentATool.getStock().add(hammer);
+        //rentATool.getStock().add(drill);
+        //rentATool.getStock().add(hammer);
 
         station1.addToolToBox(welder);
 
@@ -80,7 +80,7 @@ class PersonTest {
 
     @Test
     void can_cutomer_rent_a_tool(){
-        custLudwig.rentATool(drill, station1);
+        //custLudwig.rentATool(drill, station1);
     }
 
 

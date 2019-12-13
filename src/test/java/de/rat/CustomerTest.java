@@ -41,9 +41,6 @@ private Tool welder;
             hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", ToolStatus.ISINREPAIR, 2.5);
             welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.ISRENTED, 3.5);
 
-            //rentATool.getStock().add(drill);
-            //rentATool.getStock().add(hammer);
-
             station1.addToolToBox(welder);
 
             custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
@@ -54,20 +51,35 @@ private Tool welder;
 
 
     @Test
-    void should_put_tool_in_inventory() {
+    void should_put_and_get_tool_in_inventory() {
         custLudwig.putToolInInventory(drill);
         assertEquals(drill,custLudwig.getToolFromInventory(drill));
     }
 
     @Test
-    void getToolFromInventory() {
+    void after_removing_the_tool_from_the_inventory_the_tool_is_not_even_in_the_inventory(){
+        custLudwig.putToolInInventory(drill);
+        custLudwig.getToolFromInventory(drill);
+        assertNull(custLudwig.getToolFromInventory(drill));
     }
 
     @Test
-    void getToolFromStation() {
+    void should_get_null_if_the_tool_is_not_in_the_inventory() {
+        custLudwig.putToolInInventory(drill);
+        assertNull(custLudwig.getToolFromInventory(hammer));
+    }
+
+
+    @Test
+    void should_get_a_tool_from_the_station_in_the_inventory() {
+
+        Boolean checkGetComplete = custLudwig.getToolFromStation(welder,  station1);
+        assertEquals(true, checkGetComplete);
     }
 
     @Test
-    void returnToolToStation() {
+    void should_put_a_tool_from_the_inventory_in_the_station() {
+        Boolean checkPutComplete = custLudwig.returnToolToStation(welder, station1);
+        assertEquals(true, checkPutComplete);
     }
 }

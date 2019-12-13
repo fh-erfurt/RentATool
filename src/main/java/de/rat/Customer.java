@@ -34,18 +34,19 @@ public class Customer extends Person{
     public Tool getToolFromInventory(Tool wantedTool){
         for (Tool foundedTool : this.inventory) {
             if (foundedTool.equals(wantedTool)) {
+                this.inventory.remove(foundedTool);
                 return foundedTool;
             }
         }
         return null;
     }
 
-    public boolean getToolFromStation(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+    public boolean getToolFromStation(Tool wantedTool, Station removeStation){
         Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
         return putToolInInventory(searchedTool);
     }
 
-    public boolean returnToolToStation(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+    public boolean returnToolToStation(Tool wantedTool, Station removeStation){
         Tool searchedTool = getToolFromInventory(wantedTool);
         return removeStation.addToolToBox(wantedTool);
     }

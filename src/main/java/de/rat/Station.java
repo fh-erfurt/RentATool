@@ -65,6 +65,8 @@ public class Station {
             return true;
              }
         }
+        // TODO: prüfen ob das werkyeug schon in der Station vorhanden ist
+
 
     public Tool removeToolFromBox(Tool wantedTool)
         {
