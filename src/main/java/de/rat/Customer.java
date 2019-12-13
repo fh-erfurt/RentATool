@@ -10,13 +10,12 @@ public class Customer extends Person{
     private ArrayList<Tool>  inventory = new ArrayList<Tool>();
 
     Customer(String lastname, String firstname, GregorianCalendar birthday,
-             String email, String street, int hauseNr, int zip, String city, String country, String phoneNumber,Company company)
+             String email, String street, int houseNr, int zip, String city, String country, String phoneNumber,Company company)
     {
-        super(lastname, firstname, birthday, street, hauseNr,  zip,  city,  country);
+        super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.CUSTOMER, email, createPassword(lastname, firstname, birthday));
         this.phoneNumber = phoneNumber;
         this.company = company;
-        customerList.add(this); // add the customer to the list in the main class
     }
 
     public Company getCompany() {

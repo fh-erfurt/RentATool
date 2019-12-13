@@ -12,8 +12,9 @@ public class Warehouse {
         return Stock;
     }
 
-    public void putToolInWarehouse(Tool tool){
+    public boolean putToolInWarehouse(Tool tool){
         //TODO: Werkzeug einlagern
+        return true;
     }
 
     public Tool removeToolFromWarehouse(Tool tool){
@@ -23,7 +24,7 @@ public class Warehouse {
     }
 
     // TODO: Method aus der Company hier eingefügt - muss angepasst werden
-    public Tool findToolInStockOfCompany( Tool tool){
+    public Tool findToolInStockOfWarehouse( Tool tool){
         for (Tool foundedTool : this.getStock()) {
             if (foundedTool.equals(tool)) {
                 if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {

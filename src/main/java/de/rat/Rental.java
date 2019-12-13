@@ -32,7 +32,7 @@ public class Rental {
         return true;
     }
 
-    public boolean returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
+    public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
 
         // TODO: prüfungen einfügen
         Tool searchedTool = removeStation.removeToolFromBox(wantedTool);

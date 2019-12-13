@@ -5,13 +5,11 @@ import java.util.GregorianCalendar;
 
 public abstract class Person {
 
-    private final      String lastname;
-    private            String firstname;
-    private GregorianCalendar birthday;    // TODO updated to DateFormat
-    private           Address address;
-    protected         Account account;
-    static ArrayList<Person> customerList =  new ArrayList<Person>(); // TODO merge the two lists
-    static ArrayList<Person> employeeList = new ArrayList<Person>();
+    private String lastname;
+    private String firstname;
+    private GregorianCalendar birthday;
+    private Address address;
+    protected Account account;
 
     public Person(String lastname, String firstname, GregorianCalendar birthday,
                   String street, int hauseNr, int zip, String city, String country) {
@@ -20,18 +18,6 @@ public abstract class Person {
         this.firstname = firstname;
         this.birthday = birthday;
         this.address = new Address(street, hauseNr, zip, city, country);
-    }
-
-    String createPassword(String lastname, String firstname, GregorianCalendar birthday) {
-
-        //da241289st
-        String shortFirstname = firstname.substring(0,2).toLowerCase();
-        String shortLastname = lastname.substring(0,2).toLowerCase();
-        int shortDay = birthday.get(GregorianCalendar.DATE);
-        int shortMonth = (birthday.get(GregorianCalendar.MONTH) + 1 );
-        String shortYear = Integer.toString(birthday.get(GregorianCalendar.YEAR)).substring(2,4);
-
-        return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
 
 
@@ -55,11 +41,16 @@ public abstract class Person {
         return account;
     }
 
-    public static ArrayList<Person> getCustomerList() {
-        return customerList;
+    String createPassword(String lastname, String firstname, GregorianCalendar birthday) {
+
+        //da241289st
+        String shortFirstname = firstname.substring(0,2).toLowerCase();
+        String shortLastname = lastname.substring(0,2).toLowerCase();
+        int shortDay = birthday.get(GregorianCalendar.DATE);
+        int shortMonth = (birthday.get(GregorianCalendar.MONTH) + 1 );
+        String shortYear = Integer.toString(birthday.get(GregorianCalendar.YEAR)).substring(2,4);
+
+        return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
 
-    public static ArrayList<Person> getEmployeeList() {
-        return employeeList;
-    }
 }
