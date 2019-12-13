@@ -84,4 +84,8 @@ public class Station {
         }
 
         // TODO: eine Methode um zu prüfen, ob noch platz in der Station ist
+        public boolean checkStationLevel(){
+        return true;
+        }
+
 }

@@ -1,6 +1,7 @@
 package de.rat;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class RentProcess {
     private Tool rentedTool;
@@ -44,6 +45,9 @@ public class RentProcess {
     /*methods*/
 
     // TODO: Methode: completeRentProcess(tool,station, date, customer); erstellen
+    public boolean completeRentProcess(Tool tool, Station station, GregorianCalendar date, Customer customer){
+        return true;
+    }
 }
 
 

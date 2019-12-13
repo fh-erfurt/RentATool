@@ -98,30 +98,31 @@ public class Bill {
     }
 
     // TODO: Method aus der Company hier eingefügt - muss angepasst werden
-    public boolean closeBill(Customer customer, int discount){
+    public boolean closeBill(Customer customer, int discount, Bill bill){
 
-        for (Bill foundedBill :openBills)
-        {
-            if (foundedBill.getCustomer().equals(customer))
+            if (bill.getCustomer().equals(customer))
             {
-                for (RentProcess foundedProcesses :foundedBill.getListOfRentProcesses())
+                for (RentProcess foundedProcesses :bill.getListOfRentProcesses())
                 {
                     if (foundedProcesses.getReturnStation() == null)  //ToDo über Date anpassen
                     {
                         return false;
                     }
                 }
-                foundedBill.setDiscount(discount);
-                foundedBill.setFullRentPrice();
-                openBills.remove(foundedBill);
-                closedBills.add(foundedBill);
+                bill.setDiscount(discount);
+                bill.setFullRentPrice();
+                //openBills.remove(bill);
+                //closedBills.add(bill);
                 return true;
             }
-        }
+
 
         return true;
     }
     // TODO: Method: add new Rent Process
     // TODO: Methode find RentProcess
+    public RentProcess findRentProcess(Tool searchedTool){
+        return null;
+    }
 
 }

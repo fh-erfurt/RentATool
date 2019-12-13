@@ -14,7 +14,7 @@ public class Rental {
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
         // TODO: prüfe ob platz in Station - Methode der Station aufrufen
-        if(pickupStation.isVoll()){
+        if(!pickupStation.checkStationLevel()){
             return false;
         }
 
@@ -32,7 +32,7 @@ public class Rental {
         return true;
     }
 
-    public boolean returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+    public boolean returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
 
         // TODO: prüfungen einfügen
         Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
@@ -44,18 +44,20 @@ public class Rental {
         Bill bill = findOrCreateOpenBillFromCustomer(removeStation, customer);    // TODO: es muss eine Bill da sein, wie prüft man das?
         RentProcess rentprocess = bill.findRentProcess(searchedTool);
         rentprocess.completeRentProcess(searchedTool,removeStation, date, customer);
-        bill.closeBill(); //TODO: soll das automatisch passieren, oder manuel?
+        //bill.closeBill(); //TODO: soll das automatisch passieren, oder manuel?
+
+        return true;
     }
 
 
     public Bill findOrCreateOpenBillFromCustomer(Station pickupStation, Customer customer){
-        for (Bill foundedBill : customer.getCompany().getOpenBills()) {
+        for (Bill foundedBill : this.openBills) {
             if (foundedBill.getCustomer().equals(customer)) {
                 return foundedBill;
             }
         }
         Bill newBill = new Bill(customer, pickupStation);
-        customer.getCompany().getOpenBills().add(newBill);
+        this.openBills.add(newBill);
         return newBill;
     }
 }
