@@ -32,11 +32,15 @@ public class Rental {
         return true;
     }
 
-    public void returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+    public boolean returnProcess(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
 
         // TODO: prüfungen einfügen
         Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
+        if(searchedTool == null){
+            return false;
+        }
         warehouse.putToolInWarehouse(searchedTool);
+
         Bill bill = findOrCreateOpenBillFromCustomer(removeStation, customer);    // TODO: es muss eine Bill da sein, wie prüft man das?
         RentProcess rentprocess = bill.findRentProcess(searchedTool);
         rentprocess.completeRentProcess(searchedTool,removeStation, date, customer);

@@ -7,7 +7,7 @@ public class Customer extends Person{
 
     private String phoneNumber;
     private Company company;
-    private ArrayList<Tool> rentedTools= new ArrayList<Tool>();
+    private ArrayList<Tool>  inventory = new ArrayList<Tool>();
 
     Customer(String lastname, String firstname, GregorianCalendar birthday,
              String email, String street, int hauseNr, int zip, String city, String country, String phoneNumber,Company company)
@@ -19,33 +19,36 @@ public class Customer extends Person{
         customerList.add(this); // add the customer to the list in the main class
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public Company getCompany() {
         return company;
     }
 
-    public ArrayList<Tool> getRentedTools() {
-        return rentedTools;
+    public boolean putToolInInventory(Tool tool){
+        if(tool != null) {
+            this.inventory.add(tool);
+            return true;
+        }
+        return false;
     }
 
-    public void getToolFromStation(){
-        // TODO: Tool aus Station entnehmen
-        // TODO: Tool in Inventar legen
+    public Tool getToolFromInventory(Tool wantedTool){
+        for (Tool foundedTool : this.inventory) {
+            if (foundedTool.equals(wantedTool)) {
+                return foundedTool;
+            }
+        }
+        return null;
     }
 
-    public void returnToolToStation(){
-        // TODO: Tool aus Inventar entnehmen
-        // TODO: Tool in Station legen
+    public boolean getToolFromStation(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+        Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
+        return putToolInInventory(searchedTool);
     }
 
-
+    public boolean returnToolToStation(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
+        Tool searchedTool = getToolFromInventory(wantedTool);
+        return removeStation.addToolToBox(wantedTool);
+    }
 
     /*
     public boolean reserveTool(Tool wantedTool, Date pickupDate, Station pickupStation){
