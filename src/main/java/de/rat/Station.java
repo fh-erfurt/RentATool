@@ -51,7 +51,7 @@ public class Station {
 
     public boolean addToolToBox(Tool tool)
         {
-
+            // TODO: prüfen ob das werkyeug schon in der Station vorhanden ist
         int ToolCounter = boxesOfTools.size();
         /* check that is enough space in a station */
         if (numberOfBoxes <= boxesOfTools.size())
@@ -65,7 +65,7 @@ public class Station {
             return true;
              }
         }
-        // TODO: prüfen ob das werkyeug schon in der Station vorhanden ist
+
 
 
     public Tool removeToolFromBox(Tool wantedTool)

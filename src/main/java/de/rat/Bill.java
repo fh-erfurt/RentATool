@@ -98,19 +98,19 @@ public class Bill {
     }
 
     // TODO: Method aus der Company hier eingefügt - muss angepasst werden
-    public boolean closeBill(Customer customer, int discount, Bill bill){
+    public boolean closeBill(Customer customer, int discount){  //TODO: Discount?
 
-            if (bill.getCustomer().equals(customer))
+            if (this.getCustomer().equals(customer))
             {
-                for (RentProcess foundedProcesses :bill.getListOfRentProcesses())
+                for (RentProcess foundedProcesses :this.getListOfRentProcesses())
                 {
                     if (foundedProcesses.getReturnStation() == null)  //ToDo über Date anpassen
                     {
                         return false;
                     }
                 }
-                bill.setDiscount(discount);
-                bill.setFullRentPrice();
+                this.setDiscount(discount);
+                this.setFullRentPrice();
                 //openBills.remove(bill);
                 //closedBills.add(bill);
                 return true;

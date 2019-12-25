@@ -8,7 +8,7 @@ public class Manufacturer {
     private Address address;
     private String agent;
     private String phoneNumber;
-    static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
+    private static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
 
 
     public Manufacturer( String name, Address address, String agent, String phoneNumber) {
@@ -16,7 +16,7 @@ public class Manufacturer {
         this.address = address;
         this.agent = agent;
         this.phoneNumber = phoneNumber;
-        manufacturerList.add(this); //add the manufacturer to the ArrayList
+        this.manufacturerList.add(this); //add the manufacturer to the ArrayList
     }
 
 

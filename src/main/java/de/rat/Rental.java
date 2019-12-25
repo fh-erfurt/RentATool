@@ -13,51 +13,68 @@ public class Rental {
 
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        // TODO: prüfe ob platz in Station - Methode der Station aufrufen
+        // prüfe ob platz in Station - Methode der Station aufrufen
         if(!pickupStation.checkStationLevel()){
             return false;
         }
 
-        // TODO: prüfe ob Werkzeug vorhanden
-        Tool searchedTool = warehouse.removeToolFromWarehouse(wantedTool);
-        if(searchedTool == null){
+        // prüfe ob Werkzeug vorhanden
+        if(warehouse.removeToolFromWarehouse(wantedTool) == null){
             return false;
         }
 
-        Bill bill = this.findOrCreateOpenBillFromCustomer(pickupStation, customer);
-        RentProcess rentProcess = new RentProcess(searchedTool);
+        Bill bill = this.findOpenBillFromCustomer(customer);
+        if(bill == null){
+            bill = this.CreateOpenBillFromCustomer(pickupStation, customer);
+        }
+
+        RentProcess rentProcess = new RentProcess(wantedTool);
 
         bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
-        pickupStation.addToolToBox(searchedTool);
+        pickupStation.addToolToBox(wantedTool);
         return true;
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
 
         // TODO: prüfungen einfügen
-        Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
-        if(searchedTool == null){
+        if(removeStation.removeToolFromBox(wantedTool) == null){
             return false;
         }
-        warehouse.putToolInWarehouse(searchedTool);
+        warehouse.putToolInWarehouse(wantedTool);
 
-        Bill bill = findOrCreateOpenBillFromCustomer(removeStation, customer);    // TODO: es muss eine Bill da sein, wie prüft man das?
-        RentProcess rentprocess = bill.findRentProcess(searchedTool);
+        Bill bill = findOpenBillFromCustomer(customer);
+        if(bill == null){
+            return false;
+        }
+
+        RentProcess rentprocess = bill.findRentProcess(wantedTool);
+        if(rentprocess == null){
+            return false;
+        }
+
         rentprocess.completeRentProcess(removeStation, date);
-        //bill.closeBill(); //TODO: soll das automatisch passieren, oder manuel?
+        bill.closeBill(customer, 2);    //TODO: Discount?
 
         return true;
     }
 
 
-    public Bill findOrCreateOpenBillFromCustomer(Station pickupStation, Customer customer){
+    public Bill findOpenBillFromCustomer(Customer customer){
         for (Bill foundedBill : this.openBills) {
             if (foundedBill.getCustomer().equals(customer)) {
                 return foundedBill;
             }
         }
+        return null;
+    }
+
+
+    public Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         this.openBills.add(newBill);
         return newBill;
     }
+
+
 }

@@ -9,8 +9,8 @@ public class Employee extends Person{
 
     Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country,
-             Department department, Employee supervisor)
-    {
+             Department department, Employee supervisor) {
+
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword(lastname, firstname, birthday));
         this.department = department;
