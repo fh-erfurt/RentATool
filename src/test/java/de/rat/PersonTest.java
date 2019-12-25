@@ -78,15 +78,6 @@ class PersonTest {
         Assertions.assertNull(station1.removeToolFromBox(drill));
     }
 
-    @Test
-    void can_cutomer_rent_a_tool(){
-        //custLudwig.rentATool(drill, station1);
-    }
-
-
-
-
-
 
     //Employee and Customer Informations ------------------------------
     @Test
