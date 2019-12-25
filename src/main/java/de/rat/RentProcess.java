@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 public class RentProcess {
     private Tool rentedTool;
-    private Date returnDate;     //TODO: Date in Gregorian Calender
+    private GregorianCalendar returnDate;
     private Station returnStation;
 
     public RentProcess (Tool rentedTool){
@@ -23,14 +23,13 @@ public class RentProcess {
         return rentedTool;
     }
 
-    public Date getReturnDate() {
+    public GregorianCalendar getReturnDate() {
         return returnDate;
     }
 
 
-    //TODO: Date in Gregorian Calender
     /*Setter*/
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(GregorianCalendar returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -43,11 +42,17 @@ public class RentProcess {
     }
 
     /*methods*/
+    public boolean completeRentProcess(Station station, GregorianCalendar date){
 
-    // TODO: Methode: completeRentProcess(tool,station, date, customer); erstellen
-    public boolean completeRentProcess(Tool tool, Station station, GregorianCalendar date, Customer customer){
-        return true;
+        if(this.rentedTool != null && station != null && date != null){
+            this.setReturnDate(date);
+            this.setReturnStation(station);
+            return true;
+        }
+        return false;
     }
+
+
 }
 
 

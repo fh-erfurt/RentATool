@@ -43,7 +43,7 @@ public class Rental {
 
         Bill bill = findOrCreateOpenBillFromCustomer(removeStation, customer);    // TODO: es muss eine Bill da sein, wie prüft man das?
         RentProcess rentprocess = bill.findRentProcess(searchedTool);
-        rentprocess.completeRentProcess(searchedTool,removeStation, date, customer);
+        rentprocess.completeRentProcess(removeStation, date);
         //bill.closeBill(); //TODO: soll das automatisch passieren, oder manuel?
 
         return true;
