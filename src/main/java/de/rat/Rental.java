@@ -36,8 +36,6 @@ public class Rental {
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
-
-        // TODO: prüfungen einfügen
         if(removeStation.removeToolFromBox(wantedTool) == null){
             return false;
         }

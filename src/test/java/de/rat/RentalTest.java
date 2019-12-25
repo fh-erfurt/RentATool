@@ -95,4 +95,22 @@ class RentalTest {
     void should_return_a_tool(){
         //Assertions.assertNull(station1.removeToolFromBox(drill));
     }
+
+    
+    @Test
+    void should_return_false_if_the_tool_is_not_in_this_station(){
+
+    }
+
+    @Test
+    void should_return_false_if_there_is_no_open_bill_from_this_customer(){
+
+    }
+
+    @Test
+    void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
+
+    }
+
+
 }

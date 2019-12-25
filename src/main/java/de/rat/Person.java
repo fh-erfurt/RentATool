@@ -1,6 +1,5 @@
 package de.rat;
 
-import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 public abstract class Person {

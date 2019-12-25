@@ -17,14 +17,6 @@ public class Employee extends Person{
         this.supervisor = supervisor;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public Employee getSupervisor() {
-        return supervisor;
-    }
-
     private String  createEmail(String lastname, String firstname){
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
