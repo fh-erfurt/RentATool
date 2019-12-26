@@ -13,12 +13,12 @@ public class Rental {
 
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        // prüfe ob platz in Station - Methode der Station aufrufen
+        // check if the station is full
         if(!pickupStation.checkStationLevel()){
             return false;
         }
 
-        // prüfe ob Werkzeug vorhanden
+        // check if the searched Tool is in the warehouse
         if(warehouse.removeToolFromWarehouse(wantedTool) == null){
             return false;
         }

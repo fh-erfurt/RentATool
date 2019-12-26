@@ -80,7 +80,7 @@ class RentalTest {
         pickupStation.addToolToBox(welder2);
 
         //TODO: wait until the method "checkStationLevel" is compledet
-        //assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
+        assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
     }
 
     @Test

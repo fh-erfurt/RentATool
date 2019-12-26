@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 public class Employee extends Person{
 
    private Department department;
-   private Person supervisor;  //TODO: why does an employee class not work here?
+   private Employee supervisor;
 
     Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country,
