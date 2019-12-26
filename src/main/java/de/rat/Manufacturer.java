@@ -8,7 +8,7 @@ public class Manufacturer {
     private Address address;
     private String agent;
     private String phoneNumber;
-    private static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
+   protected static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
 
 
     public Manufacturer( String name, Address address, String agent, String phoneNumber) {
@@ -67,6 +67,7 @@ public class Manufacturer {
         for (Manufacturer foundedManufacturer : manufacturerList) {
             if (foundedManufacturer.getName().equals(wantedManufacturer)) {
                 manufacturerList.remove(foundedManufacturer);
+
 
             }
         }
