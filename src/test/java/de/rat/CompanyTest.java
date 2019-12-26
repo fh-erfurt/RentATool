@@ -27,9 +27,9 @@ class CompanyTest {
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
 
-        drill = new Tool("123", bosch, "Bohrer", "Handwerkzeug", "1-4-5", ToolStatus.AVAILABLE, 3.0);
-        hammer = new Tool("12553", bosch, "Hammer", "Handwerkzeug", "1-4-6", ToolStatus.ISINREPAIR, 2.5);
-        welder = new Tool("ewv133", bosch, "Schweißgerät", "Handwerkzeug", "1-4-7", ToolStatus.ISRENTED, 3.5);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
+        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.ISINREPAIR, 2.5);
+        welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
 
         //rentATool.getStock().add(drill);
         //rentATool.getStock().add(hammer);

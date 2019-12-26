@@ -4,12 +4,15 @@ public class Tool {
     private String itemId; // this is a ID that comes from the manufacturer. Like this: A120-B20W
     private Manufacturer manufacturer;
     private String description;
-    private String category;    // TODO: enum(elctro, akku, gas, manual)
+    private Category category;
     private String stock;   // delete
-    private ToolStatus toolStatus;     // TODO: Enum (available, isRented, isBroken, isInRepair)
+    private ToolStatus toolStatus;
     private double rentPrice;
 
-    public Tool(String itemId, Manufacturer manufacturer, String description, String category, String stock, ToolStatus toolStatus, double rentPrice) {
+
+
+
+    public Tool(String itemId, Manufacturer manufacturer, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
         this.itemId = itemId;
         this.manufacturer = manufacturer;
         this.description = description;
@@ -43,11 +46,11 @@ public class Tool {
         this.description = description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
