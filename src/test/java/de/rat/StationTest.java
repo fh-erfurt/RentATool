@@ -59,6 +59,35 @@ class StationTest {
             assertEquals(compareTool, boxTool);
     }
 
+    @Test public void isToolAlreadyInTheBox()
+    {
+        station.addToolToBox(testtool);
+        station.addToolToBox(testtool1);
+        /* is the tool not available for two times, the function return true  */
+       assertTrue(true);
+        /* is the tool available for two times, the function return false   */
+        station.addToolToBox(testtool1);
+        assertFalse(false);
 
 
+    }
+
+
+    @Test
+    public void checkStationLevel() {
+        Address testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        Station station2 = new Station("S2", 5, testaddress);
+        Tool testtool = new Tool("123",Bosch,"Hammer","Handwerkzeug","1-4-5",ToolStatus.AVAILABLE,3.5);
+        Tool testtool1 = new Tool("AAA",Bosch,"Säge","Handwerkzeug","1-4-3",ToolStatus.AVAILABLE,3.0);
+        Tool testtool2 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
+        Tool testtool3 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
+        Tool testtool4 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
+        station.addToolToBox(testtool);
+        station.addToolToBox(testtool1);
+        station.addToolToBox(testtool2);
+        station.addToolToBox(testtool3);
+        station.addToolToBox(testtool4);
+        assertEquals(5, station2.getNumberOfTools());
+
+    }
 }

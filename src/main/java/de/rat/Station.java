@@ -51,19 +51,23 @@ public class Station {
 
     public boolean addToolToBox(Tool tool)
         {
-            // TODO: prüfen ob das werkyeug schon in der Station vorhanden ist
-        int ToolCounter = boxesOfTools.size();
-        /* check that is enough space in a station */
-        if (numberOfBoxes <= boxesOfTools.size())
-            {
-            System.out.println("Alle Boxen sind bereits in Benutzung");
-            return false;
-        }
-        else
-            {
-            boxesOfTools.add(tool);
-            return true;
-             }
+            /* checks whether the tool is already in the list */
+            if(boxesOfTools.contains(tool)) {
+                System.out.println("Das Werkzeug ist bereits in der Liste vorhanden!");
+                return false;
+            }else {
+
+                int ToolCounter = boxesOfTools.size();
+                /* check that is enough space in a station */
+                if (numberOfBoxes <= boxesOfTools.size()) {
+                    System.out.println("Alle Boxen sind bereits in Benutzung");
+                    return false;
+                } else {
+                    boxesOfTools.add(tool);
+                    return true;
+                }
+
+            }
         }
 
 
@@ -85,9 +89,17 @@ public class Station {
             return null;
         }
 
+
+
         // TODO: eine Methode um zu prüfen, ob noch platz in der Station ist
-        public boolean checkStationLevel(){
-        return true;
+        public boolean checkStationLevel() {
+            if (numberOfBoxes <= boxesOfTools.size()) {
+                System.out.println("Die Station ist voll!");
+                return false;
+            } else {
+                System.out.println("In der Station ist noch Platz!");
+                return true;
+            }
         }
 
 }
