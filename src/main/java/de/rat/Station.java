@@ -66,9 +66,7 @@ public class Station {
 
                  */
                 if (checkStationLevel()!=true) {
-                    System.out.println("Alle Boxen sind bereits in Benutzung");
                     return false;
-
                 } else {
                     boxesOfTools.add(tool);
                     return true;
