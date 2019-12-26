@@ -82,12 +82,16 @@ class StationTest {
         Tool testtool2 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
         Tool testtool3 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
         Tool testtool4 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
-        station.addToolToBox(testtool);
-        station.addToolToBox(testtool1);
-        station.addToolToBox(testtool2);
-        station.addToolToBox(testtool3);
-        station.addToolToBox(testtool4);
+        Tool testtool5 = new Tool("XXX",Bosch,"Schaufel","Handwerkzeug","1-3-2",ToolStatus.AVAILABLE,4.0);
+        station2.addToolToBox(testtool);
+        station2.addToolToBox(testtool1);
+        station2.addToolToBox(testtool2);
+        station2.addToolToBox(testtool3);
+        station2.addToolToBox(testtool4);
         assertEquals(5, station2.getNumberOfTools());
 
+        station2.addToolToBox(testtool5);
+        assertEquals(5, station2.getNumberOfTools());
+        assertFalse(false);
     }
 }

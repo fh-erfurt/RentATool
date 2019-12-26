@@ -59,9 +59,16 @@ public class Station {
 
                 int ToolCounter = boxesOfTools.size();
                 /* check that is enough space in a station */
+                /*
                 if (numberOfBoxes <= boxesOfTools.size()) {
                     System.out.println("Alle Boxen sind bereits in Benutzung");
                     return false;
+
+                 */
+                if (checkStationLevel()!=true) {
+                    System.out.println("Alle Boxen sind bereits in Benutzung");
+                    return false;
+
                 } else {
                     boxesOfTools.add(tool);
                     return true;
@@ -91,7 +98,7 @@ public class Station {
 
 
 
-        // TODO: eine Methode um zu prüfen, ob noch platz in der Station ist
+    /* check that is enough space in a station */
         public boolean checkStationLevel() {
             if (numberOfBoxes <= boxesOfTools.size()) {
                 System.out.println("Die Station ist voll!");
