@@ -74,12 +74,10 @@ class RentalTest {
 
     @Test
     void should_return_false_if_the_station_is_full(){
-        //TODO: check if rentATool gets false if the station is full
         pickupStation.addToolToBox(hammer);
         pickupStation.addToolToBox(welder);
         pickupStation.addToolToBox(welder2);
 
-        //TODO: wait until the method "checkStationLevel" is compledet
         assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
     }
 
@@ -88,7 +86,7 @@ class RentalTest {
         //TODO: check if rentATool gets false if the tool is not in the warehouse
 
         //TODO: wait until the method "removeToolFromWarehouse" is compledet
-        //assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
+        assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
     }
 
     @Test
