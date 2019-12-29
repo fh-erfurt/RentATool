@@ -2,6 +2,7 @@ package de.rat;
 
 import java.util.GregorianCalendar;
 
+
 public abstract class Person {
 
     private String lastname;
@@ -18,7 +19,6 @@ public abstract class Person {
         this.birthday = birthday;
         this.address = new Address(street, hauseNr, zip, city, country);
     }
-
 
     public String getLastname() {
         return lastname;
@@ -51,5 +51,7 @@ public abstract class Person {
 
         return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
+
+
 
 }

@@ -57,7 +57,6 @@ public class Rental {
         return true;
     }
 
-
     public Bill findOpenBillFromCustomer(Customer customer){
         for (Bill foundedBill : this.openBills) {
             if (foundedBill.getCustomer().equals(customer)) {
@@ -67,12 +66,10 @@ public class Rental {
         return null;
     }
 
-
     public Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         this.openBills.add(newBill);
         return newBill;
     }
-
 
 }

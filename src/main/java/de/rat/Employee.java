@@ -4,8 +4,8 @@ import java.util.GregorianCalendar;
 
 public class Employee extends Person{
 
-   private Department department;
-   private Employee supervisor;
+    private Department department;
+    private Employee supervisor;
 
     Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country,
@@ -27,12 +27,13 @@ public class Employee extends Person{
         this.supervisor = null;
     }
 
+    public Person getSupervisor() {
+        return supervisor;
+    }
+
     private String  createEmail(String lastname, String firstname){
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
 
-
-    public Person getSupervisor() {
-        return supervisor;
-    }
 }
+

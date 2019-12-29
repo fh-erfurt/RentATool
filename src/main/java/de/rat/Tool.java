@@ -9,9 +9,6 @@ public class Tool {
     private ToolStatus toolStatus;
     private double rentPrice;
 
-
-
-
     public Tool(String itemId, Manufacturer manufacturer, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
         this.itemId = itemId;
         this.manufacturer = manufacturer;

@@ -8,8 +8,7 @@ public class Manufacturer {
     private Address address;
     private String agent;
     private String phoneNumber;
-   protected static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();
-
+    protected static ArrayList<Manufacturer> manufacturerList =  new ArrayList<Manufacturer>();  // TODO: a manufacturer can not have a list of manufacturer
 
     public Manufacturer( String name, Address address, String agent, String phoneNumber) {
         this.name = name;
@@ -18,10 +17,6 @@ public class Manufacturer {
         this.phoneNumber = phoneNumber;
         this.manufacturerList.add(this); //add the manufacturer to the ArrayList
     }
-
-
-
-
 
     public String getName() {
         return name;

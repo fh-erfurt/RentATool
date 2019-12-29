@@ -79,7 +79,7 @@ class RentalTest {
         pickupStation.addToolToBox(welder2);
 
         assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
-    }
+    } 
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_warehouse(){
