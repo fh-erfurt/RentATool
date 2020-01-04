@@ -75,8 +75,6 @@ public class Station {
             }
         }
 
-
-
     public Tool removeToolFromBox(Tool wantedTool)
         {
 
@@ -93,8 +91,6 @@ public class Station {
             System.out.println("Werkzeug nicht in der Station vorhanden");
             return null;
         }
-
-
 
     /* check that is enough space in a station */
         public boolean checkStationLevel() {

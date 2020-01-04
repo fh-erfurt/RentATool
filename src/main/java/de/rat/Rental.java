@@ -13,12 +13,12 @@ public class Rental {
 
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        // prüfe ob platz in Station - Methode der Station aufrufen
+        // check if the station is full
         if(!pickupStation.checkStationLevel()){
             return false;
         }
 
-        // prüfe ob Werkzeug vorhanden
+        // check if the searched Tool is in the warehouse
         if(warehouse.removeToolFromWarehouse(wantedTool) == null){
             return false;
         }
@@ -57,7 +57,6 @@ public class Rental {
         return true;
     }
 
-
     public Bill findOpenBillFromCustomer(Customer customer){
         for (Bill foundedBill : this.openBills) {
             if (foundedBill.getCustomer().equals(customer)) {
@@ -67,12 +66,10 @@ public class Rental {
         return null;
     }
 
-
     public Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         this.openBills.add(newBill);
         return newBill;
     }
-
 
 }
