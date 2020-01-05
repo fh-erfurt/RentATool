@@ -18,6 +18,7 @@ public class Rental {
 
 
     /** Creates an rental .
+     * @param --
      */
     public Rental() {
     }
@@ -46,11 +47,18 @@ public class Rental {
             return false;
         }
 
+        /**Gets the open bill.
+         * @param bill if there are no open bills from the customer
+         * create a new open bill with include the pickup station an customer
+         */
         Bill bill = this.findOpenBillFromCustomer(customer);
         if(bill == null){
             bill = this.CreateOpenBillFromCustomer(pickupStation, customer);
         }
-
+        /** Put the wanted tool in the rent process
+         * @return true if the rent process was add to the list of rent processes and
+         * the wanted tool was add to the pickupStation
+         */
         RentProcess rentProcess = new RentProcess(wantedTool);
 
         bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
