@@ -3,12 +3,13 @@ package de.rat;
 import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Bill {
 
     private int billNumber;
     private Customer customer;
-    private Date rentDate;
+    private GregorianCalendar rentDate;
     private Station rentStation;
     private Date billDate; // Todo Anfangs oder Enddatum?
     private int discount;
@@ -16,10 +17,11 @@ public class Bill {
     /* several rent processes for on bill possible*/
     private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
+
     public Bill (Customer customer,Station rentStation){
         this.billNumber=1234;  //ToDo
         this.customer=customer;
-        this.rentDate=null; //ToDO
+        this.rentDate= new GregorianCalendar();
         this.rentStation=rentStation;
         this.billDate=null;
         this.discount=0;
@@ -35,7 +37,7 @@ public class Bill {
         return customer;
     }
 
-    public Date getRentDate() {
+    public GregorianCalendar getRentDate() {
         return rentDate;
     }
 
@@ -68,8 +70,9 @@ public class Bill {
         this.customer = customer;
     }
 
-    public void setRentDate(Date rentDate) {
-        this.rentDate = rentDate;
+    public void setRentDate(GregorianCalendar rentDate) {
+
+       this.rentDate = rentDate;
     }
 
     public void setRentStation(Station rentStation) {
@@ -119,7 +122,12 @@ public class Bill {
 
         return true;
     }
-    // TODO: Method: add new Rent Process
+
+    public boolean addRentProcess(RentProcess rentProcess)
+    {
+       this.getListOfRentProcesses().add(rentProcess);
+       return true;
+    }
     // TODO: Methode find RentProcess
     public RentProcess findRentProcess(Tool searchedTool){
         return null;

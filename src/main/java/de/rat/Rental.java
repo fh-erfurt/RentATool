@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 /**Represents an rental.
  * @author ???
  * @version ??
- * @since ??
+ * @since 1??
  */
 public class Rental {
     /** Creates an rental .
@@ -65,7 +65,6 @@ public class Rental {
         pickupStation.addToolToBox(wantedTool);
         return true;
     }
-
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
         /**Gets the wanted tool.

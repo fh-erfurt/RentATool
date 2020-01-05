@@ -1,6 +1,5 @@
 package de.rat;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
