@@ -1,5 +1,11 @@
 package de.rat;
 
+import de.rat.common.Address;
+import de.rat.customer.Customer;
+import de.rat.employee.Company;
+import de.rat.employee.Department;
+import de.rat.employee.Employee;
+import de.rat.logistics.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

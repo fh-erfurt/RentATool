@@ -1,0 +1,109 @@
+package de.rat.logistics;
+
+import de.rat.common.Address;
+
+/**Represents an manufacturer.
+ * @author Christian König
+ * @version 0.1
+ * @since 0.1
+ */
+public class Manufacturer {
+
+    private String name;
+    private Address address;
+    private String agent;
+    private String phoneNumber;
+
+
+    /** Creates an manufacturer with the specified name.
+     * @param name The manufacturer  name.
+     * @param address The manufacturer address.
+     * @param agent    The manufacturer agent.
+     * @param phoneNumber   The manufacturer phoneNumber.
+     */
+    public Manufacturer( String name, Address address, String agent, String phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.agent = agent;
+        this.phoneNumber = phoneNumber;
+
+    }
+
+    /** Gets the manufacturer name.
+     * @return A string representing the manufacturer name
+     */
+    public String getName() {
+        return name;
+    }
+
+
+    /** Gets the manufacturer address.
+     * @return A Class representing the address.
+     */
+    public Address getAddress() {
+        return address;
+    }
+
+    /** Gets the manufacturer agent.
+     * @return A string representing the manufacturer agent.
+     */
+    public String getAgent() {
+        return agent;
+    }
+
+    /** Gets the manufacturer phoneNumber.
+     * @return A string representing the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /** Sets the manufacturer name.
+     * @param name  A String containing the  manufacturer
+     *     name.
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    /** Sets the manufacturer address.
+     * @param address  A Class containing the  manufacturer
+     *    addess.
+     */
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+
+    /** Sets the manufacturer name.
+     * @param agent  A String containing the  manufacturer
+     *     agent.
+     */
+    public void setAgent(String agent) {
+        this.agent = agent;
+    }
+
+    /** Sets the manufacturer name.
+     * @param phoneNumber  A String containing the  manufacturer
+     *   phoneNumber.
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    /** Change the the manufacturer.
+     * @param name The manufacturer  name.
+     * @param address The manufacturer address.
+     * @param agent    The manufacturer agent.
+     * @param phoneNumber   The manufacturer phoneNumber
+     */
+    public void changeManufacture(String name, Address address, String agent, String phoneNumber) {
+        this.name=name;
+        this.address=address;
+        this.agent=agent;
+        this.phoneNumber=phoneNumber;
+    }
+
+
+}

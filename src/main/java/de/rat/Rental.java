@@ -1,5 +1,12 @@
 package de.rat;
 
+import de.rat.billing.Bill;
+import de.rat.customer.Customer;
+import de.rat.customer.RentProcess;
+import de.rat.logistics.Station;
+import de.rat.logistics.Tool;
+import de.rat.logistics.Warehouse;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 /**Represents an rental.
