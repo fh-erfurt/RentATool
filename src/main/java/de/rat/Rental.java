@@ -8,6 +8,7 @@ import de.rat.logistics.Tool;
 import de.rat.logistics.Warehouse;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**Represents an rental.
  * @author ???
@@ -78,6 +79,7 @@ public class Rental {
          * @return false when the returnTool that store in the remove station
          * is not the wanted tool, otherwise the wanted tool is store in the warehouse
          */
+
         if(removeStation.removeToolFromBox(wantedTool) == null){
             return false;
         }
@@ -86,7 +88,7 @@ public class Rental {
         /**Gets the open bill.
          * @return false if there are no open bills from the customer
          */
-        Bill bill = findOpenBillFromCustomer(customer);
+        Bill bill = findOpenBillFromCustomerForReturn(customer,wantedTool);
         if(bill == null){
             return false;
         }
@@ -113,13 +115,30 @@ public class Rental {
      */
     public Bill findOpenBillFromCustomer(Customer customer){
         for (Bill foundedBill : this.openBills) {
-            if (foundedBill.getCustomer().equals(customer)) {
+
+            // get date of today for comparing with rentDate
+            GregorianCalendar today = new GregorianCalendar();
+            int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
+            // use only the founded Bill customer is the same and today is the rentDay of the Bill
+            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 0) {
                 return foundedBill;
             }
         }
         return null;
     }
 
+    public Bill findOpenBillFromCustomerForReturn(Customer customer,Tool wantedTool)
+    {
+        for (Bill foundedBill : this.openBills) {
+
+            RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
+            // use only the founded Bill customer is the same and today is the rentDay of the Bill
+            if (foundedBill.getCustomer().equals(customer)&& rentprocess!= null) {
+                return foundedBill;
+            }
+        }
+        return null;
+    }
     /** Create a bill from the customer
      * @return A class bill with the customer and the pickup station
      */

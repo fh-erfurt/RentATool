@@ -18,7 +18,7 @@ public class Bill {
     private Customer customer;
     private GregorianCalendar rentDate;
     private Station rentStation;
-    private Date billDate; // Todo Anfangs oder Enddatum?
+    private Date billDate;
     private int discount;
     private double fullRentPrice;
     /* several rent processes for on bill possible*/
@@ -135,6 +135,7 @@ public class Bill {
        this.getListOfRentProcesses().add(rentProcess);
        return true;
     }
+
     // TODO: Methode find RentProcess
     public RentProcess findRentProcess(Tool searchedTool){
         return null;
