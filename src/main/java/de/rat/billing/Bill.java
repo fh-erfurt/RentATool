@@ -98,9 +98,7 @@ public class Bill {
         for (RentProcess foundedProcesses :listOfRentProcesses)
         {
             // get the dates of the return and rented Date and calculate the difference.
-            // gregorian calender includes the date as long, so we calculate the days and rounded the result to int
-            long longDays = foundedProcesses.getReturnDate().getTime().getTime()-this.getRentDate().getTime().getTime();
-            int days = (int)Math.round((double)longDays/(24.*60.*60.*1000.));
+            int days = calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
 
             // multiply the rented days with the rentPrice for each tool
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
@@ -142,4 +140,11 @@ public class Bill {
         return null;
     }
 
+    public int calculateDifferenceBetweenDates(GregorianCalendar lowerDate, GregorianCalendar higherDate)
+    {
+        // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
+        long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
+        int dateDifference = (int)Math.round((double)LongDateDifference/(24.*60.*60.*1000.)); //Gregorian Calender hold the time as milliseconds
+        return dateDifference;
+    }
 }
