@@ -88,23 +88,32 @@ public class Rental {
         /**Gets the open bill.
          * @return false if there are no open bills from the customer
          */
-        Bill bill = findOpenBillFromCustomerForReturn(customer,wantedTool);
+        Bill bill = findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
         if(bill == null){
             return false;
         }
         /**Gets the rent process in which the wanted Tool was rented.
          * @return false if there are no rent process
          */
-        RentProcess rentprocess = bill.findRentProcess(wantedTool);
+        // wird in finOpenBillFromCustomerForReturn bereits gerpüft
+        /*RentProcess rentprocess = bill.findRentProcess(wantedTool);
         if(rentprocess == null){
             return false;
-        }
+        }*/
 
         /**Gets the rent process with the remove station an date.
          * @return true if the bill was close
          */
-        rentprocess.completeRentProcess(removeStation, date);
-        bill.closeBill(customer, 2);    //TODO: Discount?
+        // rentprocess.completeRentProcess(removeStation, date);
+        // wird in finOpenBillFromCustomerForReturn bereits gesetzt
+
+        //ToDo Fall wenn letztes Werkzeug abgegeben wurde, aber was wenn nicht?wie rausfiltern?
+        if(bill.closeBill(customer, 2))
+        {
+           return true;
+        }
+        //ToDo else??
+
 
         return true;
     }
@@ -127,13 +136,15 @@ public class Rental {
         return null;
     }
 
-    public Bill findOpenBillFromCustomerForReturn(Customer customer,Tool wantedTool)
+    public Bill findOpenBillFromCustomerForReturn(Customer customer,Tool wantedTool,Station removeStation, GregorianCalendar Date)
     {
         for (Bill foundedBill : this.openBills) {
 
             RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
             // use only the founded Bill customer is the same and today is the rentDay of the Bill
             if (foundedBill.getCustomer().equals(customer)&& rentprocess!= null) {
+
+                rentprocess.completeRentProcess(removeStation, Date);
                 return foundedBill;
             }
         }
@@ -148,4 +159,17 @@ public class Rental {
         return newBill;
     }
 
+    public boolean moveBillFromOpenToClosed()
+    {
+        for (Bill foundedBill : this.openBills)
+        {
+            if(foundedBill.getFullRentPrice() != 0)
+                {
+                    this.closedBills.add(foundedBill);
+                    this.openBills.remove(foundedBill);
+                    return true;
+                }
+        }
+        return false;
+    }
 }

@@ -107,22 +107,21 @@ public class Bill {
         this.fullRentPrice= this.fullRentPrice*discount/100;
     }
 
-    // TODO: Method aus der Company hier eingefügt - muss angepasst werden
-    public boolean closeBill(Customer customer, int discount){  //TODO: Discount?
+
+    public boolean closeBill(Customer customer, int discount)
+    {  //TODO: Discount?
 
             if (this.getCustomer().equals(customer))
             {
                 for (RentProcess foundedProcesses :this.getListOfRentProcesses())
                 {
-                    if (foundedProcesses.getReturnStation() == null)  //ToDo über Date anpassen
+                    if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
                     {
                         return false;
                     }
                 }
                 this.setDiscount(discount);
                 this.setFullRentPrice();
-                //openBills.remove(bill);
-                //closedBills.add(bill);
                 return true;
             }
 
@@ -136,8 +135,15 @@ public class Bill {
        return true;
     }
 
-    // TODO: Methode find RentProcess
     public RentProcess findRentProcess(Tool searchedTool){
+
+        for (RentProcess foundedRentProcess : this.listOfRentProcesses)
+        {
+            if(foundedRentProcess.getRentedTool().equals(searchedTool))
+            {
+                return foundedRentProcess;
+            }
+        }
         return null;
     }
 
