@@ -5,12 +5,15 @@ import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 
+import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Bill {
 
+    private static int autoincrementNumber = 10000;
     private int billNumber;
     private Customer customer;
     private GregorianCalendar rentDate;
@@ -23,13 +26,14 @@ public class Bill {
 
 
     public Bill (Customer customer,Station rentStation){
-        this.billNumber=1234;  //ToDo
         this.customer=customer;
         this.rentDate= new GregorianCalendar();
         this.rentStation=rentStation;
         this.billDate=null;
         this.discount=0;
         this.fullRentPrice=0;
+        autoincrementNumber++;
+        this.billNumber = autoincrementNumber;
     }
 
     /*Getter*/
@@ -66,10 +70,6 @@ public class Bill {
     }
 
     /*Setter*/
-    public void setBillNumber(int billNumber) {
-        this.billNumber = billNumber;
-    }
-
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -95,10 +95,15 @@ public class Bill {
 
     public void setFullRentPrice() {
 
-
         for (RentProcess foundedProcesses :listOfRentProcesses)
         {
-            this.fullRentPrice += foundedProcesses.getRentedTool().getRentPrice();  //ToDo date adden
+            // get the dates of the return and rented Date and calculate the difference.
+            // gregorian calender includes the date as long, so we calculate the days and rounded the result to int
+            long longDays = foundedProcesses.getReturnDate().getTime().getTime()-this.getRentDate().getTime().getTime();
+            int days = (int)Math.round((double)longDays/(24.*60.*60.*1000.));
+
+            // multiply the rented days with the rentPrice for each tool
+            this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
 
         this.fullRentPrice= this.fullRentPrice*discount/100;
