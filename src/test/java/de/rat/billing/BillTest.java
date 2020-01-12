@@ -44,14 +44,8 @@ class BillTest {
     public void isDateDifferenceEqualToOwnExpectedResult()
     {
         GregorianCalendar Date1 = new GregorianCalendar(2020,Calendar.JANUARY,10);
-        int year1  =Date1.get(Calendar.YEAR);
-        int month1 =Date1.get(Calendar.MONTH);
-        int day1   =Date1.get(Calendar.DATE);
 
         GregorianCalendar Date2 = new GregorianCalendar(2020,Calendar.FEBRUARY,1);
-        int year2  =Date2.get(Calendar.YEAR);
-        int month2 =Date2.get(Calendar.MONTH)+1;
-        int day2   =Date2.get(Calendar.DATE);
 
         long longDays = Date2.getTime().getTime()-Date1.getTime().getTime();
         long Days = Math.round((double)longDays/(24.*60.*60.*1000.));
