@@ -5,7 +5,7 @@
     <groupId>de.rat</groupId>
     <artifactId>RentATool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <description>Example code showing things from the lecture in "real life"</description>
 
     <properties>
