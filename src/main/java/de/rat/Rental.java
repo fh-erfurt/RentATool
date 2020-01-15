@@ -107,13 +107,9 @@ public class Rental {
         // rentprocess.completeRentProcess(removeStation, date);
         // wird in finOpenBillFromCustomerForReturn bereits gesetzt
 
-        //ToDo Fall wenn letztes Werkzeug abgegeben wurde, aber was wenn nicht?wie rausfiltern?
-        if(bill.checkBill(customer))
-        {
-           moveBillFromOpenToChecked();
+        if(bill.checkBill(customer)) {
+            moveBillFromOpenToChecked();
         }
-        //ToDo else??
-
 
         return true;
     }

@@ -28,6 +28,7 @@ class BillTest {
     @Test
     public void isBillNumberAutoincrement()
     {
+        //BillNumber starts with 10000
         assertEquals(10001, testBill.getBillNumber());
         Bill testBill2=new Bill(testUser,testStation);
         assertEquals(10002, testBill2.getBillNumber());
