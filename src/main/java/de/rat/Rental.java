@@ -21,8 +21,8 @@ public class Rental {
      * @param closedBills a list from closed bills
      */
     private ArrayList<Bill> openBills = new ArrayList<Bill>();
+    private ArrayList<Bill> checkBills = new ArrayList<Bill>();
     private ArrayList<Bill> closedBills = new ArrayList<Bill>();
-
 
 
     /** Creates an rental .
@@ -69,7 +69,7 @@ public class Rental {
          */
         RentProcess rentProcess = new RentProcess(wantedTool);
 
-        bill.getListOfRentProcesses().add(rentProcess);     // TODO: wenn in Bill die neue Methode existiert, dann diese Verwenden
+        bill.addRentProcess(rentProcess);
         pickupStation.addToolToBox(wantedTool);
         return true;
     }
@@ -108,9 +108,9 @@ public class Rental {
         // wird in finOpenBillFromCustomerForReturn bereits gesetzt
 
         //ToDo Fall wenn letztes Werkzeug abgegeben wurde, aber was wenn nicht?wie rausfiltern?
-        if(bill.closeBill(customer, 2))
+        if(bill.checkBill(customer))
         {
-           return true;
+           moveBillFromOpenToChecked();
         }
         //ToDo else??
 
@@ -150,6 +150,7 @@ public class Rental {
         }
         return null;
     }
+
     /** Create a bill from the customer
      * @return A class bill with the customer and the pickup station
      */
@@ -159,13 +160,13 @@ public class Rental {
         return newBill;
     }
 
-    public boolean moveBillFromOpenToClosed()
+    public boolean moveBillFromOpenToChecked()
     {
         for (Bill foundedBill : this.openBills)
         {
             if(foundedBill.getFullRentPrice() != 0)
                 {
-                    this.closedBills.add(foundedBill);
+                    this.checkBills.add(foundedBill);
                     this.openBills.remove(foundedBill);
                     return true;
                 }

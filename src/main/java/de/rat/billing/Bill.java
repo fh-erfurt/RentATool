@@ -108,8 +108,8 @@ public class Bill {
     }
 
 
-    public boolean closeBill(Customer customer, int discount)
-    {  //TODO: Discount?
+    public boolean checkBill(Customer customer)
+    {
 
             if (this.getCustomer().equals(customer))
             {
@@ -120,7 +120,6 @@ public class Bill {
                         return false;
                     }
                 }
-                this.setDiscount(discount);
                 this.setFullRentPrice();
                 return true;
             }
