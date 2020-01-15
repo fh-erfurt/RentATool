@@ -160,7 +160,7 @@ public class Rental {
         return newBill;
     }
 
-    public boolean moveBillFromOpenToChecked()
+    public void moveBillFromOpenToChecked()
     {
         for (Bill foundedBill : this.openBills)
         {
@@ -168,9 +168,7 @@ public class Rental {
                 {
                     this.checkBills.add(foundedBill);
                     this.openBills.remove(foundedBill);
-                    return true;
-                }
+            }
         }
-        return false;
     }
 }
