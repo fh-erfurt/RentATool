@@ -17,6 +17,9 @@ public class Billing {
     private ArrayList<Bill> checkBills = new ArrayList<Bill>();
     private ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
+    public Billing() {
+
+    }
 
     /** Find a open bill from the customer.
      * @return A class bill when the customer has a open bill, otherwise

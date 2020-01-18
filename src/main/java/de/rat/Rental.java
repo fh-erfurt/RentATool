@@ -1,6 +1,7 @@
 package de.rat;
 
 import de.rat.billing.Bill;
+import de.rat.billing.Billing;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
@@ -53,9 +54,9 @@ public class Rental {
          * @param bill if there are no open bills from the customer
          * create a new open bill with include the pickup station an customer
          */
-        Bill bill = this.findOpenBillFromCustomer(customer);
+        Bill bill = new Billing().findOpenBillFromCustomer(customer);
         if(bill == null){
-            bill = this.CreateOpenBillFromCustomer(pickupStation, customer);
+            bill = new Billing().CreateOpenBillFromCustomer(pickupStation, customer);
         }
         /** Put the wanted tool in the rent process
          * @return true if the rent process was add to the list of rent processes and
@@ -82,7 +83,7 @@ public class Rental {
         /**Gets the open bill.
          * @return false if there are no open bills from the customer
          */
-        Bill bill = findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+        Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
         if(bill == null){
             return false;
         }
@@ -102,7 +103,7 @@ public class Rental {
         // wird in finOpenBillFromCustomerForReturn bereits gesetzt
 
         if(bill.checkBill(customer)) {
-            moveBillFromOpenToChecked();
+            new Billing().moveBillFromOpenToChecked();
         }
 
         return true;
