@@ -8,6 +8,7 @@ import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 import de.rat.logistics.Warehouse;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -35,38 +36,28 @@ public class Rental {
      */
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
+        try{
+            //check if the station is full
+            if(!pickupStation.checkStationLevel()){return false;}
 
-        /**check if the station is full
-         * @return false ????
-         */
-        if(!pickupStation.checkStationLevel()){
-            return false;
+            //check if the searched Tool is in the warehouse
+            if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
+
+            Bill bill = this.findOrCreateBill(customer, pickupStation);
+
+            //TODO:
+            // Put the wanted tool in the rent process
+            RentProcess rentProcess = new RentProcess(wantedTool);
+
+            bill.addRentProcess(rentProcess);
+
+            pickupStation.addToolToBox(wantedTool);
+            return true;
+        }
+        catch (IOException e){
+
         }
 
-        /**check if the searched Tool is in the warehouse
-         * @return false ????
-         */
-        if(warehouse.removeToolFromWarehouse(wantedTool) == null){
-            return false;
-        }
-
-        /**Gets the open bill.
-         * @param bill if there are no open bills from the customer
-         * create a new open bill with include the pickup station an customer
-         */
-        Bill bill = new Billing().findOpenBillFromCustomer(customer);
-        if(bill == null){
-            bill = new Billing().CreateOpenBillFromCustomer(pickupStation, customer);
-        }
-        /** Put the wanted tool in the rent process
-         * @return true if the rent process was add to the list of rent processes and
-         * the wanted tool was add to the pickupStation
-         */
-        RentProcess rentProcess = new RentProcess(wantedTool);
-
-        bill.addRentProcess(rentProcess);
-        pickupStation.addToolToBox(wantedTool);
-        return true;
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
@@ -83,6 +74,7 @@ public class Rental {
         /**Gets the open bill.
          * @return false if there are no open bills from the customer
          */
+
         Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
         if(bill == null){
             return false;
@@ -107,6 +99,20 @@ public class Rental {
         }
 
         return true;
+    }
+
+
+    /**Gets or Create open bill.
+     * @param customer the customer that rented the tool
+     * @param pickupStation the station which the tool was pickup
+     * create a new open bill with include the pickup station an customer
+     */
+    private Bill findOrCreateBill(Customer customer, Station pickupStation){
+        Bill bill = new Billing().findOpenBillFromCustomer(customer);
+        if(bill == null){
+            bill = new Billing().CreateOpenBillFromCustomer(pickupStation, customer);
+        }
+        return bill;
     }
 
 

@@ -128,8 +128,14 @@ public class Bill {
         return true;
     }
 
+    //TODO:
+    // void? Wenn es keine Prüfung gibt ob es geklappt hat, dann kann man den Boolean auch weg lassen ??
+    // Hier sollte gleich der Konstruktor vom RentProcess genutzt werden. Wenn ich einen RentProcess einfügen will, muss er vorher erzeugt werden
+    // eingabe wäre also nicht der RentProcess sondern das wantetTool
+
     public boolean addRentProcess(RentProcess rentProcess)
     {
+        //TODO: RentProcess rentProcess = new RentProcess(wantedTool);
        this.getListOfRentProcesses().add(rentProcess);
        return true;
     }
