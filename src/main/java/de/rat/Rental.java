@@ -13,9 +13,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**Represents an rental.
- * @author ???
- * @version ??
- * @since 1??
+ * @author Danny Steinbrecher
  */
 public class Rental {
 
