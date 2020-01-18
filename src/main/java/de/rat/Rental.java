@@ -46,58 +46,44 @@ public class Rental {
             Bill bill = this.findOrCreateBill(customer, pickupStation);
 
             //TODO:
+            // Methode in Bill wird den RentProcess mit erstellen
             // Put the wanted tool in the rent process
             RentProcess rentProcess = new RentProcess(wantedTool);
-
             bill.addRentProcess(rentProcess);
 
-            pickupStation.addToolToBox(wantedTool);
-            return true;
+            if(!pickupStation.addToolToBox(wantedTool)){return false;}
         }
-        catch (IOException e){
-
+        catch (Exception e){
+            System.out.println(getClass() + ": " + e.getMessage());
         }
-
+        return true;
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
-        /**Gets the wanted tool.
-         * @return false when the returnTool that store in the remove station
-         * is not the wanted tool, otherwise the wanted tool is store in the warehouse
-         */
 
-        if(removeStation.removeToolFromBox(wantedTool) == null){
-            return false;
+        try{
+            /**Gets the wanted tool.
+             * @return false when the returnTool that store in the remove station
+             * is not the wanted tool, otherwise the wanted tool is store in the warehouse
+             */
+
+            if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
+            warehouse.putToolInWarehouse(wantedTool);
+
+            /**Gets the open bill.
+             * @return false if there are no open bills from the customer
+             */
+
+            Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+            if(bill == null){
+                return false;
+            }
+
+            if(!bill.checkBill(customer)) { return false;/*new Billing().moveBillFromOpenToChecked();*/ }
+
+        } catch (Exception e){
+            System.out.println(getClass() + ": " + e.getMessage());
         }
-        warehouse.putToolInWarehouse(wantedTool);
-
-        /**Gets the open bill.
-         * @return false if there are no open bills from the customer
-         */
-
-        Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
-        if(bill == null){
-            return false;
-        }
-        /**Gets the rent process in which the wanted Tool was rented.
-         * @return false if there are no rent process
-         */
-        // wird in finOpenBillFromCustomerForReturn bereits gerpüft
-        /*RentProcess rentprocess = bill.findRentProcess(wantedTool);
-        if(rentprocess == null){
-            return false;
-        }*/
-
-        /**Gets the rent process with the remove station an date.
-         * @return true if the bill was close
-         */
-        // rentprocess.completeRentProcess(removeStation, date);
-        // wird in finOpenBillFromCustomerForReturn bereits gesetzt
-
-        if(bill.checkBill(customer)) {
-            new Billing().moveBillFromOpenToChecked();
-        }
-
         return true;
     }
 

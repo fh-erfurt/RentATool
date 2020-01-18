@@ -121,6 +121,7 @@ public class Bill {
                     }
                 }
                 this.setFullRentPrice();
+                // TODO: wenn alles gesetzt ist, kann die Bill direkt in die Checked Liste geschoben werden
                 return true;
             }
 
