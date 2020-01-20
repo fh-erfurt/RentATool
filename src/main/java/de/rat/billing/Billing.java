@@ -31,7 +31,7 @@ public class Billing {
             GregorianCalendar today = new GregorianCalendar();
             int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
             // use only the founded Bill customer is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 0) { // TODO : was ist hier mit dem ==0
+            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 0) {
                 return foundedBill;
             }
         }

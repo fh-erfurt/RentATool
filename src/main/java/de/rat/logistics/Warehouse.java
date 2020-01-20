@@ -13,7 +13,7 @@ public class Warehouse {
     }
 
     public boolean putToolInWarehouse(Tool tool){
-        //TODO: Werkzeug einlagern
+
         if(tool !=null)
         {
             this.Stock.add(tool);
@@ -23,8 +23,7 @@ public class Warehouse {
     }
 
     public Tool removeToolFromWarehouse(Tool tool){
-        //TODO: Werkzeug aus Lager nehmen und übergeben
-        // TODO: Wird ein Werkzeug vom Lager in die Station gebracht, darf es nicht mehr im Lager liegen -> TEST (gehört zur Company)
+
         for (Tool foundedTool : Stock)
         {
             if(foundedTool.equals(tool))
@@ -40,29 +39,18 @@ public class Warehouse {
 
     }
 
-    // TODO: Method aus der Company hier eingefügt - muss angepasst werden
-    public Tool findToolInStockOfWarehouse( Tool tool){
-        for (Tool foundedTool : Stock) {
-            if (foundedTool.equals(tool)) {
-                if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
-                    return foundedTool;
-                }
-            }
-        }
-        System.out.println("Werkzeug nicht im Lager vorhanden");
-        return null;
-    }
 
     public boolean setToolStatus(Tool tool, ToolStatus updatedToolStatus)
     {
         for(Tool foundedTool:Stock)
         {
-            if(foundedTool==tool)
+            if(foundedTool.equals(tool))
             {
                 foundedTool.setToolStatus(updatedToolStatus);
                 return true;
             }
         }
+        System.out.println("Werkzeug nicht im Lager vorhanden");
         return false;
     }
 

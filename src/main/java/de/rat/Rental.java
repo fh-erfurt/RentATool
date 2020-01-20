@@ -3,14 +3,10 @@ package de.rat;
 import de.rat.billing.Bill;
 import de.rat.billing.Billing;
 import de.rat.customer.Customer;
-import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 import de.rat.logistics.Warehouse;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 /**Represents an rental.
  * @author Danny Steinbrecher
@@ -36,18 +32,15 @@ public class Rental {
 
         try{
             //check if the station is full
-            if(!pickupStation.checkStationLevel()){return false;}
+            if(pickupStation.checkStationLevel()){return false;}
 
             //check if the searched Tool is in the warehouse
             if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
 
             Bill bill = this.findOrCreateBill(customer, pickupStation);
 
-            //TODO:
-            // Methode in Bill wird den RentProcess mit erstellen
-            // Put the wanted tool in the rent process
-            RentProcess rentProcess = new RentProcess(wantedTool);
-            bill.addRentProcess(rentProcess);
+
+            bill.addRentProcess(wantedTool);
 
             if(!pickupStation.addToolToBox(wantedTool)){return false;}
         }

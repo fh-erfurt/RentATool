@@ -59,14 +59,8 @@ public class Station {
             }else {
 
                 int ToolCounter = boxesOfTools.size();
-                /* check that is enough space in a station */
-                /*
-                if (numberOfBoxes <= boxesOfTools.size()) {
-                    System.out.println("Alle Boxen sind bereits in Benutzung");
-                    return false;
 
-                 */
-                if (checkStationLevel()!=true) {
+                if (checkStationLevel()) {
                     return false;
                 } else {
                     boxesOfTools.add(tool);
@@ -75,7 +69,7 @@ public class Station {
 
             }
 
-            // TODO: competeRentProcess
+
         }
 
     public Tool removeToolFromBox(Tool wantedTool)

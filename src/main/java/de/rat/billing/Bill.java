@@ -104,7 +104,7 @@ public class Bill {
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
 
-        this.fullRentPrice= this.fullRentPrice*discount/100;
+        this.fullRentPrice-= this.fullRentPrice*discount/100;
     }
 
 
@@ -121,7 +121,6 @@ public class Bill {
                     }
                 }
                 this.setFullRentPrice();
-                // TODO: wenn alles gesetzt ist, kann die Bill direkt in die Checked Liste geschoben werden
                 return true;
             }
 
@@ -129,16 +128,12 @@ public class Bill {
         return true;
     }
 
-    //TODO:
-    // void? Wenn es keine Prüfung gibt ob es geklappt hat, dann kann man den Boolean auch weg lassen ??
-    // Hier sollte gleich der Konstruktor vom RentProcess genutzt werden. Wenn ich einen RentProcess einfügen will, muss er vorher erzeugt werden
-    // eingabe wäre also nicht der RentProcess sondern das wantetTool
 
-    public boolean addRentProcess(RentProcess rentProcess)
+    public void addRentProcess(Tool wantedTool)
     {
-        //TODO: RentProcess rentProcess = new RentProcess(wantedTool);
+        RentProcess rentProcess = new RentProcess(wantedTool);
        this.getListOfRentProcesses().add(rentProcess);
-       return true;
+
     }
 
     public RentProcess findRentProcess(Tool searchedTool){
@@ -157,7 +152,7 @@ public class Bill {
     {
         // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
         long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
-        int dateDifference = (int)Math.round((double)LongDateDifference/(24.*60.*60.*1000.)); //Gregorian Calender hold the time as milliseconds
-        return dateDifference;
+       return (int)Math.round((double)LongDateDifference/(24.*60.*60.*1000.)); //Gregorian Calender hold the time as milliseconds
+
     }
 }
