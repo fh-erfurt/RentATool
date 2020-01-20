@@ -19,7 +19,7 @@ class BillTest {
 
     Company rentATool = new Company("Rent a Tool");
     Address testAddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-    Customer testUser = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de","Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651",rentATool);
+    Customer testUser = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de","Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
     Station testStation = new Station("S1", 3, testAddress);
     Bill testBill=new Bill(testUser,testStation);
     Station station = new Station("S1", 3, testAddress);
