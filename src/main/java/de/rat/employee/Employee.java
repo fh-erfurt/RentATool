@@ -1,8 +1,12 @@
 package de.rat.employee;
 
+
+import de.rat.logistics.*;
+import de.rat.billing.Bill;
 import de.rat.common.Person;
 import de.rat.common.Role;
 import de.rat.common.Account;
+
 
 import java.util.GregorianCalendar;
 
@@ -38,6 +42,20 @@ public class Employee extends Person {
     private String  createEmail(String lastname, String firstname){
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
+
+    public void setDiscountAndMoveBillsToCloseBills()
+    {
+       // for (Bill foundedBill : this.) {}
+    }
+
+
+
+    public void setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse)
+        {
+            warehouse.getStock().
+
+        }
+
 
 }
 
