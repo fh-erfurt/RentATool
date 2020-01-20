@@ -74,6 +74,8 @@ public class Station {
                 }
 
             }
+
+            // TODO: competeRentProcess
         }
 
     public Tool removeToolFromBox(Tool wantedTool)
