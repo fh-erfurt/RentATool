@@ -13,12 +13,12 @@ public EmployeeNotification()
 
 }
 
-public boolean sendNotificationToAllEmployees()
+public String sendNotificationToAllEmployees()
 {
     for (Employee employee : this.employees) {
         //ToDo Postfach bei employee?
     }
-    return true;
+
 }
 
 }

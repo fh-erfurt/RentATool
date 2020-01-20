@@ -53,15 +53,17 @@ public class Warehouse {
         return null;
     }
 
-    public void setToolStatus(Tool tool, ToolStatus updatedToolStatus)
+    public boolean setToolStatus(Tool tool, ToolStatus updatedToolStatus)
     {
         for(Tool foundedTool:Stock)
         {
             if(foundedTool==tool)
             {
                 foundedTool.setToolStatus(updatedToolStatus);
+                return true;
             }
         }
+        return false;
     }
 
 

@@ -1,6 +1,7 @@
 package de.rat.employee;
 
 
+import de.rat.billing.Billing;
 import de.rat.logistics.*;
 import de.rat.billing.Bill;
 import de.rat.common.Person;
@@ -43,17 +44,21 @@ public class Employee extends Person {
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
 
-    public void setDiscountAndMoveBillsToCloseBills()
+    public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill,int discount)
     {
-       // for (Bill foundedBill : this.) {}
+        checkBill.setDiscount(discount);
+        checkBill.setFullRentPrice();
+
+        Billing billing=new Billing();
+        return billing.moveFromCheckToClosed(checkBill);
+
     }
 
 
 
-    public void setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse)
+    public boolean setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse)
         {
-            warehouse.getStock().
-
+            return warehouse.setToolStatus(tool, toolStatus);
         }
 
 

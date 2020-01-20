@@ -13,9 +13,9 @@ public class Billing {
      * @param openBills a list from open bills
      * @param closedBills a list from closed bills
      */
-    private ArrayList<Bill> openBills = new ArrayList<Bill>();
-    private ArrayList<Bill> checkBills = new ArrayList<Bill>();
-    private ArrayList<Bill> closedBills = new ArrayList<Bill>();
+    static private ArrayList<Bill> openBills = new ArrayList<Bill>();
+    static private ArrayList<Bill> checkBills = new ArrayList<Bill>();
+   static private ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
     public Billing() {
 
@@ -26,7 +26,7 @@ public class Billing {
      * @return null if there are no open bills
      */
     public Bill findOpenBillFromCustomer(Customer customer){
-        for (Bill foundedBill : this.openBills) {
+        for (Bill foundedBill : openBills) {
 
             // get date of today for comparing with rentDate
             GregorianCalendar today = new GregorianCalendar();
@@ -41,7 +41,7 @@ public class Billing {
 
     public Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation, GregorianCalendar Date)
     {
-        for (Bill foundedBill : this.openBills) {
+        for (Bill foundedBill : openBills) {
 
             RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
@@ -59,19 +59,33 @@ public class Billing {
      */
     public Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
-        this.openBills.add(newBill);
+        openBills.add(newBill);
         return newBill;
     }
 
     public void moveBillFromOpenToChecked()
     {
-        for (Bill foundedBill : this.openBills)
+        for (Bill foundedBill : openBills)
         {
             if(foundedBill.getFullRentPrice() != 0)
             {
-                this.checkBills.add(foundedBill);
-                this.openBills.remove(foundedBill);
+                checkBills.add(foundedBill);
+                openBills.remove(foundedBill);
             }
         }
+    }
+
+    public boolean moveFromCheckToClosed(Bill checkBill)
+    {
+        for(Bill foundedBill:checkBills)
+        {
+            if(foundedBill==checkBill)
+            {
+                closedBills.add(checkBill);
+                checkBills.remove(checkBill);
+                return true;
+            }
+        }
+        return false;
     }
 }
