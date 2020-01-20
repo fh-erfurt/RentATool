@@ -65,9 +65,9 @@ class PersonTest {
                 "Leipzigerstraße", 99, 99084, "Weimar", "Germany", deptRental, empDanny);
 
         custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
-                "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651",rentATool);
+                "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
-                "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854", rentATool);
+                "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
     }
 
 

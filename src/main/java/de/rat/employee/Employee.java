@@ -61,6 +61,10 @@ public class Employee extends Person {
             return warehouse.setToolStatus(tool, toolStatus);
         }
 
+        public void printNotification()
+        {
+           System.out.println("Bitte schau deine aktuellen Aufträge an!!!");
+        }
 
 }
 

@@ -4,6 +4,7 @@ import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
+import de.rat.employee.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -17,9 +18,7 @@ public class Billing {
     static private ArrayList<Bill> checkBills = new ArrayList<Bill>();
    static private ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
-    public Billing() {
 
-    }
 
     /** Find a open bill from the customer.
      * @return A class bill when the customer has a open bill, otherwise
@@ -71,6 +70,7 @@ public class Billing {
             {
                 checkBills.add(foundedBill);
                 openBills.remove(foundedBill);
+                EmployeeNotification.sendNotificationToAllEmployees();
             }
         }
     }

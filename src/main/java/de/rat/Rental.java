@@ -77,7 +77,11 @@ public class Rental {
                 return false;
             }
 
-            if(!bill.checkBill(customer)) { return false;/*new Billing().moveBillFromOpenToChecked();*/ }
+            if(!bill.checkBill(customer)) { return false; }
+
+               Billing billing =new Billing();
+               billing.moveBillFromOpenToChecked();
+
 
         } catch (Exception e){
             System.out.println(getClass() + ": " + e.getMessage());

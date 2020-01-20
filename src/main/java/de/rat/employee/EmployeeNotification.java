@@ -6,17 +6,12 @@ import java.util.ArrayList;
 
 public class EmployeeNotification {
 
-private ArrayList  <Employee> employees=new ArrayList <Employee>();
+static private ArrayList  <Employee> employees=new ArrayList <Employee>();
 
-public EmployeeNotification()
+public static void sendNotificationToAllEmployees()
 {
-
-}
-
-public String sendNotificationToAllEmployees()
-{
-    for (Employee employee : this.employees) {
-        //ToDo Postfach bei employee?
+    for (Employee employee : employees) {
+        employee.printNotification();
     }
 
 }
