@@ -1,5 +1,6 @@
 package de.rat;
 
+import de.rat.billing.Bill;
 import de.rat.common.Address;
 import de.rat.customer.Customer;
 import de.rat.employee.Company;
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,11 +68,13 @@ class RentalTest {
         warehouse = new Warehouse();
     }
 
-    // Main Test --------------------------------
+
+
+
     @Test
     void sholud_rent_a_tool(){
+        boolean result= warehouse.putToolInWarehouse(drill);
         boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
-
         assertTrue(checkRent);
         Assertions.assertEquals(drill, pickupStation.removeToolFromBox(drill));
 
