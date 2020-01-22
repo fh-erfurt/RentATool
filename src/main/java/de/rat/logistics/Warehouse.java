@@ -3,12 +3,13 @@ package de.rat.logistics;
 import java.util.ArrayList;
 
 public class Warehouse {
-    private ArrayList<Tool> Stock= new ArrayList<Tool>();
+    private ArrayList<Tool> Stock= new ArrayList        <Tool>();
 
     public Warehouse() {
     }
 
     public ArrayList<Tool> getStock() {
+        System.out.println(Stock.size());
         return Stock;
     }
 
@@ -16,6 +17,7 @@ public class Warehouse {
 
         if(tool !=null)
         {
+            System.out.println("Das Tool ist im warehouse ");
             this.Stock.add(tool);
             return true;
         }
@@ -30,6 +32,7 @@ public class Warehouse {
             {
                 if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
                     Stock.remove(tool);
+                    System.out.println("Das Tool ist bereit zum Ausleihen");
                     return tool;
                 }
             }

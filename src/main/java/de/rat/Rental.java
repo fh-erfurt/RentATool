@@ -30,9 +30,9 @@ public class Rental {
      */
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        //try{
+        try{
             //check if the station is full
-            if(pickupStation.checkStationLevel()){return false;}
+            if(!pickupStation.checkStationLevel()){return false;}
 
             //check if the searched Tool is in the warehouse
             if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
@@ -43,10 +43,10 @@ public class Rental {
             bill.addRentProcess(wantedTool);
 
             if(!pickupStation.addToolToBox(wantedTool)){return false;}
-      //  }
-       /* catch (Exception e){
+      }
+       catch (Exception e){
             System.out.println(getClass() + ": " + e.getMessage());
-        }*/
+        }
         return true;
     }
 
@@ -67,6 +67,7 @@ public class Rental {
 
             Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
             if(bill == null){
+                System.out.println("Die Rechnung wurde nicht gefunden");
                 return false;
             }
 
@@ -92,6 +93,7 @@ public class Rental {
         Bill bill = new Billing().findOpenBillFromCustomer(customer);
         if(bill == null){
             bill = new Billing().CreateOpenBillFromCustomer(pickupStation, customer);
+            System.out.println("Die Rechnung wurde gemacht");
         }
         return bill;
     }

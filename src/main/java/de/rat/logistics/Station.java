@@ -60,7 +60,7 @@ public class Station {
 
                 int ToolCounter = boxesOfTools.size();
 
-                if (checkStationLevel()) {
+                if (!checkStationLevel()) {
                     return false;
                 } else {
                     boxesOfTools.add(tool);

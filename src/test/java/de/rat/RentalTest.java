@@ -94,14 +94,20 @@ class RentalTest {
     @Test
     void should_return_false_if_the_tool_is_not_in_this_warehouse(){
         //TODO: check if rentATool gets false if the tool is not in the warehouse
+        assertFalse( rental.rentATool(hammer,pickupStation,custLudwig,warehouse));
 
         //TODO: wait until the method "removeToolFromWarehouse" is compledet
-        assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
+      //  assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
     }
 
     @Test
     void should_return_a_tool(){
-        //Assertions.assertNull(station1.removeToolFromBox(drill));
+        GregorianCalendar today = new GregorianCalendar();
+        boolean result= warehouse.putToolInWarehouse(drill);
+        boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
+        boolean toolInStation=returnStation.addToolToBox(drill);
+        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
+    assertTrue(checkReturn);
     }
 
     
