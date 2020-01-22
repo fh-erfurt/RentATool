@@ -117,6 +117,7 @@ public class Bill {
                 {
                     if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
                     {
+                        System.out.println("die Rechnung wurde nicht gefunden");
                         return false;
                     }
                 }

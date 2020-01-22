@@ -3,6 +3,7 @@ package de.rat;
 import de.rat.billing.Bill;
 import de.rat.common.Address;
 import de.rat.customer.Customer;
+import de.rat.customer.RentProcess;
 import de.rat.employee.Company;
 import de.rat.employee.Department;
 import de.rat.employee.Employee;
@@ -105,7 +106,7 @@ class RentalTest {
         GregorianCalendar today = new GregorianCalendar();
         boolean result= warehouse.putToolInWarehouse(drill);
         boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
-        boolean toolInStation=returnStation.addToolToBox(drill);
+        boolean toolInReturnStation=returnStation.addToolToBox(drill);
         boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
     assertTrue(checkReturn);
     }
@@ -113,17 +114,29 @@ class RentalTest {
     
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
-
+        GregorianCalendar today = new GregorianCalendar();
+        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
+        assertFalse(checkReturn);
     }
 
     @Test
     void should_return_false_if_there_is_no_open_bill_from_this_customer(){
-
+        GregorianCalendar today = new GregorianCalendar();
+        boolean toolInReturnStation=returnStation.addToolToBox(drill);
+        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
+        assertFalse(checkReturn);
     }
 
     @Test
     void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
+        GregorianCalendar today = new GregorianCalendar();
+        boolean result= warehouse.putToolInWarehouse(drill);
+        boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
 
+        boolean toolInReturnStation=returnStation.addToolToBox(drill);
+
+        boolean checkReturn=rental.returnTool(drill,returnStation,custLudwig,warehouse, today);
+        assertFalse(checkReturn);
     }
 
 
