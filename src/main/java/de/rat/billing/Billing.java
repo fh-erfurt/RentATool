@@ -9,18 +9,27 @@ import de.rat.employee.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+/**Represents a class bill.
+ * Hold a list of every rentprocess from a customer
+ * for a specific date.
+ * @author Danny Steinbrecher
+ */
+
+
+/** Creates a billing class .
+ * @param openBills a list from open bills
+ * @param closedBills a list from closed bills
+ * @param checkBills a list from the bills that still have to be checked from the employee
+ */
 public class Billing {
-    /** Creates an rental .
-     * @param openBills a list from open bills
-     * @param closedBills a list from closed bills
-     */
+
     static private ArrayList<Bill> openBills = new ArrayList<Bill>();
     static private ArrayList<Bill> checkBills = new ArrayList<Bill>();
    static private ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
 
 
-    /** Find a open bill from the customer.
+    /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
      */
@@ -38,6 +47,11 @@ public class Billing {
         return null;
     }
 
+
+    /** Find a open bill from the customer and complete the rent processes
+     * @return A class bill when the customer has a open bill, otherwise
+     * @return null if there are no open bills
+     */
     public static Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation, GregorianCalendar Date)
     {
         for (Bill foundedBill : openBills) {
@@ -64,6 +78,12 @@ public class Billing {
         return newBill;
     }
 
+    /** Move the  bills from the openBill Array to the checkedBill Array
+     * and send a notification to all employee's
+     * @param checkBills bills that have to checked from the employee
+     * @param openBills bills with open rent processes
+
+     */
     public static void moveBillFromOpenToChecked()
     {
         for (Bill foundedBill : openBills)
@@ -74,10 +94,18 @@ public class Billing {
                 openBills.remove(foundedBill);
                 EmployeeNotification.sendNotificationToAllEmployees();
             }
+
         }
+
     }
 
-    public static boolean moveFromCheckToClosed(Bill checkBill)
+    /** Move the  bills from the checkBill Array to the closeBill Array
+     * @param checkBills bills that have to checked from the employee
+     * @param closedBills bills with closed bills
+
+     */
+
+    public static void moveFromCheckToClosed(Bill checkBill)
     {
         for(Bill foundedBill:checkBills)
         {
@@ -85,13 +113,13 @@ public class Billing {
             {
                 closedBills.add(checkBill);
                 checkBills.remove(checkBill);
-                return true;
+
             }
         }
-        return false;
+
     }
 
-    /**Gets or Create open bill.
+    /**Find or Create open bill.
      * @param customer the customer that rented the tool
      * @param pickupStation the station which the tool was pickup
      * create a new open bill with include the pickup station an customer
