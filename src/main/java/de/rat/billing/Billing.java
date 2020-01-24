@@ -23,11 +23,9 @@ import java.util.GregorianCalendar;
  */
 public class Billing {
 
-    static private ArrayList<Bill> openBills = new ArrayList<Bill>();
-    static private ArrayList<Bill> checkBills = new ArrayList<Bill>();
-   static private ArrayList<Bill> closedBills = new ArrayList<Bill>();
-
-
+    private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
+    private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
+    private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
     /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
@@ -75,6 +73,7 @@ public class Billing {
     public static Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         openBills.add(newBill);
+        System.out.println("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
         return newBill;
     }
 
@@ -92,7 +91,9 @@ public class Billing {
             {
                 checkBills.add(foundedBill);
                 openBills.remove(foundedBill);
+                System.out.println("Die Rechnung sdfsdfsdfsdfsdf nicht gefunden");
                 EmployeeNotification.sendNotificationToAllEmployees();
+                System.out.println("Die Rechnung wurde nicht gefunden");
             }
 
         }
@@ -128,7 +129,6 @@ public class Billing {
         Bill bill = findOpenBillFromCustomer(customer);
         if(bill == null){
             bill = CreateOpenBillFromCustomer(pickupStation, customer);
-            System.out.println("Die Rechnung wurde erstellt");
             return bill;
         }
         System.out.println("Eine Rechnung wurde gefunden");

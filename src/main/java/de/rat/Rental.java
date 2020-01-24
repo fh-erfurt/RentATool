@@ -44,16 +44,15 @@ public class Rental {
      * @return true if the return process complete
      */
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
-            if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
-            warehouse.putToolInWarehouse(wantedTool);
 
-            Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+        if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
+        warehouse.putToolInWarehouse(wantedTool);
 
-            if(bill == null){return false;}
+        Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
 
-            if(!bill.checkBill(customer)) { return false; }
-
-            Billing.moveBillFromOpenToChecked();
+        if(bill == null){return false;}
+        if(!bill.checkBill(customer)) { return false; }
+        Billing.moveBillFromOpenToChecked();
 
         return true;
     }

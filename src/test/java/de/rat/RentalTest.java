@@ -77,6 +77,7 @@ class RentalTest {
 
     @Test
     void should_return_a_tool(){
+
         warehouse.putToolInWarehouse(drill);
         assertTrue(rental.rentATool(drill, stationOne, custMaria, warehouse));
 
