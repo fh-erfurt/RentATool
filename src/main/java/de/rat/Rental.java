@@ -1,19 +1,14 @@
 package de.rat;
 
-import de.rat.billing.Bill;
-import de.rat.billing.Billing;
-import de.rat.customer.Customer;
-import de.rat.logistics.Station;
-import de.rat.logistics.Tool;
-import de.rat.logistics.Warehouse;
-
+import de.rat.billing.*;
+import de.rat.customer.*;
+import de.rat.logistics.*;
 import java.util.GregorianCalendar;
+
 /**Represents an rental.
  * @author Danny Steinbrecher
  */
 public class Rental {
-
-
 
     /** Creates an rental .
      * @param --
@@ -34,13 +29,13 @@ public class Rental {
         if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
 
         //check if the station is full
-        if(pickupStation.checkStationLevel()){return false;}
+        if(!pickupStation.addToolToBox(wantedTool)){return false;}
 
         Bill bill = Billing.findOrCreateBill(customer, pickupStation);
 
         bill.addRentProcess(wantedTool);
 
-        return pickupStation.addToolToBox(wantedTool);
+        return true;
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
@@ -59,6 +54,7 @@ public class Rental {
              */
 
             Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+
             if(bill == null){return false;}
 
             if(!bill.checkBill(customer)) { return false; }

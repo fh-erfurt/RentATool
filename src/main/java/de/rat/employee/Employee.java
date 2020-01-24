@@ -46,12 +46,14 @@ public class Employee extends Person {
 
     public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill,int discount)
     {
+        //TODO: musste aufgrund der static änderungen in der Billing und dem setzten von Boolean auf Void für die kmode Methode angepasst werden
+        // muss geprüft werde
         checkBill.setDiscount(discount);
         checkBill.setFullRentPrice();
 
-        Billing billing=new Billing();
-        return billing.moveFromCheckToClosed(checkBill);
-
+        //Billing billing=new Billing();
+        Billing.moveFromCheckToClosed(checkBill);
+        return true;
     }
 
 

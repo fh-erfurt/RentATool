@@ -21,21 +21,12 @@ class RentalTest {
 
 
     //Variable declaration
-    private Department deptRental;
-    private Department deptLogistics;
-    private Department deptManagement;
-
-    private Employee empDanny;
-    private Employee empMichael;
-    private Employee empJonas;
-
     private Customer custMaria;
     private Customer custLudwig;
 
-    private Company rentATool;
     private Address musterhausen;
-    private Station pickupStation;
-    private Station returnStation;
+    private Station stationOne;
+    private Station stationTwo;
     private Warehouse warehouse;
     private Manufacturer bosch;
 
@@ -53,8 +44,8 @@ class RentalTest {
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
-        pickupStation = new Station("S1", 3, musterhausen);
-        returnStation = new Station("S2", 20, musterhausen);
+        stationOne = new Station("S1", 30, musterhausen);
+        stationTwo = new Station("S2", 20, musterhausen);
 
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
         hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.ISINREPAIR, 2.5);
@@ -70,32 +61,25 @@ class RentalTest {
     }
 
 
-
-
     @Test
-    void sholud_rent_a_tool(){
-        boolean result= warehouse.putToolInWarehouse(drill);
-        boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
-        assertTrue(checkRent);
-        Assertions.assertEquals(drill, pickupStation.removeToolFromBox(drill));
-
-        //TODO: wait until the method "findeRentProcess" is compledet
-        //Assertions.assertEquals(drill, rental.findOrCreateOpenBillFromCustomer(pickupStation, custMaria).findRentProcess(drill).getRentedTool());
+    void should_rent_a_tool(){
+        warehouse.putToolInWarehouse(drill);
+        assertTrue(rental.rentATool(drill, stationOne, custMaria, warehouse));
     }
 
     @Test
     void should_return_false_if_the_station_is_full(){
-        pickupStation.addToolToBox(hammer);
-        pickupStation.addToolToBox(welder);
-        pickupStation.addToolToBox(welder2);
+        stationOne.addToolToBox(hammer);
+        stationOne.addToolToBox(welder);
+        stationOne.addToolToBox(welder2);
 
-        assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
+        assertFalse(rental.rentATool(drill, stationOne, custMaria, warehouse));
     } 
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_warehouse(){
         //TODO: check if rentATool gets false if the tool is not in the warehouse
-        assertFalse( rental.rentATool(hammer,pickupStation,custLudwig,warehouse));
+        assertFalse( rental.rentATool(hammer,stationOne,custLudwig,warehouse));
 
         //TODO: wait until the method "removeToolFromWarehouse" is compledet
       //  assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
@@ -103,27 +87,26 @@ class RentalTest {
 
     @Test
     void should_return_a_tool(){
+        warehouse.putToolInWarehouse(drill);
+        assertTrue(rental.rentATool(drill, stationOne, custMaria, warehouse));
+
         GregorianCalendar today = new GregorianCalendar();
-        boolean result= warehouse.putToolInWarehouse(drill);
-        boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
-        boolean toolInReturnStation=returnStation.addToolToBox(drill);
-        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
-    assertTrue(checkReturn);
+        assertTrue(rental.returnTool(drill,stationOne,custMaria,warehouse, today));
     }
 
     
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
+        boolean checkReturn=rental.returnTool(drill,stationOne,custMaria,warehouse, today);
         assertFalse(checkReturn);
     }
 
     @Test
     void should_return_false_if_there_is_no_open_bill_from_this_customer(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean toolInReturnStation=returnStation.addToolToBox(drill);
-        boolean checkReturn=rental.returnTool(drill,returnStation,custMaria,warehouse, today);
+        boolean toolInReturnStation=stationOne.addToolToBox(drill);
+        boolean checkReturn=rental.returnTool(drill,stationOne,custMaria,warehouse, today);
         assertFalse(checkReturn);
     }
 
@@ -131,11 +114,11 @@ class RentalTest {
     void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
         GregorianCalendar today = new GregorianCalendar();
         boolean result= warehouse.putToolInWarehouse(drill);
-        boolean checkRent = rental.rentATool(drill, pickupStation, custMaria, warehouse);
+        boolean checkRent = rental.rentATool(drill, stationOne, custMaria, warehouse);
 
-        boolean toolInReturnStation=returnStation.addToolToBox(drill);
+        boolean toolInReturnStation=stationOne.addToolToBox(drill);
 
-        boolean checkReturn=rental.returnTool(drill,returnStation,custLudwig,warehouse, today);
+        boolean checkReturn=rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
         assertFalse(checkReturn);
     }
 

@@ -51,26 +51,21 @@ public class Station {
     }
 
     public boolean addToolToBox(Tool tool)
-        {
-            /* checks whether the tool is already in the list */
-            if(boxesOfTools.contains(tool)) {
-                System.out.println("Das Werkzeug ist bereits in der Liste vorhanden!");
-                return false;
-            }else {
-    //TODO: Methode checkStationLevel nutzen
-                int ToolCounter = boxesOfTools.size();
+    {
+        if(!this.checkStationLevel()){return false;}
 
-                if (!checkStationLevel()) {
-                    return false;
-                } else {
-                    boxesOfTools.add(tool);
-                    return true;
-                }
-
-            }
-
-
+        /* checks whether the tool is already in the box */
+        if(boxesOfTools.contains(tool)) {
+            System.out.println("Das Werkzeug ist bereits in der Station!");
+            return false;
         }
+
+        boxesOfTools.add(tool);
+        System.out.println("Das Werkzeug wurde in die Box gelegt");
+        return true;
+    }
+
+
 
     public Tool removeToolFromBox(Tool wantedTool)
         {
