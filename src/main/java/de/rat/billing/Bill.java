@@ -225,6 +225,7 @@ public class Bill {
                     }
                 }
                 this.setFullRentPrice();
+                System.out.println("Der Gesamtpreis wurde eingetragen!");
                 return true;
             }
 

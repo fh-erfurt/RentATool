@@ -1,24 +1,16 @@
 package de.rat;
 
-import de.rat.billing.Bill;
-import de.rat.common.Address;
-import de.rat.customer.Customer;
-import de.rat.customer.RentProcess;
-import de.rat.employee.Company;
-import de.rat.employee.Department;
-import de.rat.employee.Employee;
+import de.rat.common.*;
+import de.rat.customer.*;
 import de.rat.logistics.*;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class RentalTest {
+import java.util.GregorianCalendar;
 
+class RentalTest {
 
     //Variable declaration
     private Customer custMaria;
@@ -26,7 +18,6 @@ class RentalTest {
 
     private Address musterhausen;
     private Station stationOne;
-    private Station stationTwo;
     private Warehouse warehouse;
     private Manufacturer bosch;
 
@@ -44,8 +35,7 @@ class RentalTest {
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
-        stationOne = new Station("S1", 30, musterhausen);
-        stationTwo = new Station("S2", 20, musterhausen);
+        stationOne = new Station("S1", 3, musterhausen);
 
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
         hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.ISINREPAIR, 2.5);
@@ -69,20 +59,19 @@ class RentalTest {
 
     @Test
     void should_return_false_if_the_station_is_full(){
+
         stationOne.addToolToBox(hammer);
         stationOne.addToolToBox(welder);
         stationOne.addToolToBox(welder2);
+
+        warehouse.putToolInWarehouse(drill);
 
         assertFalse(rental.rentATool(drill, stationOne, custMaria, warehouse));
     } 
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_warehouse(){
-        //TODO: check if rentATool gets false if the tool is not in the warehouse
-        assertFalse( rental.rentATool(hammer,stationOne,custLudwig,warehouse));
-
-        //TODO: wait until the method "removeToolFromWarehouse" is compledet
-      //  assertFalse(rental.rentATool(drill, pickupStation, custMaria, warehouse));
+        assertFalse(rental.rentATool(hammer,stationOne,custLudwig,warehouse));
     }
 
     @Test
@@ -94,7 +83,6 @@ class RentalTest {
         assertTrue(rental.returnTool(drill,stationOne,custMaria,warehouse, today));
     }
 
-    
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
         GregorianCalendar today = new GregorianCalendar();
