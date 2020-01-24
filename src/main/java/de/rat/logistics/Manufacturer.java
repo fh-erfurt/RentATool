@@ -69,7 +69,7 @@ public class Manufacturer {
 
     /** Sets the manufacturer address.
      * @param address  A Class containing the  manufacturer
-     *    addess.
+     *    address.
      */
     public void setAddress(Address address) {
         this.address = address;
