@@ -1,6 +1,7 @@
 package de.rat.customer;
 
 
+import de.rat.Rental;
 import de.rat.common.Person;
 import de.rat.common.Role;
 import de.rat.logistics.Station;
@@ -77,9 +78,13 @@ public class Customer extends Person {
      *  @param removeStation the station which the tool will be removed
      */
     public boolean returnToolToStation(Tool wantedTool, Station removeStation){
-        Tool searchedTool = getToolFromInventory(wantedTool);
-        return removeStation.addToolToBox(wantedTool);
+        if(getToolFromInventory(wantedTool) != null) {
+            return removeStation.addToolToBox(wantedTool);
+            // Rental retnal = new Rental();
+            // retnal.returnTool(wantedTool)
+            // TODO: ggf an den Return Tool geben!
+        }
+        return false;
     }
-
 }
 

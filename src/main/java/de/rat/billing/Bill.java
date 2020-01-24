@@ -133,7 +133,7 @@ public class Bill {
     public void addRentProcess(Tool wantedTool)
     {
         RentProcess rentProcess = new RentProcess(wantedTool);
-       this.getListOfRentProcesses().add(rentProcess);
+        this.getListOfRentProcesses().add(rentProcess);
 
     }
 

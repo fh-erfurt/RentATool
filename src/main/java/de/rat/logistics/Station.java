@@ -57,7 +57,7 @@ public class Station {
                 System.out.println("Das Werkzeug ist bereits in der Liste vorhanden!");
                 return false;
             }else {
-
+    //TODO: Methode checkStationLevel nutzen
                 int ToolCounter = boxesOfTools.size();
 
                 if (!checkStationLevel()) {

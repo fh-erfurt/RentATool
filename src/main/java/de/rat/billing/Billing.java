@@ -24,7 +24,7 @@ public class Billing {
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
      */
-    public Bill findOpenBillFromCustomer(Customer customer){
+    public static Bill findOpenBillFromCustomer(Customer customer){
         for (Bill foundedBill : openBills) {
 
             // get date of today for comparing with rentDate
@@ -38,7 +38,7 @@ public class Billing {
         return null;
     }
 
-    public Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation, GregorianCalendar Date)
+    public static Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation, GregorianCalendar Date)
     {
         for (Bill foundedBill : openBills) {
 
@@ -47,22 +47,24 @@ public class Billing {
             if (foundedBill.getCustomer().equals(customer)&& rentprocess!= null) {
 
                 rentprocess.completeRentProcess(removeStation, Date);
+                System.out.println("Die Rechnung wurde gefunden");
                 return foundedBill;
             }
         }
+        System.out.println("Die Rechnung wurde nicht gefunden");
         return null;
     }
 
     /** Create a bill from the customer
      * @return A class bill with the customer and the pickup station
      */
-    public Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
+    public static Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         openBills.add(newBill);
         return newBill;
     }
 
-    public void moveBillFromOpenToChecked()
+    public static void moveBillFromOpenToChecked()
     {
         for (Bill foundedBill : openBills)
         {
@@ -75,7 +77,7 @@ public class Billing {
         }
     }
 
-    public boolean moveFromCheckToClosed(Bill checkBill)
+    public static boolean moveFromCheckToClosed(Bill checkBill)
     {
         for(Bill foundedBill:checkBills)
         {
@@ -87,5 +89,21 @@ public class Billing {
             }
         }
         return false;
+    }
+
+    /**Gets or Create open bill.
+     * @param customer the customer that rented the tool
+     * @param pickupStation the station which the tool was pickup
+     * create a new open bill with include the pickup station an customer
+     */
+    public static Bill findOrCreateBill(Customer customer, Station pickupStation){
+        Bill bill = findOpenBillFromCustomer(customer);
+        if(bill == null){
+            bill = CreateOpenBillFromCustomer(pickupStation, customer);
+            System.out.println("Die Rechnung wurde erstellt");
+            return bill;
+        }
+        System.out.println("Eine Rechnung wurde gefunden");
+        return bill;
     }
 }

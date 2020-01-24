@@ -25,7 +25,6 @@ public class Warehouse {
     }
 
     public Tool removeToolFromWarehouse(Tool tool){
-
         for (Tool foundedTool : Stock)
         {
             if(foundedTool.equals(tool))
@@ -35,6 +34,7 @@ public class Warehouse {
                     System.out.println("Das Tool ist bereit zum Ausleihen");
                     return tool;
                 }
+                //TODO: Fehlermeldung bei falschem Werkzeugstatus einbauen
             }
         }
         System.out.println("Werkzeug nicht im Lager vorhanden");

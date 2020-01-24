@@ -30,29 +30,22 @@ public class Rental {
      */
     public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        try{
-            //check if the station is full
-            if(!pickupStation.checkStationLevel()){return false;}
+        //check if the searched Tool is in the warehouse
+        if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
 
-            //check if the searched Tool is in the warehouse
-            if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
+        //check if the station is full
+        if(pickupStation.checkStationLevel()){return false;}
 
-            Bill bill = this.findOrCreateBill(customer, pickupStation);
+        Bill bill = Billing.findOrCreateBill(customer, pickupStation);
 
+        bill.addRentProcess(wantedTool);
 
-            bill.addRentProcess(wantedTool);
-
-            if(!pickupStation.addToolToBox(wantedTool)){return false;}
-      }
-       catch (Exception e){
-            System.out.println(getClass() + ": " + e.getMessage());
-        }
-        return true;
+        return pickupStation.addToolToBox(wantedTool);
     }
 
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
 
-        try{
+
             /**Gets the wanted tool.
              * @return false when the returnTool that store in the remove station
              * is not the wanted tool, otherwise the wanted tool is store in the warehouse
@@ -65,38 +58,18 @@ public class Rental {
              * @return false if there are no open bills from the customer
              */
 
-            Bill bill = new Billing().findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
-            if(bill == null){
-                System.out.println("Die Rechnung wurde nicht gefunden");
-                return false;
-            }
+            Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+            if(bill == null){return false;}
 
             if(!bill.checkBill(customer)) { return false; }
 
-               Billing billing =new Billing();
-               billing.moveBillFromOpenToChecked();
+            Billing.moveBillFromOpenToChecked();
 
-
-        } catch (Exception e){
-            System.out.println(getClass() + ": " + e.getMessage());
-        }
         return true;
     }
 
 
-    /**Gets or Create open bill.
-     * @param customer the customer that rented the tool
-     * @param pickupStation the station which the tool was pickup
-     * create a new open bill with include the pickup station an customer
-     */
-    private Bill findOrCreateBill(Customer customer, Station pickupStation){
-        Bill bill = new Billing().findOpenBillFromCustomer(customer);
-        if(bill == null){
-            bill = new Billing().CreateOpenBillFromCustomer(pickupStation, customer);
-            System.out.println("Die Rechnung wurde gemacht");
-        }
-        return bill;
-    }
+
 
 
 }
