@@ -93,7 +93,6 @@ public class Billing {
                 checkBills.add(foundedBill);
                 openBills.remove(foundedBill);
                 EmployeeNotification.sendNotificationToAllEmployees();
-                System.out.println("Die Rechnung wurde von der Offenen Liste in die Liste zum Prüfen verschoben!");
             }
 
         }
