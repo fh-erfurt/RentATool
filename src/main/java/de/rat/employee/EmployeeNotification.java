@@ -8,6 +8,11 @@ public class EmployeeNotification {
 
 static private ArrayList  <Employee> employees=new ArrayList <Employee>();
 
+    public static void addEmployee(Employee employee)
+    {
+        employees.add(employee);
+
+    }
 public static void sendNotificationToAllEmployees()
 {
     for (Employee employee : employees) {

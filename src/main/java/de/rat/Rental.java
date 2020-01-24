@@ -53,7 +53,6 @@ public class Rental {
         if(bill == null){return false;}
         if(!bill.checkBill(customer)) { return false; }
         Billing.moveBillFromOpenToChecked();
-
         return true;
     }
 

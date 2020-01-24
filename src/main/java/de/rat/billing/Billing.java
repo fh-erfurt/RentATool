@@ -8,6 +8,7 @@ import de.rat.employee.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
@@ -26,6 +27,9 @@ public class Billing {
     private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
+
+    public Billing() {
+    }
 
     /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
@@ -73,6 +77,14 @@ public class Billing {
     public static Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         openBills.add(newBill);
+
+
+        for (Bill foundedBill : openBills)
+        {
+            System.out.println(foundedBill.getCustomer());
+        }
+
+
         System.out.println("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
         return newBill;
     }
@@ -85,20 +97,33 @@ public class Billing {
      */
     public static void moveBillFromOpenToChecked()
     {
-        for (Bill foundedBill : openBills)
+        Iterator iterator = openBills.iterator();
+        while (iterator.hasNext())
         {
-            if(foundedBill.getFullRentPrice() != 0)
+            Bill bill = (Bill) iterator.next();
+
+            if(bill.getFullRentPrice() != 0)
             {
-                checkBills.add(foundedBill);
-                openBills.remove(foundedBill);
-                System.out.println("Die Rechnung sdfsdfsdfsdfsdf nicht gefunden");
+                iterator.remove();
+                checkBills.add(bill);
                 EmployeeNotification.sendNotificationToAllEmployees();
-                System.out.println("Die Rechnung wurde nicht gefunden");
+                System.out.println("Rechnung wurde von Open zu Checked verschoben");
             }
 
         }
 
+
+
     }
+
+    public static void rechne() {
+
+        System.out.println("openBills: " + openBills.size());
+        System.out.println("checkBills: " + checkBills.size());
+
+
+    }
+
 
     /** Move the  bills from the checkBill Array to the closeBill Array
      * @param checkBills bills that have to checked from the employee

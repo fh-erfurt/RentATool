@@ -59,8 +59,8 @@ public class Bill {
         this.rentDate= new GregorianCalendar();
         this.rentStation=rentStation;
         this.billDate=null;
-        this.discount=0;
-        this.fullRentPrice=0;
+        this.discount= 0;
+        this.fullRentPrice= 0;
         autoincrementNumber++;
         this.billNumber = autoincrementNumber;
     }
@@ -197,7 +197,7 @@ public class Bill {
         {
             // get the dates of the return and rented Date and calculate the difference.
             int days = calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
-
+            System.out.println("Days: " + days);
             // multiply the rented days with the rentPrice for each tool
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
@@ -269,11 +269,11 @@ public class Bill {
      * @return  the calculated days
      *
      */
-    public int calculateDifferenceBetweenDates(GregorianCalendar lowerDate, GregorianCalendar higherDate)
+    public int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate)
     {
         // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
         long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
-       return (int)Math.round((double)LongDateDifference/(24.*60.*60.*1000.)); //Gregorian Calender hold the time as milliseconds
+        return (int)Math.ceil((double)LongDateDifference/(24.*60.*60.*1000.)) + 1; //Gregorian Calender hold the time as milliseconds
 
     }
 }
