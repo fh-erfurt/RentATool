@@ -1,7 +1,16 @@
 package de.rat.logistics;
 
+/** Creates a tool .
+ *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
+ *  @param manufacturer from the tool
+ *  @param description
+ *  @param category a enum with the entry ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
+ *  @param toolStatus a enum with the entry  AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
+ *  @param rentPrice the several rent price for the tool
+ *
+ */
 public class Tool {
-    private String itemId; // this is a ID that comes from the manufacturer. Like this: A120-B20W
+    private String itemId;
     private Manufacturer manufacturer;
     private String description;
     private Category category;
@@ -9,6 +18,16 @@ public class Tool {
     private ToolStatus toolStatus;
     private double rentPrice;
 
+
+    /** constructor for a tool .
+     *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
+     *  @param manufacturer from the tool
+     *  @param description
+     *  @param category a enum with the entry ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
+     *  @param toolStatus a enum with the entry  AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
+     *  @param rentPrice the several rent price for the tool
+     *
+     */
     public Tool(String itemId, Manufacturer manufacturer, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
         this.itemId = itemId;
         this.manufacturer = manufacturer;
@@ -19,57 +38,122 @@ public class Tool {
         this.rentPrice = rentPrice;
     }
 
+    /** get the ID for a tool .
+     *  @return  itemId this is a ID that comes from the manufacturer
+     *
+     */
+
     public String getItemId() {
         return itemId;
     }
-
+    /** set the ID for a tool .
+     *  @param  itemId this is a ID that comes from the manufacturer
+     *
+     */
     public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
+
+    /** get the manufacturer for a tool .
+     *  @return  manufacturer this is a ID that comes from the manufacturer
+     *
+     */
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
+
+    /** set the manufacturer for a tool .
+     *  @param  manufacturer this is a ID that comes from the manufacturer
+     *
+     */
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
+
+
+    /** get the description for a tool .
+     *  @return  description this is a the respective description
+     *
+     */
     public String getDescription() {
         return description;
     }
 
+    /** set the description for a tool .
+     *  @param  description this is a the respective description
+     *
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /** get the category for a tool .
+     *  @return  category this is a the respective category
+     *
+     */
     public Category getCategory() {
         return category;
     }
 
+    /** set the category for a tool .
+     *  @param  category this is a the respective description
+     *
+     */
     public void setCategory(Category category) {
         this.category = category;
     }
 
+
+    /** get the stock for a tool
+     *  @return  stock this is a the respective stock
+     *
+     */
     public String getStock() {
         return stock;
     }
 
+
+    /** set the stock for a tool .
+     *  @param  stock this is a the respective stock
+     *
+     */
     public void setStock(String stock) {
         this.stock = stock;
     }
 
+    /** get the tool status for a tool .
+     *  @return  toolStatus this is a the respective tool status
+     *  enum AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
+     *
+     */
     public ToolStatus getToolStatus() { return toolStatus;
     }
 
+    /** set the tool status for a tool .
+     *  @param  toolStatus this is a the respective tool status
+     *  enum AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
+     *
+     */
     public void setToolStatus(ToolStatus toolStatus) {
         this.toolStatus = toolStatus;
     }
 
+
+    /** get the rent prices for a tool .
+     *  @return rentPrice this is a the respective rent price
+     *
+     */
     public double getRentPrice() {
         return rentPrice;
     }
 
+    /** set the rent price for a tool .
+     *  @param  rentPrice this is a the respective rent price
+     *
+     */
     public void setRentPrice(double rentPrice) {
         this.rentPrice = rentPrice;
     }

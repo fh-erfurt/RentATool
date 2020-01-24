@@ -37,21 +37,15 @@ public class Rental {
 
         return true;
     }
-
+    /**return the wanted tool.
+     * @return false when the returnTool that store in the remove station
+     * is not the wanted tool, otherwise the wanted tool is store in the warehouse
+     * @return false if the customer is not he right customer
+     * @return true if the return process complete
+     */
     public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
-
-
-            /**Gets the wanted tool.
-             * @return false when the returnTool that store in the remove station
-             * is not the wanted tool, otherwise the wanted tool is store in the warehouse
-             */
-
             if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
             warehouse.putToolInWarehouse(wantedTool);
-
-            /**Gets the open bill.
-             * @return false if there are no open bills from the customer
-             */
 
             Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
 
