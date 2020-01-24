@@ -5,11 +5,24 @@ import de.rat.logistics.Tool;
 
 import java.util.GregorianCalendar;
 
+
+/** Creates an customer .
+ *  @param rentedTool is the rented tool
+ *  @param returnDate the date when the customer bring the tool back
+ *  @param returnStation the station that the customer has chosen to bring back the tool
+ *
+ */
 public class RentProcess {
     private Tool rentedTool;
     private GregorianCalendar returnDate;
     private Station returnStation;
 
+    /** Creates an customer .
+     *  @param rentedTool is the rented tool
+     *  @param returnDate the date when the customer bring the tool back
+     *  @param returnStation the station that the customer has chosen to bring back the tool
+     *
+     */
     public RentProcess (Tool rentedTool){
         this.rentedTool = rentedTool;
         returnDate=null;
@@ -43,7 +56,13 @@ public class RentProcess {
         this.rentedTool = rentedTool;
     }
 
-    /*methods*/
+
+
+    /** set return date and return station to complete the return process
+     *  @return  true if the method works
+     *  @return  false if the method not works
+     *
+     */
     public boolean completeRentProcess(Station station, GregorianCalendar date){
 
         if(this.rentedTool != null && station != null && date != null){
