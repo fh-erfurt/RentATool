@@ -1,5 +1,5 @@
 ![CodeFactor](https://img.shields.io/badge/JAVA-8-blue)
-[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://https://github.com/fh-erfurt/RentATool/actions)
+[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 [![Build Status](https://travis-ci.org/fh-erfurt/RentATool.svg?branch=master)](https://travis-ci.org/fh-erfurt/RentATool)
 
 # Verleihstation für Werkzeuge
