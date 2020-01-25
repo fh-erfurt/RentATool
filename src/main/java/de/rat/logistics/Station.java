@@ -104,7 +104,7 @@ public class Station {
                 if (foundedTool.equals(wantedTool))
                 {
                     boxesOfTools.remove(foundedTool);
-                    System.out.println("Werkzeug wurde in Station gefunden");
+                    System.out.println("Werkzeug wurde in Station gefunden und entfernt");
                     return foundedTool;
                 }
             }

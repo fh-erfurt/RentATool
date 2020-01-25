@@ -15,12 +15,15 @@ class StationTest {
     Tool testtool = new Tool("123",Bosch,"Hammer",Category.HANDTOOL,"1-4-5",ToolStatus.AVAILABLE,3.5);
     Tool testtool1 = new Tool("AAA",Bosch,"Säge",Category.HANDTOOL,"1-4-3",ToolStatus.AVAILABLE,3.0);
     Tool testtool2 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
+    Station station2 = new Station("S2", 5, testaddress);
+    Tool testtool3 = new Tool("XXX",Bosch,"Schaufel", Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
+    Tool testtool4 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2", ToolStatus.AVAILABLE,4.0);
+    Tool testtool5 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
 
-
     /*#############################################################*/
     /*#############################################################*/
     /*#############################################################*/
-    @Test public void isAToolAdded ()
+    @Test public void is_a_tool_added_to_the_box ()
     {
 
         /* test for adding a tool in a box in a station */
@@ -31,7 +34,7 @@ class StationTest {
     /*#############################################################*/
     /*#############################################################*/
     /*#############################################################*/
-    @Test public void isBoxLimitReached ()
+    @Test public void is_box_limit_reached ()
     {
         /* test that box limit has no overflow */
         station.addToolToBox(testtool);
@@ -45,7 +48,7 @@ class StationTest {
     /*#############################################################*/
     /*#############################################################*/
     /*#############################################################*/
-        @Test public void isToolRemoved () {
+        @Test public void is_tool_removed () {
 
             station.addToolToBox(testtool);
             station.addToolToBox(testtool1);
@@ -60,7 +63,7 @@ class StationTest {
             assertEquals(compareTool, boxTool);
     }
 
-    @Test public void isToolAlreadyInTheBox()
+    @Test public void is_tool_already_in_the_box()
     {
         station.addToolToBox(testtool);
         station.addToolToBox(testtool1);
@@ -75,15 +78,8 @@ class StationTest {
 
 
     @Test
-    public void checkStationLevel() {
-        Address testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-        Station station2 = new Station("S2", 5, testaddress);
-        Tool testtool = new Tool("123",Bosch,"Hammer",Category.HANDTOOL,"1-4-5",ToolStatus.AVAILABLE,3.5);
-        Tool testtool1 = new Tool("AAA",Bosch,"Säge",Category.HANDTOOL,"1-4-3",ToolStatus.AVAILABLE,3.0);
-        Tool testtool2 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
-        Tool testtool3 = new Tool("XXX",Bosch,"Schaufel", Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
-        Tool testtool4 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2", ToolStatus.AVAILABLE,4.0);
-        Tool testtool5 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
+    public void check_the_station_level() {
+
         station2.addToolToBox(testtool);
         station2.addToolToBox(testtool1);
         station2.addToolToBox(testtool2);
@@ -94,5 +90,11 @@ class StationTest {
         station2.addToolToBox(testtool5);
         assertEquals(5, station2.getNumberOfTools());
         assertFalse(false);
+    }
+
+    @Test public void how_big_is_the_size_of_boxes_in_the_station()
+    {
+       assertEquals(5, station2.getNumberOfBoxes());
+
     }
 }
