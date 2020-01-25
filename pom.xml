@@ -6,7 +6,7 @@
     <artifactId>RentATool</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <description>Example code showing things from the lecture in "real life"</description>
+    <description>Rent a Tool</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
