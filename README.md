@@ -1,5 +1,5 @@
-![CodeFactor](https://img.shields.io/badge/JAVA-8-blue)
-
+![CodeFactor](https://img.shields.io/badge/JAVA-11-blue)
+[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 
 # Verleihstation für Werkzeuge
 Im Rahmen des Projektes zum Thema Programmierung JAVA 1 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
