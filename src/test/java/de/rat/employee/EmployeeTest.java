@@ -1,7 +1,5 @@
 package de.rat.employee;
 
-import de.rat.employee.Department;
-import de.rat.employee.Employee;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,9 +9,6 @@ import java.util.GregorianCalendar;
 class EmployeeTest {
 
     //Variable declaration
-    private Department deptRental;
-    private Department deptLogistics;
-    private Department deptManagement;
 
     private Employee empDanny;
     private Employee empMichael;
@@ -21,16 +16,14 @@ class EmployeeTest {
 
     @BeforeEach
     void setUp() {
-        deptRental = new Department("Verleih");
-        deptLogistics = new Department("Logistik");
-        deptManagement = new Department("Geschaeftsleitung");
+
 
         empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
-                "Johannesstraße", 5, 99084, "Erfurt", "Germany", deptManagement);
+                "Johannesstraße", 5, 99084, "Erfurt", "Germany");
         empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, GregorianCalendar.FEBRUARY, 5),
-                "Michaelistraße", 17, 99086, "Erfurt", "Germany", deptLogistics, empDanny);
+                "Michaelistraße", 17, 99086, "Erfurt", "Germany", empDanny);
         empJonas = new Employee("Casio", "Jonas", new GregorianCalendar(2000, GregorianCalendar.OCTOBER, 30),
-                "Leipzigerstraße", 99, 99084, "Weimar", "Germany", deptRental, empDanny);
+                "Leipzigerstraße", 99, 99084, "Weimar", "Germany", empDanny);
     }
 
 

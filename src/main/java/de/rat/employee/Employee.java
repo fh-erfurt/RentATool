@@ -12,14 +12,12 @@ import de.rat.common.Account;
 import java.util.GregorianCalendar;
 
 /** Creates station .
- *  @param department this is the department from the employee
  *  @param supervisor from the employee
  *
  */
 
 public class Employee extends Person {
 
-    private Department department;
     private Employee supervisor;
 
 
@@ -31,22 +29,19 @@ public class Employee extends Person {
      */
     public Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country,
-             Department department, Employee supervisor) {
+             Employee supervisor) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword(lastname, firstname, birthday));
-        this.department = department;
         this.supervisor = supervisor;
     }
 
  //ToDO??????
     Employee(String lastname, String firstname, GregorianCalendar birthday,
-             String street, int houseNr, int zip, String city, String country,
-             Department department) {
+             String street, int houseNr, int zip, String city, String country) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword(lastname, firstname, birthday));
-        this.department = department;
         this.supervisor = null;
     }
 

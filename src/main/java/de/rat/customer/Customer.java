@@ -1,13 +1,11 @@
 package de.rat.customer;
 
 
-import de.rat.Rental;
 import de.rat.common.Person;
 import de.rat.common.Role;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 import de.rat.common.Account;
-import de.rat.employee.Company;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;

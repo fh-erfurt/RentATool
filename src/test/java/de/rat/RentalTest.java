@@ -2,11 +2,9 @@ package de.rat;
 
 import de.rat.common.*;
 import de.rat.customer.*;
-import de.rat.employee.Department;
 import de.rat.employee.Employee;
 import de.rat.employee.EmployeeNotification;
 import de.rat.logistics.*;
-import de.rat.billing.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,13 +17,6 @@ class RentalTest {
     //Variable declaration
     private Customer custMaria;
     private Customer custLudwig;
-
-    private Department deptRental;
-    private Department deptLogistics;
-    private Department deptManagement;
-
-
-
 
     private Address musterhausen;
     private Station stationOne;
@@ -52,9 +43,6 @@ class RentalTest {
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
 
-        deptRental = new Department("Verleih");
-        deptLogistics = new Department("Logistik");
-        deptManagement = new Department("Geschaeftsleitung");
 
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
         hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, 2.5);
@@ -68,11 +56,11 @@ class RentalTest {
 
 
         empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
-                "Johannesstraße", 5, 99084, "Erfurt", "Germany", deptManagement, null);
+                "Johannesstraße", 5, 99084, "Erfurt", "Germany", null);
         empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, GregorianCalendar.FEBRUARY, 5),
-                "Michaelistraße", 17, 99086, "Erfurt", "Germany", deptLogistics, empDanny);
+                "Michaelistraße", 17, 99086, "Erfurt", "Germany", empDanny);
         empJonas = new Employee("Casio", "Jonas", new GregorianCalendar(2000, GregorianCalendar.OCTOBER, 30),
-                "Leipzigerstraße", 99, 99084, "Weimar", "Germany", deptRental, empDanny);
+                "Leipzigerstraße", 99, 99084, "Weimar", "Germany", empDanny);
 
         EmployeeNotification.addEmployee(empDanny);
         EmployeeNotification.addEmployee(empMichael);

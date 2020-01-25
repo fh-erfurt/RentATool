@@ -1,9 +1,6 @@
 package de.rat.customer;
 
 import de.rat.common.Address;
-import de.rat.customer.Customer;
-import de.rat.employee.Company;
-import de.rat.employee.Department;
 import de.rat.employee.Employee;
 import de.rat.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,10 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
 //Variable declaration
-private Department deptRental;
-private Department deptLogistics;
-private Department deptManagement;
-
 private Employee empDanny;
 private Employee empMichael;
 private Employee empJonas;
@@ -26,7 +19,6 @@ private Employee empJonas;
 private Customer custMaria;
 private Customer custLudwig;
 
-private Company rentATool;
 private Address musterhausen;
 private Station station1;
 private Manufacturer bosch;
@@ -38,7 +30,6 @@ private Tool welder;
 
     @BeforeEach
     void setUp() {
-        rentATool = new Company("Rent a Tool");
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         station1 = new Station("S1", 3, musterhausen);
