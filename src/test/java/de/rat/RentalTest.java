@@ -23,7 +23,6 @@ class RentalTest {
     private Warehouse warehouse;
     private Manufacturer bosch;
 
-    private Rental rental;
 
     private Tool drill;
     private Tool hammer;
@@ -37,7 +36,6 @@ class RentalTest {
 
     @BeforeEach
     void setUp() {
-        rental = new Rental();
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
@@ -73,7 +71,7 @@ class RentalTest {
     @Test
     void should_rent_a_tool(){
         warehouse.putToolInWarehouse(drill);
-        assertTrue(rental.rentATool(drill, stationOne, custMaria, warehouse));
+        assertTrue(Rental.rentATool(drill, stationOne, custMaria, warehouse));
     }
 
     @Test
@@ -85,12 +83,12 @@ class RentalTest {
 
         warehouse.putToolInWarehouse(drill);
 
-        assertFalse(rental.rentATool(drill, stationOne, custMaria, warehouse));
+        assertFalse(Rental.rentATool(drill, stationOne, custMaria, warehouse));
     } 
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_warehouse(){
-        assertFalse(rental.rentATool(hammer,stationOne,custLudwig,warehouse));
+        assertFalse(Rental.rentATool(hammer,stationOne,custLudwig,warehouse));
     }
 
     @Test
@@ -98,19 +96,19 @@ class RentalTest {
 
         warehouse.putToolInWarehouse(drill);
         warehouse.putToolInWarehouse(hammer);
-        assertTrue(rental.rentATool(drill, stationOne, custMaria, warehouse));
-        assertTrue(rental.rentATool(hammer, stationOne, custMaria, warehouse));
+        assertTrue(Rental.rentATool(drill, stationOne, custMaria, warehouse));
+        assertTrue(Rental.rentATool(hammer, stationOne, custMaria, warehouse));
 
         GregorianCalendar today = new GregorianCalendar();
-        assertTrue(rental.returnTool(drill,stationOne,custMaria,warehouse, today));
-        assertTrue(rental.returnTool(hammer,stationOne,custMaria,warehouse, today));
+        assertTrue(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
+        assertTrue(Rental.returnTool(hammer,stationOne,custMaria,warehouse, today));
 
     }
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean checkReturn=rental.returnTool(drill,stationOne,custMaria,warehouse, today);
+        boolean checkReturn=Rental.returnTool(drill,stationOne,custMaria,warehouse, today);
         assertFalse(checkReturn);
     }
 
@@ -118,7 +116,7 @@ class RentalTest {
     void should_return_false_if_there_is_no_open_bill_from_this_customer(){
         GregorianCalendar today = new GregorianCalendar();
         boolean toolInReturnStation=stationOne.addToolToBox(drill);
-        boolean checkReturn=rental.returnTool(drill,stationOne,custMaria,warehouse, today);
+        boolean checkReturn=Rental.returnTool(drill,stationOne,custMaria,warehouse, today);
         assertFalse(checkReturn);
     }
 
@@ -126,11 +124,11 @@ class RentalTest {
     void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
         GregorianCalendar today = new GregorianCalendar();
         boolean result= warehouse.putToolInWarehouse(drill);
-        boolean checkRent = rental.rentATool(drill, stationOne, custMaria, warehouse);
+        boolean checkRent = Rental.rentATool(drill, stationOne, custMaria, warehouse);
 
         boolean toolInReturnStation=stationOne.addToolToBox(drill);
 
-        boolean checkReturn=rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
+        boolean checkReturn=Rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
         assertFalse(checkReturn);
     }
 
