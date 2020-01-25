@@ -8,13 +8,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManufacturerTest {
-   /*before*/
-        Address address1 = new Address("Bosch-Str.1", 1, 99425, "Weimar", "DE");
-        Address address2 = new Address("Bosch-Str.1", 1, 99425, "Erfurt", "DE");
-        Address address3 = new Address("Bosch-Str.1", 1, 99425, "Leipzig", "DE");
-        Manufacturer manufacture = new Manufacturer("Bosch", address1, "Herr Bosch", "05642-458759");
+
+    //Variable declaration
+    private Address address1;
+    private Address address2;
+    private Manufacturer manufacture;
+
+    @BeforeEach
+    void setUp() {
+
+       address1 = new Address("Bosch-Str.1", 1, 99425, "Weimar", "DE");
+       address2 = new Address("Bosch-Str.1", 1, 99425, "Erfurt", "DE");
+       manufacture = new Manufacturer("Bosch", address1, "Herr Bosch", "05642-458759");
+    }
 
 
+
+    // Main Test --------------------------------
 @Test
     void can_changed_the_attributes_of_manufacturer()
 {

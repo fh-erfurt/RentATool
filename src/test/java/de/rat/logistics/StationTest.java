@@ -2,24 +2,36 @@ package de.rat.logistics;
 
 import de.rat.common.Address;
 import de.rat.logistics.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StationTest {
+private Address testaddress;
+private Station station;
+private Manufacturer Bosch;
+private Tool testtool;
+private Tool testtool1;
+private Tool testtool2;
+private Tool testtool3;
+private Tool testtool4;
+private Tool testtool5;
+private Station station2;
 
-    /*before */
-    Address testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-    Station station = new Station("S1", 3, testaddress);
-    Manufacturer Bosch = new Manufacturer("Bosch",testaddress,"Mr Smith","123456");
-    Tool testtool = new Tool("123",Bosch,"Hammer",Category.HANDTOOL,"1-4-5",ToolStatus.AVAILABLE,3.5);
-    Tool testtool1 = new Tool("AAA",Bosch,"Säge",Category.HANDTOOL,"1-4-3",ToolStatus.AVAILABLE,3.0);
-    Tool testtool2 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
-    Station station2 = new Station("S2", 5, testaddress);
-    Tool testtool3 = new Tool("XXX",Bosch,"Schaufel", Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
-    Tool testtool4 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2", ToolStatus.AVAILABLE,4.0);
-    Tool testtool5 = new Tool("XXX",Bosch,"Schaufel",Category.HANDTOOL,"1-3-2",ToolStatus.AVAILABLE,4.0);
-
+    @BeforeEach
+   public void setUp() {
+        testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        station = new Station("S1", 3, testaddress);
+         Bosch = new Manufacturer("Bosch", testaddress, "Mr Smith", "123456");
+        testtool = new Tool("123", Bosch, "Hammer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.5);
+       testtool1 = new Tool("AAA", Bosch, "Säge", Category.HANDTOOL, "1-4-3", ToolStatus.AVAILABLE, 3.0);
+        testtool2 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+      station2 = new Station("S2", 5, testaddress);
+        testtool3 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+        testtool4 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+        testtool5 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+    }
     /*#############################################################*/
     /*#############################################################*/
     /*#############################################################*/
