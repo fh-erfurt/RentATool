@@ -37,6 +37,7 @@ public class Warehouse {
             this.Stock.add(tool);
             return true;
         }
+        //TODO: Fehlerausgabe
         return false;
     }
 

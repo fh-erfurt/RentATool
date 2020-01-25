@@ -220,7 +220,7 @@ public class Bill {
                 {
                     if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
                     {
-                        System.out.println("die Rechnung wurde nicht gefunden");
+                        System.out.println("die Rechnung wurde nicht gefunden"); //TODO: Falsche Konsolenausgabe
                         return false;
                     }
                 }
@@ -257,9 +257,11 @@ public class Bill {
         {
             if(foundedRentProcess.getRentedTool().equals(searchedTool))
             {
+                //TODO: Konsolenausgabe
                 return foundedRentProcess;
             }
         }
+        //TODO: Konsolenausgabe ??? hier ggf weglassen?
         return null;
     }
 

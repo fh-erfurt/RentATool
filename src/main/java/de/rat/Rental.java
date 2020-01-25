@@ -10,12 +10,6 @@ import java.util.GregorianCalendar;
  */
 public class Rental {
 
-    /** Creates an rental .
-     * @param --
-     */
-    public Rental() {
-    }
-
     /** Creates an rental from the tool .
      *  @param wantedTool the tool that would by rented
      *  @param pickupStation the station which the tool was pickup
@@ -23,7 +17,7 @@ public class Rental {
      *  @param warehouse the the warehouse which the tool was removed in
      *  store in the pickupStation
      */
-    public boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
+    public static boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
         //check if the searched Tool is in the warehouse
         if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
@@ -37,13 +31,15 @@ public class Rental {
 
         return true;
     }
+
+
     /**return the wanted tool.
      * @return false when the returnTool that store in the remove station
      * is not the wanted tool, otherwise the wanted tool is store in the warehouse
      * @return false if the customer is not he right customer
      * @return true if the return process complete
      */
-    public boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
+    public static boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
 
         if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
         warehouse.putToolInWarehouse(wantedTool);
@@ -55,9 +51,4 @@ public class Rental {
         Billing.moveBillFromOpenToChecked();
         return true;
     }
-
-
-
-
-
 }

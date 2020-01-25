@@ -102,7 +102,7 @@ public class Billing {
         {
             Bill bill = (Bill) iterator.next();
 
-            if(bill.getFullRentPrice() != 0)
+            if(bill.getFullRentPrice() != 0) //TODO: besser prüfen ob returnStation und returnDate angeben wurde?
             {
                 iterator.remove();
                 checkBills.add(bill);
