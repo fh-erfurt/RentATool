@@ -10,7 +10,10 @@ Hier erfahren Sie wie Sie das Programm auf Ihrem System Installieren und starten
 
 
 ### BusinessCase
-![alt text](https://www.github.com/fh-erfurt/RentATool/blob/master/images/RentProcess.png)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/RentATool_Klassendiagramm.png?raw=true)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/RentProcess.png?raw=true)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/ReturnProcess.png?raw=true)
+
 
 
 ## Built With
