@@ -2,7 +2,7 @@ package de.rat.common;
 
 import java.util.GregorianCalendar;
 
-/**Represents a Persom.
+/**Represents a Person.
  * @author Danny Steinbrecher
  */
 

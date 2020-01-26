@@ -1,25 +1,19 @@
 package de.rat.employee;
 
-
-import de.rat.billing.Billing;
+import de.rat.billing.*;
 import de.rat.logistics.*;
-import de.rat.billing.Bill;
-import de.rat.common.Person;
-import de.rat.common.Role;
-import de.rat.common.Account;
-
+import de.rat.common.*;
 
 import java.util.GregorianCalendar;
 
-/** Creates station .
- *  @param supervisor from the employee
- *
+/**Represents an Employee.
+ * extends from Person
+ * @author Danny Steinbrecher
  */
 
 public class Employee extends Person {
 
     private Employee supervisor;
-
 
     /** constructor for the employee - with supervisor
      *  @param lastname the lastname from the Employee
@@ -92,7 +86,7 @@ public class Employee extends Person {
     }
 
     /** set the discount an move the bill to the closed bill
-     * @return true
+     * @return boolean
      *
      */
     public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount) {
@@ -106,7 +100,6 @@ public class Employee extends Person {
             System.out.println("Rechnung wurde in die closedBill verschoben");
             return true;
         }
-
         System.out.println("Keine Rechnung übergeben");
         return false;
     }

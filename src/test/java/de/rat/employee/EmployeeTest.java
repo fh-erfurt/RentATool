@@ -5,19 +5,16 @@ import de.rat.common.*;
 import de.rat.customer.*;
 import de.rat.logistics.*;
 import de.rat.billing.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.api.*;
 import java.util.GregorianCalendar;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeTest {
 
     //Variable declaration
-
-    private Employee empDanny;
     private Employee empMichael;
     private Employee empJonas;
 
@@ -31,7 +28,6 @@ class EmployeeTest {
 
     @BeforeEach
     void setUp() {
-
 
         empJonas = new Employee("Hecht", "Jonas", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
                 "Johannesstraße", 5, 99084, "Weimar", "Germany", null);
@@ -49,7 +45,6 @@ class EmployeeTest {
         warehouse = new Warehouse();
 
     }
-
 
     // Main Test --------------------------------
     @Test
@@ -91,7 +86,12 @@ class EmployeeTest {
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getOpenBills()));
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getCheckBills()));
         Assertions.assertEquals(bill, Billing.findBillInListByReference(bill, Billing.getClosedBills()));
+    }
 
+    @Test
+    void should_return_false_if_the_Bill_is_null(){
+        Bill bill = null;
+        assertFalse(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));
     }
 
 
