@@ -95,16 +95,20 @@ public class Employee extends Person {
      * @return true
      *
      */
-    public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount)
-    {
-        //TODO: musste aufgrund der static änderungen in der Billing und dem setzten von Boolean auf Void für die kmode Methode angepasst werden
-        // muss geprüft werde
-        checkBill.setDiscount(discount);
-        checkBill.setFullRentPrice();
+    public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount) {
+        if(checkBill != null){
+            checkBill.setDiscount(discount);
+            checkBill.setFullRentPrice();
 
-        Billing.moveFromCheckToClosed(checkBill);
-        return true;
+            Billing.moveFromCheckToClosed(checkBill);
+
+            System.out.println("Rechnung wurde erfolgreich geprüft und bearbeitet");
+            System.out.println("Rechnung wurde in die closedBill verschoben");
+            return true;
+        }
+
+        System.out.println("Keine Rechnung übergeben");
+        return false;
     }
-
 }
 

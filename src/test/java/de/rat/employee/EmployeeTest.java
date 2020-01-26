@@ -81,14 +81,12 @@ class EmployeeTest {
     void should_set_the_discount_and_move_bills_to_Close_Bills(){
 
         warehouse.putToolInWarehouse(drill);
-        System.out.println("#### Ausleihvorgang:");
         Rental.rentATool(drill, stationOne, custMartin, warehouse);
         Bill bill = Billing.findOpenBillFromCustomer(custMartin);
         GregorianCalendar today = new GregorianCalendar();
-        System.out.println("#### Rückgabevorgang:");
         Rental.returnTool(drill,stationOne,custMartin,warehouse, today);
 
-        empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5);
+        assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));
 
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getOpenBills()));
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getCheckBills()));

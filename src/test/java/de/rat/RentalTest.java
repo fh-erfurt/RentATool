@@ -2,9 +2,9 @@ package de.rat;
 
 import de.rat.common.*;
 import de.rat.customer.*;
-import de.rat.employee.Employee;
-import de.rat.employee.EmployeeNotification;
+import de.rat.employee.*;
 import de.rat.logistics.*;
+import de.rat.billing.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -47,7 +47,7 @@ public class Rental {
         Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
 
         if(bill == null){return false;}
-        if(!bill.checkBill(customer)) { return false; }
+        bill.checkBill(customer);
         Billing.moveBillFromOpenToChecked();
         return true;
     }
