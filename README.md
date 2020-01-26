@@ -10,6 +10,7 @@ Hier erfahren Sie wie Sie das Programm auf Ihrem System Installieren und starten
 
 
 ### BusinessCase
+![alt text](images/UML-Klassendiagramm - RentProcess.png)
 
 
 ## Built With
