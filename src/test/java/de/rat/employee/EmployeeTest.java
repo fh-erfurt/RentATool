@@ -93,5 +93,7 @@ class EmployeeTest {
         assertFalse(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));
     }
 
+    // TODO: Set Tool Status
+
 
 }
