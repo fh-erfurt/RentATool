@@ -16,12 +16,6 @@ public class Account {
         this.password="ddd";
     }
 
-//    public Account (String role, String lastname, String firstname){
-//        this.role= role;
-//        this.email= lastname+"."+firstname+"@rat.de";
-//        this.password= "ddd";
-//    }
-
     public Account (Role role, String email, String password){
         this.role= role;
         this.email= email;
@@ -56,12 +50,10 @@ public class Account {
         this.password = this.password;
     }
 
-
     public void setChanged()
     {
         this.changed = LocalDate.now();
     }
-
 
     public void changeAccount(Role role, String email, Person person){
         this.setRole(role);

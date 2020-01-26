@@ -86,6 +86,7 @@ public class Employee extends Person {
      */
     public void printNotification() {
         System.out.println("Hallo " + this.getFirstname() + ", es liegen neue Rechnungen zum bearbeiten vor!");
+
     }
 
     /** is a notification for the employee to checked the open Bills because of an Problem
