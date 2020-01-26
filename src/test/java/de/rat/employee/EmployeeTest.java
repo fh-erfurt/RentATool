@@ -88,12 +88,10 @@ class EmployeeTest {
         System.out.println("#### Rückgabevorgang:");
         Rental.returnTool(drill,stationOne,custMartin,warehouse, today);
 
-        //empJonas.setDiscountAndMoveBillsToCloseBills(bill, 0);
-        System.out.println("#### getOpenBills:");
+        empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5);
+
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getOpenBills()));
-        System.out.println("#### getCheckBills:");
         Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getCheckBills()));
-        System.out.println("#### getClosedBills:");
         Assertions.assertEquals(bill, Billing.findBillInListByReference(bill, Billing.getClosedBills()));
 
     }

@@ -158,19 +158,25 @@ public class Billing {
 
      */
 
+    //TODO: musste hier auch mit dem Iterator arbeiten: bitte prüfen
     public static void moveFromCheckToClosed(Bill checkBill)
     {
-        for(Bill foundedBill:checkBills)
+        Iterator iterator = checkBills.iterator();
+        while (iterator.hasNext())
         {
-            if(foundedBill==checkBill)
+            Bill bill = (Bill) iterator.next();
+            if(bill == checkBill)
             {
-                closedBills.add(checkBill);
-                checkBills.remove(checkBill);
+                iterator.remove();
+                closedBills.add(bill);
+                System.out.println("Rechnung wurde von Open zu Checked verschoben");
 
             }
         }
 
     }
+
+
 
     /**Find or Create open bill.
      * @param customer the customer that rented the tool
