@@ -42,15 +42,15 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 ## Klassendiagramm
 
-![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/RentATool_Klassendiagramm.png?raw=true)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/RentATool_Klassendiagramm.png?raw=true)
 
 
 ## Ausleih Prozess
-![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/RentProcess.png?raw=true)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/RentProcess.png?raw=true)
 
 
 ## Rückgabe Prozess
-![alt text](https://github.com/fh-erfurt/RentATool/blob/master/images/ReturnProcess.png?raw=true)
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/ReturnProcess.png?raw=true)
 
 ## Besprechungsprotokolle
 
