@@ -52,12 +52,6 @@ public class RentProcess {
         this.returnStation=returnStation;
     }
 
-    public void setRentedTool(Tool rentedTool) {
-        this.rentedTool = rentedTool;
-    }
-
-
-
     /** set return date and return station to complete the return process
      *  @return  true if the method works
      *  @return  false if the method not works

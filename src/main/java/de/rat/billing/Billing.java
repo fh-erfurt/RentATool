@@ -91,7 +91,7 @@ public class Billing {
     /** Create a bill from the customer
      * @return A class bill with the customer and the pickup station
      */
-    public static Bill CreateOpenBillFromCustomer(Station pickupStation, Customer customer){
+    public static Bill createOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         openBills.add(newBill);
 
@@ -185,7 +185,7 @@ public class Billing {
     public static Bill findOrCreateBill(Customer customer, Station pickupStation){
         Bill bill = findOpenBillFromCustomer(customer);
         if(bill == null){
-            bill = CreateOpenBillFromCustomer(pickupStation, customer);
+            bill = createOpenBillFromCustomer(pickupStation, customer);
             return bill;
         }
         System.out.println("Eine Rechnung wurde gefunden");
