@@ -10,7 +10,7 @@ Hier erfahren Sie wie Sie das Programm auf Ihrem System Installieren und starten
 
 
 ### BusinessCase
-![alt text](https://www.https://github.com/fh-erfurt/RentATool/blob/master/images/UML-Klassendiagramm%20-%20RentProcess.png)
+![alt text](https://www.github.com/fh-erfurt/RentATool/blob/master/images/RentProcess.png)
 
 
 ## Built With
