@@ -88,7 +88,7 @@ public class Employee extends Person {
         System.out.println("Hallo " + this.getFirstname() + ", es liegen neue Rechnungen zum bearbeiten vor!");
     }
 
-    /** is a notification for the employee to checked the array list check bills
+    /** is a notification for the employee to checked the open Bills because of an Problem
      *
      */
     public void printNotificationCheckOpenBills(Customer customer) {
@@ -106,11 +106,11 @@ public class Employee extends Person {
 
             Billing.moveFromCheckToClosed(checkBill);
 
-            System.out.println("Rechnung wurde erfolgreich geprüft und bearbeitet");
-            System.out.println("Rechnung wurde in die closedBill verschoben");
+            System.out.println("Rechnung wurde erfolgreich geprüft und bearbeitet.");
+            System.out.println("Rechnung wurde in die closedBill verschoben.");
             return true;
         }
-        System.out.println("Keine Rechnung übergeben");
+        System.out.println("Keine Rechnung übergeben.");
         return false;
     }
 }
