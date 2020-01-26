@@ -106,7 +106,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - Date nicht benutzen
 - GregorianCalender nutzen
 
-**3. try Catch **
+**3. try Catch**
 - kann überall eingebaut werden
 - ist nicht nur für das Errorhandling
 
@@ -125,7 +125,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 **7. Dokumentation**
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
-----
+
 ### Besprechung 20.01.2020
 
 ---
