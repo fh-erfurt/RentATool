@@ -54,6 +54,72 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 ### Besprechungsprotokolle
 
+#### Besprechung 06.01.2020
+**1. Aggregation / Komposition / Assoziation**
+
+- Ist eine Stilfrage. Wichtig ist, dass die Beziehungen überall da dargestellt werden wo sie vorhanden sind.
+- Wir haben Festgelegt, das wir eine Aggregation nur dort erstellen, wo wir in der Klasse eine Liste von Objekten einer anderen Klasse haben.
+- Beziehung zwischen Tool und Manufacturer fehlt noch
+
+**2. Rental hat Bills und beinhaltet den Gesamten Process (aus Firmensicht)**
+
+- Bill lieber in eine Bill Management Klasse auslagern
+- Die Klasse Rental soll nur die Funktionen RentATool und ReturnTool besitzen
+
+**3. Employee entfernen?**
+
+- nein die Klasse Employee ist durchaus Sinnvoll
+- jedoch sollte diese mit Sinnvollen Funktionen befüllt werden.
+- z.b.: Rabatt vergeben, Bills suchen, Umsatz errechnen(des letzten Monats)
+- Hier kann man durchaus Sachen nur andeuten, damit es den Rahmen nicht sprengt
+
+**4. Before Each in Tests wirklich nötig?**
+
+- Hier ist es uns Freigestellt, wir sollten uns aber auf ein Thema einigen 
+
+**5. JavaDocs**
+
+- Wir sollen JavaDocs nur an die Köpfe der Klassen und Methoden hängen
+- nicht an die einzelnen Funktionen innerhalb der Methoden
+- Hier nur Kommentieren
+
+**6. Clean Code**
+
+- Einzelne Funktionen innerhalb einer Methode mit sprechenden Namen erzeugen
+
+![image](https://user-images.githubusercontent.com/46423967/71821171-ada6c380-3091-11ea-9f0d-f04934ea2dfd.png)
+
+
+#### Besprechung 20.01.2020
+**1. Abgabe des Projektes**
+- Abgabe über Github
+- Link zum Repository an Jonas übergeben
+- Präsentationen können in dem Repository hinterlegt werden
+- Abgabe am 03.02.2020
+
+**2. Abschlusspräsentation**
+- welche Änderungen gab es seit der letzten Präsentation
+- das Endprodukt präsentieren
+- ursprüngliches Ziel - mit Endprodukt vergleichen
+- lessons learned
+- 15 min Präsentation
+- am 03.02 Vorlesung und Übung  wird für die Präsentation genutzt
+
+**3. Dokumentation**
+- Top Down Sicht auf das Projekt
+- was macht das Programm
+- wie ist es strukturiert
+- UML-Klassendiagramm (Whitebox)
+- Businesscase
+- Usecase
+- Einfache Sicht auf das System (Blackbox)
+- Lessons learned 
+- Dokumentation kann in GitHub ReadMe erfolgen
+
+**4. Änderungen am Projekt**
+- Notification Class einbauen
+- Company und Departments entfernen
+
 ## Programme
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
