@@ -1,4 +1,4 @@
-![CodeFactor](https://img.shields.io/badge/JAVA-11-blue)
+![CodeFactor](https://img.shields.io/badge/JAVA-13.0.2.8-blue)
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 
 # Verleihstation für Werkzeuge
