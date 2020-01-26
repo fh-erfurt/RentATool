@@ -61,10 +61,7 @@ public class Account {
 
         this.setPassword(person.createPassword());
         this.setChanged();
-
     }
-
-
 
 
 }
