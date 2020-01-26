@@ -211,25 +211,16 @@ public class Bill {
      * @return   false if the bill was not found
      */
 
-    public boolean checkBill(Customer customer)
-    {
-
-            if (this.getCustomer().equals(customer))
+    public boolean checkIfAllRentProcessesFromABillAreClosed(){
+        for (RentProcess foundedProcesses : this.getListOfRentProcesses())
+        {
+            if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
             {
-                for (RentProcess foundedProcesses :this.getListOfRentProcesses())
-                {
-                    if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
-                    {
-                        System.out.println("die Rechnung wurde nicht gefunden"); //TODO: Falsche Konsolenausgabe
-                        return false;
-                    }
-                }
-                this.setFullRentPrice();
-                System.out.println("Der Gesamtpreis wurde eingetragen!");
-                return true;
+                System.out.println("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " ist noch offen!");
+                return false;
             }
-
-
+        }
+        System.out.println("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " kann geprüft werden!");
         return true;
     }
 

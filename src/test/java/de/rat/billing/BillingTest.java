@@ -44,7 +44,7 @@ class BillingTest {
         Billing.CreateOpenBillFromCustomer(stationOne, custMaria);
         Billing.CreateOpenBillFromCustomer(stationOne, custMaria);
         Billing.CreateOpenBillFromCustomer(stationOne, custMaria);
-        Billing.moveBillFromOpenToChecked();
+        Billing.checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(custMaria);
 
     }
 

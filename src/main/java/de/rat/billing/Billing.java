@@ -110,34 +110,31 @@ public class Billing {
      * @param openBills bills with open rent processes
 
      */
-    public static void moveBillFromOpenToChecked()
-    {
-        Iterator iterator = openBills.iterator();
-        while (iterator.hasNext())
-        {
+
+    public static void checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(Customer customer) {
+
+        Iterator iterator = openBills.iterator();   //TODO: Iterator???
+        while (iterator.hasNext()) {
             Bill bill = (Bill) iterator.next();
+            if (bill.getCustomer().equals(customer)) {
+                if(bill.checkIfAllRentProcessesFromABillAreClosed()) {
+                    bill.setFullRentPrice();
+                    System.out.println("Der Gesamtpreis wurde eingetragen!");
 
-            if(bill.getFullRentPrice() != 0) //TODO: besser prüfen ob returnStation und returnDate angeben wurde?
-            {
-                iterator.remove();
-                checkBills.add(bill);
-                EmployeeNotification.sendNotificationToAllEmployees();
-                System.out.println("Rechnung wurde von Open zu Checked verschoben");
+                    iterator.remove();
+                    checkBills.add(bill);
+                    System.out.println("Rechnung wurde von Open zu Checked verschoben");
+
+                    EmployeeNotification.sendNotificationToAllEmployees();
+                    return;
+                }
             }
-
         }
-
-
-
     }
 
-    public static void rechne() {
-
-        System.out.println("openBills: " + openBills.size());
-        System.out.println("checkBills: " + checkBills.size());
 
 
-    }
+
 
     /** Find a bill in a List of Bills by a Reference Bill
      * @return A bill when the bill was in this List
