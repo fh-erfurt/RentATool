@@ -97,6 +97,8 @@ class BillingTest {
 
     @Test
     void move_the_bill_from_checked_to_closed() {
+        Billing.getOpenBills().clear();
+        Billing.getCheckBills().clear();
 
         Bill bill = new Bill(custMaria,stationOne);
         Billing.getCheckBills().add(bill);
