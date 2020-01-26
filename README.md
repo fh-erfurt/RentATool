@@ -90,6 +90,36 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ![image](https://user-images.githubusercontent.com/46423967/71821171-ada6c380-3091-11ea-9f0d-f04934ea2dfd.png)
 
 
+#### Besprechung 09.12.2019
+**1. UML**
+- Object in UML Diagramm entfernen!
+- Beziehungen kenntlich machen z.b. zwischen Tool und Station
+- UML in Bereiche unterteilen (z.B.: Customer, Verwaltung, Tool,)
+
+**2. Datumsformatierung**
+- Date nicht benutzen
+- GregorianCalender nutzen
+
+**3. try Catch **
+- kann überall eingebaut werden
+- ist nicht nur für das Errorhandling
+
+**4. Java Dogs**
+- bei public Methoden sollte eine sinnvolle (mit Mehrwert) JavaDocumentation geschrieben werden
+
+**5. Interface**
+- Bereiche die nicht direkt miteinander zu tun haben
+- recht groß Bereiche
+
+**6. Tests**
+- BeforeEach muss umgesetzt werden
+- Nach dem BeforeEach müssen die Variablen zunächst Deklariert werden
+- In einer Funktion, z.B.: setUp(), werden die Variablen dann initialisiert
+
+**7. Dokumentation**
+- tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
+- Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
+
 #### Besprechung 20.01.2020
 **1. Abgabe des Projektes**
 - Abgabe über Github
