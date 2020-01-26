@@ -25,20 +25,14 @@ public class Warehouse {
     }
 
     /** put the respective tool in the warehouse
-     *  @return  true if the add was ok
-     *  @return  false if there was no tool to add
      *
      */
-    public boolean putToolInWarehouse(Tool tool){
-
+    public void putToolInWarehouse(Tool tool){
         if(tool !=null)
         {
-            System.out.println("Das Tool ist im warehouse ");
             this.Stock.add(tool);
-            return true;
+            System.out.println("Das Tool ist im Warenhaus ");
         }
-        //TODO: Fehlerausgabe
-        return false;
     }
 
 

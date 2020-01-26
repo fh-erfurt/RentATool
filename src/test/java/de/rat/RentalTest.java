@@ -67,10 +67,16 @@ class RentalTest {
         warehouse = new Warehouse();
     }
 
+    // Rent Process
     @Test
     void should_rent_a_tool(){
         warehouse.putToolInWarehouse(drill);
         assertTrue(Rental.rentATool(drill, stationOne, custMaria, warehouse));
+    }
+
+    @Test
+    void should_return_false_if_the_tool_is_not_in_this_warehouse(){
+        assertFalse(Rental.rentATool(hammer,stationOne,custLudwig,warehouse));
     }
 
     @Test
@@ -82,51 +88,36 @@ class RentalTest {
         warehouse.putToolInWarehouse(drill);
 
         assertFalse(Rental.rentATool(drill, stationOne, custMaria, warehouse));
-    } 
-
-    @Test
-    void should_return_false_if_the_tool_is_not_in_this_warehouse(){
-        assertFalse(Rental.rentATool(hammer,stationOne,custLudwig,warehouse));
     }
 
+
+    // Return Process
     @Test
     void should_return_a_tool()  {
-
         warehouse.putToolInWarehouse(drill);
-        warehouse.putToolInWarehouse(hammer);
-        assertTrue(Rental.rentATool(drill, stationOne, custMaria, warehouse));
-        assertTrue(Rental.rentATool(hammer, stationOne, custMaria, warehouse));
-
-        GregorianCalendar today = new GregorianCalendar();
-        assertTrue(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
-        assertTrue(Rental.returnTool(hammer,stationOne,custMaria,warehouse, today));
-
+        Rental.rentATool(drill, stationOne, custMaria, warehouse);
+        assertTrue(Rental.returnTool(drill, stationOne, custMaria, warehouse));
     }
 
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
-        GregorianCalendar today = new GregorianCalendar();
-
-        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
+        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse));
     }
 
     @Test
     void should_return_false_if_there_is_no_open_bill_from_this_customer(){
-        GregorianCalendar today = new GregorianCalendar();
         stationOne.addToolToBox(drill);
-
-        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
+        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse));
     }
 
     @Test
     void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
-        GregorianCalendar today = new GregorianCalendar();
         warehouse.putToolInWarehouse(drill);
         Rental.rentATool(drill, stationOne, custMaria, warehouse);
         stationOne.addToolToBox(drill);
-        Rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
+        Rental.returnTool(drill,stationOne,custLudwig,warehouse);
 
-        assertFalse(Rental.returnTool(drill,stationOne,custLudwig,warehouse, today));
+        assertFalse(Rental.returnTool(drill,stationOne,custLudwig,warehouse));
     }
 
 }

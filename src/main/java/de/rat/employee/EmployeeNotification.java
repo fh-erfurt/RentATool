@@ -1,6 +1,7 @@
 package de.rat.employee;
 
 import de.rat.billing.Bill;
+import de.rat.customer.Customer;
 
 import java.util.ArrayList;
 
@@ -20,5 +21,13 @@ public static void sendNotificationToAllEmployees()
     }
 
 }
+
+    public static void sendNotificationToAllEmployeesToCheckTheOpenBills(Customer customer)
+    {
+        for (Employee employee : employees) {
+            employee.printNotificationCheckOpenBills(customer);
+        }
+
+    }
 
 }

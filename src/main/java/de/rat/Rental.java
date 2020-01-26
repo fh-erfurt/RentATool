@@ -19,10 +19,10 @@ public class Rental {
      */
     public static boolean rentATool(Tool wantedTool, Station pickupStation, Customer customer, Warehouse warehouse) {
 
-        //check if the searched Tool is in the warehouse
+        //if the tool is not in the warehouse we get false
         if(warehouse.removeToolFromWarehouse(wantedTool) == null){ return false;}
 
-        //check if the station is full
+        //if the station is full we get false
         if(!pickupStation.addToolToBox(wantedTool)){return false;}
 
         Bill bill = Billing.findOrCreateBill(customer, pickupStation);
@@ -39,14 +39,16 @@ public class Rental {
      * @return false if the customer is not he right customer
      * @return true if the return process complete
      */
-    public static boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse, GregorianCalendar date){
+    public static boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
 
-        if(removeStation.removeToolFromBox(wantedTool) == null){ return false;}
+        //if the tool is not in the station we get false
+        if(removeStation.removeToolFromBox(wantedTool) == null){ return false; }
+
         warehouse.putToolInWarehouse(wantedTool);
 
-        Bill bill = Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation, date);
+        //if we have no open Bill from this Customer we get false
+        if(Billing.findOpenBillFromCustomerForReturn(customer,wantedTool, removeStation) == null){return false;}
 
-        if(bill == null){return false;}
         Billing.checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(customer);
         return true;
     }

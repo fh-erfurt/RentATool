@@ -79,7 +79,7 @@ class EmployeeTest {
         Rental.rentATool(drill, stationOne, custMartin, warehouse);
         Bill bill = Billing.findOpenBillFromCustomer(custMartin);
         GregorianCalendar today = new GregorianCalendar();
-        Rental.returnTool(drill,stationOne,custMartin,warehouse, today);
+        Rental.returnTool(drill,stationOne,custMartin,warehouse);
 
         assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));
 

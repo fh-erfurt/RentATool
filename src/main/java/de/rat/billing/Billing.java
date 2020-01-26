@@ -69,20 +69,23 @@ public class Billing {
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
      */
-    public static Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation, GregorianCalendar Date)
+    public static Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation)
     {
+        GregorianCalendar today = new GregorianCalendar();
         for (Bill foundedBill : openBills) {
 
             RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
             if (foundedBill.getCustomer().equals(customer)&& rentprocess!= null) {
 
-                rentprocess.completeRentProcess(removeStation, Date);
+                rentprocess.completeRentProcess(removeStation, today);
                 System.out.println("Die Rechnung wurde gefunden");
                 return foundedBill;
             }
         }
-        System.out.println("Die Rechnung wurde nicht gefunden");
+
+        EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
+        System.out.println("Die Rechnung wurde nicht gefunden!");
         return null;
     }
 

@@ -1,6 +1,7 @@
 package de.rat.employee;
 
 import de.rat.billing.*;
+import de.rat.customer.Customer;
 import de.rat.logistics.*;
 import de.rat.common.*;
 
@@ -83,6 +84,13 @@ public class Employee extends Person {
      */
     public void printNotification() {
         System.out.println("Hallo " + this.getFirstname() + ", es liegen neue Rechnungen zum bearbeiten vor!");
+    }
+
+    /** is a notification for the employee to checked the array list check bills
+     *
+     */
+    public void printNotificationCheckOpenBills(Customer customer) {
+        System.out.println("Hallo " + this.getFirstname() + ", gibt ein Problem mit einer Offenen Rechnung vom Kunden: " + customer.getFirstname() + " " + customer.getLastname());
     }
 
     /** set the discount an move the bill to the closed bill
