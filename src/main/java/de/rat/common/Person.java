@@ -43,7 +43,6 @@ public abstract class Person {
 
 
     //Methods
-
     /** creates the Password for an employee or a customer.
      *  @return password (String)
      *
