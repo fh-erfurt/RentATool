@@ -31,6 +31,19 @@ public class Billing {
     public Billing() {
     }
 
+
+    public static ArrayList<Bill> getOpenBills() {
+        return openBills;
+    }
+
+    public static ArrayList<Bill> getCheckBills() {
+        return checkBills;
+    }
+
+    public static ArrayList<Bill> getClosedBills() {
+        return closedBills;
+    }
+
     /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
@@ -42,10 +55,12 @@ public class Billing {
             GregorianCalendar today = new GregorianCalendar();
             int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
             // use only the founded Bill customer, is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 0) {
+            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 1) {
+                System.out.println("Die Rechnung wurde gefunden!");
                 return foundedBill;
             }
         }
+        System.out.println("Es konnte keine passende Offene Rechnung gefunden werden");
         return null;
     }
 
@@ -124,6 +139,18 @@ public class Billing {
 
     }
 
+    /** Find a bill in a List of Bills by a Reference Bill
+     * @return A bill when the bill was in this List
+     * @return null if the bill was not in this list
+     */
+    public static Bill findBillInListByReference(Bill bill, ArrayList<Bill> billList ){
+        for (Bill foundedBill : billList) {
+            if (foundedBill.equals(bill)) {
+                return foundedBill;
+            }
+        }
+        return null;
+    }
 
     /** Move the  bills from the checkBill Array to the closeBill Array
      * @param checkBills bills that have to checked from the employee

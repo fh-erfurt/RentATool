@@ -21,11 +21,18 @@ public class Employee extends Person {
     private Employee supervisor;
 
 
-    /** constructor for the employee
-     *  @param super constructor from the person
-     *  @param account from the employee
-     *  @param department from the employee
-     *  @param supervisor from the employee
+    /** constructor for the employee - with supervisor
+     *  @param lastname the lastname from the Employee
+     *  @param firstname the firstname from the Employee
+     *  @param birthday the birthday from the Employee
+     *  The next attributes are for the Address
+     *  @param street the street from the Address, where the Employee lives
+     *  @param houseNr the houseNr from the Address, where the Employee lives
+     *  @param zip the zip-code from the Address, where the Employee lives
+     *  @param city the city from the Address, where the Employee lives
+     *  @param country the country from the Address, where the Employee lives
+     *  Employee Information
+     *  @param supervisor the supervisor from the Employee
      */
     public Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country,
@@ -36,7 +43,18 @@ public class Employee extends Person {
         this.supervisor = supervisor;
     }
 
- //ToDO??????
+    /** constructor for the employee - without supervisor
+     *  @param lastname the lastname from the Employee
+     *  @param firstname the firstname from the Employee
+     *  @param birthday the birthday from the Employee
+     *  The next attributes are for the Address
+     *  @param street the street from the Address, where the Employee lives
+     *  @param houseNr the houseNr from the Address, where the Employee lives
+     *  @param zip the zip-code from the Address, where the Employee lives
+     *  @param city the city from the Address, where the Employee lives
+     *  @param country the country from the Address, where the Employee lives
+     *  Employee Information
+     */
     Employee(String lastname, String firstname, GregorianCalendar birthday,
              String street, int houseNr, int zip, String city, String country) {
 
@@ -45,60 +63,48 @@ public class Employee extends Person {
         this.supervisor = null;
     }
 
-
-    /** get the supervisor
-     * @return supervisor  from the employee
-     *
-     */
     public Person getSupervisor() {
         return supervisor;
     }
 
 
     /** create default email for the employee
-     * @return firstname+lastname+rat.de
+     * @return firstname + lastname + rat.de
      *
      */
     private String  createEmail(String lastname, String firstname){
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
 
+    /** set the tool status for the tool that was returned to the warehouse
+     * @return true if the tool status was set from the warehouse method setToolStatus
+     *
+     */
+    public boolean setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse) {
+        return warehouse.setToolStatus(tool, toolStatus);
+    }
 
+    /** is a notification for the employee to checked the array list check bills
+     *
+     */
+    public void printNotification() {
+        System.out.println("Hallo " + this.getFirstname() + ", es liegen neue Rechnungen zum bearbeiten vor!");
+    }
 
     /** set the discount an move the bill to the closed bill
      * @return true
      *
      */
-    public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill,int discount)
+    public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount)
     {
         //TODO: musste aufgrund der static änderungen in der Billing und dem setzten von Boolean auf Void für die kmode Methode angepasst werden
         // muss geprüft werde
         checkBill.setDiscount(discount);
         checkBill.setFullRentPrice();
 
-        //Billing billing=new Billing();
         Billing.moveFromCheckToClosed(checkBill);
         return true;
     }
-
-
-    /** set the tool status for the tool that was returned to the warehouse
-     * @return true if the tool status was set from the warehouse method setToolStatus
-     *
-     */
-    public boolean setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse)
-        {
-            return warehouse.setToolStatus(tool, toolStatus);
-        }
-
-    /** is a notification for the employee to checked the array list check bills
-     * @return println
-     *
-     */
-        public void printNotification()
-        {
-           System.out.println("Bitte schau deine aktuellen Aufträge an!!!");
-        }
 
 }
 

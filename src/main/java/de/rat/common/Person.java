@@ -14,7 +14,7 @@ public abstract class Person {
     private Address address;
     protected Account account;
 
-    /** Creates a Person.
+    /** constructor for a Person
      *  it´s an abstract class which can inherit zo employee and customer
      *  @param lastname the lastname from the Person
      *  @param firstname the firstname from the Person
@@ -38,7 +38,7 @@ public abstract class Person {
     //Getter
     public Address getAddress() { return address; }
     public Account getAccount() { return account; }
-
+    public String getFirstname() { return firstname; }
     //Methods
 
     /** creates the Password for an employee or a customer.

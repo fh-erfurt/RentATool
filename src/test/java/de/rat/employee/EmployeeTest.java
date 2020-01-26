@@ -1,11 +1,17 @@
 package de.rat.employee;
 
-import de.rat.common.Role;
+import de.rat.Rental;
+import de.rat.common.*;
+import de.rat.customer.*;
+import de.rat.logistics.*;
+import de.rat.billing.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.GregorianCalendar;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeTest {
 
@@ -15,6 +21,14 @@ class EmployeeTest {
     private Employee empMichael;
     private Employee empJonas;
 
+    private Customer custMartin;
+
+    private Warehouse warehouse;
+    private Tool drill;
+    private Manufacturer bosch;
+    private Station stationOne;
+    private Address musterhausen;
+
     @BeforeEach
     void setUp() {
 
@@ -23,6 +37,16 @@ class EmployeeTest {
                 "Johannesstraße", 5, 99084, "Weimar", "Germany", null);
         empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, GregorianCalendar.FEBRUARY, 5),
                 "Michaelistraße", 17, 99086, "Erfurt", "Germany", empJonas);
+
+        custMartin = new Customer("Schmidt", "Martin", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+                "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+
+        musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
+        stationOne = new Station("S1", 3, musterhausen);
+
+        warehouse = new Warehouse();
 
     }
 
@@ -51,6 +75,27 @@ class EmployeeTest {
     @Test
     void set_correct_role_for_the_employee(){
         Assertions.assertEquals(Role.EMPLOYEE, empJonas.getAccount().getRole());
+    }
+
+    @Test
+    void should_set_the_discount_and_move_bills_to_Close_Bills(){
+
+        warehouse.putToolInWarehouse(drill);
+        System.out.println("#### Ausleihvorgang:");
+        Rental.rentATool(drill, stationOne, custMartin, warehouse);
+        Bill bill = Billing.findOpenBillFromCustomer(custMartin);
+        GregorianCalendar today = new GregorianCalendar();
+        System.out.println("#### Rückgabevorgang:");
+        Rental.returnTool(drill,stationOne,custMartin,warehouse, today);
+
+        //empJonas.setDiscountAndMoveBillsToCloseBills(bill, 0);
+        System.out.println("#### getOpenBills:");
+        Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getOpenBills()));
+        System.out.println("#### getCheckBills:");
+        Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getCheckBills()));
+        System.out.println("#### getClosedBills:");
+        Assertions.assertEquals(bill, Billing.findBillInListByReference(bill, Billing.getClosedBills()));
+
     }
 
 
