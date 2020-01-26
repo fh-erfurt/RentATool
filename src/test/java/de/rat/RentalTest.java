@@ -67,7 +67,6 @@ class RentalTest {
         warehouse = new Warehouse();
     }
 
-
     @Test
     void should_rent_a_tool(){
         warehouse.putToolInWarehouse(drill);
@@ -76,7 +75,6 @@ class RentalTest {
 
     @Test
     void should_return_false_if_the_station_is_full(){
-
         stationOne.addToolToBox(hammer);
         stationOne.addToolToBox(welder);
         stationOne.addToolToBox(welder2);
@@ -108,29 +106,27 @@ class RentalTest {
     @Test
     void should_return_false_if_the_tool_is_not_in_this_station(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean checkReturn=Rental.returnTool(drill,stationOne,custMaria,warehouse, today);
-        assertFalse(checkReturn);
+
+        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
     }
 
     @Test
     void should_return_false_if_there_is_no_open_bill_from_this_customer(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean toolInReturnStation=stationOne.addToolToBox(drill);
-        boolean checkReturn=Rental.returnTool(drill,stationOne,custMaria,warehouse, today);
-        assertFalse(checkReturn);
+        stationOne.addToolToBox(drill);
+
+        assertFalse(Rental.returnTool(drill,stationOne,custMaria,warehouse, today));
     }
 
     @Test
     void should_return_false_if_there_is_no_open_rentProcess_with_this_tool(){
         GregorianCalendar today = new GregorianCalendar();
-        boolean result= warehouse.putToolInWarehouse(drill);
-        boolean checkRent = Rental.rentATool(drill, stationOne, custMaria, warehouse);
+        warehouse.putToolInWarehouse(drill);
+        Rental.rentATool(drill, stationOne, custMaria, warehouse);
+        stationOne.addToolToBox(drill);
+        Rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
 
-        boolean toolInReturnStation=stationOne.addToolToBox(drill);
-
-        boolean checkReturn=Rental.returnTool(drill,stationOne,custLudwig,warehouse, today);
-        assertFalse(checkReturn);
+        assertFalse(Rental.returnTool(drill,stationOne,custLudwig,warehouse, today));
     }
-
 
 }

@@ -34,7 +34,7 @@ public class Customer extends Person {
              String email, String street, int houseNr, int zip, String city, String country, String phoneNumber)
     {
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
-        this.account = new Account(Role.CUSTOMER, email, createPassword(lastname, firstname, birthday));
+        this.account = new Account(Role.CUSTOMER, email, createPassword());
         this.phoneNumber = phoneNumber;
     }
 

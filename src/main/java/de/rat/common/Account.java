@@ -67,7 +67,7 @@ public class Account {
         this.setRole(role);
         this.setEmail(email);
 
-        this.setPassword(person.createPassword(person.getFirstname(),person.getLastname(),person.getBirthday()));
+        this.setPassword(person.createPassword());
         this.setChanged();
 
     }

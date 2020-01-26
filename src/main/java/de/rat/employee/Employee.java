@@ -32,7 +32,7 @@ public class Employee extends Person {
              Employee supervisor) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
-        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword(lastname, firstname, birthday));
+        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
         this.supervisor = supervisor;
     }
 
@@ -41,7 +41,7 @@ public class Employee extends Person {
              String street, int houseNr, int zip, String city, String country) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
-        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword(lastname, firstname, birthday));
+        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
         this.supervisor = null;
     }
 
