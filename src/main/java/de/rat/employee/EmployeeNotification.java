@@ -14,13 +14,14 @@ static private ArrayList  <Employee> employees=new ArrayList <Employee>();
         employees.add(employee);
 
     }
-public static void sendNotificationToAllEmployees()
-{
-    for (Employee employee : employees) {
-        employee.printNotification();
-    }
 
-}
+    public static void sendNotificationToAllEmployees()
+    {
+        for (Employee employee : employees) {
+            employee.printNotification();
+        }
+
+    }
 
     public static void sendNotificationToAllEmployeesToCheckTheOpenBills(Customer customer)
     {

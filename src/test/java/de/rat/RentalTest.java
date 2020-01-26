@@ -119,5 +119,4 @@ class RentalTest {
 
         assertFalse(Rental.returnTool(drill,stationOne,custLudwig,warehouse));
     }
-
 }
