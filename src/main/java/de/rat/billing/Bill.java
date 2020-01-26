@@ -61,7 +61,7 @@ public class Bill {
         this.billDate=null;
         this.discount= 0;
         this.fullRentPrice= 0;
-        autoincrementNumber++;
+        ++autoincrementNumber;
         this.billNumber = autoincrementNumber;
     }
 

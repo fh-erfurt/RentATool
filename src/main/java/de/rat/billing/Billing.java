@@ -81,10 +81,9 @@ public class Billing {
                 rentprocess.completeRentProcess(removeStation, today);
                 System.out.println("Die Rechnung wurde gefunden");
                 return foundedBill;
-            }
+            }EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         }
 
-        EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         System.out.println("Die Rechnung wurde nicht gefunden!");
         return null;
     }
