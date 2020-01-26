@@ -55,6 +55,9 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ## Besprechungsprotokolle
 
 ### Besprechung 06.01.2020
+
+---
+
 **1. Aggregation / Komposition / Assoziation**
 
 - Ist eine Stilfrage. Wichtig ist, dass die Beziehungen überall da dargestellt werden wo sie vorhanden sind.
@@ -91,6 +94,9 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 
 ### Besprechung 09.12.2019
+
+---
+
 **1. UML**
 - Object in UML Diagramm entfernen!
 - Beziehungen kenntlich machen z.b. zwischen Tool und Station
@@ -119,8 +125,11 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 **7. Dokumentation**
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
-
+----
 ### Besprechung 20.01.2020
+
+---
+
 **1. Abgabe des Projektes**
 - Abgabe über Github
 - Link zum Repository an Jonas übergeben
