@@ -76,7 +76,7 @@ public class Billing {
 
             RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer)&& rentprocess!= null) {
+            if (foundedBill.getCustomer().equals(customer) && rentprocess!= null) {
 
                 rentprocess.completeRentProcess(removeStation, today);
                 System.out.println("Die Rechnung wurde gefunden");
