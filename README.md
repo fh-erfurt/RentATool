@@ -9,8 +9,8 @@ Im Rahmen des Projektes zum Thema Programmierung JAVA 1 haben wir uns entschiede
 Hier erfahren Sie wie Sie das Programm auf Ihrem System Installieren und starten können.
 
 
-### Installing
-TODO: 
+### BusinessCase
+
 
 ## Built With
 
