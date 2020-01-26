@@ -68,7 +68,7 @@ class BillingTest {
     }
 
     @Test
-    void is_a_bill_in_openBills_after_return_tool() {
+    void has_the_bill_a_return_station_after_return_tool() {
         // set return station and date in the method
         warehouse.putToolInWarehouse(hammer);
         Rental.rentATool(hammer,stationOne,custMaria,warehouse);
@@ -78,11 +78,35 @@ class BillingTest {
     }
 
     @Test
-    void moveBillFromOpenToChecked() {
+    void move_the_bill_after_all_rent_processes_are_closed() {
+        warehouse.putToolInWarehouse(hammer);
+        Rental.rentATool(hammer,stationOne,custMaria,warehouse);
+        //1 bill in openBills, 0 in checkedBills
+        int sizeOpenBills = Billing.getOpenBills().size();
+        int sizeCheckedBills = Billing.getCheckBills().size();
+
+        Billing.checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(custMaria);
+        //0 bill in openBills, 1 in checkedBills
+        assertEquals(0,sizeOpenBills-1);
+        assertEquals(1,sizeCheckedBills+1);
+
+
     }
 
     @Test
-    void moveFromCheckToClosed() {
+    void move_the_bill_from_checked_to_closed() {
+
+        Bill bill = new Bill(custMaria,stationOne);
+        Billing.getCheckBills().add(bill);
+        //1 bill iun checkedBills, 0 in closedBills
+        int sizeCheckedBills = Billing.getCheckBills().size();
+        int sizeClosedBills = Billing.getClosedBills().size();
+
+        Billing.moveFromCheckToClosed(bill);
+
+        //0 bill iun checkedBills, 1 in closedBills
+        assertEquals(0,sizeCheckedBills-1);
+        assertEquals(1,sizeClosedBills+1);
     }
 
 

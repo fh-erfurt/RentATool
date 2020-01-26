@@ -157,7 +157,7 @@ public class Billing {
 
      */
 
-    //TODO: musste hier auch mit dem Iterator arbeiten: bitte prüfen
+
     public static void moveFromCheckToClosed(Bill checkBill)
     {
         Iterator iterator = checkBills.iterator();
@@ -168,7 +168,7 @@ public class Billing {
             {
                 iterator.remove();
                 closedBills.add(bill);
-                System.out.println("Rechnung wurde von Open zu Checked verschoben");
+                System.out.println("Rechnung wurde von Checked zu Closed verschoben");
 
             }
         }
