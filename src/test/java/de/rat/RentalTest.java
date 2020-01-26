@@ -4,10 +4,8 @@ import de.rat.common.*;
 import de.rat.customer.*;
 import de.rat.employee.*;
 import de.rat.logistics.*;
-import de.rat.billing.*;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.GregorianCalendar;
@@ -41,7 +39,6 @@ class RentalTest {
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
 
-
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
         hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, 2.5);
         welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
@@ -51,7 +48,6 @@ class RentalTest {
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
                 "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
-
 
         empDanny = new Employee("Steinbrecher", "Danny", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
                 "Johannesstraße", 5, 99084, "Erfurt", "Germany", null);

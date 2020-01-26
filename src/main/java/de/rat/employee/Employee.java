@@ -1,7 +1,7 @@
 package de.rat.employee;
 
 import de.rat.billing.*;
-import de.rat.customer.Customer;
+import de.rat.customer.*;
 import de.rat.logistics.*;
 import de.rat.common.*;
 
@@ -34,7 +34,7 @@ public class Employee extends Person {
              Employee supervisor) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
-        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
+        this.account    = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
         this.supervisor = supervisor;
     }
 
@@ -54,15 +54,17 @@ public class Employee extends Person {
              String street, int houseNr, int zip, String city, String country) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
-        this.account = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
+        this.account    = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
         this.supervisor = null;
     }
 
+    // Getter
     public Person getSupervisor() {
         return supervisor;
     }
 
 
+    // Methods
     /** create default email for the employee
      * @return firstname + lastname + rat.de
      *

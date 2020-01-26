@@ -75,6 +75,8 @@ public class Station {
      */
     public boolean addToolToBox(Tool tool)
     {
+        if(tool == null) { return false; };
+
         if(!this.checkStationLevel()){return false;}
 
         /* checks whether the tool is already in the box */

@@ -74,7 +74,6 @@ class EmployeeTest {
 
     @Test
     void should_set_the_discount_and_move_bills_to_Close_Bills(){
-
         warehouse.putToolInWarehouse(drill);
         Rental.rentATool(drill, stationOne, custMartin, warehouse);
         Bill bill = Billing.findOpenBillFromCustomer(custMartin);

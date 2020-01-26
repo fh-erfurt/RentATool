@@ -1,18 +1,14 @@
 package de.rat.customer;
 
-
-import de.rat.common.Person;
-import de.rat.common.Role;
-import de.rat.logistics.Station;
-import de.rat.logistics.Tool;
-import de.rat.common.Account;
+import de.rat.common.*;
+import de.rat.logistics.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+
 /**Represents an customer.
  * @author Danny Steinbrecher
  */
-
 public class Customer extends Person {
 
     private String phoneNumber;
@@ -45,9 +41,11 @@ public class Customer extends Person {
         for (Tool foundedTool : this.inventory) {
             if (foundedTool.equals(tool)) {
                 this.inventory.remove(foundedTool);
+                System.out.println("Das Werkzeug wurde beim Kunden gefunden!");
                 return foundedTool;
             }
         }
+        System.out.println("Das Werkzeug wurde nicht beim Kunden gefunden!");
         return null;
     }
 
@@ -57,8 +55,10 @@ public class Customer extends Person {
     public boolean putToolInInventory(Tool tool){
         if(tool != null) {
             this.inventory.add(tool);
+            System.out.println("Das Werkzeug wurde an den Kunden übergeben!");
             return true;
         }
+        System.out.println("Das Werkzeug konnte nicht an den Kunden übergeben werden!");
         return false;
     }
 
@@ -73,16 +73,10 @@ public class Customer extends Person {
 
     /** return the tool to the station.
      *  @param wantedTool the tool that where rented
-     *  @param removeStation the station which the tool will be removed
+     *  @param removeStation the station which the tool will be insert for remove
      */
     public boolean returnToolToStation(Tool wantedTool, Station removeStation){
-        if(getToolFromInventory(wantedTool) != null) {
-            return removeStation.addToolToBox(wantedTool);
-            // Rental retnal = new Rental();
-            // retnal.returnTool(wantedTool)
-            // TODO: ggf an den Return Tool geben!
-        }
-        return false;
+        return removeStation.addToolToBox(wantedTool);
     }
 }
 

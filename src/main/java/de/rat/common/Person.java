@@ -41,6 +41,7 @@ public abstract class Person {
     public String getFirstname()    { return firstname; }
     public String getLastname()     { return lastname; }
 
+
     //Methods
 
     /** creates the Password for an employee or a customer.
@@ -57,5 +58,4 @@ public abstract class Person {
 
         return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
     }
-
 }
