@@ -4,11 +4,15 @@ import de.rat.billing.*;
 import de.rat.customer.*;
 import de.rat.logistics.*;
 import java.util.GregorianCalendar;
+import java.util.logging.Logger;
 
 /**Represents an rental.
  * @author Danny Steinbrecher
  */
+
 public class Rental {
+
+    private static final Logger logger = Logger.getLogger("LOGGER");
 
     /** Creates an rental from the tool .
      *  @param wantedTool the tool that would by rented

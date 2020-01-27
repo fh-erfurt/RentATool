@@ -3,6 +3,8 @@ package de.rat.logistics;
 import de.rat.common.Address;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
 /** Creates station .
  *  @param description this is the discription from the station
  *  @param numberOfBoxes max size of boxes
@@ -11,7 +13,7 @@ import java.util.ArrayList;
  *
  */
 public class Station {
-
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private String description;
     private int numberOfBoxes;
     private Address address;
@@ -81,12 +83,12 @@ public class Station {
 
         /* checks whether the tool is already in the box */
         if(boxesOfTools.contains(tool)) {
-            System.out.println("Das Werkzeug ist bereits in der Station!");
+            logger.severe("Das Werkzeug ist bereits in der Station!");
             return false;
         }
 
         boxesOfTools.add(tool);
-        System.out.println("Das Werkzeug wurde in die Box gelegt");
+        logger.info("Das Werkzeug wurde in die Box gelegt");
         return true;
     }
 
@@ -106,11 +108,11 @@ public class Station {
                 if (foundedTool.equals(wantedTool))
                 {
                     boxesOfTools.remove(foundedTool);
-                    System.out.println("Werkzeug wurde in Station gefunden und entfernt");
+                    logger.info("Werkzeug wurde in Station gefunden und entfernt");
                     return foundedTool;
                 }
             }
-            System.out.println("Werkzeug nicht in der Station vorhanden");
+            logger.severe("Werkzeug nicht in der Station vorhanden");
             return null;
         }
 
@@ -123,10 +125,10 @@ public class Station {
      */
         public boolean checkStationLevel() {
             if (numberOfBoxes <= boxesOfTools.size()) {
-                System.out.println("Die Station ist voll!");
+                logger.severe("Die Station ist voll!");
                 return false;
             } else {
-                System.out.println("In der Station ist noch Platz!");
+                logger.info("In der Station ist noch Platz!");
                 return true;
             }
         }

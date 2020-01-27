@@ -9,6 +9,7 @@ import de.rat.employee.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
@@ -23,7 +24,7 @@ import java.util.Iterator;
  * @param checkBills a list from the bills that still have to be checked from the employee
  */
 public class Billing {
-
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
@@ -56,11 +57,11 @@ public class Billing {
             int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
             // use only the founded Bill customer, is the same and today is the rentDay of the Bill
             if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 1) {
-                System.out.println("Die Rechnung wurde gefunden!");
+                logger.info("Die Rechnung wurde gefunden!");
                 return foundedBill;
             }
         }
-        System.out.println("Es konnte keine passende Offene Rechnung gefunden werden");
+        logger.severe("Es konnte keine passende Offene Rechnung gefunden werden");
         return null;
     }
 
@@ -79,12 +80,12 @@ public class Billing {
             if (foundedBill.getCustomer().equals(customer) && rentprocess!= null) {
 
                 rentprocess.completeRentProcess(removeStation, today);
-                System.out.println("Die Rechnung wurde gefunden");
+                logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
             }EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         }
 
-        System.out.println("Die Rechnung wurde nicht gefunden!");
+        logger.severe("Die Rechnung wurde nicht gefunden!");
         return null;
     }
 
@@ -102,7 +103,7 @@ public class Billing {
         }
 
 
-        System.out.println("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
+        logger.info("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
         return newBill;
     }
 
@@ -121,11 +122,11 @@ public class Billing {
             if (bill.getCustomer().equals(customer)) {
                 if(bill.checkIfAllRentProcessesFromABillAreClosed()) {
                     bill.setFullRentPrice();
-                    System.out.println("Der Gesamtpreis wurde eingetragen!");
+                    logger.info("Der Gesamtpreis wurde eingetragen!");
 
                     iterator.remove();
                     checkBills.add(bill);
-                    System.out.println("Rechnung wurde von Open zu Checked verschoben");
+                    logger.info("Rechnung wurde von Open zu Checked verschoben");
 
                     EmployeeNotification.sendNotificationToAllEmployees();
                     return;
@@ -168,7 +169,7 @@ public class Billing {
             {
                 iterator.remove();
                 closedBills.add(bill);
-                System.out.println("Rechnung wurde von Checked zu Closed verschoben");
+                logger.info("Rechnung wurde von Checked zu Closed verschoben");
 
             }
         }
@@ -186,9 +187,10 @@ public class Billing {
         Bill bill = findOpenBillFromCustomer(customer);
         if(bill == null){
             bill = createOpenBillFromCustomer(pickupStation, customer);
+            logger.info("Eine neue Rechnung wurde erstellt!");
             return bill;
         }
-        System.out.println("Eine Rechnung wurde gefunden");
+        logger.info("Eine Rechnung wurde gefunden!");
         return bill;
     }
 }

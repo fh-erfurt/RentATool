@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Logger;
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
@@ -30,7 +31,7 @@ import java.util.GregorianCalendar;
  *
  */
 public class Bill {
-
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private static int autoincrementNumber = 10000;
     private int billNumber;
     private Customer customer;
@@ -197,7 +198,7 @@ public class Bill {
         {
             // get the dates of the return and rented Date and calculate the difference.
             int days = calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
-            System.out.println("Days: " + days);
+            logger.info("Days: " + days);
             // multiply the rented days with the rentPrice for each tool
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
@@ -216,11 +217,11 @@ public class Bill {
         {
             if (foundedProcesses.getReturnStation() == null || (foundedProcesses.getReturnDate()==null))
             {
-                System.out.println("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " ist noch offen!");
+                logger.info("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " ist noch offen!");
                 return false;
             }
         }
-        System.out.println("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " kann geprüft werden!");
+        logger.info("Die Rechnung vom Kunden: " + this.getCustomer().getFirstname() + " " + this.getCustomer().getLastname() + " RnNr: " + this.getBillNumber() + " kann geprüft werden!");
         return true;
     }
 

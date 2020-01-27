@@ -5,12 +5,14 @@ import de.rat.logistics.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.logging.Logger;
 
 /**Represents an customer.
  * @author Danny Steinbrecher
  */
 public class Customer extends Person {
 
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private String phoneNumber;
     private ArrayList<Tool>  inventory = new ArrayList<Tool>();
 
@@ -41,11 +43,11 @@ public class Customer extends Person {
         for (Tool foundedTool : this.inventory) {
             if (foundedTool.equals(tool)) {
                 this.inventory.remove(foundedTool);
-                System.out.println("Das Werkzeug wurde beim Kunden gefunden!");
+                logger.info("Das Werkzeug wurde beim Kunden gefunden!");
                 return foundedTool;
             }
         }
-        System.out.println("Das Werkzeug wurde nicht beim Kunden gefunden!");
+        logger.severe("Das Werkzeug wurde nicht beim Kunden gefunden!");
         return null;
     }
 
@@ -55,10 +57,10 @@ public class Customer extends Person {
     public boolean putToolInInventory(Tool tool){
         if(tool != null) {
             this.inventory.add(tool);
-            System.out.println("Das Werkzeug wurde an den Kunden übergeben!");
+            logger.info("Das Werkzeug wurde an den Kunden übergeben!");
             return true;
         }
-        System.out.println("Das Werkzeug konnte nicht an den Kunden übergeben werden!");
+        logger.severe("Das Werkzeug konnte nicht an den Kunden übergeben werden!");
         return false;
     }
 
