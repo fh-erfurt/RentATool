@@ -115,9 +115,9 @@ public class Billing {
 
     public static void checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(Customer customer) {
 
-        Iterator iterator = openBills.iterator();   //TODO: Iterator???
+        Iterator<Bill> iterator = openBills.iterator();   //TODO: Iterator???
         while (iterator.hasNext()) {
-            Bill bill = (Bill) iterator.next();
+            Bill bill = iterator.next();
             if (bill.getCustomer().equals(customer)) {
                 if(bill.checkIfAllRentProcessesFromABillAreClosed()) {
                     bill.setFullRentPrice();
@@ -160,10 +160,10 @@ public class Billing {
 
     public static void moveFromCheckToClosed(Bill checkBill)
     {
-        Iterator iterator = checkBills.iterator();
+        Iterator<Bill> iterator = checkBills.iterator();
         while (iterator.hasNext())
         {
-            Bill bill = (Bill) iterator.next();
+            Bill bill = iterator.next();
             if(bill == checkBill)
             {
                 iterator.remove();
