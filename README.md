@@ -166,7 +166,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ## Programme
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
-* [Visio](https://products.office.com/de-de/visio) - Tool für die Erstellung der Diagramme / Charts / ...
+* [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
 
 ## License
 
