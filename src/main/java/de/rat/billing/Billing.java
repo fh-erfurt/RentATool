@@ -95,14 +95,6 @@ public class Billing {
     public static Bill createOpenBillFromCustomer(Station pickupStation, Customer customer){
         Bill newBill = new Bill(customer, pickupStation);
         openBills.add(newBill);
-
-
-        for (Bill foundedBill : openBills)
-        {
-            System.out.println(foundedBill.getCustomer());
-        }
-
-
         logger.info("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
         return newBill;
     }
