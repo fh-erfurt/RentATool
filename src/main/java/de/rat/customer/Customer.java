@@ -8,8 +8,11 @@ import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 
 /**Represents an customer.
- * @author Danny Steinbrecher
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
+
+
+
 public class Customer extends Person {
 
     private static final Logger logger = Logger.getLogger("LOGGER");

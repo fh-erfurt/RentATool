@@ -1,4 +1,8 @@
 package de.rat.logistics;
+/**Represents a class tool.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ */
+
 
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W

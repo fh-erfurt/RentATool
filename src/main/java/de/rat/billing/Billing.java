@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
- * @author Danny Steinbrecher
+ * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
 
 

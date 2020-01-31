@@ -1,5 +1,7 @@
 package de.rat.common;
-
+/**Represents a class address.
+ * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ */
 public class Address {
 
     private String street;

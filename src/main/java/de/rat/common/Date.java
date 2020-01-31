@@ -2,7 +2,9 @@ package de.rat.common;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
+/**Represents a class date.
+ * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ */
 public class Date extends GregorianCalendar {
 
     public static GregorianCalendar getToday() {

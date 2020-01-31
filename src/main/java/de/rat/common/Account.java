@@ -1,6 +1,9 @@
 package de.rat.common;
 
 import java.time.LocalDate;
+/**Represents a class account.
+ * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ */
 
 
 public class Account {

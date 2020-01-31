@@ -3,7 +3,9 @@ package de.rat.logistics;
 import java.nio.channels.ScatteringByteChannel;
 import java.util.ArrayList;
 import java.util.logging.Logger;
-
+/**Represents a bill.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ */
 
 /** Creates a bill .
  *  Stock is a array list of tools

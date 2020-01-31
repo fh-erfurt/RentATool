@@ -4,12 +4,17 @@ import de.rat.common.Address;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
+/**Represents a class station.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ */
+
+
 
 /** Creates station .
- *  @param description this is the discription from the station
- *  @param numberOfBoxes max size of boxes
- *  @param address where the station is installed
- *  @param boxesOfTools a array list of boxes and the array size is equal to the number of boxes
+ *  description this is the discription from the station
+ *  numberOfBoxes max size of boxes
+ *  address where the station is installed
+ *  boxesOfTools a array list of boxes and the array size is equal to the number of boxes
  *
  */
 public class Station {

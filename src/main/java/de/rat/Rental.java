@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 
 /**Represents an rental.
- * @author Danny Steinbrecher, Marco Petzold
+ * @author Danny Steinbrecher, Marco Petzold, Christian König, Bilal Alnani
  */
 
 public class Rental {

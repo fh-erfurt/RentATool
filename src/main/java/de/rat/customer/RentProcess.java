@@ -5,6 +5,9 @@ import de.rat.logistics.Tool;
 
 import java.util.GregorianCalendar;
 
+/**Represents an RentProcess.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ */
 
 /** Creates an customer .
  *  rentedTool is the rented tool

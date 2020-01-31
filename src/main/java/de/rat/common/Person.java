@@ -3,7 +3,7 @@ package de.rat.common;
 import java.util.GregorianCalendar;
 
 /**Represents a Person.
- * @author Danny Steinbrecher
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 public abstract class Person {

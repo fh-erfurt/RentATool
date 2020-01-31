@@ -4,7 +4,9 @@ import de.rat.billing.Bill;
 import de.rat.customer.Customer;
 
 import java.util.ArrayList;
-
+/**Represents an EmployeeNotification.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ */
 public class EmployeeNotification {
 
 static private ArrayList  <Employee> employees=new ArrayList <Employee>();

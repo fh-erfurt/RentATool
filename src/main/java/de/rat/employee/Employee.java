@@ -10,8 +10,9 @@ import java.util.logging.Logger;
 
 /**Represents an Employee.
  * extends from Person
- * @author Danny Steinbrecher
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
+
 
 public class Employee extends Person {
     private static final Logger logger = Logger.getLogger("LOGGER");

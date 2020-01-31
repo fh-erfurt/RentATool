@@ -1,11 +1,8 @@
 package de.rat.logistics;
 
 import de.rat.common.Address;
-
 /**Represents an manufacturer.
- * @author Christian König
- * @version 0.1
- * @since 0.1
+ * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 public class Manufacturer {
 
