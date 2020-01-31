@@ -2,6 +2,7 @@ package de.rat.billing;
 
 import de.rat.Rental;
 import de.rat.common.Address;
+import de.rat.common.Date;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.*;
@@ -51,6 +52,7 @@ class BillingTest {
         Bill newBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
         Billing.getOpenBills().add(newBill);
         Bill searchedBill = Billing.findOpenBillFromCustomer(custMaria);
+        GregorianCalendar today =  Date.getToday();
         assertEquals(searchedBill, newBill);
     }
 

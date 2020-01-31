@@ -1,5 +1,6 @@
 package de.rat.billing;
 
+import de.rat.common.Date;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
@@ -51,10 +52,7 @@ public class Billing {
      */
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
-        GregorianCalendar today = new GregorianCalendar();
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
+        GregorianCalendar today =  Date.getToday();
 
         Bill searchedBill =   openBills.stream()
                 .filter(bill -> bill.getRentDate().getTimeInMillis() > today.getTimeInMillis() && bill.getCustomer().equals(customer))
