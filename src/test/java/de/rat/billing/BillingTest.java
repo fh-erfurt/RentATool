@@ -128,4 +128,20 @@ class BillingTest {
 
         assertEquals(searchedBill,searchedBill2);
     }
+
+
+    @Test
+    void findBillInListByReference() {
+        Bill bill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill2 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill3 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill4 = new Bill(custMaria, stationOne);
+        Bill bill5 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill6 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill7 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        //Billing.getOpenBills().add(bill42);
+        assertEquals(bill3,Billing.findBillInListByReference(bill3, Billing.getOpenBills()));
+        assertNull(Billing.findBillInListByReference(bill4, Billing.getOpenBills()));
+
+    }
 }

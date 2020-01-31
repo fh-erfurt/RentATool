@@ -7,9 +7,12 @@ import de.rat.logistics.Tool;
 import de.rat.employee.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.logging.Logger;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
@@ -143,13 +146,8 @@ public class Billing {
      * @return A bill when the bill was in this List
      * @return null if the bill was not in this list
      */
-    public static Bill findBillInListByReference(Bill bill, ArrayList<Bill> billList ){
-        for (Bill foundedBill : billList) {
-            if (foundedBill.equals(bill)) {
-                return foundedBill;
-            }
-        }
-        return null;
+    public static Bill findBillInListByReference(Bill searchedBill, ArrayList<Bill> billList ){
+        return billList.stream().filter(bill -> bill.equals(searchedBill)).findFirst().orElse(null);
     }
 
     /** Move the  bills from the checkBill Array to the closeBill Array
