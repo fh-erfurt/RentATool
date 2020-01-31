@@ -2,6 +2,7 @@ package de.rat.billing;
 
 import de.rat.Rental;
 import de.rat.common.Address;
+import de.rat.common.Date;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.*;
@@ -45,44 +46,73 @@ class BillingTest {
 
 
     @Test
-    void was_a_bill_in_open_bill_after_customer_rent_a_tool() {
+    void is_a_bill_in_openBills_after_customer_rent_a_tool() throws InterruptedException {
         //create one Bill with the current date - equal to rentDate
         warehouse.putToolInWarehouse(hammer);
-        Rental.rentATool(hammer,stationOne,custMaria,warehouse);
+        Bill newBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Billing.getOpenBills().add(newBill);
         Bill searchedBill = Billing.findOpenBillFromCustomer(custMaria);
-        assertEquals(10001,searchedBill.getBillNumber());
+        GregorianCalendar today =  Date.getToday();
+        assertEquals(searchedBill, newBill);
+    }
 
+    @Test
+    void should_return_null_if_the_rent_date_is_not_the_current_day()
+    {
         // change date, so rentDate is in the past
+        Billing.getOpenBills().clear();
+        warehouse.putToolInWarehouse(hammer);
         GregorianCalendar newDate= new GregorianCalendar(2020, Calendar.JANUARY,24);
-        Billing.getOpenBills().get(0).setRentDate(newDate);
-        Bill searchedBill1 = Billing.findOpenBillFromCustomer(custMaria);
-        assertEquals(null,searchedBill1);
+        Bill nullBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        nullBill.setRentDate(newDate);
+        Billing.getOpenBills().add(nullBill);
+        assertNull(Billing.findOpenBillFromCustomer(custMaria));
     }
+
     @Test
-    void is_there_just_one_bill_after_rent_two_tools() {
+    void is_there_a_bill_from_a_customer_which_matches_with_the_returned_tool() {
         //create one Bill with the current date - equal to rentDate
+        Billing.getOpenBills().clear();
         warehouse.putToolInWarehouse(hammer);
         Rental.rentATool(hammer,stationOne,custMaria,warehouse);
-        Bill searchedBill = Billing.findOpenBillFromCustomerForReturn(custMaria,drill,stationOne);
-        assertEquals(10001,searchedBill.getBillNumber());
+        Bill searchedBill = Billing.findOpenBillFromCustomerForReturn(custMaria,hammer,stationOne);
+        assertEquals(searchedBill,Billing.getOpenBills().get(0));
     }
 
     @Test
-    void is_a_bill_in_openBills_after_return_tool() {
-        // set return station and date in the method
+    void move_the_bill_after_all_rent_processes_are_closed() {
+        Billing.getOpenBills().clear();
+        Billing.getCheckBills().clear();
         warehouse.putToolInWarehouse(hammer);
         Rental.rentATool(hammer,stationOne,custMaria,warehouse);
-        Bill testBill = Billing.findOpenBillFromCustomerForReturn(custMaria,hammer,stationOne);
-        assertEquals(stationOne,testBill.getListOfRentProcesses().get(0).getReturnStation());
+        //1 bill in openBills, 0 in checkedBills
+        int sizeOpenBills = Billing.getOpenBills().size();
+        int sizeCheckedBills = Billing.getCheckBills().size();
+
+        Billing.checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(custMaria);
+        //0 bill in openBills, 1 in checkedBills
+        assertEquals(0,sizeOpenBills-1);
+        assertEquals(1,sizeCheckedBills+1);
+
 
     }
 
     @Test
-    void moveBillFromOpenToChecked() {
-    }
+    void move_the_bill_from_checked_to_closed() {
+        Billing.getOpenBills().clear();
+        Billing.getClosedBills().clear();
 
-    @Test
-    void moveFromCheckToClosed() {
+        Bill bill = new Bill(custMaria,stationOne);
+        Billing.getCheckBills().add(bill);
+        //1 bill iun checkedBills, 0 in closedBills
+        int sizeCheckedBills = Billing.getCheckBills().size();
+        int sizeClosedBills = Billing.getClosedBills().size();
+
+        Billing.moveFromCheckToClosed(bill);
+
+        //0 bill iun checkedBills, 1 in closedBills
+        assertEquals(0,sizeCheckedBills-1);
+        assertEquals(1,sizeClosedBills+1);
     }
 
 
@@ -92,11 +122,28 @@ class BillingTest {
         warehouse.putToolInWarehouse(hammer);
         Rental.rentATool(hammer,stationOne,custMaria,warehouse);
         Bill searchedBill = Billing.findOpenBillFromCustomer(custMaria);
-        assertEquals(10001,searchedBill.getBillNumber());
-
         //find bill and use them
         warehouse.putToolInWarehouse(drill);
         Rental.rentATool(drill,stationOne,custMaria,warehouse);
-        assertEquals(10001,searchedBill.getBillNumber());
+        Bill searchedBill2 = Billing.findOpenBillFromCustomer(custMaria);
+
+
+        assertEquals(searchedBill,searchedBill2);
+    }
+
+
+    @Test
+    void findBillInListByReference() {
+        Bill bill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill2 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill3 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill4 = new Bill(custMaria, stationOne);
+        Bill bill5 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill6 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill7 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        //Billing.getOpenBills().add(bill42);
+        assertEquals(bill3,Billing.findBillInListByReference(bill3, Billing.getOpenBills()));
+        assertNull(Billing.findBillInListByReference(bill4, Billing.getOpenBills()));
+
     }
 }

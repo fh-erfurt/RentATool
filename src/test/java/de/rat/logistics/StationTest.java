@@ -32,9 +32,7 @@ private Station station2;
         testtool4 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
         testtool5 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
     }
-    /*#############################################################*/
-    /*#############################################################*/
-    /*#############################################################*/
+
     @Test public void is_a_tool_added_to_the_box ()
     {
 
@@ -43,9 +41,7 @@ private Station station2;
         assertEquals(1, station.getNumberOfTools());
 
     }
-    /*#############################################################*/
-    /*#############################################################*/
-    /*#############################################################*/
+
     @Test public void is_box_limit_reached ()
     {
         /* test that box limit has no overflow */
@@ -57,10 +53,8 @@ private Station station2;
         assertEquals(false, station.addToolToBox(testtool));
 
     }
-    /*#############################################################*/
-    /*#############################################################*/
-    /*#############################################################*/
-        @Test public void is_tool_removed () {
+
+    @Test public void is_tool_removed () {
 
             station.addToolToBox(testtool);
             station.addToolToBox(testtool1);

@@ -2,6 +2,7 @@ package de.rat.logistics;
 
 import java.nio.channels.ScatteringByteChannel;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 
 /** Creates a bill .
@@ -9,8 +10,8 @@ import java.util.ArrayList;
  *
  */
 public class Warehouse {
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private ArrayList<Tool> Stock= new ArrayList        <Tool>();
-
 
     public Warehouse() {
     }
@@ -31,7 +32,7 @@ public class Warehouse {
         if(tool !=null)
         {
             this.Stock.add(tool);
-            System.out.println("Das Tool ist im Warenhaus ");
+            logger.info("Das Tool ist im Warenhaus ");
         }
     }
 
@@ -50,15 +51,15 @@ public class Warehouse {
             {
                 if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
                     Stock.remove(tool);
-                    System.out.println("Das Tool ist bereit zum Ausleihen");
+                    logger.info("Das Tool ist bereit zum Ausleihen");
                     return tool;
                 }else{
-                    System.out.println("Das Tool ist nicht ausleihbereit");
+                    logger.severe("Das Tool ist nicht ausleihbereit");
                     return null;
                 }
             }
         }
-        System.out.println("Werkzeug nicht im Lager vorhanden");
+        logger.severe("Werkzeug nicht im Lager vorhanden");
         return null;
     }
 
@@ -77,12 +78,7 @@ public class Warehouse {
                 return true;
             }
         }
-        System.out.println("Werkzeug nicht im Lager vorhanden");
+        logger.severe("Werkzeug nicht im Lager vorhanden");
         return false;
     }
-
-
-
-
-
 }

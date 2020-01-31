@@ -54,6 +54,41 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 ## Besprechungsprotokolle
 
+
+### Besprechung 20.01.2020
+
+---
+
+**1. Abgabe des Projektes**
+- Abgabe über Github
+- Link zum Repository an Jonas übergeben
+- Präsentationen können in dem Repository hinterlegt werden
+- Abgabe am 03.02.2020
+
+**2. Abschlusspräsentation**
+- welche Änderungen gab es seit der letzten Präsentation
+- das Endprodukt präsentieren
+- ursprüngliches Ziel - mit Endprodukt vergleichen
+- lessons learned
+- 15 min Präsentation
+- am 03.02 Vorlesung und Übung  wird für die Präsentation genutzt
+
+**3. Dokumentation**
+- Top Down Sicht auf das Projekt
+- was macht das Programm
+- wie ist es strukturiert
+- UML-Klassendiagramm (Whitebox)
+- Businesscase
+- Usecase
+- Einfache Sicht auf das System (Blackbox)
+- Lessons learned 
+- Dokumentation kann in GitHub ReadMe erfolgen
+
+**4. Änderungen am Projekt**
+- Notification Class einbauen
+- Company und Departments entfernen
+
+
 ### Besprechung 06.01.2020
 
 ---
@@ -126,44 +161,35 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
 
-### Besprechung 20.01.2020
 
----
-
-**1. Abgabe des Projektes**
-- Abgabe über Github
-- Link zum Repository an Jonas übergeben
-- Präsentationen können in dem Repository hinterlegt werden
-- Abgabe am 03.02.2020
-
-**2. Abschlusspräsentation**
-- welche Änderungen gab es seit der letzten Präsentation
-- das Endprodukt präsentieren
-- ursprüngliches Ziel - mit Endprodukt vergleichen
-- lessons learned
-- 15 min Präsentation
-- am 03.02 Vorlesung und Übung  wird für die Präsentation genutzt
-
-**3. Dokumentation**
-- Top Down Sicht auf das Projekt
-- was macht das Programm
-- wie ist es strukturiert
-- UML-Klassendiagramm (Whitebox)
-- Businesscase
-- Usecase
-- Einfache Sicht auf das System (Blackbox)
-- Lessons learned 
-- Dokumentation kann in GitHub ReadMe erfolgen
-
-**4. Änderungen am Projekt**
-- Notification Class einbauen
-- Company und Departments entfernen
 
 ## Programme
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
-* [Visio](https://products.office.com/de-de/visio) - Tool für die Erstellung der Diagramme / Charts / ...
+* [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+* [Office](https://www.office.com/) - Office Programm
+* [Git](https://git-scm.com/) - Versionskontrolle
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+
+
+
+Ablauf Programm
+Baumstruktur
+Enums
+Rental
+Billing (2 Listen)
+Employee Notification
+
+Git Hub / Java Docs
+Lessons Learned
+Je mehr Leute arbeiten, desto schwerer die Koordination (getrenntes Arbeitsumfeld 
+GitHub Versionskontrolle ist richtig geil 
+GitHub Issues sind noch geiler! 
+Kundenkommunikation wichtig (Rechtzeitig) 
+Anfangs zu sehr an Datenbank gedacht 
+Tests helfen bei der Programmierung 

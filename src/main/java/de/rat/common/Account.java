@@ -42,26 +42,10 @@ public class Account {
         this.role = role;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void setPassword(String password) {
         this.password = this.password;
     }
 
-    public void setChanged()
-    {
-        this.changed = LocalDate.now();
-    }
-
-    public void changeAccount(Role role, String email, Person person){
-        this.setRole(role);
-        this.setEmail(email);
-
-        this.setPassword(person.createPassword());
-        this.setChanged();
-    }
 
 
 }

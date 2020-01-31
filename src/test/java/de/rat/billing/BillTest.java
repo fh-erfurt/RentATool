@@ -13,13 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BillTest {
 
-//    Company rentATool = new Company("Rent a Tool");
-//    Address testAddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-//    Customer testUser = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de","Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
-//    Station testStation = new Station("S1", 3, testAddress);
-//    Bill testBill = new Bill(testUser,testStation);
-//    Station station = new Station("S1", 3, testAddress);
-
     private Address testAddress;
     private Customer testUser;
     private Station testStation;
@@ -51,12 +44,6 @@ class BillTest {
         assertEquals(today.get(Calendar.MONTH), testBill.getRentDate().get(Calendar.MONTH));
         assertEquals(today.get(Calendar.YEAR), testBill.getRentDate().get(Calendar.YEAR));
     }
-
-
-
-
-
-
 
 
 

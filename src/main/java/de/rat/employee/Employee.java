@@ -6,6 +6,7 @@ import de.rat.logistics.*;
 import de.rat.common.*;
 
 import java.util.GregorianCalendar;
+import java.util.logging.Logger;
 
 /**Represents an Employee.
  * extends from Person
@@ -13,7 +14,7 @@ import java.util.GregorianCalendar;
  */
 
 public class Employee extends Person {
-
+    private static final Logger logger = Logger.getLogger("LOGGER");
     private Employee supervisor;
 
     /** constructor for the employee - with supervisor
@@ -107,11 +108,11 @@ public class Employee extends Person {
 
             Billing.moveFromCheckToClosed(checkBill);
 
-            System.out.println("Rechnung wurde erfolgreich geprüft und bearbeitet.");
-            System.out.println("Rechnung wurde in die closedBill verschoben.");
+            logger.info("Rechnung wurde erfolgreich geprüft und bearbeitet.");
+            logger.info("Rechnung wurde in die closedBill verschoben.");
             return true;
         }
-        System.out.println("Keine Rechnung übergeben.");
+        logger.severe("Keine Rechnung übergeben.");
         return false;
     }
 }
