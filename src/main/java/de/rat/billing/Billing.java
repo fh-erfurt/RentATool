@@ -10,8 +10,6 @@ import de.rat.employee.*;
 
 import java.util.*;
 import java.util.logging.Logger;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
@@ -55,7 +53,7 @@ public class Billing {
         // get date of today for comparing with rentDate
         GregorianCalendar today =  Date.getToday();
 
-        Bill searchedBill =   openBills.stream()
+        Bill searchedBill = openBills.stream()
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
                 .findAny()
                 .orElse(null);
@@ -148,13 +146,12 @@ public class Billing {
         return billList.stream().filter(bill -> bill.equals(searchedBill)).findFirst().orElse(null);
     }
 
+
     /** Move the  bills from the checkBill Array to the closeBill Array
      * @param checkBills bills that have to checked from the employee
      * @param closedBills bills with closed bills
 
      */
-
-
     public static void moveFromCheckToClosed(Bill checkBill)
     {
         Iterator<Bill> iterator = checkBills.iterator();
