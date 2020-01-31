@@ -6,10 +6,7 @@ import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 import de.rat.employee.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
+import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -53,10 +50,23 @@ public class Billing {
      * @return null if there are no open bills
      */
     public static Bill findOpenBillFromCustomer(Customer customer){
-        for (Bill foundedBill : openBills) {
+        // get date of today for comparing with rentDate
+        GregorianCalendar today = new GregorianCalendar();
+        today.set(Calendar.HOUR, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
 
-            // get date of today for comparing with rentDate
-            GregorianCalendar today = new GregorianCalendar();
+        Bill searchedBill =   openBills.stream()
+                .filter(bill -> bill.getRentDate().getTimeInMillis() > today.getTimeInMillis() && bill.getCustomer().equals(customer))
+                .findAny()
+                .orElse(null);
+
+        logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
+
+        return searchedBill;
+
+        /*
+        for (Bill foundedBill : openBills) {
             int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
             // use only the founded Bill customer, is the same and today is the rentDay of the Bill
             if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 1) {
@@ -66,6 +76,8 @@ public class Billing {
         }
         logger.severe("Es konnte keine passende Offene Rechnung gefunden werden");
         return null;
+
+        */
     }
 
 

@@ -45,7 +45,7 @@ class BillingTest {
 
 
     @Test
-    void is_a_bill_in_openBills_after_customer_rent_a_tool() {
+    void is_a_bill_in_openBills_after_customer_rent_a_tool() throws InterruptedException {
         //create one Bill with the current date - equal to rentDate
         warehouse.putToolInWarehouse(hammer);
         Bill newBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
