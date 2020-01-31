@@ -167,6 +167,8 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
 * [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+* [Office](https://www.office.com/) - Office Programm
+* [Git](https://git-scm.com/) - Versionskontrolle
 
 ## License
 
