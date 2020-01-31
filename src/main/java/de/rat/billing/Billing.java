@@ -1,6 +1,7 @@
 package de.rat.billing;
 
 import de.rat.common.Date;
+import de.rat.common.Operator;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
@@ -55,27 +56,13 @@ public class Billing {
         GregorianCalendar today =  Date.getToday();
 
         Bill searchedBill =   openBills.stream()
-                .filter(bill -> bill.getRentDate().getTimeInMillis() > today.getTimeInMillis() && bill.getCustomer().equals(customer))
+                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
                 .findAny()
                 .orElse(null);
 
         logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
 
         return searchedBill;
-
-        /*
-        for (Bill foundedBill : openBills) {
-            int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
-            // use only the founded Bill customer, is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 1) {
-                logger.info("Die Rechnung wurde gefunden!");
-                return foundedBill;
-            }
-        }
-        logger.severe("Es konnte keine passende Offene Rechnung gefunden werden");
-        return null;
-
-        */
     }
 
 
@@ -95,9 +82,10 @@ public class Billing {
                 rentprocess.completeRentProcess(removeStation, today);
                 logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
-            }EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
-        }
+            }
 
+        }
+        EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         logger.severe("Die Rechnung wurde nicht gefunden!");
         return null;
     }
