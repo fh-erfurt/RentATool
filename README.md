@@ -161,7 +161,13 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
 
-
+## Lessons Learned
+- Da wir in diesem Projekt 4 Teammitglieder waren, wurde die Kommunikation und Koordination noch etwas schwieriger und Aufwändiger.
+- Die Versionskontrolle (Git) hat uns am Anfang, aufgrund fehlender Erfahrung, etwas Mühe gekostet es einzuarbeiten, stellte sich im Nachgang jedoch als mächtiges Tool heraus. Paralleles arbeiten war hier wesentlich angenehmer und vor allem kontrollierbarer. Dennoch waren immer absprachen nötig, damit man nicht gleichzeitig an einer Datei arbeitet.
+- Das Arbeiten mit Issues hat uns extrem geholfen den letztgenannten Punkt zu koordinieren. Jeder bekam seine Aufgaben und wusste was er zu tun hatte. Somit gab es fast keine Überschneidungen. Sollte es dennoch zu solchen kommen, wusste man es jedoch frühzeitig und konnte mit dem anderen darüber sprechen.
+- Auch in diesem Projekt stellte sich heraus, dass die Kommunikation mit dem Kunden sehr wichtig ist. Vor allem das Rechtzeitige präsentieren des aktuellen Standes hat fast immer dazu geführt, dass sich Entwickler und Kunden aufeinander zu bewegt haben. Somit konnte am Ende die Richtung und somit das Ziel des Projektes umgesetzt werden.
+- Die größte Schwierigkeit bei diesem Projekt war das Umdenken von der Datenbankbasierten Logik. Hier hatten wir vor allem am Anfang noch viel zu Kämpfen.
+- Die Tests helfen enorm bei der Programmierung. Eine schnelle und einfache Kontrolle ist nach Änderungen möglich. Man spart somit viel manuelle Prüfarbeit.
 
 ## Programme
 
@@ -173,23 +179,3 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
-
-
-
-Ablauf Programm
-Baumstruktur
-Enums
-Rental
-Billing (2 Listen)
-Employee Notification
-
-Git Hub / Java Docs
-Lessons Learned
-Je mehr Leute arbeiten, desto schwerer die Koordination (getrenntes Arbeitsumfeld 
-GitHub Versionskontrolle ist richtig geil 
-GitHub Issues sind noch geiler! 
-Kundenkommunikation wichtig (Rechtzeitig) 
-Anfangs zu sehr an Datenbank gedacht 
-Tests helfen bei der Programmierung 
