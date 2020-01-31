@@ -30,6 +30,7 @@ public class Billing {
     private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
     public Billing() {
+        //TODO: Wozu der Scheiß?
     }
 
 
