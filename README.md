@@ -167,7 +167,29 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
 * [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+* [Office](https://www.office.com/) - Office Programm
+* [Git](https://git-scm.com/) - Versionskontrolle
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
+
+
+
+Ablauf Programm
+Baumstruktur
+Enums
+Rental
+Billing (2 Listen)
+Employee Notification
+
+Git Hub / Java Docs
+Lessons Learned
+Je mehr Leute arbeiten, desto schwerer die Koordination (getrenntes Arbeitsumfeld 
+GitHub Versionskontrolle ist richtig geil 
+GitHub Issues sind noch geiler! 
+Kundenkommunikation wichtig (Rechtzeitig) 
+Anfangs zu sehr an Datenbank gedacht 
+Tests helfen bei der Programmierung 
