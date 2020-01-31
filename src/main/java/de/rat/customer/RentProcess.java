@@ -7,9 +7,9 @@ import java.util.GregorianCalendar;
 
 
 /** Creates an customer .
- *  @param rentedTool is the rented tool
- *  @param returnDate the date when the customer bring the tool back
- *  @param returnStation the station that the customer has chosen to bring back the tool
+ *  rentedTool is the rented tool
+ *  returnDate the date when the customer bring the tool back
+ *  returnStation the station that the customer has chosen to bring back the tool
  *
  */
 public class RentProcess {
@@ -18,9 +18,9 @@ public class RentProcess {
     private Station returnStation;
 
     /** Creates an customer .
-     *  @param rentedTool is the rented tool
-     *  @param returnDate the date when the customer bring the tool back
-     *  @param returnStation the station that the customer has chosen to bring back the tool
+     *  rentedTool is the rented tool
+     *  returnDate the date when the customer bring the tool back
+     *  returnStation the station that the customer has chosen to bring back the tool
      *
      */
     public RentProcess (Tool rentedTool){

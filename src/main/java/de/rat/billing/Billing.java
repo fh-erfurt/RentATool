@@ -18,9 +18,9 @@ import java.util.Iterator;
 
 
 /** Creates a billing class .
- * @param openBills a list from open bills
- * @param closedBills a list from closed bills
- * @param checkBills a list from the bills that still have to be checked from the employee
+ * openBills a list from open bills
+ * closedBills a list from closed bills
+ * checkBills a list from the bills that still have to be checked from the employee
  */
 public class Billing {
 
@@ -108,8 +108,8 @@ public class Billing {
 
     /** Move the  bills from the openBill Array to the checkedBill Array
      * and send a notification to all employee's
-     * @param checkBills bills that have to checked from the employee
-     * @param openBills bills with open rent processes
+     * checkBills bills that have to checked from the employee
+     * openBills bills with open rent processes
 
      */
 
@@ -152,8 +152,8 @@ public class Billing {
     }
 
     /** Move the  bills from the checkBill Array to the closeBill Array
-     * @param checkBills bills that have to checked from the employee
-     * @param closedBills bills with closed bills
+     * checkBills bills that have to checked from the employee
+     * closedBills bills with closed bills
 
      */
 

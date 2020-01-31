@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /** Creates a bill .
- *  @param Stock is a array list of tools
+ *  Stock is a array list of tools
  *
  */
 public class Warehouse {

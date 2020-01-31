@@ -1,12 +1,12 @@
 package de.rat.logistics;
 
 /** Creates a tool .
- *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
- *  @param manufacturer from the tool
- *  @param description
- *  @param category a enum with the entry ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
- *  @param toolStatus a enum with the entry  AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
- *  @param rentPrice the several rent price for the tool
+ *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
+ *  manufacturer from the tool
+ *  description
+ *  category a enum with the entry ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
+ *  toolStatus a enum with the entry  AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
+ *  rentPrice the several rent price for the tool
  *
  */
 public class Tool {

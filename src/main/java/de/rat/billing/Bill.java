@@ -13,20 +13,20 @@ import java.util.GregorianCalendar;
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
- * @author Marco Petzold
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
 
 
 
 /** Creates a bill .
- *  @param billnumber is a static unique number
- *  @param customer for whom the bill is
- *  @param rentDate the date from the begin of the rentprocess
- *  @param rentStation the station where the customer want to pickup the tool
- *  @param billDate the date where the bill was created
- *  @param discount the discount which the employee can set
- *  @param fullRentPrice the full rentprice after the return from the tool
- *  @param listOfRentProcesses a list of all rentprocess
+ *  billnumber is a static unique number
+ *  customer for whom the bill is
+ *  rentDate the date from the begin of the rentprocess
+ *  rentStation the station where the customer want to pickup the tool
+ *  billDate the date where the bill was created
+ *  discount the discount which the employee can set
+ *  fullRentPrice the full rentprice after the return from the tool
+ *  listOfRentProcesses a list of all rentprocess
  *
  */
 public class Bill {
@@ -45,14 +45,14 @@ public class Bill {
 
     /**
      * constructor for the class bill
-     *  @param billnumber is a static unique number
-     *  @param customer for whom the bill is
-     *  @param rentDate the date from the begin of the rentprocess
-     *  @param rentStation the station where the customer want to pickup the tool
-     *  @param billDate the date where the bill was created
-     *  @param discount the discount which the employee can set
-     *  @param fullRentPrice the full rentprice after the return from the tool
-     *  @param listOfRentProcesses a list of all rentprocess
+     *  billnumber is a static unique number
+     *  customer for whom the bill is
+     *  rentDate the date from the begin of the rentprocess
+     *  rentStation the station where the customer want to pickup the tool
+     *  billDate the date where the bill was created
+     *  discount the discount which the employee can set
+     *   fullRentPrice the full rentprice after the return from the tool
+     *  listOfRentProcesses a list of all rentprocess
      */
     public Bill (Customer customer,Station rentStation){
         this.customer=customer;

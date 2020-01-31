@@ -6,7 +6,7 @@ import de.rat.logistics.*;
 import java.util.GregorianCalendar;
 
 /**Represents an rental.
- * @author Danny Steinbrecher
+ * @author Danny Steinbrecher, Marco Petzold
  */
 public class Rental {
 

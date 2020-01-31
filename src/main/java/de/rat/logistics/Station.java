@@ -68,7 +68,7 @@ public class Station {
     }
 
     /** add the respective tool in the boxes of tools
-     * @param checkStationLevel check is there one empty box
+     * checkStationLevel check is there one empty box
      * @return false if the tool is already in the box
      * @return true if the tool was added to the box
      *
