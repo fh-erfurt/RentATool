@@ -1,14 +1,14 @@
 package de.rat.billing;
 
+import de.rat.common.Date;
+import de.rat.common.Operator;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
 import de.rat.employee.*;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
+import java.util.*;
 import java.util.logging.Logger;
 
 /**Represents a class bill.
@@ -51,19 +51,17 @@ public class Billing {
      * @return null if there are no open bills
      */
     public static Bill findOpenBillFromCustomer(Customer customer){
-        for (Bill foundedBill : openBills) {
+        // get date of today for comparing with rentDate
+        GregorianCalendar today =  Date.getToday();
 
-            // get date of today for comparing with rentDate
-            GregorianCalendar today = new GregorianCalendar();
-            int compareRentDates = foundedBill.calculateDifferenceBetweenDates(foundedBill.getRentDate(),today);
-            // use only the founded Bill customer, is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer)&& compareRentDates == 1) {
-                logger.info("Die Rechnung wurde gefunden!");
-                return foundedBill;
-            }
-        }
-        logger.severe("Es konnte keine passende Offene Rechnung gefunden werden");
-        return null;
+        Bill searchedBill = openBills.stream()
+                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
+                .findAny()
+                .orElse(null);
+
+        logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
+
+        return searchedBill;
     }
 
 
@@ -83,9 +81,10 @@ public class Billing {
                 rentprocess.completeRentProcess(removeStation, today);
                 logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
-            }EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
-        }
+            }
 
+        }
+        EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         logger.severe("Die Rechnung wurde nicht gefunden!");
         return null;
     }
@@ -136,22 +135,16 @@ public class Billing {
      * @return A bill when the bill was in this List
      * @return null if the bill was not in this list
      */
-    public static Bill findBillInListByReference(Bill bill, ArrayList<Bill> billList ){
-        for (Bill foundedBill : billList) {
-            if (foundedBill.equals(bill)) {
-                return foundedBill;
-            }
-        }
-        return null;
+    public static Bill findBillInListByReference(Bill searchedBill, ArrayList<Bill> billList ){
+        return billList.stream().filter(bill -> bill.equals(searchedBill)).findFirst().orElse(null);
     }
+
 
     /** Move the  bills from the checkBill Array to the closeBill Array
      * @param checkBills bills that have to checked from the employee
      * @param closedBills bills with closed bills
 
      */
-
-
     public static void moveFromCheckToClosed(Bill checkBill)
     {
         Iterator<Bill> iterator = checkBills.iterator();

@@ -2,6 +2,7 @@ package de.rat.billing;
 
 import de.rat.Rental;
 import de.rat.common.Address;
+import de.rat.common.Date;
 import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.*;
@@ -45,12 +46,13 @@ class BillingTest {
 
 
     @Test
-    void is_a_bill_in_openBills_after_customer_rent_a_tool() {
+    void is_a_bill_in_openBills_after_customer_rent_a_tool() throws InterruptedException {
         //create one Bill with the current date - equal to rentDate
         warehouse.putToolInWarehouse(hammer);
         Bill newBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
         Billing.getOpenBills().add(newBill);
         Bill searchedBill = Billing.findOpenBillFromCustomer(custMaria);
+        GregorianCalendar today =  Date.getToday();
         assertEquals(searchedBill, newBill);
     }
 
@@ -127,5 +129,21 @@ class BillingTest {
 
 
         assertEquals(searchedBill,searchedBill2);
+    }
+
+
+    @Test
+    void findBillInListByReference() {
+        Bill bill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill2 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill3 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill4 = new Bill(custMaria, stationOne);
+        Bill bill5 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill6 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        Bill bill7 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        //Billing.getOpenBills().add(bill42);
+        assertEquals(bill3,Billing.findBillInListByReference(bill3, Billing.getOpenBills()));
+        assertNull(Billing.findBillInListByReference(bill4, Billing.getOpenBills()));
+
     }
 }

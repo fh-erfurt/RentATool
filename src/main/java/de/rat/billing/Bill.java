@@ -4,11 +4,9 @@ import de.rat.customer.Customer;
 import de.rat.customer.RentProcess;
 import de.rat.logistics.Station;
 import de.rat.logistics.Tool;
+import de.rat.common.Date;
 
-import java.time.Month;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 /**Represents a class bill.
@@ -197,8 +195,7 @@ public class Bill {
         for (RentProcess foundedProcesses :listOfRentProcesses)
         {
             // get the dates of the return and rented Date and calculate the difference.
-            int days = calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
-            logger.info("Days: " + days);
+            int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
             // multiply the rented days with the rentPrice for each tool
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
@@ -258,16 +255,5 @@ public class Bill {
     }
 
 
-    /**
-     * calculate the differnce between the date from the rent day and the date of return
-     * @return  the calculated days
-     *
-     */
-    public int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate)
-    {
-        // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
-        long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
-        return (int)Math.ceil((double)LongDateDifference/(24.*60.*60.*1000.)) + 1; //Gregorian Calender hold the time as milliseconds
 
-    }
 }
