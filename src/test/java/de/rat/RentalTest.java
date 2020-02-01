@@ -32,6 +32,7 @@ class RentalTest {
     private Employee empJonas;
 
 
+
     @BeforeEach
     void setUp() {
 
