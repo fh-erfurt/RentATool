@@ -245,11 +245,10 @@ public class Bill {
         {
             if(foundedRentProcess.getRentedTool().equals(searchedTool))
             {
-                //TODO: Konsolenausgabe
+
                 return foundedRentProcess;
             }
         }
-        //TODO: Konsolenausgabe ??? hier ggf weglassen?
         return null;
     }
 

@@ -100,7 +100,7 @@ public class Billing {
      */
     public static void checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(Customer customer) {
 
-        Iterator<Bill> iterator = openBills.iterator();   //TODO: Iterator???
+        Iterator<Bill> iterator = openBills.iterator();
         while (iterator.hasNext()) {
             Bill bill = iterator.next();
             if (bill.getCustomer().equals(customer)) {
