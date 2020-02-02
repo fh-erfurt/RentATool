@@ -36,7 +36,6 @@ public class Rental {
         return true;
     }
 
-
     /**return the wanted tool.
      * @return false when the returnTool that store in the remove station
      * is not the wanted tool, otherwise the wanted tool is store in the warehouse

@@ -18,14 +18,14 @@ import java.util.logging.Logger;
 
 
 /** Creates a bill .
- *  billnumber is a static unique number
- *  customer for whom the bill is
- *  rentDate the date from the begin of the rentprocess
- *  rentStation the station where the customer want to pickup the tool
- *  billDate the date where the bill was created
- *  discount the discount which the employee can set
- *  fullRentPrice the full rentprice after the return from the tool
- *  listOfRentProcesses a list of all rentprocess
+ *  billnumber is a static unique number<br>
+ *  customer for whom the bill is<br>
+ *  rentDate the date from the begin of the rentprocess<br>
+ *  rentStation the station where the customer want to pickup the tool<br>
+ *  billDate the date where the bill was created<br>
+ *  discount the discount which the employee can set<br>
+ *  fullRentPrice the full rentprice after the return from the tool<br>
+ *  listOfRentProcesses a list of all rentprocess<br>
  *
  */
 public class Bill {
@@ -43,15 +43,15 @@ public class Bill {
 
 
     /**
-     * constructor for the class bill
-     *  billnumber is a static unique number
-     *  customer for whom the bill is
-     *  rentDate the date from the begin of the rentprocess
-     *  rentStation the station where the customer want to pickup the tool
-     *  billDate the date where the bill was created
-     *  discount the discount which the employee can set
-     *   fullRentPrice the full rentprice after the return from the tool
-     *  listOfRentProcesses a list of all rentprocess
+     * constructor for the class bill<br>
+     *  billnumber is a static unique number<br>
+     *  customer for whom the bill is<br>
+     *  rentDate the date from the begin of the rentprocess<br>
+     *  rentStation the station where the customer want to pickup the tool<br>
+     *  billDate the date where the bill was created<br>
+     *  discount the discount which the employee can set<br>
+     *   fullRentPrice the full rentprice after the return from the tool<br>
+     *  listOfRentProcesses a list of all rentprocess<br>
      */
     public Bill (Customer customer,Station rentStation){
         this.customer=customer;
@@ -187,7 +187,6 @@ public class Bill {
 
     /**
      * set the full rent price
-     * fullRentPrice the full rent price
      */
 
     public void setFullRentPrice() {
@@ -205,7 +204,7 @@ public class Bill {
 
     /**
      * check the bill for a given customer
-     * @return   true if the bill was found
+     * @return   true if the bill was found<br>
      * @return   false if the bill was not found
      */
 
