@@ -61,10 +61,6 @@ public class Station {
         this.description = description;
     }
 
-    public void setNumberOfBoxes(int numberOfBoxes) {
-        this.numberOfBoxes = numberOfBoxes;
-    }
-
     public void setAddress(Address address) {
         this.address = address;
     }

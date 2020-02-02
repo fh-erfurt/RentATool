@@ -28,6 +28,7 @@ public class Tool {
      *  @param manufacturer from the tool
      *  @param description
      *  @param category a enum with the entry ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
+     *  @param stock this is the storageplace in the warehouse
      *  @param toolStatus a enum with the entry  AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
      *  @param rentPrice the several rent price for the tool
      *
@@ -42,24 +43,7 @@ public class Tool {
         this.rentPrice = rentPrice;
     }
 
-    /** get the ID for a tool .
-     *  @return  itemId this is a ID that comes from the manufacturer
-     *
-     */
-
-    public String getItemId() {
-        return itemId;
-    }
-    /** set the ID for a tool .
-     *  @param  itemId this is a ID that comes from the manufacturer
-     *
-     */
-    public void setItemId(String itemId) {
-        this.itemId = itemId;
-    }
-
-
-    /** get the manufacturer for a tool .
+     /** get the manufacturer for a tool .
      *  @return  manufacturer this is a ID that comes from the manufacturer
      *
      */
@@ -154,15 +138,6 @@ public class Tool {
         return rentPrice;
     }
 
-    /** set the rent price for a tool .
-     *  @param  rentPrice this is a the respective rent price
-     *
-     */
-    public void setRentPrice(double rentPrice) {
-        this.rentPrice = rentPrice;
-    }
 
-
-    // Methods ---
 
 }

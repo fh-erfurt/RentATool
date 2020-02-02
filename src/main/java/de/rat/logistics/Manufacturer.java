@@ -73,22 +73,6 @@ public class Manufacturer {
     }
 
 
-    /** Sets the manufacturer name.
-     * @param agent  A String containing the  manufacturer
-     *     agent.
-     */
-    public void setAgent(String agent) {
-        this.agent = agent;
-    }
-
-    /** Sets the manufacturer name.
-     * @param phoneNumber  A String containing the  manufacturer
-     *   phoneNumber.
-     */
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     /** Change the the manufacturer.
      * @param name The manufacturer  name.
      * @param address The manufacturer address.
