@@ -11,8 +11,6 @@ import java.util.logging.Logger;
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 
-
-
 public class Customer extends Person {
 
     private static final Logger logger = Logger.getLogger("LOGGER");

@@ -15,6 +15,11 @@ public class Date extends GregorianCalendar {
         return today;
     }
 
+    /**
+     * compares 2 Dates with an Operator
+     * @return  the calculated days
+     *
+     */
     public static boolean compareDates(GregorianCalendar dateOne, Operator operator, GregorianCalendar dateTwo){
         switch(operator){
             case EQUAL:

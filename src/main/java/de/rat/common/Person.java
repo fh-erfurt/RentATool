@@ -41,7 +41,6 @@ public abstract class Person {
     public String getFirstname()    { return firstname; }
     public String getLastname()     { return lastname; }
 
-
     //Methods
     /** creates the Password for an employee or a customer.
      *  @return password (String)

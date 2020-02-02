@@ -29,19 +29,13 @@ public class Billing {
     private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
 
-    public Billing() {
-        //TODO: Wozu der Scheiß?
-    }
-
 
     public static ArrayList<Bill> getOpenBills() {
         return openBills;
     }
-
     public static ArrayList<Bill> getCheckBills() {
         return checkBills;
     }
-
     public static ArrayList<Bill> getClosedBills() {
         return closedBills;
     }
@@ -63,7 +57,6 @@ public class Billing {
 
         return searchedBill;
     }
-
 
     /** Find a open bill from the customer and complete the rent processes
      * @return A class bill when the customer has a open bill, otherwise
@@ -105,7 +98,6 @@ public class Billing {
      * openBills bills with open rent processes
 
      */
-
     public static void checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(Customer customer) {
 
         Iterator<Bill> iterator = openBills.iterator();   //TODO: Iterator???
@@ -126,10 +118,6 @@ public class Billing {
             }
         }
     }
-
-
-
-
 
     /** Find a bill in a List of Bills by a Reference Bill
      * @return A bill when the bill was in this List
@@ -161,8 +149,6 @@ public class Billing {
         }
 
     }
-
-
 
     /**Find or Create open bill.
      * @param customer the customer that rented the tool
