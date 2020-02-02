@@ -187,7 +187,7 @@ public class Bill {
 
     /**
      * set the full rent price
-     * @param  fullRentPrice the full rent price
+     * fullRentPrice the full rent price
      */
 
     public void setFullRentPrice() {
@@ -225,7 +225,7 @@ public class Bill {
 
     /**
      * add a tool to the rent process
-     * @param  rentProcess the actual rent process
+     * rentProcess the actual rent process
      */
     public void addRentProcess(Tool wantedTool)
     {
