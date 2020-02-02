@@ -69,8 +69,6 @@ public class RentProcess {
         }
         return false;
     }
-
-
 }
 
 
