@@ -7,6 +7,11 @@ import java.util.GregorianCalendar;
  */
 public class Date extends GregorianCalendar {
 
+    /**
+     * get the current date with the 00:00:00 timestamp
+     * @return  the date
+     *
+     */
     public static GregorianCalendar getToday() {
         GregorianCalendar today = new GregorianCalendar();
         today.set(Calendar.HOUR, 0);
