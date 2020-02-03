@@ -3,5 +3,5 @@ package de.rat.logistics;
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 public enum Category {
-    ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL;
+    ELECTRICALTOOL, ACCUTOOL, HANDTOOL, GARDENTOOL
 }

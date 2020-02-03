@@ -18,7 +18,7 @@ public class Tool {
     private Manufacturer manufacturer;
     private String description;
     private Category category;
-    private String stock;   // delete
+    private String stock;
     private ToolStatus toolStatus;
     private double rentPrice;
 
@@ -43,6 +43,7 @@ public class Tool {
         this.rentPrice = rentPrice;
     }
 
+
      /** get the manufacturer for a tool .
      *  @return  manufacturer this is a ID that comes from the manufacturer
      *
@@ -61,7 +62,6 @@ public class Tool {
     }
 
 
-
     /** get the description for a tool .
      *  @return  description this is a the respective description
      *
@@ -69,6 +69,7 @@ public class Tool {
     public String getDescription() {
         return description;
     }
+
 
     /** set the description for a tool .
      *  @param  description this is a the respective description
@@ -78,6 +79,7 @@ public class Tool {
         this.description = description;
     }
 
+
     /** get the category for a tool .
      *  @return  category this is a the respective category
      *
@@ -85,6 +87,7 @@ public class Tool {
     public Category getCategory() {
         return category;
     }
+
 
     /** set the category for a tool .
      *  @param  category this is a the respective description
@@ -112,6 +115,7 @@ public class Tool {
         this.stock = stock;
     }
 
+
     /** get the tool status for a tool .
      *  @return  toolStatus this is a the respective tool status
      *  enum AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;
@@ -119,6 +123,7 @@ public class Tool {
      */
     public ToolStatus getToolStatus() { return toolStatus;
     }
+
 
     /** set the tool status for a tool .
      *  @param  toolStatus this is a the respective tool status
@@ -137,7 +142,4 @@ public class Tool {
     public double getRentPrice() {
         return rentPrice;
     }
-
-
-
 }

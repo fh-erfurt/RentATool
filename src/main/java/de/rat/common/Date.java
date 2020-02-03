@@ -20,6 +20,7 @@ public class Date extends GregorianCalendar {
         return today;
     }
 
+
     /**
      * compares 2 Dates with an Operator
      * @return  the calculated days
@@ -43,6 +44,7 @@ public class Date extends GregorianCalendar {
                 return false;
         }
     }
+
 
     /**
      * calculate the differnce between the date from the rent day and the date of return

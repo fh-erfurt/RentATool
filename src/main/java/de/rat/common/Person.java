@@ -35,11 +35,13 @@ public abstract class Person {
         this.address    = new Address(street, houseNr, zip, city, country);
     }
 
+
     //Getter
     public Address getAddress()     { return address; }
     public Account getAccount()     { return account; }
     public String getFirstname()    { return firstname; }
     public String getLastname()     { return lastname; }
+
 
     //Methods
     /** creates the Password for an employee or a customer.

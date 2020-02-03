@@ -3,16 +3,12 @@ package de.rat;
 import de.rat.billing.*;
 import de.rat.customer.*;
 import de.rat.logistics.*;
-import java.util.GregorianCalendar;
-import java.util.logging.Logger;
 
 /**Represents an rental.
  * @author Danny Steinbrecher, Marco Petzold, Christian König, Bilal Alnani
  */
 
 public class Rental {
-
-    private static final Logger logger = Logger.getLogger("LOGGER");
 
     /** Creates an rental from the tool .
      *  @param wantedTool the tool that would by rented
@@ -36,11 +32,12 @@ public class Rental {
         return true;
     }
 
+
     /**return the wanted tool.
-     * @return false when the returnTool that store in the remove station
+     * return false when the returnTool that store in the remove station
      * is not the wanted tool, otherwise the wanted tool is store in the warehouse
-     * @return false if the customer is not he right customer
-     * @return true if the return process complete
+     * return false if the customer is not he right customer
+     * return true if the return process complete
      */
     public static boolean returnTool(Tool wantedTool, Station removeStation, Customer customer, Warehouse warehouse){
 

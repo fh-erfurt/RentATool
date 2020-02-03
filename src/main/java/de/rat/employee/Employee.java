@@ -13,7 +13,6 @@ import java.util.logging.Logger;
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 
-
 public class Employee extends Person {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private Employee supervisor;
@@ -40,6 +39,7 @@ public class Employee extends Person {
         this.supervisor = supervisor;
     }
 
+
     /** constructor for the employee - without supervisor
      *  @param lastname the lastname from the Employee
      *  @param firstname the firstname from the Employee
@@ -60,6 +60,7 @@ public class Employee extends Person {
         this.supervisor = null;
     }
 
+
     // Getter
     public Person getSupervisor() {
         return supervisor;
@@ -75,6 +76,7 @@ public class Employee extends Person {
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
 
+
     /** set the tool status for the tool that was returned to the warehouse
      * @return true if the tool status was set from the warehouse method setToolStatus
      *
@@ -83,13 +85,14 @@ public class Employee extends Person {
         return warehouse.setToolStatus(tool, toolStatus);
     }
 
+
     /** is a notification for the employee to checked the array list check bills
      *
      */
     public void printNotification() {
         System.out.println("Hallo " + this.getFirstname() + ", es liegen neue Rechnungen zum bearbeiten vor!");
-
     }
+
 
     /** is a notification for the employee to checked the open Bills because of an Problem
      *
@@ -97,6 +100,7 @@ public class Employee extends Person {
     public void printNotificationCheckOpenBills(Customer customer) {
         System.out.println("Hallo " + this.getFirstname() + ", gibt ein Problem mit einer Offenen Rechnung vom Kunden: " + customer.getFirstname() + " " + customer.getLastname());
     }
+
 
     /** set the discount an move the bill to the closed bill
      * @return boolean

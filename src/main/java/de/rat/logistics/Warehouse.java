@@ -1,6 +1,5 @@
 package de.rat.logistics;
 
-import java.nio.channels.ScatteringByteChannel;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 /**Represents a bill.
@@ -13,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class Warehouse {
     private static final Logger logger = Logger.getLogger("LOGGER");
-    private ArrayList<Tool> Stock= new ArrayList        <Tool>();
+    private ArrayList<Tool> Stock= new ArrayList<>();
 
     public Warehouse() {
     }
@@ -23,7 +22,6 @@ public class Warehouse {
      *
      */
     public ArrayList<Tool> getStock() {
-        System.out.println(Stock.size());
         return Stock;
     }
 

@@ -1,14 +1,13 @@
 package de.rat.billing;
 
-import de.rat.customer.Customer;
-import de.rat.customer.RentProcess;
-import de.rat.logistics.Station;
-import de.rat.logistics.Tool;
-import de.rat.common.Date;
+import de.rat.customer.*;
+import de.rat.logistics.*;
+import de.rat.common.*;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
+
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
@@ -39,7 +38,7 @@ public class Bill {
     private int discount;
     private double fullRentPrice;
     /* several rent processes for on bill possible*/
-    private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
+    private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<>();
 
 
     /**
@@ -54,12 +53,12 @@ public class Bill {
      *  listOfRentProcesses a list of all rentprocess<br>
      */
     public Bill (Customer customer,Station rentStation){
-        this.customer=customer;
-        this.rentDate= new GregorianCalendar();
-        this.rentStation=rentStation;
-        this.billDate=null;
-        this.discount= 0;
-        this.fullRentPrice= 0;
+        this.customer = customer;
+        this.rentDate = new GregorianCalendar();
+        this.rentStation = rentStation;
+        this.billDate = null;
+        this.discount = 0;
+        this.fullRentPrice = 0;
         ++autoincrementNumber;
         this.billNumber = autoincrementNumber;
     }
@@ -82,30 +81,13 @@ public class Bill {
         return customer;
     }
 
+
     /**
      * deliver the rent date
      * @return   rent date
      */
-
     public GregorianCalendar getRentDate() {
         return rentDate;
-    }
-
-    /**
-     * deliver the rent station
-     * @return   rent station
-     */
-    public Station getRentStation() {
-        return rentStation;
-    }
-
-
-    /**
-     * deliver the bill date
-     * @return   bill date
-     */
-    public Date getBillDate() {
-        return billDate;
     }
 
 
@@ -134,8 +116,7 @@ public class Bill {
     public ArrayList<RentProcess> getListOfRentProcesses() {
         return listOfRentProcesses;
     }
-
-
+    
 
     /**
      * set the customer
@@ -146,24 +127,11 @@ public class Bill {
     }
 
 
-
     /**
      * set the rent date
      * @param  rentDate the new rent date
      */
-    public void setRentDate(GregorianCalendar rentDate) {
-
-       this.rentDate = rentDate;
-    }
-
-
-    /**
-     * set the customer
-     * @param  rentStation the new customer
-     */
-    public void setRentStation(Station rentStation) {
-        this.rentStation = rentStation;
-    }
+    public void setRentDate(GregorianCalendar rentDate) { this.rentDate = rentDate; }
 
 
     /**
@@ -176,19 +144,8 @@ public class Bill {
 
 
     /**
-     * set the bill date
-     * @param  billDate the new customer
-     */
-    public void setBillDate(Date billDate) {
-        this.billDate = billDate;
-    }
-
-
-
-    /**
      * set the full rent price
      */
-
     public void setFullRentPrice() {
 
         for (RentProcess foundedProcesses :listOfRentProcesses)
@@ -202,12 +159,12 @@ public class Bill {
         this.fullRentPrice-= this.fullRentPrice*discount/100;
     }
 
+
     /**
      * check the bill for a given customer
      * @return   true if the bill was found<br>
      * @return   false if the bill was not found
      */
-
     public boolean checkIfAllRentProcessesFromABillAreClosed(){
         for (RentProcess foundedProcesses : this.getListOfRentProcesses())
         {
@@ -251,7 +208,4 @@ public class Bill {
         }
         return null;
     }
-
-
-
 }

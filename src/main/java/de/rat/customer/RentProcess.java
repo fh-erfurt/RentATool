@@ -32,6 +32,7 @@ public class RentProcess {
         returnStation=null;
     }
 
+
     /*Getter*/
     public Station getReturnStation() {
         return returnStation;
@@ -54,6 +55,7 @@ public class RentProcess {
     public void setReturnStation(Station returnStation){
         this.returnStation=returnStation;
     }
+
 
     /** set return date and return station to complete the return process
      *  @return  true if the method works

@@ -1,11 +1,9 @@
 package de.rat.billing;
 
+import de.rat.common.*;
 import de.rat.common.Date;
-import de.rat.common.Operator;
-import de.rat.customer.Customer;
-import de.rat.customer.RentProcess;
-import de.rat.logistics.Station;
-import de.rat.logistics.Tool;
+import de.rat.customer.*;
+import de.rat.logistics.*;
 import de.rat.employee.*;
 
 import java.util.*;
@@ -40,6 +38,7 @@ public class Billing {
         return closedBills;
     }
 
+
     /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
@@ -57,6 +56,7 @@ public class Billing {
 
         return searchedBill;
     }
+
 
     /** Find a open bill from the customer and complete the rent processes
      * @return A class bill when the customer has a open bill, otherwise
@@ -82,6 +82,7 @@ public class Billing {
         return null;
     }
 
+
     /** Create a bill from the customer
      * @return A class bill with the customer and the pickup station
      */
@@ -91,6 +92,7 @@ public class Billing {
         logger.info("Rechnung wurde erstellt und zu der OpenBill-Liste hinzugefügt");
         return newBill;
     }
+
 
     /** Move the  bills from the openBill Array to the checkedBill Array
      * and send a notification to all employee's
@@ -118,6 +120,7 @@ public class Billing {
             }
         }
     }
+
 
     /** Find a bill in a List of Bills by a Reference Bill
      * @return A bill when the bill was in this List
@@ -147,8 +150,8 @@ public class Billing {
 
             }
         }
-
     }
+
 
     /**Find or Create open bill.
      * @param customer the customer that rented the tool

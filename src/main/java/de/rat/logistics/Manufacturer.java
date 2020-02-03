@@ -41,6 +41,7 @@ public class Manufacturer {
         return address;
     }
 
+
     /** Gets the manufacturer agent.
      * @return A string representing the manufacturer agent.
      */
@@ -48,12 +49,14 @@ public class Manufacturer {
         return agent;
     }
 
+
     /** Gets the manufacturer phoneNumber.
      * @return A string representing the phoneNumber
      */
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
 
     /** Sets the manufacturer name.
      * @param name  A String containing the  manufacturer
@@ -85,6 +88,4 @@ public class Manufacturer {
         this.agent=agent;
         this.phoneNumber=phoneNumber;
     }
-
-
 }

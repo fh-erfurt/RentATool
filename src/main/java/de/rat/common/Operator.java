@@ -1,4 +1,5 @@
 package de.rat.common;
+
 /**Represents a enum operator.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */

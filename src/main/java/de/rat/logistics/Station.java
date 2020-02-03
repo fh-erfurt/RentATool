@@ -8,8 +8,6 @@ import java.util.logging.Logger;
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 
-
-
 /** Creates station .
  *  description this is the discription from the station
  *  numberOfBoxes max size of boxes
@@ -23,7 +21,7 @@ public class Station {
     private int numberOfBoxes;
     private Address address;
     /* tool management */
-    private ArrayList<Tool> boxesOfTools= new ArrayList<Tool>();
+    private ArrayList<Tool> boxesOfTools= new ArrayList<>();
 
 
     /** Creates station .
@@ -37,7 +35,6 @@ public class Station {
         this.numberOfBoxes = numberOfBoxes;
         this.address = address;
     }
-
 
 
     /** get the description
@@ -70,6 +67,7 @@ public class Station {
         return this.boxesOfTools.size();
     }
 
+
     /** add the respective tool in the boxes of tools
      * checkStationLevel check is there one empty box
      * @return false if the tool is already in the box
@@ -78,7 +76,7 @@ public class Station {
      */
     public boolean addToolToBox(Tool tool)
     {
-        if(tool == null) { return false; };
+        if(tool == null) { return false; }
 
         if(!this.checkStationLevel()){return false;}
 
@@ -118,7 +116,6 @@ public class Station {
         }
 
 
-
     /** check that is enough space in a station
      * @return false if the station is full
      * @return true if the station has a empty box
@@ -133,5 +130,4 @@ public class Station {
                 return true;
             }
         }
-
 }

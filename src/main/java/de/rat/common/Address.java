@@ -59,25 +59,20 @@ public class Address {
     }
 
     public boolean checkAddress(String street, int hauseNr, int zip, String city, String country) {
-        boolean check = false;
-        if(this.street==street && this.hauseNr==hauseNr &&  this.zip==zip  && this.city== city &&  this.country==country){
-            check=true;
-        }
-        return check;
-    } 
+        return this.street.equals(street) && this.hauseNr == hauseNr && this.zip == zip && this.city.equals(city) && this.country.equals(country);
+    }
+
+
     public boolean changeAddress(String street, int hauseNr, int zip, String city, String country){
-        boolean check=false;
-        if(this.checkAddress(street, hauseNr, zip, city, country))
-        return check;
-        else{
+        if(this.checkAddress(street, hauseNr, zip, city, country)){
+            return false;
+        } else{
             this.setZip(zip);
             this.setStreet(street);
             this.setHauseNr(hauseNr);
             this.setCountry(country);
             this.setCity(city);
-            check=true;
+            return true;
         }
-        return check;
     }
-
 }

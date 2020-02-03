@@ -37,6 +37,7 @@ public class Customer extends Person {
         this.phoneNumber = phoneNumber;
     }
 
+
     /** gets the tool fom the Inventory of the customer .
      *  @param tool the tool that should be returned
      */
@@ -52,6 +53,7 @@ public class Customer extends Person {
         return null;
     }
 
+
     /** put the tool in the Inventory from the customer .
      *  @param tool the tool that was rented
      */
@@ -65,6 +67,7 @@ public class Customer extends Person {
         return false;
     }
 
+
     /** gets the tool from the station.
      *  @param wantedTool the tool that would be rented
      *  @param removeStation the station which the tool was picked up
@@ -73,6 +76,7 @@ public class Customer extends Person {
         Tool searchedTool = removeStation.removeToolFromBox(wantedTool);
         return putToolInInventory(searchedTool);
     }
+
 
     /** return the tool to the station.
      *  @param wantedTool the tool that where rented
