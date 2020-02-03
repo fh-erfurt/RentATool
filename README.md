@@ -145,7 +145,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - kann überall eingebaut werden
 - ist nicht nur für das Errorhandling
 
-**4. Java Dogs**
+**4. Java Docs**
 - bei public Methoden sollte eine sinnvolle (mit Mehrwert) JavaDocumentation geschrieben werden
 
 **5. Interface**
