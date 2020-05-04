@@ -9,7 +9,6 @@ Das Unternehmen „KSP IT-Solutions“ wurde 2018 von
 * **Danny Steinbrecher** - [Profil](https://github.com/darthkali)
 * **Marco Petzold** - [Profil](https://github.com/monschey)
 * **Christian König** - [Profil](https://github.com/christiankoenig)
-* **Bilal Alnani** - [Profil](https://github.com/bilal0710)
 
 gegründet. Die Kernkompetenzen liegen im Entwickeln, Designen und Implementieren von Datenbankanwendungen. Unsere Kunden stammen meistens aus mittelständischen und Kleinunternehmen. Die meisten unserer Projekte sind speziell für den Kunden zugeschnitten und erfüllen stets die gewünschten Anforderungen.
 
