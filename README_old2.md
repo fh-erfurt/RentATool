@@ -69,8 +69,8 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> Besprechungsprotokolle </summary>
 <br>
 
-<details style="text-indent:10px;>
-<summary> Java 1 </summary>
+<details>
+	<summary> Java 1 </summary>
 <br>
 ### Besprechung 20.01.2020
 
