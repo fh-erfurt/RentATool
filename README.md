@@ -16,6 +16,9 @@ Das Unternehmen „KSP IT-Solutions“ wurde 2018 von
 
 gegründet. Die Kernkompetenzen liegen im Entwickeln, Designen und Implementieren von Datenbankanwendungen. Unsere Kunden stammen meistens aus mittelständischen und Kleinunternehmen. Die meisten unserer Projekte sind speziell für den Kunden zugeschnitten und erfüllen stets die gewünschten Anforderungen.
 
+## Manifest
+https://github.com/fh-erfurt/RentATool/blob/master/share/MANIFEST.md
+
 ## Produkte
 Werkzeuge in verschiedenen Ausführungen und Größen!
 
