@@ -178,7 +178,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 </details>
 
 <details>
-<summary> ## Lessons Learned </summary>
+## <summary> Lessons Learned </summary>
 <br>
 
 - Da wir in diesem Projekt 4 Teammitglieder waren, wurde die Kommunikation und Koordination noch etwas schwieriger und Aufwändiger.
