@@ -70,7 +70,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <br>
 
 <details>
-<summary> Java 1 </summary>
+<summary> - Java 1 </summary>
 <br>
 ### Besprechung 20.01.2020
 
