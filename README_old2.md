@@ -2,7 +2,7 @@
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 
 <details>
-<summary>Allgemeine Projektübersicht</summary>
+<summary> Allgemeine Projektübersicht </summary>
 <br>
 
 
@@ -45,6 +45,11 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 </details>
 
 
+
+<details>
+<summary> Diagramme </summary>
+<br>
+
 ## Klassendiagramm
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/RentATool_Klassendiagramm.png?raw=true)
@@ -57,8 +62,12 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ## Rückgabe Prozess
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/ReturnProcess.png?raw=true)
 
-## Besprechungsprotokolle
+</details>
 
+
+<details>
+<summary> ## Besprechungsprotokolle </summary>
+<br>
 
 ### Besprechung 20.01.2020
 
@@ -166,7 +175,12 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
 
-## Lessons Learned
+</details>
+
+<details>
+<summary> ## Lessons Learned </summary>
+<br>
+
 - Da wir in diesem Projekt 4 Teammitglieder waren, wurde die Kommunikation und Koordination noch etwas schwieriger und Aufwändiger.
 - Die Versionskontrolle (Git) hat uns am Anfang, aufgrund fehlender Erfahrung, etwas Mühe gekostet es einzuarbeiten, stellte sich im Nachgang jedoch als mächtiges Tool heraus. Paralleles arbeiten war hier wesentlich angenehmer und vor allem kontrollierbarer. Dennoch waren immer absprachen nötig, damit man nicht gleichzeitig an einer Datei arbeitet.
 - Das Arbeiten mit Issues hat uns extrem geholfen den letztgenannten Punkt zu koordinieren. Jeder bekam seine Aufgaben und wusste was er zu tun hatte. Somit gab es fast keine Überschneidungen. Sollte es dennoch zu solchen kommen, wusste man es jedoch frühzeitig und konnte mit dem anderen darüber sprechen.
@@ -174,12 +188,18 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - Die größte Schwierigkeit bei diesem Projekt war das Umdenken von der Datenbankbasierten Logik. Hier hatten wir vor allem am Anfang noch viel zu Kämpfen.
 - Die Tests helfen enorm bei der Programmierung. Eine schnelle und einfache Kontrolle ist nach Änderungen möglich. Man spart somit viel manuelle Prüfarbeit.
 
-## Programme
+</details>
+
+<details>
+<summary> ## Programme </summary>
+<br>
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
 * [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
 * [Office](https://www.office.com/) - Office Programm
 * [Git](https://git-scm.com/) - Versionskontrolle
+
+</details>
 
 ## License
 
