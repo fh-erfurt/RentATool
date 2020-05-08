@@ -66,7 +66,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 
 <details>
-<summary> ## Besprechungsprotokolle </summary>
+<summary> Besprechungsprotokolle </summary>
 <br>
 
 ### Besprechung 20.01.2020
@@ -178,7 +178,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 </details>
 
 <details>
-## <summary> Lessons Learned </summary>
+<summary> Lessons Learned </summary>
 <br>
 
 - Da wir in diesem Projekt 4 Teammitglieder waren, wurde die Kommunikation und Koordination noch etwas schwieriger und Aufwändiger.
@@ -191,7 +191,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 </details>
 
 <details>
-<summary> ## Programme </summary>
+<summary> Programme </summary>
 <br>
 
 * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
