@@ -52,6 +52,11 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/ReturnProcess.png?raw=true)
 
 ## Besprechungsprotokolle
+<details>
+<summary>How do I dropdown?</summary>
+<br>
+This is how you dropdown.
+</details>
 
 
 ### Besprechung 20.01.2020
