@@ -1,13 +1,29 @@
 ## GENERAL INFORMATION
-- The language of the website must be English
-- Code Documentation and Commits must be English
+- The language of the project is English (documentation, issues, code, commits, ...)
+- **weekly meetings:** Mnday start at 18/19 o´clock
+- **communication:** Teams, GitHub, WhatsApp
+- **deadlines:** milestones, must be finished 24h before the deadline
+- **general determinations:** mutual control (gegenseitige)
+- **documentation:** neue Readme für JAVA 2, javadocs, einleitungsdokumentation für Klassen
+- **responsibility:** split the responibilitys fair between the teamsmembers
+
+## SOFTWARE
+- `GitHub` as VersionControl ans Projext Planning
+- `IntelliJ` as IDE
 - `LucidChart` for structures
 - `Adobe XD` for the design
 
 ## DATABASE
  - we use `MariaDB` as DBMS ????
+ - JPA??? ORM???
+ - Workbench
 
 ## CODECONVENTIONS
+- Clean Code
+
+### Classes, Methods, Variables
+- ... TODO
+
 ### Branch naming
 - `master`
 - `develop` ```/``` DESCRIPTION
@@ -18,17 +34,3 @@
 e.g.: 
 - `develop/database`
 - `release/1.2.0`
-
-
-
-TODO: 
-- **language:** documentation, issues, code, commits (englisch)
-- **weekly meetings:** Day, Time, frequency (Mo 18/19)
-- **communication:** Teams, GitHub
-- **general deadlines:** milestones, finish 24h before deadline
-- **programs:** Adobe XD, GitHub, Lucid Charts, IntelliJ, ...
-- **database:** which DBMS, Workbench?
-- **code conventions:** branches, clean code?, classes, methods, variables (danny)
-- **general determinations:** mutual control (gegenseitige)
-- **documentation:** neue Readme für JAVA 2, javadocs, einleitungsdokumentation für Klassen
-- **responsibility:** split up the areas
