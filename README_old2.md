@@ -194,13 +194,16 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> Programme </summary>
 <br>
 
-* [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
-* [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
-* [Office](https://www.office.com/) - Office Programm
-* [Git](https://git-scm.com/) - Versionskontrolle
+    * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
+    * [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+    * [Office](https://www.office.com/) - Office Programm
+    * [Git](https://git-scm.com/) - Versionskontrolle
 
 </details>
 
-## License
+<details>
+<summary> License </summary>
+<br>
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+    This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+</details>
