@@ -4,13 +4,6 @@
 # Verleihstation für Werkzeuge
 Im Rahmen des Projektes zum Thema Programmierung JAVA 1 & 2 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
 
-<details>
-<summary>How do I dropdown?</summary>
-<br>
-This is how you dropdown.
-</details>
-
-
 ## Projektteam
 Das Unternehmen „KSP IT-Solutions“ wurde 2018 von 
 * **Danny Steinbrecher** - [Profil](https://github.com/darthkali)
