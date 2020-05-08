@@ -1,12 +1,11 @@
 ## GENERAL INFORMATION
 - The language of the website must be English
 - Code Documentation and Commits must be English
-- we use `Laravel` as Framework
 - `LucidChart` for structures
 - `Adobe XD` for the design
 
 ## DATABASE
- - we use `MariaDB` as DBMS
+ - we use `MariaDB` as DBMS ????
 
 ## CODECONVENTIONS
 ### Branch naming
