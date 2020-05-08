@@ -70,7 +70,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <br>
 
 <details>
-<summary> - Java 1 </summary>
+<summary style="text-indent:10px;> Java 1 </summary>
 <br>
 ### Besprechung 20.01.2020
 
