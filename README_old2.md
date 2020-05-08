@@ -69,6 +69,9 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> Besprechungsprotokolle </summary>
 <br>
 
+<details>
+<summary> Java 1 </summary>
+<br>
 ### Besprechung 20.01.2020
 
 ---
@@ -174,6 +177,16 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 **7. Dokumentation**
 - tests brauchen in der Dokumentation nur erwähnt werden, brauchen aber nicht im Detail erklärt werden
 - Testverlauf und Doku kann direkt aus IntelliJ erstellt werden
+</details>
+
+<details>
+<summary> Java 2 </summary>
+<br>
+
+
+
+
+</details>
 
 </details>
 
@@ -194,10 +207,10 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> Programme </summary>
 <br>
 
-    * [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
-    * [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
-    * [Office](https://www.office.com/) - Office Programm
-    * [Git](https://git-scm.com/) - Versionskontrolle
+* [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
+* [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+* [Office](https://www.office.com/) - Office Programm
+* [Git](https://git-scm.com/) - Versionskontrolle
 
 </details>
 
@@ -205,5 +218,5 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> License </summary>
 <br>
 
-    This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 </details>
