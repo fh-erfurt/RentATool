@@ -1,14 +1,14 @@
 ## GENERAL INFORMATION
-- The language of the project is English (documentation, issues, code, commits, ...)
-- **weekly meetings:** Mnday start at 18/19 o´clock
+- **language of the project:** English (documentation, issues, code, commits, ...)
+- **weekly meetings:** Monday start at 18/19 o´clock
 - **communication:** Teams, GitHub, WhatsApp
 - **deadlines:** milestones, must be finished 24h before the deadline
 - **general determinations:** mutual control (gegenseitige)
-- **documentation:** neue Readme für JAVA 2, javadocs, einleitungsdokumentation für Klassen
-- **responsibility:** split the responibilitys fair between the teamsmembers
+- **documentation:** README, javadocs
+- **responsibility:** split the responsibility  fair between the teams members
 
 ## SOFTWARE
-- `GitHub` as VersionControl ans Projext Planning
+- `GitHub` as Version Control and Project Planning
 - `IntelliJ` as IDE
 - `LucidChart` for structures
 - `Adobe XD` for the design
@@ -19,7 +19,7 @@
  - Workbench
 
 ## CODECONVENTIONS
-- Clean Code
+**Clean Code**
 
 ### Classes, Methods, Variables
 - ... TODO
