@@ -23,7 +23,7 @@
 
 ### Database
 - method names must be written with the methodname from the JPA Methods + the entity name
-e.g. findByToolID - **findBy**(methodname from JPA) **ToolID**(ID from the Entity Tool)
+- e.g. findByToolID - **findBy**(methodname from JPA) **ToolID**(ID from the Entity Tool)
 
 ### Classes, Methods, Variables
 - ... TODO
