@@ -21,6 +21,8 @@
 ## CODECONVENTIONS
 ### Clean Code
 Code is clean if it can be understood easily – by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.
+
+'Clean code' by Robert C. Martin - Summary by Wojtek Lukaszuk
 _____________________________________
 
 ## General rules
