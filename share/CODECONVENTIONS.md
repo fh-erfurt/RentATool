@@ -1,4 +1,5 @@
 ## Clean Code
+_____________________________________
 Code is clean if it can be understood easily – by everyone on the team. Clean code can be read and enhanced by a developer other than its original author. With understandability comes readability, changeability, extensibility and maintainability.
 
 'Clean code' by Robert C. Martin - Summary by Wojtek Lukaszuk
@@ -83,13 +84,16 @@ _____________________________________
 5. Repeatable.
 
 ## Database
+_____________________________________
 - method names must be written with the method name from the JPA methods + the entity name
 - e.g. findByToolID - **findBy**(method name from JPA) **ToolID**(ID from the entity tool)
 
 ## Classes, Methods, Variables
+_____________________________________
 - ... TODO
 
 ## Branch naming
+_____________________________________
 - `master`
 - `develop` ```/``` DESCRIPTION
 - `feature` ```/``` FEATURENAME
