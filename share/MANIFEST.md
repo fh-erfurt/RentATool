@@ -4,7 +4,6 @@
 - **communication:** Teams, GitHub, WhatsApp
 - **deadlines:** milestones, must be finished 24h before the deadline
 - **general determinations:** mutual control (gegenseitige)
-- **documentation:** README, javadocs
 - **responsibility:** split the responsibility  fair between the teams members
 
 ## SOFTWARE
@@ -14,9 +13,13 @@
 - `Adobe XD` for the design
 
 ## DATABASE
- - we use `MariaDB` as DBMS ????
- - JPA??? ORM???
- - Workbench
+ - we use `MariaDB` as DBMS
+ - we use an `ORM` like `JPA`
+ - to create the Database we use `Mysql Workbench` or `DB Visualizer`
+ 
+## DOCUMENTATION
+- README, Codeconventions, javadocs
+- all presentations must be saved as a pdf-file
 
 ## CODECONVENTIONS
 
