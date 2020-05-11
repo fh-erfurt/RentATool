@@ -6,7 +6,7 @@
 <title>Customer</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2020-02-03">
-<meta name="description" content="declaration: package: de.rat.customer, class: Customer">
+<meta name="description" content="declaration: package: de.rat.domain.customer, class: Customer">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
@@ -88,19 +88,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.customer</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.domain.customer</a></div>
 <h1 title="Class Customer" class="title">Class Customer</h1>
 </div>
 <div class="contentContainer">
 <div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance"><a href="../common/Person.html" title="class in de.rat.common">de.rat.common.Person</a>
-<div class="inheritance">de.rat.customer.Customer</div>
+<div class="inheritance"><a href="../common/Person.html" title="class in de.rat.domain.common">de.rat.domain.common.Person</a>
+<div class="inheritance">de.rat.domain.customer.Customer</div>
 </div>
 </div>
 <section class="description">
 <hr>
 <pre>public class <span class="typeNameLabel">Customer</span>
-extends <a href="../common/Person.html" title="class in de.rat.common">Person</a></pre>
+extends <a href="../common/Person.html" title="class in de.rat.domain.common">Person</a></pre>
 <div class="block">Represents an customer.</div>
 </section>
 <section class="summary">
@@ -112,8 +112,8 @@ extends <a href="../common/Person.html" title="class in de.rat.common">Person</a
 </a>
 <h2>Field Summary</h2>
 <div class="inheritedList">
-<h3>Fields inherited from class&nbsp;de.rat.common.<a href="../common/Person.html" title="class in de.rat.common">Person</a></h3>
-<a id="fields.inherited.from.class.de.rat.common.Person">
+<h3>Fields inherited from class&nbsp;de.rat.domain.common.<a href="../common/Person.html" title="class in de.rat.domain.common">Person</a></h3>
+<a id="fields.inherited.from.class.de.rat.domain.common.Person">
 <!--   -->
 </a><code><a href="../common/Person.html#account">account</a></code></div>
 </section>
@@ -173,31 +173,31 @@ java.lang.String&nbsp;phoneNumber)</code></th>
 </thead>
 <tbody>
 <tr class="altColor" id="i0">
-<td class="colFirst"><code><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToolFromInventory(de.rat.logistics.Tool)">getToolFromInventory</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;tool)</code></th>
+<td class="colFirst"><code><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToolFromInventory(de.rat.domain.logistics.Tool)">getToolFromInventory</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</code></th>
 <td class="colLast">
 <div class="block">gets the tool fom the Inventory of the customer .</div>
 </td>
 </tr>
 <tr class="rowColor" id="i1">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToolFromStation(de.rat.logistics.Tool,de.rat.logistics.Station)">getToolFromStation</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.logistics">Station</a>&nbsp;removeStation)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getToolFromStation(de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">getToolFromStation</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</code></th>
 <td class="colLast">
 <div class="block">gets the tool from the station.</div>
 </td>
 </tr>
 <tr class="altColor" id="i2">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#putToolInInventory(de.rat.logistics.Tool)">putToolInInventory</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;tool)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#putToolInInventory(de.rat.domain.logistics.Tool)">putToolInInventory</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</code></th>
 <td class="colLast">
 <div class="block">put the tool in the Inventory from the customer .</div>
 </td>
 </tr>
 <tr class="rowColor" id="i3">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#returnToolToStation(de.rat.logistics.Tool,de.rat.logistics.Station)">returnToolToStation</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.logistics">Station</a>&nbsp;removeStation)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#returnToolToStation(de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">returnToolToStation</a></span>&#8203;(<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</code></th>
 <td class="colLast">
 <div class="block">return the tool to the station.</div>
 </td>
@@ -207,8 +207,8 @@ java.lang.String&nbsp;phoneNumber)</code></th>
 </div>
 </div>
 <div class="inheritedList">
-<h3>Methods inherited from class&nbsp;de.rat.common.<a href="../common/Person.html" title="class in de.rat.common">Person</a></h3>
-<a id="methods.inherited.from.class.de.rat.common.Person">
+<h3>Methods inherited from class&nbsp;de.rat.domain.common.<a href="../common/Person.html" title="class in de.rat.domain.common">Person</a></h3>
+<a id="methods.inherited.from.class.de.rat.domain.common.Person">
 <!--   -->
 </a><code><a href="../common/Person.html#createPassword()">createPassword</a>, <a href="../common/Person.html#getAccount()">getAccount</a>, <a href="../common/Person.html#getAddress()">getAddress</a>, <a href="../common/Person.html#getFirstname()">getFirstname</a>, <a href="../common/Person.html#getLastname()">getLastname</a></code></div>
 <div class="inheritedList">
@@ -270,8 +270,8 @@ java.lang.String&nbsp;phoneNumber)</span></div>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
-<h3><a id="getToolFromInventory(de.rat.logistics.Tool)">getToolFromInventory</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a></span>&nbsp;<span class="memberName">getToolFromInventory</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;tool)</span></div>
+<h3><a id="getToolFromInventory(de.rat.domain.logistics.Tool)">getToolFromInventory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a></span>&nbsp;<span class="memberName">getToolFromInventory</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</span></div>
 <div class="block">gets the tool fom the Inventory of the customer .</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -281,8 +281,8 @@ java.lang.String&nbsp;phoneNumber)</span></div>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="putToolInInventory(de.rat.logistics.Tool)">putToolInInventory</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">putToolInInventory</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;tool)</span></div>
+<h3><a id="putToolInInventory(de.rat.domain.logistics.Tool)">putToolInInventory</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">putToolInInventory</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</span></div>
 <div class="block">put the tool in the Inventory from the customer .</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -292,9 +292,9 @@ java.lang.String&nbsp;phoneNumber)</span></div>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getToolFromStation(de.rat.logistics.Tool,de.rat.logistics.Station)">getToolFromStation</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getToolFromStation</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.logistics">Station</a>&nbsp;removeStation)</span></div>
+<h3><a id="getToolFromStation(de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">getToolFromStation</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">getToolFromStation</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</span></div>
 <div class="block">gets the tool from the station.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -305,9 +305,9 @@ java.lang.String&nbsp;phoneNumber)</span></div>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="returnToolToStation(de.rat.logistics.Tool,de.rat.logistics.Station)">returnToolToStation</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">returnToolToStation</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.logistics">Station</a>&nbsp;removeStation)</span></div>
+<h3><a id="returnToolToStation(de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">returnToolToStation</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">returnToolToStation</span>&#8203;(<span class="arguments"><a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</span></div>
 <div class="block">return the tool to the station.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>

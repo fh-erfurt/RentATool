@@ -1,6 +1,6 @@
 de.rat
-de.rat.billing
-de.rat.common
-de.rat.customer
-de.rat.employee
-de.rat.logistics
+de.rat.domain.billing
+de.rat.domain.common
+de.rat.domain.customer
+de.rat.domain.employee
+de.rat.domain.logistics

@@ -101,5 +101,5 @@ _____________________________________
 - `hotfix` ```/``` FIXVERSION
 
 e.g.: 
-- `develop/database`
+- `develop/de.rat.domain.database`
 - `release/1.2.0`
