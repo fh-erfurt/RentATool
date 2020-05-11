@@ -19,7 +19,7 @@ gegründet. Die Kernkompetenzen liegen im Entwickeln, Designen und Implementiere
 ## Manifest
 https://github.com/fh-erfurt/RentATool/blob/master/share/MANIFEST.md
 
-## CodeCoonventions
+## CodeConventions
 https://github.com/fh-erfurt/RentATool/blob/master/share/CODECONVENTIONS.md
 
 ## Produkte
