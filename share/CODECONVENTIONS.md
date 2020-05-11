@@ -1,5 +1,5 @@
 ## General Terms
-- unsused classes, functions, methods, attributes must be deleted
+- unused classes, functions, methods, attributes must be deleted
 
 
 ## Clean Code
