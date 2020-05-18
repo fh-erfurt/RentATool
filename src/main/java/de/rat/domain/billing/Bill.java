@@ -152,6 +152,7 @@ public class Bill {
         {
             // get the dates of the return and rented Date and calculate the difference.
             int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
+
             // multiply the rented days with the rentPrice for each tool
             this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
