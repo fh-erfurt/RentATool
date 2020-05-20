@@ -21,7 +21,6 @@ import java.util.logging.Logger;
  *  customer for whom the bill is<br>
  *  rentDate the date from the begin of the rentprocess<br>
  *  rentStation the station where the customer want to pickup the tool<br>
- *  billDate the date where the bill was created<br>
  *  discount the discount which the employee can set<br>
  *  fullRentPrice the full rentprice after the return from the tool<br>
  *  listOfRentProcesses a list of all rentprocess<br>
@@ -34,7 +33,6 @@ public class Bill {
     private Customer customer;
     private GregorianCalendar rentDate;
     private Station rentStation;
-    private Date billDate;
     private int discount;
     private double fullRentPrice;
     /* several rent processes for on bill possible*/
@@ -56,7 +54,6 @@ public class Bill {
         this.customer = customer;
         this.rentDate = new GregorianCalendar();
         this.rentStation = rentStation;
-        this.billDate = null;
         this.discount = 0;
         this.fullRentPrice = 0;
         ++autoincrementNumber;
