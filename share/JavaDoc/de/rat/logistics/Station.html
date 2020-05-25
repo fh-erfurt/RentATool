@@ -6,7 +6,7 @@
 <title>Station</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2020-02-03">
-<meta name="description" content="declaration: package: de.rat.domain.logistics, class: Station">
+<meta name="description" content="declaration: package: de.rat.model.logistics, class: Station">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
@@ -88,12 +88,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.domain.logistics</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.model.logistics</a></div>
 <h1 title="Class Station" class="title">Class Station</h1>
 </div>
 <div class="contentContainer">
 <div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance">de.rat.domain.logistics.Station</div>
+<div class="inheritance">de.rat.model.logistics.Station</div>
 </div>
 <section class="description">
 <hr>
@@ -126,7 +126,7 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(java.lang.String,int,de.rat.domain.common.Address)">Station</a></span>&#8203;(java.lang.String&nbsp;description,
 int&nbsp;numberOfBoxes,
-<a href="../common/Address.html" title="class in de.rat.domain.common">Address</a>&nbsp;address)</code></th>
+<a href="../common/Address.html" title="class in de.rat.model.common">Address</a>&nbsp;address)</code></th>
 <td class="colLast">
 <div class="block">Creates station .</div>
 </td>
@@ -156,7 +156,7 @@ int&nbsp;numberOfBoxes,
 <tbody>
 <tr class="altColor" id="i0">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addToolToBox(de.rat.domain.logistics.Tool)">addToolToBox</a></span>&#8203;(<a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addToolToBox(de.rat.domain.logistics.Tool)">addToolToBox</a></span>&#8203;(<a href="Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;tool)</code></th>
 <td class="colLast">
 <div class="block">add the respective tool in the boxes of tools
  checkStationLevel check is there one empty box</div>
@@ -170,7 +170,7 @@ int&nbsp;numberOfBoxes,
 </td>
 </tr>
 <tr class="altColor" id="i2">
-<td class="colFirst"><code><a href="../common/Address.html" title="class in de.rat.domain.common">Address</a></code></td>
+<td class="colFirst"><code><a href="../common/Address.html" title="class in de.rat.model.common">Address</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAddress()">getAddress</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -192,15 +192,15 @@ int&nbsp;numberOfBoxes,
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i6">
-<td class="colFirst"><code><a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeToolFromBox(de.rat.domain.logistics.Tool)">removeToolFromBox</a></span>&#8203;(<a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool)</code></th>
+<td class="colFirst"><code><a href="Tool.html" title="class in de.rat.model.logistics">Tool</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeToolFromBox(de.rat.domain.logistics.Tool)">removeToolFromBox</a></span>&#8203;(<a href="Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;wantedTool)</code></th>
 <td class="colLast">
 <div class="block">remove the respective tool in the boxes of tools</div>
 </td>
 </tr>
 <tr class="rowColor" id="i7">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAddress(de.rat.domain.common.Address)">setAddress</a></span>&#8203;(<a href="../common/Address.html" title="class in de.rat.domain.common">Address</a>&nbsp;address)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAddress(de.rat.domain.common.Address)">setAddress</a></span>&#8203;(<a href="../common/Address.html" title="class in de.rat.model.common">Address</a>&nbsp;address)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i8">
@@ -235,7 +235,7 @@ int&nbsp;numberOfBoxes,
 <h3><a id="&lt;init&gt;(java.lang.String,int,de.rat.domain.common.Address)">Station</a></h3>
 <div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="memberName">Station</span>&#8203;(<span class="arguments">java.lang.String&nbsp;description,
 int&nbsp;numberOfBoxes,
-<a href="../common/Address.html" title="class in de.rat.domain.common">Address</a>&nbsp;address)</span></div>
+<a href="../common/Address.html" title="class in de.rat.model.common">Address</a>&nbsp;address)</span></div>
 <div class="block">Creates station .</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -275,7 +275,7 @@ int&nbsp;numberOfBoxes,
 <li class="blockList">
 <section class="detail">
 <h3><a id="getAddress()">getAddress</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../common/Address.html" title="class in de.rat.domain.common">Address</a></span>&nbsp;<span class="memberName">getAddress</span>()</div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="../common/Address.html" title="class in de.rat.model.common">Address</a></span>&nbsp;<span class="memberName">getAddress</span>()</div>
 </section>
 </li>
 <li class="blockList">
@@ -287,7 +287,7 @@ int&nbsp;numberOfBoxes,
 <li class="blockList">
 <section class="detail">
 <h3><a id="setAddress(de.rat.domain.common.Address)">setAddress</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setAddress</span>&#8203;(<span class="arguments"><a href="../common/Address.html" title="class in de.rat.domain.common">Address</a>&nbsp;address)</span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setAddress</span>&#8203;(<span class="arguments"><a href="../common/Address.html" title="class in de.rat.model.common">Address</a>&nbsp;address)</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -299,7 +299,7 @@ int&nbsp;numberOfBoxes,
 <li class="blockList">
 <section class="detail">
 <h3><a id="addToolToBox(de.rat.domain.logistics.Tool)">addToolToBox</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">addToolToBox</span>&#8203;(<span class="arguments"><a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;tool)</span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">boolean</span>&nbsp;<span class="memberName">addToolToBox</span>&#8203;(<span class="arguments"><a href="Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;tool)</span></div>
 <div class="block">add the respective tool in the boxes of tools
  checkStationLevel check is there one empty box</div>
 <dl>
@@ -311,7 +311,7 @@ int&nbsp;numberOfBoxes,
 <li class="blockList">
 <section class="detail">
 <h3><a id="removeToolFromBox(de.rat.domain.logistics.Tool)">removeToolFromBox</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a></span>&nbsp;<span class="memberName">removeToolFromBox</span>&#8203;(<span class="arguments"><a href="Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool)</span></div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType"><a href="Tool.html" title="class in de.rat.model.logistics">Tool</a></span>&nbsp;<span class="memberName">removeToolFromBox</span>&#8203;(<span class="arguments"><a href="Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;wantedTool)</span></div>
 <div class="block">remove the respective tool in the boxes of tools</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>

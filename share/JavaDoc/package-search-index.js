@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"de.rat"},{"l":"de.rat.domain.billing"},{"l":"de.rat.domain.common"},{"l":"de.rat.domain.customer"},{"l":"de.rat.domain.employee"},{"l":"de.rat.domain.logistics"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"de.rat"},{"l":"de.rat.model.billing"},{"l":"de.rat.model.common"},{"l":"de.rat.model.customer"},{"l":"de.rat.model.employee"},{"l":"de.rat.model.logistics"}]

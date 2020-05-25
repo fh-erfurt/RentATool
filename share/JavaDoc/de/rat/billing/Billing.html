@@ -6,7 +6,7 @@
 <title>Billing</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2020-02-03">
-<meta name="description" content="declaration: package: de.rat.domain.billing, class: Billing">
+<meta name="description" content="declaration: package: de.rat.model.billing, class: Billing">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.css" title="Style">
@@ -88,12 +88,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <!-- ======== START OF CLASS DATA ======== -->
 <main role="main">
 <div class="header">
-<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.domain.billing</a></div>
+<div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">de.rat.model.billing</a></div>
 <h1 title="Class Billing" class="title">Class Billing</h1>
 </div>
 <div class="contentContainer">
 <div class="inheritance" title="Inheritance Tree">java.lang.Object
-<div class="inheritance">de.rat.domain.billing.Billing</div>
+<div class="inheritance">de.rat.model.billing.Billing</div>
 </div>
 <section class="description">
 <hr>
@@ -151,7 +151,7 @@ extends java.lang.Object</pre>
 <tbody>
 <tr class="altColor" id="i0">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(de.rat.domain.customer.Customer)">checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(de.rat.domain.customer.Customer)">checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">
 <div class="block">Move the  bills from the openBill Array to the checkedBill Array
  and send a notification to all employee's
@@ -160,63 +160,63 @@ extends java.lang.Object</pre>
 </td>
 </tr>
 <tr class="rowColor" id="i1">
-<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createOpenBillFromCustomer(de.rat.domain.logistics.Station,de.rat.domain.customer.Customer)">createOpenBillFromCustomer</a></span>&#8203;(<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;pickupStation,
-<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</code></th>
+<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.model.billing">Bill</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createOpenBillFromCustomer(de.rat.domain.logistics.Station,de.rat.domain.customer.Customer)">createOpenBillFromCustomer</a></span>&#8203;(<a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;pickupStation,
+<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">
 <div class="block">Create a bill from the customer</div>
 </td>
 </tr>
 <tr class="altColor" id="i2">
-<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findBillInListByReference(de.rat.domain.billing.Bill,java.util.ArrayList)">findBillInListByReference</a></span>&#8203;(<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&nbsp;searchedBill,
-java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;&nbsp;billList)</code></th>
+<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.model.billing">Bill</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findBillInListByReference(de.rat.domain.billing.Bill,java.util.ArrayList)">findBillInListByReference</a></span>&#8203;(<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&nbsp;searchedBill,
+java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;&nbsp;billList)</code></th>
 <td class="colLast">
 <div class="block">Find a bill in a List of Bills by a Reference Bill</div>
 </td>
 </tr>
 <tr class="rowColor" id="i3">
-<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOpenBillFromCustomer(de.rat.domain.customer.Customer)">findOpenBillFromCustomer</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</code></th>
+<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.model.billing">Bill</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOpenBillFromCustomer(de.rat.domain.customer.Customer)">findOpenBillFromCustomer</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</code></th>
 <td class="colLast">
 <div class="block">Find a open bill from the customer where the date is the actual date.</div>
 </td>
 </tr>
 <tr class="altColor" id="i4">
-<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOpenBillFromCustomerForReturn(de.rat.domain.customer.Customer,de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">findOpenBillFromCustomerForReturn</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer,
-<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</code></th>
+<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.model.billing">Bill</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOpenBillFromCustomerForReturn(de.rat.domain.customer.Customer,de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">findOpenBillFromCustomerForReturn</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer,
+<a href="../logistics/Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;removeStation)</code></th>
 <td class="colLast">
 <div class="block">Find a open bill from the customer and complete the rent processes</div>
 </td>
 </tr>
 <tr class="rowColor" id="i5">
-<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOrCreateBill(de.rat.domain.customer.Customer,de.rat.domain.logistics.Station)">findOrCreateBill</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer,
-<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;pickupStation)</code></th>
+<td class="colFirst"><code>static <a href="Bill.html" title="class in de.rat.model.billing">Bill</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findOrCreateBill(de.rat.domain.customer.Customer,de.rat.domain.logistics.Station)">findOrCreateBill</a></span>&#8203;(<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer,
+<a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;pickupStation)</code></th>
 <td class="colLast">
 <div class="block">Find or Create open bill.</div>
 </td>
 </tr>
 <tr class="altColor" id="i6">
-<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</code></td>
+<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCheckBills()">getCheckBills</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i7">
-<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</code></td>
+<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getClosedBills()">getClosedBills</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i8">
-<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</code></td>
+<td class="colFirst"><code>static java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOpenBills()">getOpenBills</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i9">
 <td class="colFirst"><code>static void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#moveFromCheckToClosed(de.rat.domain.billing.Bill)">moveFromCheckToClosed</a></span>&#8203;(<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&nbsp;checkBill)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#moveFromCheckToClosed(de.rat.domain.billing.Bill)">moveFromCheckToClosed</a></span>&#8203;(<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&nbsp;checkBill)</code></th>
 <td class="colLast">
 <div class="block">Move the  bills from the checkBill Array to the closeBill Array
  checkBills bills that have to checked from the employee
@@ -264,25 +264,25 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="getOpenBills()">getOpenBills</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getOpenBills</span>()</div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getOpenBills</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
 <h3><a id="getCheckBills()">getCheckBills</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getCheckBills</span>()</div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getCheckBills</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
 <h3><a id="getClosedBills()">getClosedBills</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getClosedBills</span>()</div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;</span>&nbsp;<span class="memberName">getClosedBills</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
 <h3><a id="findOpenBillFromCustomer(de.rat.domain.customer.Customer)">findOpenBillFromCustomer</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></span>&nbsp;<span class="memberName">findOpenBillFromCustomer</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a></span>&nbsp;<span class="memberName">findOpenBillFromCustomer</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</span></div>
 <div class="block">Find a open bill from the customer where the date is the actual date.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -293,9 +293,9 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="findOpenBillFromCustomerForReturn(de.rat.domain.customer.Customer,de.rat.domain.logistics.Tool,de.rat.domain.logistics.Station)">findOpenBillFromCustomerForReturn</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></span>&nbsp;<span class="memberName">findOpenBillFromCustomerForReturn</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer,
-<a href="../logistics/Tool.html" title="class in de.rat.domain.logistics">Tool</a>&nbsp;wantedTool,
-<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;removeStation)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a></span>&nbsp;<span class="memberName">findOpenBillFromCustomerForReturn</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer,
+<a href="../logistics/Tool.html" title="class in de.rat.model.logistics">Tool</a>&nbsp;wantedTool,
+<a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;removeStation)</span></div>
 <div class="block">Find a open bill from the customer and complete the rent processes</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -306,8 +306,8 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="createOpenBillFromCustomer(de.rat.domain.logistics.Station,de.rat.domain.customer.Customer)">createOpenBillFromCustomer</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></span>&nbsp;<span class="memberName">createOpenBillFromCustomer</span>&#8203;(<span class="arguments"><a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;pickupStation,
-<a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a></span>&nbsp;<span class="memberName">createOpenBillFromCustomer</span>&#8203;(<span class="arguments"><a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;pickupStation,
+<a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</span></div>
 <div class="block">Create a bill from the customer</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -318,7 +318,7 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(de.rat.domain.customer.Customer)">checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer)</span></div>
 <div class="block">Move the  bills from the openBill Array to the checkedBill Array
  and send a notification to all employee's
  checkBills bills that have to checked from the employee
@@ -328,8 +328,8 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="findBillInListByReference(de.rat.domain.billing.Bill,java.util.ArrayList)">findBillInListByReference</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></span>&nbsp;<span class="memberName">findBillInListByReference</span>&#8203;(<span class="arguments"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&nbsp;searchedBill,
-java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&gt;&nbsp;billList)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a></span>&nbsp;<span class="memberName">findBillInListByReference</span>&#8203;(<span class="arguments"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&nbsp;searchedBill,
+java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&gt;&nbsp;billList)</span></div>
 <div class="block">Find a bill in a List of Bills by a Reference Bill</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -340,7 +340,7 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="moveFromCheckToClosed(de.rat.domain.billing.Bill)">moveFromCheckToClosed</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">moveFromCheckToClosed</span>&#8203;(<span class="arguments"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a>&nbsp;checkBill)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">moveFromCheckToClosed</span>&#8203;(<span class="arguments"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a>&nbsp;checkBill)</span></div>
 <div class="block">Move the  bills from the checkBill Array to the closeBill Array
  checkBills bills that have to checked from the employee
  closedBills bills with closed bills</div>
@@ -349,8 +349,8 @@ java.util.ArrayList&lt;<a href="Bill.html" title="class in de.rat.domain.billing
 <li class="blockList">
 <section class="detail">
 <h3><a id="findOrCreateBill(de.rat.domain.customer.Customer,de.rat.domain.logistics.Station)">findOrCreateBill</a></h3>
-<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.domain.billing">Bill</a></span>&nbsp;<span class="memberName">findOrCreateBill</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.domain.customer">Customer</a>&nbsp;customer,
-<a href="../logistics/Station.html" title="class in de.rat.domain.logistics">Station</a>&nbsp;pickupStation)</span></div>
+<div class="memberSignature"><span class="modifiers">public static</span>&nbsp;<span class="returnType"><a href="Bill.html" title="class in de.rat.model.billing">Bill</a></span>&nbsp;<span class="memberName">findOrCreateBill</span>&#8203;(<span class="arguments"><a href="../customer/Customer.html" title="class in de.rat.model.customer">Customer</a>&nbsp;customer,
+<a href="../logistics/Station.html" title="class in de.rat.model.logistics">Station</a>&nbsp;pickupStation)</span></div>
 <div class="block">Find or Create open bill.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
