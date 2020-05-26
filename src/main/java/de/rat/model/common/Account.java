@@ -1,11 +1,13 @@
 package de.rat.model.common;
 
+import de.rat.model.BaseModel;
+
 import java.time.LocalDate;
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
 
-public class Account {
+public class Account extends BaseModel {
     private Role role;
     private String email;
     private String password;

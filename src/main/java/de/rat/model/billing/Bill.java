@@ -1,5 +1,6 @@
 package de.rat.model.billing;
 
+import de.rat.model.BaseModel;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
@@ -26,7 +27,7 @@ import java.util.logging.Logger;
  *  listOfRentProcesses a list of all rentprocess<br>
  *
  */
-public class Bill {
+public class Bill extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private static int autoincrementNumber = 10000;
     private int billNumber;

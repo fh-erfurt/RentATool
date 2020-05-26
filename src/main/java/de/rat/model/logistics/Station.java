@@ -1,5 +1,6 @@
 package de.rat.model.logistics;
 
+import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  *  boxesOfTools a array list of boxes and the array size is equal to the number of boxes
  *
  */
-public class Station {
+public class Station extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String description;
     private int numberOfBoxes;

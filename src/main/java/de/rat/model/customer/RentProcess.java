@@ -1,5 +1,6 @@
 package de.rat.model.customer;
 
+import de.rat.model.BaseModel;
 import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
 
@@ -15,7 +16,7 @@ import java.util.GregorianCalendar;
  *  returnStation the station that the customer has chosen to bring back the tool
  *
  */
-public class RentProcess {
+public class RentProcess extends BaseModel {
     private Tool rentedTool;
     private GregorianCalendar returnDate;
     private Station returnStation;

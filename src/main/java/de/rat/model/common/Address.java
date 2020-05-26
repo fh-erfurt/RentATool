@@ -1,8 +1,11 @@
 package de.rat.model.common;
+
+import de.rat.model.BaseModel;
+
 /**Represents a class address.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
-public class Address {
+public class Address extends BaseModel {
 
     private String street;
     private int hauseNr;

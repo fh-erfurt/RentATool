@@ -4,6 +4,8 @@ package de.rat.model.logistics;
  */
 
 
+import de.rat.model.BaseModel;
+
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
  *  manufacturer from the tool
@@ -13,7 +15,7 @@ package de.rat.model.logistics;
  *  rentPrice the several rent price for the tool
  *
  */
-public class Tool {
+public class Tool extends BaseModel {
     private String itemId;
     private Manufacturer manufacturer;
     private String description;

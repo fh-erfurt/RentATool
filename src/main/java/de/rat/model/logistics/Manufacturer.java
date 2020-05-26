@@ -1,10 +1,11 @@
 package de.rat.model.logistics;
 
+import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
 /**Represents an manufacturer.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
-public class Manufacturer {
+public class Manufacturer extends BaseModel {
 
     private String name;
     private Address address;

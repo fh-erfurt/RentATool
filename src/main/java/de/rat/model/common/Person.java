@@ -1,12 +1,14 @@
 package de.rat.model.common;
 
+import de.rat.model.BaseModel;
+
 import java.util.GregorianCalendar;
 
 /**Represents a Person.
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
-public abstract class Person {
+public abstract class Person extends BaseModel {
 
     private String lastname;
     private String firstname;
