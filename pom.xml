@@ -32,7 +32,14 @@
             <version>3.0.0-M1</version>
         </dependency>
 
-<!--        TODO: should we use this? javax?    -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.0.Final</version>
+        </dependency>
+
+
+        <!--        TODO: should we use this? javax?    -->
 <!--        <dependency>-->
 <!--            <groupId>org.eclipse.persistence</groupId>-->
 <!--            <artifactId>javax.persistence</artifactId>-->
