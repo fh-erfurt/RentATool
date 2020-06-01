@@ -33,18 +33,16 @@
         </dependency>
 
         <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.0.Final</version>
         </dependency>
-
-
-        <!--        TODO: should we use this? javax?    -->
-<!--        <dependency>-->
-<!--            <groupId>org.eclipse.persistence</groupId>-->
-<!--            <artifactId>javax.persistence</artifactId>-->
-<!--            <version>2.2.1</version>-->
-<!--        </dependency>-->
     </dependencies>
 
 

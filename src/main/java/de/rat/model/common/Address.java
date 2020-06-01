@@ -2,6 +2,11 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 /**Represents a class address.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */

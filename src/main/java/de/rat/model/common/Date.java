@@ -51,7 +51,7 @@ public class Date extends GregorianCalendar {
      * @return  the calculated days
      *
      */
-    public static int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate) throws ClassCastException{ // TODO: Exception
+    public static int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate) throws ClassCastException{ // TODO: Exception return
         // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
         long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
 

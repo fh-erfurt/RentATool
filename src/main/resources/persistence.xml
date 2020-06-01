@@ -4,8 +4,8 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
              http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
-<!--    TODO: find new name for the persictence Unit    -->
-    <persistence-unit name="my-pu">
+    <persistence-unit name="rat-pu" transaction-type="RESOURCE_LOCAL">
+
         <description>My Persistence Unit</description>
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 

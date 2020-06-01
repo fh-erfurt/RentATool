@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
  * provides an efficient way to construct multiple EntityManager instances for that database.*
  * */
 public class DataSource{
-    private static final String PERSISTENCE_UNIT_NAME = "addressbook-unit";
+    private static final String PERSISTENCE_UNIT_NAME = "rat-pu";
     private EntityManagerFactory entityManagerFactory;
     private static DataSource dataSourceUniqueInstance;
 
