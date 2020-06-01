@@ -13,7 +13,7 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:db_name"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:rat_db"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
             <property name="eclipselink.ddl-generation.output-mode" value="both"/>
