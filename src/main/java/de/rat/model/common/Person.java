@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
-@MappedSuperclass
+@MappedSuperclass // TODO: maybe this is not correct because the class person inherits from the BaseModel which has already the annotation @MappedSuperclass
 public abstract class Person extends BaseModel {
 
     private String lastname;
