@@ -7,6 +7,7 @@ import javax.persistence.*;
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
+@MappedSuperclass
 public class BaseModel {
 
     @Id
