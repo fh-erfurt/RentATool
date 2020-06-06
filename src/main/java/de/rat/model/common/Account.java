@@ -2,11 +2,13 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
 
+@Entity
 public class Account extends BaseModel {
     private Role role;
     private String email;

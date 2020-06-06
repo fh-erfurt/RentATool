@@ -2,14 +2,13 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 /**Represents a class address.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
+
+@Entity
 public class Address extends BaseModel {
 
     private String street;
@@ -17,6 +16,10 @@ public class Address extends BaseModel {
     private int zip;
     private String city;
     private String country;
+
+    public  Address(){
+
+    }
 
     public Address(String street, int hauseNr, int zip, String city, String country) {
         this.street = street;

@@ -9,12 +9,14 @@ import java.util.GregorianCalendar;
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
-@MappedSuperclass // TODO: maybe this is not correct because the class person inherits from the BaseModel which has already the annotation @MappedSuperclass
+@MappedSuperclass
 public abstract class Person extends BaseModel {
 
     private String lastname;
     private String firstname;
     private GregorianCalendar birthday;
+
+    @ManyToOne // TODO OneTOMany or ManyToOne??
     private Address address;
     protected Account account;
 
