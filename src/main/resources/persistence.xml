@@ -8,6 +8,7 @@
 
         <description>My Persistence Unit</description>
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+<!--        <provider>org.hibernate.ejb.HibernatePersistence</provider>-->
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
