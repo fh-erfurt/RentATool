@@ -6,8 +6,6 @@ import de.rat.model.BaseModel;
 import javax.persistence.EntityManager;
 import javax.persistence.PreUpdate;
 import javax.persistence.Query;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Repository<T extends BaseModel> {

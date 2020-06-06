@@ -16,6 +16,8 @@ public class Account extends BaseModel {
     private LocalDate changed;
 
 
+    public  Account(){ }
+
     public Account(Role role,String email) {
         this.email = email;
         this.changed = LocalDate.now();

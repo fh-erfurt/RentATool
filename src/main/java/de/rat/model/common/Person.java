@@ -16,8 +16,10 @@ public abstract class Person extends BaseModel {
     private String firstname;
     private GregorianCalendar birthday;
 
-    @ManyToOne // TODO OneTOMany or ManyToOne??
+    @ManyToOne
     private Address address;
+
+    @OneToOne
     protected Account account;
 
     /** constructor for a Person

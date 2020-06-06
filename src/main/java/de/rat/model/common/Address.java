@@ -17,9 +17,7 @@ public class Address extends BaseModel {
     private String city;
     private String country;
 
-    public  Address(){
-
-    }
+    public  Address(){ }
 
     public Address(String street, int hauseNr, int zip, String city, String country) {
         this.street = street;
