@@ -2,6 +2,7 @@ package de.rat.model.common;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
 /**Represents a class date.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */

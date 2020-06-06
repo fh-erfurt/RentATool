@@ -1,7 +1,6 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
-
 import javax.persistence.*;
 
 /**Represents a class address.

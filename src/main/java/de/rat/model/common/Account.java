@@ -1,11 +1,8 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
-
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.time.LocalDate;
+
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
  */
