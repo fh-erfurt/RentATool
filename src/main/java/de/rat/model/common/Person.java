@@ -14,6 +14,8 @@ public abstract class Person extends BaseModel {
 
     private String lastname;
     private String firstname;
+
+    @Temporal (TemporalType.DATE)
     private GregorianCalendar birthday;
 
     @ManyToOne
