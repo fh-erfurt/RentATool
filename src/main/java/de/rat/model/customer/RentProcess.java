@@ -4,8 +4,9 @@ import de.rat.model.BaseModel;
 import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
 
+import javax.persistence.Column;
 import java.util.GregorianCalendar;
-
+import javax.persistence.Entity;
 /**Represents an RentProcess.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
@@ -16,6 +17,7 @@ import java.util.GregorianCalendar;
  *  returnStation the station that the customer has chosen to bring back the tool
  *
  */
+
 public class RentProcess extends BaseModel {
     private Tool rentedTool;
     private GregorianCalendar returnDate;

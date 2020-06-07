@@ -3,18 +3,23 @@ package de.rat.model.customer;
 import de.rat.model.common.*;
 import de.rat.model.logistics.*;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
-
+import javax.persistence.Entity;
 /**Represents an customer.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 
+@Entity
 public class Customer extends Person {
+public Customer(){
 
+}
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String phoneNumber;
+@Transient
     private ArrayList<Tool>  inventory = new ArrayList<Tool>();
 
     /** Creates an customer .

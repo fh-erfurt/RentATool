@@ -7,16 +7,19 @@ import de.rat.model.common.*;
 
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**Represents an Employee.
  * extends from Person
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
-
+@Entity
 public class Employee extends Person {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private Employee supervisor;
-
+public Employee (){}
     /** constructor for the employee - with supervisor
      *  @param lastname the lastname from the Employee
      *  @param firstname the firstname from the Employee

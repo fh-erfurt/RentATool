@@ -25,44 +25,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!--    eclipse     -->
+        <!-- Hibernate dependecy, comes also with JPA included -->
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>eclipselink</artifactId>
-            <version>3.0.0-M1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa -->
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa</artifactId>
-            <version>2.7.7</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.17.Final</version>
         </dependency>
 
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.2.1</version>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
         </dependency>
-
-
-<!--            hibernate     // TODO: should we use hibernate-->
-<!--        <dependency>-->
-<!--            &lt;!&ndash; requires Java8! &ndash;&gt;-->
-<!--            &lt;!&ndash; as of 5.2, hibernate-entitymanager is merged into hibernate-core &ndash;&gt;-->
-<!--            <groupId>org.hibernate</groupId>-->
-<!--            <artifactId>hibernate-core</artifactId>-->
-<!--            <version>5.4.17.Final</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.hibernate.javax.persistence</groupId>-->
-<!--            <artifactId>hibernate-jpa-2.1-api</artifactId>-->
-<!--            <version>1.0.2.Final</version>-->
-<!--        </dependency>-->
-
-
-
     </dependencies>
 
 
