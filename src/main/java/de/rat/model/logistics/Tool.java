@@ -6,6 +6,9 @@ package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
  *  manufacturer from the tool
@@ -15,10 +18,14 @@ import de.rat.model.BaseModel;
  *  rentPrice the several rent price for the tool
  *
  */
+@Entity
 public class Tool extends BaseModel {
     private String itemId;
+
+    @ManyToOne
     private Manufacturer manufacturer;
     private String description;
+    //ToDo Flag in der DB oder nicht mit nehmen?
     private Category category;
     private String stock;
     private ToolStatus toolStatus;

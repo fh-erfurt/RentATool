@@ -3,6 +3,8 @@ package de.rat.model.logistics;
 import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 /**Represents a class station.
@@ -16,12 +18,17 @@ import java.util.logging.Logger;
  *  boxesOfTools a array list of boxes and the array size is equal to the number of boxes
  *
  */
+@Entity
 public class Station extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String description;
     private int numberOfBoxes;
+
+    @ManyToOne
     private Address address;
+
     /* tool management */
+    //ToDo DB und Klasse ja nicht gelich? Listen werden nicht vom Model gehändelt?!
     private ArrayList<Tool> boxesOfTools= new ArrayList<>();
 
 
@@ -31,6 +38,7 @@ public class Station extends BaseModel {
      *  @param address where the station is installed
      *
      */
+
     public Station(String description, int numberOfBoxes, Address address) {
         this.description = description;
         this.numberOfBoxes = numberOfBoxes;

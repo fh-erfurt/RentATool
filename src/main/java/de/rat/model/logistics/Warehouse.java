@@ -1,5 +1,6 @@
 package de.rat.model.logistics;
 
+import javax.persistence.Entity;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 /**Represents a bill.
@@ -10,6 +11,9 @@ import java.util.logging.Logger;
  *  Stock is a array list of tools
  *
  */
+
+@Entity
+//ToDo will Id haben?
 public class Warehouse {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private ArrayList<Tool> Stock= new ArrayList<>();

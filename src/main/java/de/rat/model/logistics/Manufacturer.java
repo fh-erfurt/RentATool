@@ -2,13 +2,22 @@ package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 /**Represents an manufacturer.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
+@Entity
 public class Manufacturer extends BaseModel {
 
     private String name;
+
+    @ManyToOne
     private Address address;
+
     private String agent;
     private String phoneNumber;
 
