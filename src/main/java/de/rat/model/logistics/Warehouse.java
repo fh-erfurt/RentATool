@@ -1,7 +1,11 @@
 package de.rat.model.logistics;
 
+import de.rat.model.BaseModel;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 /**Represents a bill.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
@@ -13,10 +17,11 @@ import java.util.logging.Logger;
  */
 
 @Entity
-//ToDo will Id haben?
-public class Warehouse {
+public class Warehouse extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
-    private ArrayList<Tool> Stock= new ArrayList<>();
+
+    @OneToMany
+    private List<Tool> Stock= new ArrayList<>();
 
     public Warehouse() {
     }
@@ -25,7 +30,7 @@ public class Warehouse {
      *  @return  the stock
      *
      */
-    public ArrayList<Tool> getStock() {
+    public List<Tool> getStock() {
         return Stock;
     }
 

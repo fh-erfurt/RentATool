@@ -9,7 +9,6 @@ public abstract class ToolRepository extends Repository<Tool> {
     protected void updateOperation(Tool model, String description) {
         model.setDescription(description);
 
-
     }
 
 }
