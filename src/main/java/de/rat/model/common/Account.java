@@ -15,13 +15,6 @@ public class Account extends BaseModel {
 
     public Account(){ }
 
-    public Account(Role role,String email) {
-        this.email = email;
-        this.role=role ;
-        this.password="ddd";
-    }
-
-
     public Account (Role role, String email, String password){
         this.role= role;
         this.email= email;

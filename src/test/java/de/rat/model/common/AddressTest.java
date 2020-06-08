@@ -18,7 +18,7 @@ class AddressTest {
      void get_the_Attribute_of_class_Address(){
 
         assertEquals("Bosch-Strasse",address1.getStreet());
-        assertEquals(1,address1.getHauseNr());
+        assertEquals(1,address1.getHouseNr());
         assertEquals(99425,address1.getZip());
         assertEquals("Weimar",address1.getCity());
         assertEquals("DE",address1.getCountry());
@@ -30,12 +30,12 @@ class AddressTest {
         address1.setStreet("Linde 2");
         address1.setCity("Erfurt");
         address1.setCountry("FR");
-        address1.setHauseNr(3);
+        address1.setHouseNr(3);
         address1.setZip(12345);
 
         //Then
         assertEquals("Linde 2",address1.getStreet());
-        assertEquals(3,address1.getHauseNr());
+        assertEquals(3,address1.getHouseNr());
         assertEquals(12345, address1.getZip());
         assertEquals("Erfurt",address1.getCity());
         assertEquals("FR",address1.getCountry());
