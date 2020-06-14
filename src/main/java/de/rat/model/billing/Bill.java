@@ -4,9 +4,15 @@ import de.rat.model.BaseModel;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
+import org.hibernate.annotations.LazyToOne;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**Represents a class bill.
@@ -27,18 +33,30 @@ import java.util.logging.Logger;
  *  listOfRentProcesses a list of all rentprocess<br>
  *
  */
+@Entity
 public class Bill extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
-    private static int autoincrementNumber = 10000;
+
+    private static int autoincrementNumber = 10000; //TODO: how does it look like in the database
     private int billNumber;
+
+    @ManyToOne // TODO: Check
     private Customer customer;
-    private GregorianCalendar rentDate;
+
+
+    private GregorianCalendar rentDate; // TODO: Date?
+
+    @ManyToOne // TODO: Check
     private Station rentStation;
+
     private int discount;
     private double fullRentPrice;
-    /* several rent processes for on bill possible*/
-    private ArrayList<RentProcess> listOfRentProcesses = new ArrayList<>();
 
+    /* several rent processes for on bill possible*/
+    @OneToMany // TODO: Check
+    private List<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
+
+    protected Bill(){}
 
     /**
      * constructor for the class bill<br>
@@ -111,7 +129,7 @@ public class Bill extends BaseModel {
      * Arraylist of rentprocesses
      * @return   list of rentprocesses
      */
-    public ArrayList<RentProcess> getListOfRentProcesses() {
+    public List<RentProcess> getListOfRentProcesses() {
         return listOfRentProcesses;
     }
     

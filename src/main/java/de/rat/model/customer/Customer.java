@@ -6,6 +6,7 @@ import de.rat.model.logistics.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
 /**Represents an customer.
@@ -14,13 +15,14 @@ import javax.persistence.Entity;
 
 @Entity
 public class Customer extends Person {
-public Customer(){
 
-}
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String phoneNumber;
-@Transient
-    private ArrayList<Tool>  inventory = new ArrayList<Tool>();
+
+    @OneToMany // TODO: Check
+    private List<Tool> inventory = new ArrayList<Tool>();
+
+    protected Customer(){}
 
     /** Creates an customer .
      *  @param lastname the lastname from the customer

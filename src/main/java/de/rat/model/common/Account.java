@@ -9,11 +9,11 @@ import javax.persistence.Entity;
 
 @Entity
 public class Account extends BaseModel {
-    private Role role;
+    private Role role; //TODO: how does it look like in the database
     private String email;
     private String password;
 
-    public Account(){ }
+    protected Account(){ }
 
     public Account (Role role, String email, String password){
         this.role= role;

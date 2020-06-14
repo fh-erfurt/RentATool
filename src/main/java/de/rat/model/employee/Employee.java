@@ -9,6 +9,7 @@ import java.util.GregorianCalendar;
 import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**Represents an Employee.
@@ -18,8 +19,12 @@ import javax.persistence.Table;
 @Entity
 public class Employee extends Person {
     private static final Logger logger = Logger.getLogger("LOGGER");
+
+    @ManyToOne //TODO: Check
     private Employee supervisor;
-public Employee (){}
+
+    protected Employee(){};
+
     /** constructor for the employee - with supervisor
      *  @param lastname the lastname from the Employee
      *  @param firstname the firstname from the Employee

@@ -26,11 +26,12 @@ public class Tool extends BaseModel {
     private Manufacturer manufacturer;
     private String description;
     //ToDo Flag in der DB oder nicht mit nehmen?
-    private Category category;
+    private Category category;  //TODO: how does it look like in the database
     private String stock;
-    private ToolStatus toolStatus;
+    private ToolStatus toolStatus;  //TODO: how does it look like in the database
     private double rentPrice;
 
+    protected Tool(){};
 
     /** constructor for a tool .
      *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W

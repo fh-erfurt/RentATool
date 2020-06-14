@@ -10,10 +10,9 @@ import java.util.GregorianCalendar;
 
 @MappedSuperclass
 public abstract class Person extends BaseModel {
-public Person(){}
-    @Column(name = "lastname")
+
+
     private String lastname;
-    @Column(name = "firstname")
     private String firstname;
 
     @Temporal (TemporalType.DATE)
@@ -24,6 +23,8 @@ public Person(){}
 
     @OneToOne
     protected Account account;
+
+    protected Person(){}
 
     /** constructor for a Person
      *  it´s an abstract class which can inherit zo employee and customer

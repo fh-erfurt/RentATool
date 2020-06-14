@@ -22,6 +22,7 @@ import java.util.logging.Logger;
  * checkBills a list from the bills that still have to be checked from the employee
  */
 public class Billing {
+    // TODO: should we put this in the database
     private static final Logger logger = Logger.getLogger("LOGGER");
     private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
     private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();

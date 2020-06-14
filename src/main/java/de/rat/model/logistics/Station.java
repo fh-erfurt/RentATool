@@ -5,7 +5,9 @@ import de.rat.model.common.Address;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 /**Represents a class station.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
@@ -29,8 +31,11 @@ public class Station extends BaseModel {
 
     /* tool management */
     //ToDo DB und Klasse ja nicht gelich? Listen werden nicht vom Model gehändelt?!
-    private ArrayList<Tool> boxesOfTools= new ArrayList<>();
+    @OneToMany
+    private List<Tool> boxesOfTools= new ArrayList<Tool>();
 
+
+    protected Station(){};
 
     /** Creates station .
      *  @param description this is the discription from the station
