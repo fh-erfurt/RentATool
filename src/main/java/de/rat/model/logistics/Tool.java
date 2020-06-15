@@ -31,7 +31,7 @@ public class Tool extends BaseModel {
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
     private double rentPrice;
 
-    protected Tool(){};
+    public Tool(){};
 
     /** constructor for a tool .
      *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
