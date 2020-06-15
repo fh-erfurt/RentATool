@@ -1,5 +1,4 @@
 package de.rat.storage.core;
-import de.rat.*;
 import de.rat.model.logistics.Category;
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
