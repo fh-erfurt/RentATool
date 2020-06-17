@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
-class CustomerRepositoryTests {
+class CustomerRepositoryTest {
 
     @Autowired
     CustomerRepository repository;
-    private static final Logger log = LoggerFactory.getLogger(CustomerRepositoryTests.class);
+    private static final Logger log = LoggerFactory.getLogger(CustomerRepositoryTest.class);
 
     @Test
     void  Test() {
