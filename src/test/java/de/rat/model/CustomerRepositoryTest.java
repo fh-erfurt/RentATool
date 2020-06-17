@@ -1,8 +1,7 @@
 package de.rat.model;
 
 import de.rat.model.customer.Customer;
-import de.rat.storage.core.CustomerRepository;
-import de.rat.storage.core.DummyRepository;
+import de.rat.storage.repository.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

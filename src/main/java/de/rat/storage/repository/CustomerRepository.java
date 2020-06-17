@@ -1,4 +1,4 @@
-package de.rat.storage.core;
+package de.rat.storage.repository;
 
 import de.rat.model.customer.Customer;
 import org.springframework.data.repository.CrudRepository;
