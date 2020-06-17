@@ -15,7 +15,7 @@ public abstract class Person extends BaseModel {
     private String lastname;
     private String firstname;
 
-    @Temporal (TemporalType.DATE)
+//    @Temporal (TemporalType.DATE)
     private GregorianCalendar birthday;
 
     @ManyToOne
@@ -47,6 +47,12 @@ public abstract class Person extends BaseModel {
         this.address    = new Address(street, houseNr, zip, city, country);
     }
 
+    public Person(String lastname, String firstname) {
+
+        this.lastname   = lastname;
+        this.firstname  = firstname;
+    }
+
 
     //Getter
     public Address getAddress()     { return address; }
@@ -69,5 +75,13 @@ public abstract class Person extends BaseModel {
         String shortYear        = Integer.toString(this.birthday.get(GregorianCalendar.YEAR)).substring(2,4);
 
         return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
+    }
+
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[id=%d, firstName='%s', lastName='%s']",
+                this.getId(), firstname, lastname);
     }
 }
