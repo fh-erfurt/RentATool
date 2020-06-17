@@ -1,11 +1,11 @@
 package de.rat.model;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
+import de.rat.model.common.Date;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.GregorianCalendar;
 
 @Entity
 public class Dummy {
@@ -16,6 +16,9 @@ public class Dummy {
     private long id;
     private String name;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private java.util.Date created;
+
     protected Dummy(){}
 
     public Dummy(String name){
@@ -24,5 +27,19 @@ public class Dummy {
 
     public String getName() {
         return name;
+    }
+
+
+    public String getCreated(){
+
+        return  this.created.toString();
+
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[firstName='%s']",
+                this.created.getTime());
     }
 }
