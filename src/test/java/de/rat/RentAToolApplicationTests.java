@@ -13,19 +13,26 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 //@DataJpaTest
 
-@SpringBootTest
+@DataJpaTest
 class RentAToolApplicationTests {
 
+	@Autowired
+	DummyRepository repository;
 	private static final Logger log = LoggerFactory.getLogger(RentAToolApplicationTests.class);
 
 
-	DummyRepository repository;
+
 
 	@Test
-	void contextLoads() {
-
+	void  Test() {
 
 		repository.save(new Dummy("Hans"));
+
+		Dummy dummy = repository.findById(1L);
+		log.info("Customer found with findById(1L):");
+		log.info("--------------------------------");
+		log.info(dummy.getName());
+		log.info("");
 	}
 
 }

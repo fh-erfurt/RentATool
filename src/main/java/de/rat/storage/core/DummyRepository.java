@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface DummyRepository extends CrudRepository<Dummy,Long>
 {
-    Customer findById(long id);
+    Dummy findById(long id);
+
+
 }
