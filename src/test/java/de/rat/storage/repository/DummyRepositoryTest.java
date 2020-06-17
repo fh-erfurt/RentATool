@@ -31,7 +31,7 @@ class DummyRepositoryTest {
 
         log.info("Customer found with findById(1L):");
         log.info("--------------------------------");
-        log.info(dummy.toString());
+        log.info(String.valueOf(dummy.getCreated()));
         log.info("");
     }
 }
