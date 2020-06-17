@@ -45,6 +45,12 @@ public class Customer extends Person {
     }
 
 
+    public Customer(String lastname, String firstname)
+    {
+        super(lastname, firstname);
+    }
+
+
     /** gets the tool fom the Inventory of the customer .
      *  @param tool the tool that should be returned
      */
@@ -92,5 +98,8 @@ public class Customer extends Person {
     public boolean returnToolToStation(Tool wantedTool, Station removeStation){
         return removeStation.addToolToBox(wantedTool);
     }
+
+
+
 }
 
