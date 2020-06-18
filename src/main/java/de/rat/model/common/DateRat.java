@@ -70,14 +70,14 @@ public class DateRat extends Date {
 //    }
 //
 //
-//    /**
-//     * calculate the differnce between the date from the rent day and the date of return
-//     * @return  the calculated days
-//     *
-//     */
-//    public static int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate) throws ClassCastException{
-//        // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
-//        long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
-//        return (int)Math.ceil((double)LongDateDifference/(24.*60.*60.*1000.)) + 1; //Gregorian Calender hold the time as milliseconds
-//    }
+    /**
+     * calculate the differnce between the date from the rent day and the date of return
+     * @return  the calculated days
+     *
+     */
+    public static int calculateDifferenceBetweenDates(Date higherDate, Date lowerDate) throws ClassCastException{
+        // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
+        long LongDateDifference = higherDate.getTime()-lowerDate.getTime();
+        return (int)Math.ceil((double)LongDateDifference/(24.*60.*60.*1000.)) + 1; //Gregorian Calender hold the time as milliseconds
+    }
 }

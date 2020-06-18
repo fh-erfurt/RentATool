@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class DateRatTest {
 
@@ -26,5 +30,21 @@ class DateRatTest {
 //        log.info(dateRat.toString());
 //        log.info("");
     }
+
+
+    @Test
+    void calculateDifferenceBetweenDates() {
+
+        Date date1 = new DateRat();
+        Date date2 = new DateRat();
+
+
+                // get the dates of the return and rented Date and calculate the difference.
+                int days = DateRat.calculateDifferenceBetweenDates(date1, date2);
+
+        assertEquals(date1, date2);
+        assertEquals(days, 1);
+    }
+
 
 }
