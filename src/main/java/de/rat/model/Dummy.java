@@ -1,6 +1,7 @@
 package de.rat.model;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
+import de.rat.model.common.DateRat;
 
 import javax.persistence.*;
 
@@ -46,5 +47,5 @@ public class Dummy {
     public Date getCreated(){return  this.created;}
 
     @PrePersist
-    void onCreate() { this.setCreated( new Date() ); }
+    void onCreate() { this.setCreated( new DateRat() ); }
 }
