@@ -3,12 +3,14 @@ package de.rat.model.employee;
 import de.rat.model.customer.Customer;
 
 import java.util.ArrayList;
+import java.util.List;
+
 /**Represents an EmployeeNotification.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
 public class EmployeeNotification {
 
-static private ArrayList  <Employee> employees= new ArrayList<>();
+static private List<Employee> employees= new ArrayList<>();
 
     public static void addEmployee(Employee employee)
     {
