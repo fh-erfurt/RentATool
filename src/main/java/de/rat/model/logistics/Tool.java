@@ -52,7 +52,16 @@ public class Tool extends BaseModel {
         this.toolStatus = toolStatus;
         this.rentPrice = rentPrice;
     }
+//erstmal nur Test
+public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
+    this.itemId = itemId;
 
+    this.description = description;
+    this.category = category;
+    this.stock = stock;
+    this.toolStatus = toolStatus;
+    this.rentPrice = rentPrice;
+}
 
      /** get the manufacturer for a tool .
      *  @return  manufacturer this is a ID that comes from the manufacturer
