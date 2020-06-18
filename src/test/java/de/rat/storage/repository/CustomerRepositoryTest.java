@@ -37,12 +37,7 @@ class CustomerRepositoryTest {
         //repository.save(new Customer("Hans", "Peter"));
 
         Customer customer = repository.findById(1);
-        log.info("Customer found with findById(1L):");
-        log.info("--------------------------------");
-        log.info(customer.toString());
-        log.info("");
         assertEquals("Peter", customer.getFirstname());
-
     }
 
     @Test
