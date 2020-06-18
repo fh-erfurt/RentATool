@@ -1,6 +1,11 @@
 package de.rat.storage.repository;
 
+import de.rat.model.common.Address;
 import de.rat.model.customer.Customer;
+import de.rat.model.logistics.Category;
+import de.rat.model.logistics.Manufacturer;
+import de.rat.model.logistics.Tool;
+import de.rat.model.logistics.ToolStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -38,7 +43,16 @@ class CustomerRepositoryTest {
         log.info("");
         assertEquals("Peter", customer.getFirstname());
 
-
     }
 
+    @Test
+    public void is_customer_finded_by_lastname(){
+
+        List<Customer> allCustomer = repository.findByLastname("Hans");
+        for(Customer customer:allCustomer)
+        {
+            assertEquals("Hans",customer.getLastname());
+        }
+
+    }
 }
