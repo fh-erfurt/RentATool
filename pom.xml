@@ -41,10 +41,18 @@
         </dependency>
 
         <!--    JUnit    -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.jupiter</groupId>-->
+        <!--            <artifactId>junit-jupiter</artifactId>-->
+        <!--            <version>RELEASE</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
+        <!--    JUnit    -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0-M1</version>
             <scope>test</scope>
         </dependency>
 
