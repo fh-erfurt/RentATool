@@ -2,7 +2,9 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 import javax.persistence.*;
-import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**Represents a Person.
  * @author Danny Steinbrecher, Marco Petzold, Christian König
@@ -15,8 +17,7 @@ public abstract class Person extends BaseModel {
     private String lastname;
     private String firstname;
 
-//    @Temporal (TemporalType.DATE)
-    private GregorianCalendar birthday;
+    private LocalDate birthday;
 
     @ManyToOne
     private Address address;
@@ -38,7 +39,7 @@ public abstract class Person extends BaseModel {
      *  @param city the city from the Address, where the Person lives
      *  @param country the country from the Address, where the Person lives
      */
-    public Person(String lastname, String firstname, GregorianCalendar birthday,
+    public Person(String lastname, String firstname, LocalDate birthday,
                   String street, int houseNr, int zip, String city, String country) {
 
         this.lastname   = lastname;
@@ -70,11 +71,9 @@ public abstract class Person extends BaseModel {
         //example: da241289st
         String shortFirstname   = this.firstname.substring(0,2).toLowerCase();
         String shortLastname    = this.lastname.substring(0,2).toLowerCase();
-        int shortDay            = this.birthday.get(GregorianCalendar.DATE);
-        int shortMonth          = this.birthday.get(GregorianCalendar.MONTH) + 1;
-        String shortYear        = Integer.toString(this.birthday.get(GregorianCalendar.YEAR)).substring(2,4);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy");
 
-        return shortFirstname + (shortDay < 10 ? "0" : "") + shortDay   + (shortMonth < 10 ? "0" : "") + shortMonth + shortYear + shortLastname;
+        return shortFirstname  + formatter.format(birthday) + shortLastname;
     }
 
 

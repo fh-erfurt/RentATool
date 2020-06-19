@@ -7,7 +7,9 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +34,7 @@ class BillTest {
     @BeforeEach
     void setUp() {
         testAddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-        testUser = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+        testUser = new Customer("Schmidt", "Maria", LocalDate.of(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         testStation = new Station("S1", 3, testAddress);
         bosch = new Manufacturer("Bosch", testAddress, "Mr Smith", "123456");
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);

@@ -1,13 +1,8 @@
 package de.rat.model;
-
-import com.fasterxml.jackson.annotation.JsonRootName;
-import de.rat.model.common.DateRat;
-
 import javax.persistence.*;
-
-import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 @Entity
 public class Dummy {
@@ -22,8 +17,9 @@ public class Dummy {
 
     protected Dummy(){}
 
-    public Dummy(String name){
+    public Dummy(String name, LocalDate birthday){
         this.name = name;
+        this.birthday = birthday;
     }
 
     public void setCreated(Date created) {
@@ -38,14 +34,17 @@ public class Dummy {
     public String toString() {
         return String.format(
                 "Customer[firstName='%s']",
-                this.created.getTime());
+                this.birthday);
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
+
     private Date created;
 
     public Date getCreated(){return  this.created;}
 
     @PrePersist
-    void onCreate() { this.setCreated( new DateRat() ); }
+    void onCreate() { this.setCreated( new Date() ); }
+
+    private LocalDate birthday;
+
 }

@@ -9,6 +9,7 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -33,7 +34,7 @@ class BillingTest {
     void setUp() {
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         stationOne = new Station("S1", 3, musterhausen);
-        custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+        custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         hammer = new Tool("123",bosch,"Hammer", Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,3.5);
         drill = new Tool("123",bosch,"Hammer", Category.ELECTRICALTOOL,"Lager",ToolStatus.AVAILABLE,5.5);

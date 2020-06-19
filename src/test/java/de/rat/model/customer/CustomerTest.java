@@ -6,6 +6,8 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,9 +38,9 @@ class CustomerTest {
         welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
 
         //Customer
-        custMaria = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+        custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
         "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
-        custLudwig = new Customer("Ebert", "Ludwig", new GregorianCalendar(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
+        custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
         "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
 
         station1.addToolToBox(welder);

@@ -1,7 +1,5 @@
 package de.rat.model;
 
-import de.rat.model.common.DateRat;
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -24,16 +22,16 @@ public abstract class BaseModel {
 
     @PrePersist
     void onCreate(){
-        this.setCreated(new DateRat());
+        this.setCreated(new Date());
     }
 
     @PreUpdate
     void onUpdate(){
-        this.setModified(new DateRat());
+        this.setModified(new Date());
     }
 
-    public void setCreated(DateRat created) {this.created = created;}          //TODO: should thad be private?
-    public void setModified(DateRat modified) {this.modified = modified;}      //TODO: should thad be private?
+    public void setCreated(Date created) {this.created = created;}          //TODO: should thad be private?
+    public void setModified(Date modified) {this.modified = modified;}      //TODO: should thad be private?
 
     public int getId() {return id;}
     public Date getCreated() {return created;}

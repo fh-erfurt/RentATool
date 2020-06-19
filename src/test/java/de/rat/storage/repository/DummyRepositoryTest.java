@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -20,7 +22,7 @@ class DummyRepositoryTest {
     @Test
     void  Test() {
 
-        repository.save(new Dummy("Hans"));
+        repository.save(new Dummy("Hans", LocalDate.of(2018,5,20)));
 
         Dummy dummy = repository.findById(1);
         log.info("Customer found with findById(1L):");
@@ -32,6 +34,7 @@ class DummyRepositoryTest {
         log.info("Customer found with findById(1L):");
         log.info("--------------------------------");
         log.info(String.valueOf(dummy.getCreated()));
+        log.info(dummy.toString());
         log.info("");
     }
 }

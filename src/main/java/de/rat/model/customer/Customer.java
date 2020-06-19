@@ -4,7 +4,9 @@ import de.rat.model.common.*;
 import de.rat.model.logistics.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Logger;
@@ -36,7 +38,7 @@ public class Customer extends Person {
      *  @param country the country from the customer
      *  @param phoneNumber the phoneNumber from the customer
      */
-    public Customer(String lastname, String firstname, GregorianCalendar birthday,
+    public Customer(String lastname, String firstname, LocalDate birthday,
              String email, String street, int houseNr, int zip, String city, String country, String phoneNumber)
     {
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
