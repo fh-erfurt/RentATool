@@ -32,12 +32,12 @@ class EmployeeTest {
     @BeforeEach
     void setUp() {
 
-        empJonas = new Employee("Hecht", "Jonas", LocalDate.of(2019, GregorianCalendar.DECEMBER, 15),
+        empJonas = new Employee("Hecht", "Jonas", LocalDate.of(2019, 12, 15),
                 "Johannesstraße", 5, 99084, "Weimar", "Germany", null);
-        empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, GregorianCalendar.FEBRUARY, 5),
+        empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, 2, 5),
                 "Michaelistraße", 17, 99086, "Erfurt", "Germany", empJonas);
 
-        custMartin = new Customer("Schmidt", "Martin", LocalDate.of(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+        custMartin = new Customer("Schmidt", "Martin", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
