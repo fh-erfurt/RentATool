@@ -5,7 +5,7 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +19,7 @@ class RentProcessTest {
     private Station stationTwo;
     private Warehouse warehouse;
     private Manufacturer bosch;
-    private GregorianCalendar date;
+    private LocalDate date;
 
 
     @BeforeEach
@@ -29,7 +29,7 @@ class RentProcessTest {
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
-        date =  new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15);
+        date =  LocalDate.of(2019, 12, 15);
     }
 
     @Test

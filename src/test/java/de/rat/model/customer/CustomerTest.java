@@ -5,11 +5,7 @@ import de.rat.model.common.Role;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {

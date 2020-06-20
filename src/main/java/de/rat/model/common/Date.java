@@ -1,7 +1,10 @@
 package de.rat.model.common;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.time.temporal.ChronoUnit;
 
 /**Represents a class date.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
@@ -9,38 +12,24 @@ import java.util.GregorianCalendar;
 public class Date extends GregorianCalendar {
 
     /**
-     * get the current date with the 00:00:00 timestamp
-     * @return  the date
-     *
-     */
-    public static GregorianCalendar getToday() {
-        GregorianCalendar today = new GregorianCalendar();
-        today.set(Calendar.HOUR, 0);
-        today.set(Calendar.MINUTE, 0);
-        today.set(Calendar.SECOND, 0);
-        return today;
-    }
-
-
-    /**
      * compares 2 Dates with an Operator
      * @return  the calculated days
      *
      */
-    public static boolean compareDates(GregorianCalendar dateOne, Operator operator, GregorianCalendar dateTwo){
+    public static boolean compareDates(LocalDate dateOne, Operator operator, LocalDate dateTwo){
         switch(operator){
             case EQUAL:
-                return dateOne.getTimeInMillis() == dateTwo.getTimeInMillis();
+                return dateOne.compareTo(dateTwo) == 0;
             case NOT_EQUAL:
-                return dateOne.getTimeInMillis() != dateTwo.getTimeInMillis();
+                return dateOne.compareTo(dateTwo) != 0;
             case GREATER:
-                return dateOne.getTimeInMillis() > dateTwo.getTimeInMillis();
+               return dateOne.compareTo(dateTwo) > 0;
             case GREATER_OR_EQUAL:
-                return dateOne.getTimeInMillis() >= dateTwo.getTimeInMillis();
+                return dateOne.compareTo(dateTwo) >= 0;
             case LESS:
-                return dateOne.getTimeInMillis() < dateTwo.getTimeInMillis();
+                return dateOne.compareTo(dateTwo) < 0;
             case LESS_OR_EQUAL:
-                return dateOne.getTimeInMillis() <= dateTwo.getTimeInMillis();
+                return dateOne.compareTo(dateTwo) <= 0;
             default:
                 return false;
         }
@@ -52,9 +41,7 @@ public class Date extends GregorianCalendar {
      * @return  the calculated days
      *
      */
-    public static int calculateDifferenceBetweenDates(GregorianCalendar higherDate, GregorianCalendar lowerDate) throws ClassCastException{
-        // gregorian calender includes the date as long, so we calculate the days between and rounded the result to int
-        long LongDateDifference = higherDate.getTime().getTime()-lowerDate.getTime().getTime();
-        return (int)Math.ceil((double)LongDateDifference/(24.*60.*60.*1000.)) + 1; //Gregorian Calender hold the time as milliseconds
+    public static int calculateDifferenceBetweenDates(LocalDate higherDate, LocalDate lowerDate) throws ClassCastException{
+        return (int)ChronoUnit.DAYS.between(lowerDate, higherDate) + 1;
     }
 }

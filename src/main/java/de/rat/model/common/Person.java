@@ -2,7 +2,6 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

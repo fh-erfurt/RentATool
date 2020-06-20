@@ -5,12 +5,8 @@ import de.rat.model.common.*;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.billing.*;
-
 import org.junit.jupiter.api.*;
-
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -80,7 +76,6 @@ class EmployeeTest {
         warehouse.putToolInWarehouse(drill);
         Rental.rentATool(drill, stationOne, custMartin, warehouse);
         Bill bill = Billing.findOpenBillFromCustomer(custMartin);
-        GregorianCalendar today = new GregorianCalendar();
         Rental.returnTool(drill,stationOne,custMartin,warehouse);
 
         assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));

@@ -7,10 +7,8 @@ import de.rat.model.logistics.*;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 class RentalTest {
 
@@ -47,16 +45,16 @@ class RentalTest {
         welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
         welder2 = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
 
-        custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+        custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
-        custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, GregorianCalendar.DECEMBER, 17), "crazyemail@web.de",
+        custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
                 "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
 
-        empDanny = new Employee("Steinbrecher", "Danny", LocalDate.of(2019, GregorianCalendar.DECEMBER, 15),
+        empDanny = new Employee("Steinbrecher", "Danny", LocalDate.of(2019, 12, 15),
                 "Johannesstraße", 5, 99084, "Erfurt", "Germany", null);
-        empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, GregorianCalendar.FEBRUARY, 5),
+        empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, 2, 5),
                 "Michaelistraße", 17, 99086, "Erfurt", "Germany", empDanny);
-        empJonas = new Employee("Casio", "Jonas", LocalDate.of(2000, GregorianCalendar.OCTOBER, 30),
+        empJonas = new Employee("Casio", "Jonas", LocalDate.of(2000, 10, 30),
                 "Leipzigerstraße", 99, 99084, "Weimar", "Germany", empDanny);
 
         EmployeeNotification.addEmployee(empDanny);

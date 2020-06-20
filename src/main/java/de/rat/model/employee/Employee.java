@@ -6,13 +6,9 @@ import de.rat.model.logistics.*;
 import de.rat.model.common.*;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.logging.Logger;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**Represents an Employee.
  * extends from Person

@@ -5,7 +5,7 @@ import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
 
 import javax.persistence.*;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 /**Represents an RentProcess.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
@@ -23,7 +23,7 @@ public class RentProcess extends BaseModel {
     private Tool rentedTool;
 
 //    @Temporal(TemporalType.DATE)
-    private GregorianCalendar returnDate;
+    private LocalDate returnDate;
 
     @ManyToOne // TODO: Check
     private Station returnStation;
@@ -52,13 +52,13 @@ public class RentProcess extends BaseModel {
         return rentedTool;
     }
 
-    public GregorianCalendar getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
 
     /*Setter*/
-    public void setReturnDate(GregorianCalendar returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 
@@ -72,7 +72,7 @@ public class RentProcess extends BaseModel {
      *  @return  false if the method not works
      *
      */
-    public boolean completeRentProcess(Station station, GregorianCalendar date){
+    public boolean completeRentProcess(Station station, LocalDate date){
 
         if(this.rentedTool != null && station != null && date != null){
             this.setReturnDate(date);

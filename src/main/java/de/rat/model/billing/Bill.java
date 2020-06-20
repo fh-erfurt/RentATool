@@ -9,9 +9,8 @@ import org.hibernate.annotations.LazyToOne;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -44,7 +43,7 @@ public class Bill extends BaseModel {
     private Customer customer;
 
 
-    private GregorianCalendar rentDate; // TODO: Date?
+    private LocalDate rentDate; // TODO: Date?
 
     @ManyToOne // TODO: Check
     private Station rentStation;
@@ -71,7 +70,7 @@ public class Bill extends BaseModel {
      */
     public Bill (Customer customer,Station rentStation){
         this.customer = customer;
-        this.rentDate = new GregorianCalendar();
+        this.rentDate = LocalDate.now();
         this.rentStation = rentStation;
         this.discount = 0;
         this.fullRentPrice = 0;
@@ -102,7 +101,7 @@ public class Bill extends BaseModel {
      * deliver the rent date
      * @return   rent date
      */
-    public GregorianCalendar getRentDate() {
+    public LocalDate getRentDate() {
         return rentDate;
     }
 
@@ -147,7 +146,7 @@ public class Bill extends BaseModel {
      * set the rent date
      * @param  rentDate the new rent date
      */
-    public void setRentDate(GregorianCalendar rentDate) { this.rentDate = rentDate; }
+    public void setRentDate(LocalDate rentDate) { this.rentDate = rentDate; }
 
 
     /**
