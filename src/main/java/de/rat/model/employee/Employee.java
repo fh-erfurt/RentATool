@@ -5,8 +5,10 @@ import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
 
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.*;
 
 /**Represents an Employee.
@@ -37,7 +39,7 @@ public class Employee extends Person {
      *  Employee Information
      *  @param supervisor the supervisor from the Employee
      */
-    public Employee(String lastname, String firstname, GregorianCalendar birthday,
+    public Employee(String lastname, String firstname, LocalDate birthday,
              String street, int houseNr, int zip, String city, String country,
              Employee supervisor) {
 
@@ -59,7 +61,7 @@ public class Employee extends Person {
      *  @param country the country from the Address, where the Employee lives
      *  Employee Information
      */
-    public Employee(String lastname, String firstname, GregorianCalendar birthday,
+    public Employee(String lastname, String firstname, LocalDate birthday,
              String street, int houseNr, int zip, String city, String country) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);

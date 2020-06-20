@@ -8,10 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class RentAToolApplication {
-	private static final Logger log = LoggerFactory.getLogger(RentAToolApplication.class);
-
 	public static void main(String[] args) {
-		SpringApplication.run(RentAToolApplication.class);
+		SpringApplication.run(RentAToolApplication.class, args);
 	}
 
 }

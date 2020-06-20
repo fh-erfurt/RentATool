@@ -7,6 +7,7 @@ import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
 import org.hibernate.annotations.BatchSize;
 
+import java.time.LocalDate;
 import javax.persistence.Transient;
 import java.util.*;
 import java.util.logging.Logger;
@@ -52,7 +53,7 @@ public class Billing {
      */
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
-        GregorianCalendar today =  Date.getToday();
+        LocalDate today =  LocalDate.now();
 
         Bill searchedBill = openBills.stream()
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
@@ -71,7 +72,7 @@ public class Billing {
      */
     public static Bill findOpenBillFromCustomerForReturn(Customer customer, Tool wantedTool, Station removeStation)
     {
-        GregorianCalendar today = new GregorianCalendar();
+        LocalDate today = LocalDate.now();
         for (Bill foundedBill : openBills) {
 
             RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);

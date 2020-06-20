@@ -1,11 +1,8 @@
 package de.rat.model;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonRootName;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class Dummy {
@@ -16,13 +13,38 @@ public class Dummy {
     private long id;
     private String name;
 
+
+
     protected Dummy(){}
 
-    public Dummy(String name){
+    public Dummy(String name, LocalDate birthday){
         this.name = name;
-    };
+        this.birthday = birthday;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
 
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Customer[firstName='%s']",
+                this.birthday);
+    }
+
+
+    private Date created;
+
+    public Date getCreated(){return  this.created;}
+
+    @PrePersist
+    void onCreate() { this.setCreated( new Date() ); }
+
+    private LocalDate birthday;
+
 }

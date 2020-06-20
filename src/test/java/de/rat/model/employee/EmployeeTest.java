@@ -5,8 +5,8 @@ import de.rat.model.common.*;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.billing.*;
-
 import org.junit.jupiter.api.*;
+import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -31,12 +31,12 @@ class EmployeeTest {
     @BeforeEach
     void setUp() {
 
-        empJonas = new Employee("Hecht", "Jonas", new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15),
+        empJonas = new Employee("Hecht", "Jonas", LocalDate.of(2019, 12, 15),
                 "Johannesstraße", 5, 99084, "Weimar", "Germany", null);
-        empMichael = new Employee("Müller", "Michael", new GregorianCalendar(2017, GregorianCalendar.FEBRUARY, 5),
+        empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, 2, 5),
                 "Michaelistraße", 17, 99086, "Erfurt", "Germany", empJonas);
 
-        custMartin = new Customer("Schmidt", "Martin", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de",
+        custMartin = new Customer("Schmidt", "Martin", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
@@ -79,7 +79,6 @@ class EmployeeTest {
         warehouse.putToolInWarehouse(drill);
         Rental.rentATool(drill, stationOne, custMartin, warehouse);
         Bill bill = Billing.findOpenBillFromCustomer(custMartin);
-        GregorianCalendar today = new GregorianCalendar();
         Rental.returnTool(drill,stationOne,custMartin,warehouse);
 
         assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));

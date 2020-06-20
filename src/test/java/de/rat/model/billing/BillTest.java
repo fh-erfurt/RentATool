@@ -1,14 +1,15 @@
 package de.rat.model.billing;
 
 import de.rat.model.common.Address;
+import de.rat.model.common.Date;
+import de.rat.model.common.Operator;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.time.LocalDate;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,13 +27,13 @@ class BillTest {
     private RentProcess rentHammer;
     private RentProcess rentDrill;
 
-    private GregorianCalendar date1;
-    private GregorianCalendar date2;
+    private LocalDate date1;
+    private LocalDate date2;
 
     @BeforeEach
     void setUp() {
         testAddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-        testUser = new Customer("Schmidt", "Maria", new GregorianCalendar(2005, GregorianCalendar.AUGUST, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+        testUser = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         testStation = new Station("S1", 3, testAddress);
         bosch = new Manufacturer("Bosch", testAddress, "Mr Smith", "123456");
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
@@ -40,8 +41,8 @@ class BillTest {
         testBill = new Bill(testUser, testStation);
         rentHammer = new RentProcess(hammer);
         rentDrill = new RentProcess(drill);
-        date1 =  new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 15);
-        date2 =  new GregorianCalendar(2019, GregorianCalendar.DECEMBER, 18);
+        date1 =  LocalDate.of(2019, 12, 15);
+        date2 =  LocalDate.of(2019, 12, 18);
     }
 
     @Test
@@ -55,10 +56,9 @@ class BillTest {
     @Test
     public void is_RentDate_Equal_CurrentDate()
     {
-        GregorianCalendar today = new GregorianCalendar();
-        assertEquals(today.get(Calendar.DATE), testBill.getRentDate().get(Calendar.DATE));
-        assertEquals(today.get(Calendar.MONTH), testBill.getRentDate().get(Calendar.MONTH));
-        assertEquals(today.get(Calendar.YEAR), testBill.getRentDate().get(Calendar.YEAR));
+        LocalDate today = LocalDate.now();
+        assertTrue(Date.compareDates(today, Operator.EQUAL, testBill.getRentDate()));
+
     }
 
     @Test
@@ -68,6 +68,7 @@ class BillTest {
         rentHammer.setReturnDate(date2);
         testBill.getListOfRentProcesses().add(rentHammer);
         testBill.setFullRentPrice();
+
 
         assertEquals(10, testBill.getFullRentPrice());
     }
