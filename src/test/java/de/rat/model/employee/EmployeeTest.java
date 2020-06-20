@@ -7,6 +7,8 @@ import de.rat.model.logistics.*;
 import de.rat.model.billing.*;
 
 import org.junit.jupiter.api.*;
+
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -82,9 +84,9 @@ class EmployeeTest {
 
         assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill, 5));
 
-        Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getOpenBills()));
-        Assertions.assertNull(Billing.findBillInListByReference(bill, Billing.getCheckBills()));
-        Assertions.assertEquals(bill, Billing.findBillInListByReference(bill, Billing.getClosedBills()));
+        Assertions.assertNull(Billing.findBillInListByReference(bill, (ArrayList<Bill>) Billing.getOpenBills()));
+        Assertions.assertNull(Billing.findBillInListByReference(bill, (ArrayList<Bill>) Billing.getCheckBills()));
+        Assertions.assertEquals(bill, Billing.findBillInListByReference(bill, (ArrayList<Bill>) Billing.getClosedBills()));
     }
 
     @Test

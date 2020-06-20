@@ -12,11 +12,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
 
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @DataJpaTest
 class CustomerRepositoryTest {
@@ -24,30 +26,34 @@ class CustomerRepositoryTest {
     @Autowired
     CustomerRepository repository;
     private static final Logger log = LoggerFactory.getLogger(CustomerRepositoryTest.class);
+    // after each test the database get cleard, but the id is continously
+    //for tests with id we need a counter
+    private static int idCounter = 0;
 
     @BeforeEach
     void setUp(){
-        repository.save(new Customer("Hans", "Peter"));
+        repository.save(new Customer("Müller", "Peter"));
+        idCounter++;
     }
 
+    @Test
+    //@Rollback(false)
+    public void is_customer_finded_by_lastname(){
+
+        List<Customer> allCustomer = repository.findByLastname("Müller");
+        for(Customer customer: allCustomer)
+        {
+            assertEquals("Müller",customer.getLastname());
+        }
+    }
 
     @Test
     public void  is_first_user_added_to_database() {
 
-        //repository.save(new Customer("Hans", "Peter"));
-
-        Customer customer = repository.findById(1);
-        assertEquals("Peter", customer.getFirstname());
-    }
-
-    @Test
-    public void is_customer_finded_by_lastname(){
-
-        List<Customer> allCustomer = repository.findByLastname("Hans");
-        for(Customer customer:allCustomer)
-        {
-            assertEquals("Hans",customer.getLastname());
-        }
+        Customer customer = repository.findById(idCounter);
+        assertEquals("Peter",customer.getFirstname()) ;
 
     }
+
+
 }

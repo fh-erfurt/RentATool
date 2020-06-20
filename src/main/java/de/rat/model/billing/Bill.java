@@ -31,7 +31,7 @@ import java.util.logging.Logger;
  *
  */
 @Entity
-public class Bill extends BaseModel {
+public class Bill {
 
     @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
@@ -53,6 +53,7 @@ public class Bill extends BaseModel {
 
     private int discount;
     private double fullRentPrice;
+    private int billstatus;
 
     /* several rent processes for on bill possible*/
     @OneToMany // TODO: Check

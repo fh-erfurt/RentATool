@@ -26,8 +26,7 @@ public class Warehouse extends BaseModel {
     @OneToMany
     private List<Tool> Stock= new ArrayList<>();
 
-    public Warehouse() {
-    }
+    public Warehouse() { }
 
     /** get  the stock from the warehouse and print the size
      *  @return  the stock
