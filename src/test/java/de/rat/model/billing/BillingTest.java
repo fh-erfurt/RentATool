@@ -8,6 +8,11 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class BillingTest {
@@ -136,8 +141,8 @@ class BillingTest {
         Bill bill6 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
         Bill bill7 = Billing.createOpenBillFromCustomer(stationOne, custMaria);
         //Billing.getOpenBills().add(bill42);
-        assertEquals(bill3,Billing.findBillInListByReference(bill3, Billing.getOpenBills()));
-        assertNull(Billing.findBillInListByReference(bill4, Billing.getOpenBills()));
+        assertEquals(bill3,Billing.findBillInListByReference(bill3, (ArrayList<Bill>) Billing.getOpenBills()));
+        assertNull(Billing.findBillInListByReference(bill4, (ArrayList<Bill>) Billing.getOpenBills()));
 
     }
 }

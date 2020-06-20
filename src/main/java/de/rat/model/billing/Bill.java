@@ -6,6 +6,7 @@ import de.rat.model.logistics.*;
 import de.rat.model.common.*;
 import org.hibernate.annotations.LazyToOne;
 
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -33,10 +34,15 @@ import java.util.logging.Logger;
  *
  */
 @Entity
-public class Bill extends BaseModel {
+public class Bill {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
-    private static int autoincrementNumber = 10000; //TODO: how does it look like in the database
+    @Transient
+    private static int autoincrementNumber = 10000;
+
+    @Id
     private int billNumber;
 
     @ManyToOne // TODO: Check
@@ -50,6 +56,7 @@ public class Bill extends BaseModel {
 
     private int discount;
     private double fullRentPrice;
+    private int billstatus;
 
     /* several rent processes for on bill possible*/
     @OneToMany // TODO: Check

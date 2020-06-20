@@ -16,6 +16,7 @@ import javax.persistence.Entity;
 @Entity
 public class Customer extends Person {
 
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String phoneNumber;
 

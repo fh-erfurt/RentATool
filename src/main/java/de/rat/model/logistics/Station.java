@@ -2,6 +2,7 @@ package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
+import org.springframework.data.annotation.Transient;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -22,6 +23,8 @@ import java.util.logging.Logger;
  */
 @Entity
 public class Station extends BaseModel {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String description;
     private int numberOfBoxes;

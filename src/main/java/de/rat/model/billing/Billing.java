@@ -5,8 +5,10 @@ import de.rat.model.common.Date;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
+import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDate;
+import javax.persistence.Transient;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -23,20 +25,24 @@ import java.util.logging.Logger;
  * checkBills a list from the bills that still have to be checked from the employee
  */
 public class Billing {
-    // TODO: should we put this in the database
+
     private static final Logger logger = Logger.getLogger("LOGGER");
-    private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
-    private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
-    private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
+
+    // idea for table 3 columns(Id, Bill, Status), all Bills are in these table and with the 3rd colum you can
+    // is it open, check or close -> new class?or just database table not in java?
+
+    private static List<Bill> openBills = new ArrayList<Bill>();
+    private static List<Bill> checkBills = new ArrayList<Bill>();
+    private static List<Bill> closedBills = new ArrayList<Bill>();
 
 
-    public static ArrayList<Bill> getOpenBills() {
+    public static List<Bill> getOpenBills() {
         return openBills;
     }
-    public static ArrayList<Bill> getCheckBills() {
+    public static List<Bill> getCheckBills() {
         return checkBills;
     }
-    public static ArrayList<Bill> getClosedBills() {
+    public static List<Bill> getClosedBills() {
         return closedBills;
     }
 

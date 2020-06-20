@@ -22,7 +22,7 @@ public abstract class Person extends BaseModel {
     private Address address;
 
     @OneToOne
-    protected Account account;
+    public Account account;
 
     protected Person(){}
 

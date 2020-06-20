@@ -29,9 +29,10 @@ public class Tool extends BaseModel {
     private Category category;  //TODO: how does it look like in the database
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
+
     private double rentPrice;
 
-    public Tool(){};
+    protected Tool(){};
 
     /** constructor for a tool .
      *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
@@ -52,7 +53,16 @@ public class Tool extends BaseModel {
         this.toolStatus = toolStatus;
         this.rentPrice = rentPrice;
     }
+//erstmal nur Test
+public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
+    this.itemId = itemId;
 
+    this.description = description;
+    this.category = category;
+    this.stock = stock;
+    this.toolStatus = toolStatus;
+    this.rentPrice = rentPrice;
+}
 
      /** get the manufacturer for a tool .
      *  @return  manufacturer this is a ID that comes from the manufacturer

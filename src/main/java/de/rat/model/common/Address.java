@@ -12,6 +12,7 @@ public class Address extends BaseModel {
 
     private String street;
     private int houseNr;
+    //ToDO is zip a string? (01165)
     private int zip;
     private String city;
     private String country;

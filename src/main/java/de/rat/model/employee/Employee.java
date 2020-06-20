@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**Represents an Employee.
  * extends from Person
@@ -16,6 +17,8 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Employee extends Person {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     @ManyToOne //TODO: Check
