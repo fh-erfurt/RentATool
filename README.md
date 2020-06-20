@@ -1,7 +1,7 @@
 ![CodeFactor](https://img.shields.io/badge/JAVA-13.0.2.8-blue)
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/fh-erfurt/RentATool/blob/master/LICENSE)
-[![versionspringboot](https://img.shields.io/badge/dynamic/xml?color=brightgreen&url=https://https://github.com/fh-erfurt/RentATool/blob/master/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27parent%27%5D%2F%2A%5Blocal-name%28%29%3D%27version%27%5D&label=springboot)](https://github.com/fh-erfurt/RentATool)
+[![versionspringboot](https://img.shields.io/badge/dynamic/xml?color=brightgreen&url=https://rawcdn.githack.com/fh-erfurt/RentATool/f69faf42628600a2571aa2b83a096be3895fd56a/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27parent%27%5D%2F%2A%5Blocal-name%28%29%3D%27version%27%5D&label=springboot)](https://github.com/fh-erfurt/RentATool)
 [![Deployed on Heroku](https://img.shields.io/badge/heroku-deployed-blueviolet.svg?logo=heroku)](https://github.com/fh-erfurt/RentATool)
 
 
