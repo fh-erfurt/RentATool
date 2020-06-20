@@ -4,6 +4,7 @@ import de.rat.model.BaseModel;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -18,6 +19,8 @@ import java.util.logging.Logger;
 
 @Entity
 public class Warehouse extends BaseModel {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     @OneToMany

@@ -7,10 +7,7 @@ import de.rat.model.common.*;
 
 import java.util.GregorianCalendar;
 import java.util.logging.Logger;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**Represents an Employee.
  * extends from Person
@@ -18,6 +15,8 @@ import javax.persistence.Table;
  */
 @Entity
 public class Employee extends Person {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     @ManyToOne //TODO: Check

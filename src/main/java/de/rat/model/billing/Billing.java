@@ -5,7 +5,9 @@ import de.rat.model.common.Date;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
+import org.hibernate.annotations.BatchSize;
 
+import javax.persistence.Transient;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -22,20 +24,22 @@ import java.util.logging.Logger;
  * checkBills a list from the bills that still have to be checked from the employee
  */
 public class Billing {
-    // TODO: should we put this in the database
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
-    private static  ArrayList<Bill> openBills = new ArrayList<Bill>();
-    private static  ArrayList<Bill> checkBills = new ArrayList<Bill>();
-    private static  ArrayList<Bill> closedBills = new ArrayList<Bill>();
+
+    private static final List<Bill> openBills = new ArrayList<Bill>();
+    private static final List<Bill> checkBills = new ArrayList<Bill>();
+    private static final List<Bill> closedBills = new ArrayList<Bill>();
 
 
-    public static ArrayList<Bill> getOpenBills() {
+    public static List<Bill> getOpenBills() {
         return openBills;
     }
-    public static ArrayList<Bill> getCheckBills() {
+    public static List<Bill> getCheckBills() {
         return checkBills;
     }
-    public static ArrayList<Bill> getClosedBills() {
+    public static List<Bill> getClosedBills() {
         return closedBills;
     }
 

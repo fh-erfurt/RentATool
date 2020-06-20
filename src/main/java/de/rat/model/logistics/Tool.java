@@ -29,6 +29,7 @@ public class Tool extends BaseModel {
     private Category category;  //TODO: how does it look like in the database
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
+
     private double rentPrice;
 
     public Tool(){};

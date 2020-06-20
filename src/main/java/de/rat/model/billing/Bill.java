@@ -6,10 +6,7 @@ import de.rat.model.logistics.*;
 import de.rat.model.common.*;
 import org.hibernate.annotations.LazyToOne;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -35,9 +32,14 @@ import java.util.logging.Logger;
  */
 @Entity
 public class Bill extends BaseModel {
+
+    @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
-    private static int autoincrementNumber = 10000; //TODO: how does it look like in the database
+    @Transient
+    private static int autoincrementNumber = 10000;
+
+    @Id
     private int billNumber;
 
     @ManyToOne // TODO: Check
