@@ -1,8 +1,6 @@
 package de.rat.model.common;
 
-import java.time.Duration;
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.time.temporal.ChronoUnit;
 

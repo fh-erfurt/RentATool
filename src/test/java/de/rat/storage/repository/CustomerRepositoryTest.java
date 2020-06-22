@@ -23,21 +23,20 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @DataJpaTest
 class CustomerRepositoryTest {
 
+    private Customer custHans;
+
     @Autowired
     CustomerRepository repository;
     private static final Logger log = LoggerFactory.getLogger(CustomerRepositoryTest.class);
-    // after each test the database get cleard, but the id is continously
-    //for tests with id we need a counter
-    private static int idCounter = 0;
+
 
     @BeforeEach
     void setUp(){
-        repository.save(new Customer("Müller", "Peter"));
-        idCounter++;
+        custHans =  new Customer("Müller", "Hans");
+        repository.save(custHans);
     }
 
     @Test
-    //@Rollback(false)
     public void is_customer_finded_by_lastname(){
 
         List<Customer> allCustomer = repository.findByLastname("Müller");
@@ -50,8 +49,19 @@ class CustomerRepositoryTest {
     @Test
     public void  is_first_user_added_to_database() {
 
-        Customer customer = repository.findById(idCounter);
-        assertEquals("Peter",customer.getFirstname()) ;
+        Customer customer = repository.findById(custHans.getId());
+        assertEquals("Hans",customer.getFirstname()) ;
+
+        log.info("Customer found with findById("+ custHans.getId() + "):");
+        log.info("--------------------------------");
+        log.info("From Class:");
+        log.info(String.valueOf(custHans.getId()));
+        log.info(String.valueOf(custHans.getFirstname()));
+        log.info("--------------------------------");
+        log.info("From Database:");
+        log.info(String.valueOf(customer.getId()));
+        log.info(String.valueOf(customer.getFirstname()));
+        log.info("");
 
     }
 

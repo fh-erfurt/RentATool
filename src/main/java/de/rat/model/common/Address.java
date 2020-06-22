@@ -71,7 +71,6 @@ public class Address extends BaseModel {
         return this.street.equals(street) && this.houseNr == hauseNr && this.zip == zip && this.city.equals(city) && this.country.equals(country);
     }
 
-
     public boolean changeAddress(String street, int hauseNr, int zip, String city, String country){
         if(this.checkAddress(street, hauseNr, zip, city, country)){
             return false;
