@@ -10,6 +10,8 @@ import java.util.List;
 public interface AddressRepository extends CrudRepository<Address,Integer> {
 
     Address findById(int id);
+
+    //ToDO Query
     Address findByStreetnameHouseNumberCity(String street, int houseNr, String city);
 
 }

@@ -13,7 +13,7 @@ public interface RentProcessRepository extends CrudRepository<RentProcess,Intege
 
     RentProcess findById(int id);
 
-    List<RentProcess> findByDate(LocalDate Date);
-    List<RentProcess> findByStation(Station station);
+    List<RentProcess> findByReturnDate(LocalDate Date);
+    List<RentProcess> findByReturnStation(Station station);
 
 }
