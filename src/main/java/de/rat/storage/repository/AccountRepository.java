@@ -13,5 +13,5 @@ public interface AccountRepository extends CrudRepository<Account,Integer> {
     Account findBy(int CustomerId);
     Account findByEmail(String email);  //ToDo test if it works
 
-    List<Account> findByRole(String Role);
+    List<Account> findByRole(Role role);
 }
