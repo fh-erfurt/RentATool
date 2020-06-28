@@ -26,21 +26,17 @@ public class Account extends BaseModel {
         return this.role;
     }
 
-
     public String getEmail() {
         return email;
     }
-
 
     public String getPassword() {
         return password;
     }
 
-
     public void setRole(Role role) {
         this.role = role;
     }
-
 
     public void setPassword(String password) {
         this.password = password;
