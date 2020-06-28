@@ -9,8 +9,9 @@ import java.util.List;
 public interface ToolRepository extends CrudRepository<Tool,Integer>
 {
 
-    Tool findByDescription(String description);
     Tool findById(int id);
+    Tool findByDescription(String description);
+
 
 }
 

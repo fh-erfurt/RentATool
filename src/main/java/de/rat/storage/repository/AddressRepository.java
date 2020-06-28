@@ -1,7 +1,7 @@
 package de.rat.storage.repository;
 
-import de.rat.model.customer.Customer;
-import org.apache.tomcat.jni.Address;
+
+import de.rat.model.common.Address;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

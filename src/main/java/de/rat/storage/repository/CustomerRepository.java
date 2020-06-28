@@ -10,6 +10,7 @@ public interface CustomerRepository extends CrudRepository<Customer,Integer>
 {
 
     Customer findById(int id);
+
     List<Customer> findByLastname(String lastname);
 
 }

@@ -2,7 +2,6 @@ package de.rat.storage.repository;
 
 import de.rat.model.common.Account;
 import de.rat.model.common.Role;
-import de.rat.model.customer.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
