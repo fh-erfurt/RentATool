@@ -42,16 +42,16 @@ private Manufacturer manufacture;
         log.info("");
     }
 
-    @Test
-    void  find_tool_by_id() {
-
-        repository.save(new Tool("1","hammer",Category.HANDTOOL,"Lager1",ToolStatus.AVAILABLE,25.00));
-
-        Tool tool = repository.findById(1);
-        log.info("Tool found with ID(1):");
-        log.info("--------------------------------");
-        log.info(tool.getStock());
-        log.info("");
-    }
+//    @Test
+//    void  find_tool_by_id() {
+//
+//        repository.save(new Tool("1","hammer",Category.HANDTOOL,"Lager1",ToolStatus.AVAILABLE,25.00));
+//
+//        Tool tool = repository.findById(1);
+//        log.info("Tool found with ID(1):");
+//        log.info("--------------------------------");
+//        log.info(tool.getStock());
+//        log.info("");
+//    }
 
 }
