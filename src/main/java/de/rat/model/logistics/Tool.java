@@ -31,7 +31,7 @@ public class Tool extends BaseModel {
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
     private double rentPrice;
-//x<yx<yx
+
     protected Tool(){};
 
     /** constructor for a tool .
