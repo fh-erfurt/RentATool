@@ -117,4 +117,5 @@ _____________________________________
 
 e.g.: 
 - `develop/de.rat.model.database`
+- `feature/implement-heroku`
 - `release/1.2.0`
