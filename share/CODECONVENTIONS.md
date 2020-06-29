@@ -104,7 +104,7 @@ _____________________________________
 - only finished and working Branchen schould be merged in the Master
 - first Merge the Master in your own Branch and when this works, than merge your Branch in the Master
 
-###naming
+### naming
 _____________________________________
 - `master`
 - `develop` ```/``` DESCRIPTION
