@@ -96,13 +96,24 @@ _____________________________________
 _____________________________________
 - ... TODO
 
-## Branch naming
+## Branch 
+
+### general
+- never code in the Master-Branch
+- generate a new Branch for every (necessary) feature / Bug /...
+- only finished and working Branchen schould be merged in the Master
+- first Merge the Master in your own Branch and when this works, than merge your Branch in the Master
+
+###naming
 _____________________________________
 - `master`
 - `develop` ```/``` DESCRIPTION
 - `feature` ```/``` FEATURENAME
 - `release` ```/``` RELEASEVERSION
 - `hotfix` ```/``` FIXVERSION
+
+
+
 
 e.g.: 
 - `develop/de.rat.model.database`
