@@ -15,7 +15,7 @@ public class Dummy {
 
 
 
-    protected Dummy(){}
+    public Dummy(){}
 
     public Dummy(String name, LocalDate birthday){
         this.name = name;

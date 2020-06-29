@@ -11,9 +11,9 @@ import java.util.List;
 public interface RentProcessRepository extends CrudRepository<RentProcess,Integer>
 {
 
-    RentProcess findById(int id);
-
-    List<RentProcess> findByReturnDate(LocalDate Date);
-    List<RentProcess> findByReturnStation(Station station);
+//    RentProcess findById(int id);
+//
+//    List<RentProcess> findByReturnDate(LocalDate Date);
+//    List<RentProcess> findByReturnStation(Station station);
 
 }

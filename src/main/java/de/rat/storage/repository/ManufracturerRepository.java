@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ManufracturerRepository extends CrudRepository<Manufacturer,Integer> {
 
-    Manufacturer findById(int id);
-    Manufacturer findByName(String name);
+//    Manufacturer findById(int id);
+//    Manufacturer findByName(String name);
 
 }

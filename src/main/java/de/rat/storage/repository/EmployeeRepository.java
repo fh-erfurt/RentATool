@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EmployeeRepository extends CrudRepository<Employee,Integer> {
 
-    Employee findById(int id);
-
-    List<Employee> findBySupervisor(Employee supervisor);
+//    Employee findById(int id);
+//
+//    List<Employee> findBySupervisor(Employee supervisor);
 }
