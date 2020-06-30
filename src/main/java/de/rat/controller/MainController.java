@@ -1,4 +1,4 @@
-package de.rat.model.controller;
+package de.rat.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,7 +7,7 @@ public class MainController {
 
     protected static final String HEALTH_RESPONSE = "Yep, I'am here!";
 
-    @RequestMapping("/test") //Index
+    @RequestMapping("/") //Index
     public String welcome() {
         return "index";
     }

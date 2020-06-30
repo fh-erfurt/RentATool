@@ -1,4 +1,4 @@
-package de.rat.model.controller;
+package de.rat.controller;
 
 import de.rat.model.Dummy;
 
@@ -11,25 +11,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-@RequestMapping(path="/dummy")
 public class DummyController {
     @Autowired
     DummyRepository repo;
 
     @RequestMapping(path = "/dummy")
-    public String home() {
-        return "home.jsp";
+    public String welcomeDummy() {
+        return "addDummy";
     }
 
     @RequestMapping(path = "/addDummy")
-    public String addTool(Dummy aDummy) {
+    public String addDummy(Dummy aDummy) {
         repo.save(aDummy);
-        return "home.jsp";
+        return "addDummy";
     }
 
     @RequestMapping("/getDummy")
     public ModelAndView getDummy(@RequestParam int id) {
-        ModelAndView mv = new ModelAndView("showTool.jsp");
+        ModelAndView mv = new ModelAndView("showDummy");
         Dummy aDummy = repo.findById(id);
         mv.addObject(aDummy);
         return mv;
