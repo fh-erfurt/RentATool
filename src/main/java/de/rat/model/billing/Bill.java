@@ -129,6 +129,14 @@ public class Bill {
         return discount;
     }
 
+    /**
+     * deliver the bill status
+     * @return   billStatus
+     */
+    public BillStatus getBillStatus() {
+        return billStatus;
+    }
+
 
     /**
      * Arraylist of rentprocesses
