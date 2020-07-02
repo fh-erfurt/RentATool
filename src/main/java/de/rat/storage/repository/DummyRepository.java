@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface DummyRepository extends CrudRepository<Dummy,Long>
 {
     Dummy findById(long id);
+
 }
