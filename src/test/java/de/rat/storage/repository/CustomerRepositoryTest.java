@@ -18,7 +18,6 @@ import org.springframework.test.annotation.Rollback;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @DataJpaTest
 class CustomerRepositoryTest {
