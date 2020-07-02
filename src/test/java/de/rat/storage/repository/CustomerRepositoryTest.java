@@ -2,10 +2,6 @@ package de.rat.storage.repository;
 
 import de.rat.model.common.Address;
 import de.rat.model.customer.Customer;
-import de.rat.model.logistics.Category;
-import de.rat.model.logistics.Manufacturer;
-import de.rat.model.logistics.Tool;
-import de.rat.model.logistics.ToolStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
