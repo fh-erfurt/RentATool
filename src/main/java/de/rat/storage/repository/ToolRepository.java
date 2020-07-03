@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 
-public interface ToolRepository extends JpaRepository<Tool,Integer>
+public interface ToolRepository extends JpaRepository<Tool,Long>
 {
 
     Tool findById(int id);
@@ -19,7 +19,7 @@ public interface ToolRepository extends JpaRepository<Tool,Integer>
     List<Tool> findByToolStatus(ToolStatus status);
     List<Tool> findByRentPrice(double rentPrice);
 
-    int deleteToolById(int id);
+
 
     //ToDO Query
 //    List<Tool> findByPrice(double lowRentPrice,double highRentPrice);

@@ -1,8 +1,9 @@
 package de.rat.storage.exceptions;
 
-public class ToolNotFoundException extends Throwable{
-    public ToolNotFoundException(String message)
+public class ToolNotFoundException extends RuntimeException{
+    public ToolNotFoundException(Long id)
     {
-        super(message);
+
+        super("Could not find tool " +id);
     }
 }

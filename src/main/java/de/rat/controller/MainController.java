@@ -7,12 +7,12 @@ public class MainController {
 
     protected static final String HEALTH_RESPONSE = "Yep, I'am here!";
 
-    @RequestMapping("/") //Index
+    @GetMapping("/") //Index
     public String welcome() {
         return "index";
     }
 
-    @GetMapping("/health") //Index
+    @GetMapping("/health")
     public String areYouAlive() {
         return HEALTH_RESPONSE;
     }
