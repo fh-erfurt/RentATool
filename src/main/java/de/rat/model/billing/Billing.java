@@ -120,6 +120,7 @@ public class Billing {
 
                     iterator.remove();
                     checkBills.add(bill);
+                    bill.setBillStatus(BillStatus.CHECKED);
                     logger.info("Rechnung wurde von Open zu Checked verschoben");
 
                     EmployeeNotification.sendNotificationToAllEmployees();
@@ -154,6 +155,7 @@ public class Billing {
             {
                 iterator.remove();
                 closedBills.add(bill);
+                bill.setBillStatus(BillStatus.CLOSED);
                 logger.info("Rechnung wurde von Checked zu Closed verschoben");
 
             }

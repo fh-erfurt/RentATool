@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -56,6 +57,13 @@ class BillingTest {
     }
 
     @Test
+    void is_billStatus_open_after_create_a_bill()
+    {
+        Bill newBill = Billing.createOpenBillFromCustomer(stationOne, custMaria);
+        assertEquals(newBill.getBillStatus(), BillStatus.OPEN);
+    }
+
+    @Test
     void should_return_null_if_the_rent_date_is_not_the_current_day()
     {
         // change date, so rentDate is in the past
@@ -89,10 +97,18 @@ class BillingTest {
         int sizeCheckedBills = Billing.getCheckBills().size();
 
         Billing.checkBillsFromCustomerAndMoveThemToTheCkeckedListIfAllRentProcessesAreClosed(custMaria);
+
+        //check bill status
+        for (Bill bill : Billing.getCheckBills()) {
+            if (bill.getCustomer().equals(custMaria)) {
+                assertEquals(bill.getBillStatus(), BillStatus.CHECKED);
+            }
+            return;
+        }
+
         //0 bill in openBills, 1 in checkedBills
         assertEquals(0,sizeOpenBills-1);
         assertEquals(1,sizeCheckedBills+1);
-
 
     }
 
@@ -108,6 +124,9 @@ class BillingTest {
         int sizeClosedBills = Billing.getClosedBills().size();
 
         Billing.moveFromCheckToClosed(bill);
+
+        //check bill status
+        assertEquals(bill.getBillStatus(), BillStatus.CLOSED);
 
         //0 bill iun checkedBills, 1 in closedBills
         assertEquals(0,sizeCheckedBills-1);

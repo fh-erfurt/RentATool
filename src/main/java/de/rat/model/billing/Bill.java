@@ -1,10 +1,8 @@
 package de.rat.model.billing;
 
-import de.rat.model.BaseModel;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
-import org.hibernate.annotations.LazyToOne;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -56,7 +54,7 @@ public class Bill {
 
     private int discount;
     private double fullRentPrice;
-    private int billstatus;
+    private BillStatus billStatus;
 
     /* several rent processes for on bill possible*/
     @OneToMany // TODO: Check
@@ -83,6 +81,7 @@ public class Bill {
         this.fullRentPrice = 0;
         ++autoincrementNumber;
         this.billNumber = autoincrementNumber;
+        this.billStatus = BillStatus.OPEN;
     }
 
 
@@ -128,6 +127,14 @@ public class Bill {
      */
     public int getDiscount() {
         return discount;
+    }
+
+    /**
+     * deliver the bill status
+     * @return   billStatus
+     */
+    public BillStatus getBillStatus() {
+        return billStatus;
     }
 
 
@@ -182,6 +189,10 @@ public class Bill {
         this.fullRentPrice-= this.fullRentPrice*discount/100;
     }
 
+    /**
+     * set the bill status
+     */
+    public void setBillStatus(BillStatus billStatus) { this.billStatus = billStatus; }
 
     /**
      * check the bill for a given customer
