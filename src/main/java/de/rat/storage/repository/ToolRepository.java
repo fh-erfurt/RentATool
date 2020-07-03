@@ -1,15 +1,16 @@
 package de.rat.storage.repository;
 
+import de.rat.model.billing.Bill;
 import de.rat.model.logistics.Category;
-import de.rat.model.logistics.Tool;
 import de.rat.model.logistics.ToolStatus;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import de.rat.model.logistics.Tool;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
-public interface ToolRepository extends JpaRepository<Tool,Long>
+public interface ToolRepository extends CrudRepository<Tool,Integer>
 {
 
     Tool findById(int id);
@@ -19,10 +20,9 @@ public interface ToolRepository extends JpaRepository<Tool,Long>
     List<Tool> findByToolStatus(ToolStatus status);
     List<Tool> findByRentPrice(double rentPrice);
 
-
-
-    //ToDO Query
-//    List<Tool> findByPrice(double lowRentPrice,double highRentPrice);
+    //Query for searching tool after prices between a range
+    @Query("FROM Tool t WHERE t.rentPrice between :lowRentPrice and :highRentPrice ")
+    List<Tool> findByRentPrice(@Param("lowRentPrice")double lowRentPrice, @Param("highRentPrice")double highRentPrice);
 
 
 }

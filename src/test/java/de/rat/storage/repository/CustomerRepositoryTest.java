@@ -52,17 +52,6 @@ class CustomerRepositoryTest {
         Customer customer = repository.findById(custHans.getId());
         assertEquals("Hans",customer.getFirstname()) ;
 
-        log.info("Customer found with findById("+ custHans.getId() + "):");
-        log.info("--------------------------------");
-        log.info("From Class:");
-        log.info(String.valueOf(custHans.getId()));
-        log.info(String.valueOf(custHans.getFirstname()));
-        log.info("--------------------------------");
-        log.info("From Database:");
-        log.info(String.valueOf(customer.getId()));
-        log.info(String.valueOf(customer.getFirstname()));
-        log.info("");
-
     }
 
 
