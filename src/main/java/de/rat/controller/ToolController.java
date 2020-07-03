@@ -33,12 +33,12 @@ public class ToolController {
         mv.addObject(tool);
         return mv;
     }
-    @RequestMapping("/deleteTool")
-    public String deleteTool(@PathVariable int id){
-
-        repo.deleteToolById(id);
-        return "deleteTool";
-    }
+//    @RequestMapping("/deleteTool")
+//    public String deleteTool(@PathVariable int id){
+//
+//        repo.deleteToolById(id);
+//        return "deleteTool";
+//    }
 
 //ToDO
 
