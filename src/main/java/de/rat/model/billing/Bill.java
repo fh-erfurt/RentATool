@@ -188,19 +188,10 @@ public class Bill {
             int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
 
             // multiply the rented days with the rentPrice for each tool
-//            BigDecimal test = new BigDecimal(days);
-//            BigDecimal rentPrice = foundedProcesses.getRentedTool().getRentPrice();
-//            BigDecimal multiRentPrice = rentPrice.multiply(test);
-//            this.fullRentPrice = this.fullRentPrice.add(multiRentPrice);
-
             this.fullRentPrice = this.fullRentPrice.add((foundedProcesses.getRentedTool().getRentPrice()).multiply(new BigDecimal(days)));
-
-
-//            this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
 
         this.fullRentPrice = this.fullRentPrice.subtract(this.fullRentPrice.multiply(new BigDecimal(discount)).divide(new BigDecimal(100),3, RoundingMode.CEILING));
-//        this.fullRentPrice -= this.fullRentPrice * discount / 100;
     }
 
     /**
