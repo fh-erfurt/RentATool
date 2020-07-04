@@ -5,6 +5,7 @@ package de.rat.model.logistics;
 
 
 import de.rat.model.BaseModel;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.Transient;
 
 import javax.persistence.Column;
@@ -32,7 +33,8 @@ public class Tool extends BaseModel {
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
-    @Column(precision=10, scale=2)
+    @Column(precision = 5, scale = 4)
+    @Type(type = "big_decimal")
     private double rentPrice;
 
     protected Tool(){};

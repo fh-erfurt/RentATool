@@ -3,6 +3,7 @@ package de.rat.model.billing;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -54,7 +55,8 @@ public class Bill {
 
     private int discount;
 
-    @Column(precision=10, scale=2)
+    @Column(precision = 5, scale = 4)
+    @Type(type = "big_decimal")
     private double fullRentPrice;
     private BillStatus billStatus;
 
