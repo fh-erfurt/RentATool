@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Digits;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class Bill {
 
     private int discount;
 
-    @Column(precision = 7, scale = 2)
+    @Digits(integer=7, fraction=2)
     private double fullRentPrice;
     private BillStatus billStatus;
 

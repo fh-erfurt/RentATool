@@ -11,6 +11,7 @@ import org.springframework.data.annotation.Transient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Digits;
 
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
@@ -33,7 +34,7 @@ public class Tool extends BaseModel {
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
-    @Column(precision = 5, scale = 2)
+    @Digits(integer=5, fraction=2)
     private double rentPrice;
 
     protected Tool(){};
