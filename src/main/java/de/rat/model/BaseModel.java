@@ -11,7 +11,7 @@ import java.util.Date;
 public abstract class BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     @Temporal(TemporalType.TIMESTAMP)
