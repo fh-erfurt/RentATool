@@ -7,6 +7,7 @@ package de.rat.model.logistics;
 import de.rat.model.BaseModel;
 import org.springframework.data.annotation.Transient;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -31,7 +32,7 @@ public class Tool extends BaseModel {
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
-    @Transient
+    @Column(precision=10, scale=2)
     private double rentPrice;
 
     protected Tool(){};

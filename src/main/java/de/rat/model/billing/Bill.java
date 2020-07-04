@@ -53,6 +53,8 @@ public class Bill {
     private Station rentStation;
 
     private int discount;
+
+    @Column(precision=10, scale=2)
     private double fullRentPrice;
     private BillStatus billStatus;
 
