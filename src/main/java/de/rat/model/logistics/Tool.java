@@ -7,6 +7,7 @@ package de.rat.model.logistics;
 import de.rat.model.BaseModel;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 /** Creates a tool .
@@ -20,6 +21,7 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Tool extends BaseModel {
+
     private String itemId;
 
     @ManyToOne
@@ -32,7 +34,7 @@ public class Tool extends BaseModel {
 
     private double rentPrice;
 
-    protected Tool(){};
+    public Tool(){};
 
     /** constructor for a tool .
      *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W

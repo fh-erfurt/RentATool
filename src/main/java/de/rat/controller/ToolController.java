@@ -1,28 +1,41 @@
 package de.rat.controller;
 
+import de.rat.model.User;
 import de.rat.model.logistics.Tool;
 import de.rat.storage.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class ToolController {
     @Autowired
     ToolRepository repo;
 
-    @RequestMapping(path="/tool")
-    public String welcomeTool()
+    @RequestMapping(path="/tools")
+    public String listAllTools(Model model)
     {
-        return "addTool";
+        List<Tool> listTools= (List<Tool>) repo.findAll();
+        model.addAttribute("listTools", listTools);
+        return "showTool";
     }
-    @RequestMapping(path="/addTool")
-    public String addTool(Tool aTool)
+
+    @PostMapping("/addTool")
+    public String addTool(@ModelAttribute("tool") Tool aTool)
     {
         repo.save(aTool);
+        return "redirect:/tools";
+    }
+
+    @RequestMapping("/new")
+    public String showNewProductPage(Model model) {
+        Tool tool = new Tool();
+        model.addAttribute("tool", tool);
+
         return "addTool";
     }
     @RequestMapping("/getTool")
@@ -33,13 +46,5 @@ public class ToolController {
         mv.addObject(tool);
         return mv;
     }
-//    @RequestMapping("/deleteTool")
-//    public String deleteTool(@PathVariable int id){
-//
-//        repo.deleteToolById(id);
-//        return "deleteTool";
-//    }
-
-//ToDO
 
 }

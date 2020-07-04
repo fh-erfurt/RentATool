@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <title>Tool Manager</title>
 </head>
 <body>
-${tool}
+<div align="center">
+    <h1>Tool List</h1>
+    <a href="/new">Create New Tool</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+<!--            <th>Category</th>-->
+            <th>Rentprice</th>
+<!--            <th>Manufacturer</th>-->
+            <th>Description</th>
+<!--            <th>Actions</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tool : ${listTools}">
+            <td th:text="${tool.id}">Product ID</td>
+<!--            <td th:text="${tool.category}">Category</td>-->
+            <td th:text="${tool.rentPrice}">Rentprice</td>
+<!--            <td th:text="${tool.manufacturer}">Manufacturer</td>-->
+            <td th:text="${tool.description}">Description</td>
+            <td>
+<!--                <a th:href="/@{'/edit/' + ${product.id}}">Edit</a>-->
+<!--                &nbsp;&nbsp;&nbsp;-->
+<!--                <a th:href="/@{'/delete/' + ${product.id}}">Delete</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
