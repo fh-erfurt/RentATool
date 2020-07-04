@@ -28,9 +28,9 @@
 <!--            <td th:text="${tool.manufacturer}">Manufacturer</td>-->
             <td th:text="${tool.description}">Description</td>
             <td>
-<!--                <a th:href="/@{'/edit/' + ${product.id}}">Edit</a>-->
-<!--                &nbsp;&nbsp;&nbsp;-->
-<!--                <a th:href="/@{'/delete/' + ${product.id}}">Delete</a>-->
+                <a th:href="@{'/edit/' + ${tool.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${tool.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
