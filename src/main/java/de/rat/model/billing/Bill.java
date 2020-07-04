@@ -3,13 +3,11 @@ package de.rat.model.billing;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
