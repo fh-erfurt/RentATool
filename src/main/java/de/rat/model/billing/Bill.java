@@ -55,8 +55,7 @@ public class Bill {
 
     private int discount;
 
-    @Column(precision = 5, scale = 4)
-    @Type(type = "big_decimal")
+    @Column(precision = 7, scale = 2)
     private double fullRentPrice;
     private BillStatus billStatus;
 
