@@ -9,6 +9,7 @@ import de.rat.model.BaseModel;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Digits;
 
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
@@ -31,9 +32,7 @@ public class Tool extends BaseModel {
     private Category category;  //TODO: how does it look like in the database
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
-
     private double rentPrice;
-
     public Tool(){};
 
     /** constructor for a tool .
