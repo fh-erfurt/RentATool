@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ToolController {
@@ -38,13 +39,28 @@ public class ToolController {
 
         return "addTool";
     }
-    @RequestMapping("/getTool")
-    public ModelAndView getTool(@RequestParam int id)
-    {
-        ModelAndView mv=new ModelAndView("showTool");
-        Tool tool= repo.findById(id);
-        mv.addObject(tool);
-        return mv;
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("editTool");
+        Tool tool = repo.findById(id);
+        mav.addObject("tool", tool);
+
+        return mav;
     }
+    @RequestMapping("/delete/{id}")
+    public String deleteTool(@PathVariable(name = "id") int id) {
+        repo.deleteById(id);
+        return "redirect:/tools";
+    }
+
+
+//    @RequestMapping("/getTool")
+//    public ModelAndView getTool(@RequestParam int id)
+//    {
+//        ModelAndView mv=new ModelAndView("showTool");
+//        Tool tool= repo.findById(id);
+//        mv.addObject(tool);
+//        return mv;
+//    }
 
 }
