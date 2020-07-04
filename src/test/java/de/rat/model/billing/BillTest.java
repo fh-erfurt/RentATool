@@ -8,6 +8,8 @@ import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
@@ -36,8 +38,8 @@ class BillTest {
         testUser = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
         testStation = new Station("S1", 3, testAddress);
         bosch = new Manufacturer("Bosch", testAddress, "Mr Smith", "123456");
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
-        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, 2.5);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
+        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, new BigDecimal("2.5"));
         testBill = new Bill(testUser, testStation);
         rentHammer = new RentProcess(hammer);
         rentDrill = new RentProcess(drill);
@@ -70,7 +72,7 @@ class BillTest {
         testBill.setFullRentPrice();
 
 
-        assertEquals(10, testBill.getFullRentPrice());
+        assertEquals(new BigDecimal("10.000"), testBill.getFullRentPrice());
     }
 
     @Test
@@ -81,7 +83,7 @@ class BillTest {
         testBill.setDiscount(20);
         testBill.setFullRentPrice();
 
-        assertEquals(8,testBill.getFullRentPrice());
+        assertEquals(new BigDecimal("8.000"),testBill.getFullRentPrice());
 
     }
 

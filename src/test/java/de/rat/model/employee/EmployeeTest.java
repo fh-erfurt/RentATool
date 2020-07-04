@@ -6,6 +6,8 @@ import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.billing.*;
 import org.junit.jupiter.api.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ class EmployeeTest {
 
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
         stationOne = new Station("S1", 3, musterhausen);
 
         warehouse = new Warehouse();

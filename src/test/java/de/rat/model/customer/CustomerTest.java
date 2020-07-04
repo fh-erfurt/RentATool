@@ -5,6 +5,8 @@ import de.rat.model.common.Role;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,9 +31,9 @@ class CustomerTest {
         station1 = new Station("S1", 3, musterhausen);
 
         // Tools
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
-        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.ISINREPAIR, 2.5);
-        welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal("3.0"));
+        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.ISINREPAIR, new BigDecimal("2.5"));
+        welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, new BigDecimal("3.5"));
 
         //Customer
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",

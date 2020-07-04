@@ -7,6 +7,8 @@ import de.rat.model.logistics.*;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
@@ -40,10 +42,10 @@ class RentalTest {
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
 
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
-        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, 2.5);
-        welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
-        welder2 = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, 3.5);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
+        hammer = new Tool("12553", bosch, "Hammer", Category.HANDTOOL, "1-4-6", ToolStatus.AVAILABLE, new BigDecimal("2.5"));
+        welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, new BigDecimal("3.5"));
+        welder2 = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, new BigDecimal("3.5"));
 
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");

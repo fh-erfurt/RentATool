@@ -5,6 +5,7 @@ import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,7 +29,7 @@ class RentProcessTest {
         musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.0);
+        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
         date =  LocalDate.of(2019, 12, 15);
     }
 

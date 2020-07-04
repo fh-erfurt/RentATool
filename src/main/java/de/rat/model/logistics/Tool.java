@@ -12,6 +12,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
+import java.math.BigDecimal;
 
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
@@ -34,7 +35,7 @@ public class Tool extends BaseModel {
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
-    private double rentPrice;
+    private BigDecimal rentPrice;
 
     protected Tool(){};
 
@@ -48,7 +49,7 @@ public class Tool extends BaseModel {
      *  @param rentPrice the several rent price for the tool
      *
      */
-    public Tool(String itemId, Manufacturer manufacturer, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
+    public Tool(String itemId, Manufacturer manufacturer, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
         this.itemId = itemId;
         this.manufacturer = manufacturer;
         this.description = description;
@@ -58,7 +59,7 @@ public class Tool extends BaseModel {
         this.rentPrice = rentPrice;
     }
 //erstmal nur Test
-public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, double rentPrice) {
+public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
     this.itemId = itemId;
 
     this.description = description;
@@ -163,7 +164,7 @@ public Tool(String itemId, String description,Category category,String stock, To
      *  @return rentPrice this is a the respective rent price
      *
      */
-    public double getRentPrice() {
+    public BigDecimal getRentPrice() {
         return rentPrice;
     }
 }

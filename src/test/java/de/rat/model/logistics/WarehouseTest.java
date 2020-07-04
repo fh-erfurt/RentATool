@@ -4,6 +4,8 @@ import de.rat.model.common.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WarehouseTest {
@@ -16,7 +18,7 @@ class WarehouseTest {
     @BeforeEach
     void setUp(){
         warehouse= new Warehouse();
-        hammer = new Tool("123",bosch,"Hammer",Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,3.5);
+        hammer = new Tool("123",bosch,"Hammer",Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("3.5"));
         address = new Address("Bosch-Strasse", 1, 99425, "Weimar", "DE");
         bosch =  new Manufacturer("Bosch",address,"Mr. Smith","01234");
     }

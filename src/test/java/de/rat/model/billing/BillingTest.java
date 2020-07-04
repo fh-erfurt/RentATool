@@ -7,6 +7,8 @@ import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import java.util.ArrayList;
@@ -37,8 +39,8 @@ class BillingTest {
         stationOne = new Station("S1", 3, musterhausen);
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
                 "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
-        hammer = new Tool("123",bosch,"Hammer", Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,3.5);
-        drill = new Tool("123",bosch,"Hammer", Category.ELECTRICALTOOL,"Lager",ToolStatus.AVAILABLE,5.5);
+        hammer = new Tool("123",bosch,"Hammer", Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("3.5"));
+        drill = new Tool("123",bosch,"Hammer", Category.ELECTRICALTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("5.5"));
         address = new Address("Bosch-Strasse", 1, 99425, "Weimar", "DE");
         bosch =  new Manufacturer("Bosch",address,"Mr. Smith","01234");
         warehouse= new Warehouse();

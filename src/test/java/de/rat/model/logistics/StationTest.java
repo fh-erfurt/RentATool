@@ -4,6 +4,8 @@ import de.rat.model.common.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class StationTest {
@@ -23,13 +25,13 @@ private Station station2;
         testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
         station = new Station("S1", 3, testaddress);
          Bosch = new Manufacturer("Bosch", testaddress, "Mr Smith", "123456");
-        testtool = new Tool("123", Bosch, "Hammer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, 3.5);
-       testtool1 = new Tool("AAA", Bosch, "Säge", Category.HANDTOOL, "1-4-3", ToolStatus.AVAILABLE, 3.0);
-        testtool2 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+        testtool = new Tool("123", Bosch, "Hammer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal("3.5"));
+       testtool1 = new Tool("AAA", Bosch, "Säge", Category.HANDTOOL, "1-4-3", ToolStatus.AVAILABLE, new BigDecimal("3.0"));
+        testtool2 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, new BigDecimal(4));
       station2 = new Station("S2", 5, testaddress);
-        testtool3 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
-        testtool4 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
-        testtool5 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, 4.0);
+        testtool3 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, new BigDecimal(4));
+        testtool4 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, new BigDecimal(4));
+        testtool5 = new Tool("XXX", Bosch, "Schaufel", Category.HANDTOOL, "1-3-2", ToolStatus.AVAILABLE, new BigDecimal(4));
     }
 
     @Test public void is_a_tool_added_to_the_box ()

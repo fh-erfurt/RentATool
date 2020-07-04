@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Digits;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +58,7 @@ public class Bill {
 
     private int discount;
 
-    private double fullRentPrice;
+    private BigDecimal fullRentPrice;
     private BillStatus billStatus;
 
     /* several rent processes for on bill possible*/
@@ -81,7 +83,7 @@ public class Bill {
         this.rentDate = LocalDate.now();
         this.rentStation = rentStation;
         this.discount = 0;
-        this.fullRentPrice = 0;
+        this.fullRentPrice = new BigDecimal(0);
         ++autoincrementNumber;
         this.billNumber = autoincrementNumber;
         this.billStatus = BillStatus.OPEN;
@@ -119,7 +121,7 @@ public class Bill {
      * deliver the full rent price
      * @return   full rent price
      */
-    public double getFullRentPrice() {
+    public BigDecimal getFullRentPrice() {
         return fullRentPrice;
     }
 
@@ -186,10 +188,19 @@ public class Bill {
             int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
 
             // multiply the rented days with the rentPrice for each tool
-            this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
+//            BigDecimal test = new BigDecimal(days);
+//            BigDecimal rentPrice = foundedProcesses.getRentedTool().getRentPrice();
+//            BigDecimal multiRentPrice = rentPrice.multiply(test);
+//            this.fullRentPrice = this.fullRentPrice.add(multiRentPrice);
+
+            this.fullRentPrice = this.fullRentPrice.add((foundedProcesses.getRentedTool().getRentPrice()).multiply(new BigDecimal(days)));
+
+
+//            this.fullRentPrice += (foundedProcesses.getRentedTool().getRentPrice())*days;
         }
 
-        this.fullRentPrice-= this.fullRentPrice*discount/100;
+        this.fullRentPrice = this.fullRentPrice.subtract(this.fullRentPrice.multiply(new BigDecimal(discount)).divide(new BigDecimal(100),3, RoundingMode.CEILING));
+//        this.fullRentPrice -= this.fullRentPrice * discount / 100;
     }
 
     /**
