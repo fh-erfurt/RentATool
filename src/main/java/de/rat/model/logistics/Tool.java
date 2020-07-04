@@ -34,7 +34,7 @@ public class Tool extends BaseModel {
     private String stock;
     private ToolStatus toolStatus;  //TODO: how does it look like in the database
 
-    @Digits(integer=5, fraction=2)
+    @Column(name = "RENTPRICE", precision=8, scale=2)
     private double rentPrice;
 
     protected Tool(){};
