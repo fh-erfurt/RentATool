@@ -1,5 +1,6 @@
 package de.rat.model;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -14,6 +15,7 @@ public class Dummy {
     private String name;
 
 
+    private BigDecimal fullRentPrice;
 
     public Dummy(){}
 

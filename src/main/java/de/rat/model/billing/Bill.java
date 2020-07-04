@@ -56,7 +56,6 @@ public class Bill {
 
     private int discount;
 
-    @Digits(integer=7, fraction=2)
     private double fullRentPrice;
     private BillStatus billStatus;
 
