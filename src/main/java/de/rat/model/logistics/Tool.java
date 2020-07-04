@@ -10,6 +10,7 @@ import org.springframework.data.annotation.Transient;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
@@ -25,6 +26,7 @@ import java.math.BigDecimal;
  */
 @Entity
 public class Tool extends BaseModel {
+
     private String itemId;
 
     @ManyToOne
@@ -37,7 +39,7 @@ public class Tool extends BaseModel {
 
     private BigDecimal rentPrice;
 
-    protected Tool(){};
+    public Tool(){};
 
     /** constructor for a tool .
      *  @param itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
