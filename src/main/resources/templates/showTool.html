@@ -13,8 +13,9 @@
         <thead>
         <tr>
             <th>Product ID</th>
-<!--            <th>Category</th>-->
+            <th>Category</th>
             <th>Rentprice</th>
+            <th>Toolstatus</th>
 <!--            <th>Manufacturer</th>-->
             <th>Description</th>
 <!--            <th>Actions</th>-->
@@ -23,8 +24,9 @@
         <tbody>
         <tr th:each="tool : ${listTools}">
             <td th:text="${tool.id}">Product ID</td>
-<!--            <td th:text="${tool.category}">Category</td>-->
+            <td th:text="${tool.category}">Category</td>
             <td th:text="${tool.rentPrice}">Rentprice</td>
+            <td th:text="${tool.toolStatus}">Toolstatus</td>
 <!--            <td th:text="${tool.manufacturer}">Manufacturer</td>-->
             <td th:text="${tool.description}">Description</td>
             <td>

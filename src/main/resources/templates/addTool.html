@@ -16,13 +16,20 @@
                 <td>Product Name:</td>
                 <td><input type="text" th:field="*{description}" /></td>
             </tr>
-<!--            <tr>-->
-<!--                <td>Category:</td>-->
-<!--                <td><input type="text" th:field="*{category}" /></td>-->
-<!--            </tr>-->
+            <tr>
+                <td>Category:</td>
+                <td><select th:field ="*{category}">
+                        <option th:each="p :${categoryList}" th:value="${p}" th:text="${p}" />
+                    </select></td>
+            </tr>
             <tr>
                 <td>Rentprice:</td>
                 <td><input type="text" th:field="*{rentPrice}" /></td>
+            </tr>
+            <td>Toolstatus:</td>
+            <td><select th:field ="*{toolStatus}">
+                <option th:each="p :${statusList}" th:value="${p}" th:text="${p}" />
+            </select></td>
             </tr>
 <!--            <tr>-->
 <!--                <td>Manufacturer:</td>-->

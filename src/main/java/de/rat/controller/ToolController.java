@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,13 +22,16 @@ public class ToolController {
     public String listAllTools(Model model)
     {
         List<Tool> listTools= (List<Tool>) repo.findAll();
+
         model.addAttribute("listTools", listTools);
+
         return "showTool";
     }
 
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
+
         repo.save(aTool);
         return "redirect:/tools";
     }
@@ -35,6 +39,10 @@ public class ToolController {
     @RequestMapping("/new")
     public String showNewProductPage(Model model) {
         Tool tool = new Tool();
+        List<String> categoryList = Arrays.asList("ELECTRICALTOOL", "ACCUTOOL", "HANDTOOL", "GARDENTOOL");
+        List<String> statusList = Arrays.asList("AVAILABLE", "ISRENTED", "ISBROKEN", "ISINREPAIR");
+        model.addAttribute("categoryList",categoryList);
+        model.addAttribute("statusList",statusList);
         model.addAttribute("tool", tool);
 
         return "addTool";
