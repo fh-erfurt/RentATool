@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Tool</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Product</h1>
+    <br />
+    <form action="#" th:action="@{/addTool}" th:object="${tool}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Product ID:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Tool Name:</td>
+                <td>
+                    <input type="text" th:field="*{description}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Rentprice:</td>
+                <td><input type="text" th:field="*{rentPrice}" /></td>
+            </tr>
+            <!--            <tr>-->
+            <!--                <td>Manufacturer:</td>-->
+            <!--                <td><input type="text" th:field="*{manufacturer}" /></td>-->
+            <!--            </tr>-->
+
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

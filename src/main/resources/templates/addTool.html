@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <title>Create New Tool</title>
 </head>
 <body>
-<h1>Add Tool to DB</h1>
-<form action="addTool">
-    <input type="text" name="id"><br>
-    <input type="text" name="name"><br>
-    <input type="submit"><br>
-</form>
+<div align="center">
+    <h1>Create New Tool</h1>
+    <br />
+    <form action="#" th:action="@{/addTool}" th:object="${tool}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Product Name:</td>
+                <td><input type="text" th:field="*{description}" /></td>
+            </tr>
+            <tr>
+                <td>Category:</td>
+                <td><select th:field ="*{category}">
+                        <option th:each="p :${categoryList}" th:value="${p}" th:text="${p}" />
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Rentprice:</td>
+                <td><input type="text" th:field="*{rentPrice}" /></td>
+            </tr>
+            <td>Toolstatus:</td>
+            <td><select th:field ="*{toolStatus}">
+                <option th:each="p :${statusList}" th:value="${p}" th:text="${p}" />
+            </select></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>Manufacturer:</td>-->
+<!--                <td><input type="text" th:field="*{manufacturer}" /></td>-->
+<!--            </tr>-->
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>
