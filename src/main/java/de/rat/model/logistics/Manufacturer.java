@@ -21,7 +21,7 @@ public class Manufacturer extends BaseModel {
     private String agent;
     private String phoneNumber;
 
-    protected Manufacturer(){};
+    public Manufacturer(){};
 
     /** Creates an manufacturer with the specified name.
      * @param name The manufacturer  name.

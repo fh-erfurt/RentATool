@@ -4,6 +4,7 @@ import de.rat.model.common.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 @Entity
 public class User {
@@ -16,6 +17,15 @@ public class User {
     private String profession;
     private boolean married;
     private Date birthday;
+    private BigDecimal test;
+
+    public BigDecimal getTest() {
+        return test;
+    }
+
+    public void setTest(BigDecimal test) {
+        this.test = test;
+    }
 
     public String getName() {
         return name;

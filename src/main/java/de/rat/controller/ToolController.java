@@ -1,6 +1,7 @@
 package de.rat.controller;
 
 import de.rat.model.User;
+import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
 import de.rat.storage.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,16 @@ public class ToolController {
     }
 
     @RequestMapping("/new")
-    public String showNewProductPage(Model model) {
+    public String showNewProductPage(Model model,@ModelAttribute Manufacturer manufacturer) {
         Tool tool = new Tool();
         List<String> categoryList = Arrays.asList("ELECTRICALTOOL", "ACCUTOOL", "HANDTOOL", "GARDENTOOL");
         List<String> statusList = Arrays.asList("AVAILABLE", "ISRENTED", "ISBROKEN", "ISINREPAIR");
+        List<String> manuList = Arrays.asList("Bosch", "Makita", "DeWalt", "Parkside");
         model.addAttribute("categoryList",categoryList);
         model.addAttribute("statusList",statusList);
         model.addAttribute("tool", tool);
+        model.addAttribute("manuList",manuList);
+
 
         return "addTool";
     }

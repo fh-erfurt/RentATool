@@ -31,10 +31,12 @@
                 <option th:each="p :${statusList}" th:value="${p}" th:text="${p}" />
             </select></td>
             </tr>
-<!--            <tr>-->
-<!--                <td>Manufacturer:</td>-->
-<!--                <td><input type="text" th:field="*{manufacturer}" /></td>-->
-<!--            </tr>-->
+            <tr>
+                <td>Manufacturer:</td>
+                <td><select th:field ="*{manufacturer}">
+                    <option th:each="p :${manuList}" th:value="${p}" th:text="${p}" />
+                </select></td>
+            </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
             </tr>
