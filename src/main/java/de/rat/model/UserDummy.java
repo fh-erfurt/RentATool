@@ -5,9 +5,9 @@ import de.rat.model.common.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+
 @Entity
-public class User {
+public class UserDummy {
     @Id
     private String name;
     private String email;

@@ -1,8 +1,8 @@
 package de.rat.storage.repository;
 
-import de.rat.model.User;
+import de.rat.model.UserDummy;
 import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends CrudRepository <User,Integer> {
+public interface UserRepository extends CrudRepository <UserDummy,Integer> {
 
 }
