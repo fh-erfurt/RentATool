@@ -15,7 +15,8 @@ public class Dummy {
     private String name;
 
 
-    private BigDecimal fullRentPrice;
+    private BigDecimal bigDecimalPrice;
+    private double doublePrice;
 
     public Dummy(){}
 
