@@ -16,6 +16,7 @@ public class Dummy {
 
 
     private BigDecimal bigDecimalPrice;
+    private double doublePrice;
 
     public Dummy(){}
 
