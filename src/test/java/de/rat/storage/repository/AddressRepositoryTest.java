@@ -5,12 +5,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.annotation.Rollback;
 
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
 class AddressRepositoryTest {
@@ -30,7 +30,7 @@ class AddressRepositoryTest {
     public void is_address_saved_in_database(){
 
      Address address2 = repository.findById(address1.getId());
-     assertEquals(12345, address1.getZip());
+     assertEquals(12345, address2.getZip());
 
     }
 
@@ -45,9 +45,26 @@ class AddressRepositoryTest {
 
     }
 
+    @Test
+    public void is_street_changing(){
 
+        String newStreet = new String("Strasse");
+        address1.setStreet(newStreet);
+        repository.save(address1);
 
+        Address address3 = repository.findById(address1.getId());
+        assertEquals("Strasse",address3.getStreet());
 
+    }
 
+    @Test
+    public void is_address_deleted(){
+
+        repository.delete(address1);
+        List<Address> allAddresses = repository.findByCity("Erfurt");
+
+        assertTrue(allAddresses.isEmpty());
+
+    }
 
 }
