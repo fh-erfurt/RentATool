@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,11 +40,9 @@ class ManufracturerRepositoryTest {
     @Test
     public void is_manufracturer_saved_in_database(){
 
-        Manufacturer manufacturer2 = mRepo.findById(manufacturer1.getId());
+        Optional<Manufacturer> manufacturer2 = mRepo.findById(manufacturer1.getId());
         assertEquals("Bosch",manufacturer1.getName());
 
-
     }
-
 
 }

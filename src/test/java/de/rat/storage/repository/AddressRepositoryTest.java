@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 @DataJpaTest
 class AddressRepositoryTest {
@@ -45,6 +45,8 @@ class AddressRepositoryTest {
 
     }
 
+
+    // representativ update test for all repositories
     @Test
     public void is_street_changing(){
 
@@ -57,6 +59,7 @@ class AddressRepositoryTest {
 
     }
 
+    // representativ delete test for all repositories
     @Test
     public void is_address_deleted(){
 
