@@ -23,24 +23,42 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password(passwordEncoder().encode("password")).roles("ADMIN").and()
+    DataSource dataSource;
 
-                .withUser("employee")
-                .password(passwordEncoder().encode("password")).roles("EMPLOYEE").and()
 
-                .withUser("customer")
-                .password(passwordEncoder().encode("password")).roles("CUSTOMER");;
+    @Autowired
+    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select username,password, enabled from loginuser where username=?")
+                .authoritiesByUsernameQuery(
+                        "select username, role from loginuser where username=?");
     }
+
+
+
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password(passwordEncoder().encode("password")).roles("ADMIN").and()
+//
+//                .withUser("employee")
+//                .password(passwordEncoder().encode("password")).roles("EMPLOYEE").and()
+//
+//                .withUser("customer")
+//                .password(passwordEncoder().encode("password")).roles("CUSTOMER");;
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -53,8 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/START", "/logout", "/ERROR","/404")
-                    .permitAll()
+                    .antMatchers("/", "/home", "/START", "/logout", "/ERROR","/404", "h2-console/**").permitAll()
                     .antMatchers("/ADMIN").hasRole("ADMIN")
                     .antMatchers("/EMPLOYEE").hasAnyRole("EMPLOYEE", "ADMIN")
                     .antMatchers("/CUSTOMER", "/tools/*").hasAnyRole("CUSTOMER","EMPLOYEE", "ADMIN")
@@ -62,6 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .failureUrl("/login?error")
+                    .usernameParameter("username").passwordParameter("password")
                     .defaultSuccessUrl("/START")
                     .permitAll()
                     .and()
