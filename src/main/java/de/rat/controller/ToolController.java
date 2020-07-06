@@ -1,6 +1,5 @@
 package de.rat.controller;
 
-import de.rat.model.User;
 import de.rat.model.logistics.Tool;
 import de.rat.storage.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ToolController {
