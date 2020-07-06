@@ -77,7 +77,7 @@ a,
 header nav ul li a,
 header nav ul li,
 header #ud_kontakt_icon .ud_kontakt_icon {
-    color: #999;
+    color: #999999;
 }
 
 footer,
@@ -94,7 +94,7 @@ header #ud_kontakt_icon .ud_kontakt_icon:hover {
 
 #UberUns .ud_h2_balken,
 #Leistungen .ud_h2_balken {
-    background: #111;
+    background: #111111;
 }
 
 p,
@@ -439,9 +439,9 @@ header:hover > nav ul li a {
 }
 
 #Leistungen .ud_leistungen ul li.ud_handarbeit {
-    background: url(../images/leistung_1.jpg);
+    background: url(../images/leistung_1.png);
     background-attachment: fixed;
-    background-size: cover;
+    background-size:contain;
 }
 #Leistungen .ud_leistungen ul li.ud_projekte_naturholz {
     background: url(../images/leistung_2.jpg);
@@ -489,7 +489,7 @@ header:hover > nav ul li a {
 
 #Kontakt {
     position: relative;
-    background: url(../images/bg_kontakt.jpg);
+    background: url(../images/bg_contact.png);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
