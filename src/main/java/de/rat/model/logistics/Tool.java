@@ -164,4 +164,8 @@ public Tool(String itemId, String description,Category category,String stock, To
     public BigDecimal getRentPrice() {
         return rentPrice;
     }
+
+    public void setRentPrice(BigDecimal rentPrice) {
+        this.rentPrice = rentPrice;
+    }
 }

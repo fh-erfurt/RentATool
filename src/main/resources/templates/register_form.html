@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1> User Registration</h1>
-<form action="#" th:action="@{/save}" th:object="${User}" method="post">
+<form action="#" th:action="@{/save}" th:object="${userDummy}" method="post">
 
     <label>Fullname:</label>
     <input type="text" th:field="*{name}" /><br>
@@ -17,6 +17,8 @@
     <label>Password:</label>
     <input type="password" th:field="*{password}" /><br>
 
+    <label>Test:</label>
+    <input type="text" th:field="*{test}" /><br>
 <!--    <label>Birthday (yyyy-mm-dd):</label>-->
 <!--    <input type="text" th:field="*{birthday}" /><br>-->
 
