@@ -151,7 +151,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 - Einzelne Funktionen innerhalb einer Methode mit sprechenden Namen erzeugen
 
-![image](https://tesrUser-images.githubusercontent.com/46423967/71821171-ada6c380-3091-11ea-9f0d-f04934ea2dfd.png)
+![image](https://User-images.githubusercontent.com/46423967/71821171-ada6c380-3091-11ea-9f0d-f04934ea2dfd.png)
 
 
 ### Besprechung 09.12.2019

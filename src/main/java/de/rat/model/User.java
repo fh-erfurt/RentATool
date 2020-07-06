@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 @Entity
-public class tesrUser {
+public class User {
     @Id
     private String name;
     private String email;

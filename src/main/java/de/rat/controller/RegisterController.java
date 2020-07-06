@@ -1,6 +1,6 @@
 package de.rat.controller;
 
-import de.rat.model.tesrUser;
+import de.rat.model.User;
 import de.rat.storage.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +20,8 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String showForm(Model model) {
-        tesrUser tesrUser = new tesrUser();
-        model.addAttribute("user", tesrUser);
+        User User = new User();
+        model.addAttribute("user", User);
 
         List<String> professionList = Arrays.asList("Developer","Designer", "Student");
         model.addAttribute("professionList",professionList);
@@ -29,13 +29,13 @@ public class RegisterController {
     }
     //Ausgabe auf Browserebene
     @PostMapping("/register")
-    public String submitForm(@ModelAttribute("user") tesrUser tesrUser){
+    public String submitForm(@ModelAttribute("user") User User){
         return  "register_success";
     }
     //save in DB
     @PostMapping("/save")
-    public String saveProduct(@ModelAttribute("user") tesrUser tesrUser) {
-        repository.save(tesrUser);
+    public String saveProduct(@ModelAttribute("user") User User) {
+        repository.save(User);
 
         return "redirect:/";
     }
