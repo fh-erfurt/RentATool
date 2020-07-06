@@ -11,7 +11,7 @@ public class UserDummy {
     @Id
     private String name;
     private String email;
-    private  String password;
+    private String password;
     private String gender;
     private String note;
     private String profession;
