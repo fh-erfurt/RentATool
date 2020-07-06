@@ -12,84 +12,207 @@
 <!--</html>-->
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico"/>
 
-    <title>Navbar Template for Bootstrap</title>
+    <title>Rent A Tool</title>
+    <!-- ########################################################################## -->
+    <!-- CSS & Fonts -->
+    <!-- ########################################################################## -->
 
-    <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <!-- ########################################################################## -->
+    <!-- jQuery -->
+    <!-- ########################################################################## -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/scroll.js"></script>
+
 </head>
 <body>
-<h1>Willkomen bei Rent A Tool</h1>
-<a href="login">LogIn</a><br>
-<a href="register">Register</a><br>
-<a href="tools">Add Tools</a>
-<div class="container">
-    <!-- Static navbar -->
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#" th:text="${username}">Project name</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Static top</a></li>
-                    <li><a href="#/">Fixed top</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-    </nav>
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <!--Usage of models we wrote in WepAppController th:text="'Welcome to basic Bootstrap with Spring Boot created by ' + ${username} -->
-        <h3 th:text="'Welcome to basic Bootstrap with Spring Boot created by ' + ${username}"></h3>
-        <p th:text="'This date example  ' + ${#dates.format(datetime, 'dd MMM yyyy HH:mm')}"></p>
-        <p> is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work.
-            It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs &raquo;</a>
-        </p>
+<header>
+    <!-- Logo -->
+    <div id="ud_logo"><a href="#Startseite"><img src="images/logo.jpg" alt=""/></a></div>
+
+    <!-- Kontakt -->
+    <div id="ud_kontakt_icon">
+        <div class="ud_kontakt_icon"><span class="icon-mail-alt"></span></div>
+        <div class="ud_kontakt_icon"><span class="icon-location"></span></div>
     </div>
-</div> <!-- /container -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#Startseite">Startseite</a></li>
+            <li><a href="#UberUns">Über Uns</a></li>
+            <li><a href="#Leistungen">Leistungen</a></li>
+            <li><a href="#Kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ########################################################################## -->
+<!-- Website -->
+<!-- ########################################################################## -->
+
+<!-- ########################################################################## -->
+<!-- Startseite -->
+<!-- ########################################################################## -->
+
+<section id="Startseite" class="ud_page">
+
+    <!-- Headline -->
+    <div id="ud_intro">
+
+        <h2>Rent a<br>Tool</h2>
+        <div class="ud_h2_balken"></div>
+
+        <p>„Rent a Tool“ hat sich auf den Verleih von Heimwerkerwerkzeug spezialisiert. Mit seinen 12 Mitarbeitern hat es seinen Firmensitz in der Landeshauptstadt Erfurt.</p>
+
+        <a href="" class="ud_button">Weiter</a>
+    </div>
+
+</section>
+
+<!-- ########################################################################## -->
+<!-- Über Uns -->
+<!-- ########################################################################## -->
+
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Über Uns</h2>
+    <div class="ud_h2_balken"></div>
+
+    <!-- Content -->
+    <article class="ud_UberUns">
+        <article>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,</p>
+
+            <p>sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem
+                ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+                takimata sanctus est Lorem ipsum dolor sit amet. </p>
+
+            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore
+                te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+
+        </article>
+    </article>
+
+    <article class="ud_UberUns ud_motto_bg">
+        <article>
+            <div class="ud_motto">"Die Kunst hat das Handwerk nötiger als das Handwerk die Kunst."</div>
+        </article>
+    </article>
+
+</section>
+
+<!-- ########################################################################## -->
+<!-- Leistung -->
+<!-- ########################################################################## -->
+
+<section id="Leistungen" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Leistungen</h2>
+    <div class="ud_h2_balken"></div>
+
+    <!-- Content -->
+    <article class="ud_leistungen">
+
+        <ul>
+            <li class="ud_handarbeit">
+                <div class="ud_tag_line">
+                    <h3>Handarbeit</h3>
+                    <div class="ud_h3_balken"></div>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                </div>
+            </li>
+
+            <li class="ud_projekte_naturholz">
+                <div class="ud_tag_line">
+                    <h3>Projekte aus naturholz</h3>
+                    <div class="ud_h3_balken"></div>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                </div>
+            </li>
+
+            <li class="ud_mobel_naturholz">
+                <div class="ud_tag_line">
+                    <h3>Designer Möbel mit Naturholz</h3>
+                    <div class="ud_h3_balken"></div>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua</p>
+                </div>
+            </li>
+        </ul>
+
+    </article>
+
+</section>
+
+<!-- ########################################################################## -->
+<!-- Kontakt -->
+<!-- ########################################################################## -->
+
+<section id="Kontakt" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Kontakt</h2>
+    <div class="ud_h2_balken"></div>
+
+    <!-- Content -->
+    <article class="ud_kontakt">
+        <ul>
+            <li><span class="icon-mail-alt"></span> <a href="">contact@woodwork.com</a></li>
+            <li><span class="icon-location"></span> Beispielstraße 1, Freiburg 23122</li>
+            <li><span class="icon-phone"></span> 0123 / 12 12 12 5</li>
+        </ul>
+    </article>
+
+    <!-- Footer -->
+    <footer>
+
+        <!-- Logo -->
+        <div class="ud_logo"><img src="images/logo.jpg" alt="" /></div>
+
+        <!-- Metanavigation -->
+        <nav id="ud_meta_nav">
+            <ul>
+                <a href="">
+                    <li>Impressum</li>
+                </a>
+                <a href="">
+                    <li>Datenschutz</li>
+                </a>
+                <a href="">
+                    <li>Haftungsausschluss</li>
+                </a>
+            </ul>
+        </nav>
+
+        <!-- Metanavigation -->
+        <div id="ud_copyright">Design by <a href="">Unleashed Design</a></div>
+
+    </footer>
+
+</section>
+
 </body>
+<!--<body>-->
+<!--<h1>Willkomen bei Rent A Tool</h1>-->
+<!--<a href="login">LogIn</a><br>-->
+<!--<a href="register">Register</a><br>-->
+<!--<a href="tools">Add Tools</a>-->
+
 </html>
