@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -32,19 +33,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    DataSource dataSource;
+    UserDetailsService userDetailsService;
 
 
-    @Autowired
-    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-
-        auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery(
-                        "select username,password, enabled from loginuser where username=?")
-                .authoritiesByUsernameQuery(
-                        "select username, role from loginuser where username=?");
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
     }
 
+    @Bean
+    public PasswordEncoder getPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
+    }
+
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
 
 //    @Autowired
@@ -60,10 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .password(passwordEncoder().encode("password")).roles("CUSTOMER");;
 //    }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 
 
     @Override
@@ -91,6 +93,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .accessDeniedHandler(new CustomAccessDeniedHandler()).and()
                     .exceptionHandling().authenticationEntryPoint(new CustomHttp403ForbiddenEntryPoint())
                     .accessDeniedPage("/ERROR");
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
 

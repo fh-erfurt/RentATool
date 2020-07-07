@@ -1,15 +1,4 @@
-DROP TABLE IF EXISTS LoginUser;
 
-CREATE  TABLE LoginUser (
-                        username VARCHAR(45) NOT NULL ,
-                        password VARCHAR(45) NOT NULL ,
-                        role VARCHAR(45) NOT NULL ,
-                        PRIMARY KEY (username));
-
-
-INSERT INTO LoginUser(username,password, role)
-VALUES ('ADMIN','password', 'ADMIN');
-INSERT INTO LoginUser(username,password, role)
-VALUES ('EMPLOYEE','password', 'EMPLOYEE');
-INSERT INTO LoginUser(username,password, role)
-VALUES ('CUSTOMER','password', 'CUSTOMER');
+INSERT INTO Login_User(id, user_name, password, active, roles) VALUES (1,'user1', 'pass', false, 'CUSTOMER');
+INSERT INTO Login_User(id, user_name, password, active, roles) VALUES (2,'user2', 'pass', true, 'CUSTOMER');
+INSERT INTO Login_User(id, user_name, password, active, roles) VALUES (3,'user3', 'pass', true, 'ADMIN');
