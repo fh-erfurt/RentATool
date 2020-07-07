@@ -31,6 +31,7 @@ h2 {
     width: 80px;
 }
 
+
 .ud_button {
     text-transform: uppercase;
     padding: 10px 30px 10px 30px;
@@ -308,10 +309,11 @@ header:hover > nav ul li a {
 }
 
 #UberUns .ud_motto_bg {
-    background: url(../images/uber_uns.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/uber_uns.png);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 #UberUns .ud_motto_bg article .ud_motto {
     display: inline-block;
@@ -431,7 +433,10 @@ header:hover > nav ul li a {
 #Leistungen .ud_leistungen ul li .ud_tag_line p {
     margin: 0;
     padding: 0;
+
 }
+
+
 #Leistungen .ud_leistungen ul li .ud_tag_line h3 {
     text-transform: uppercase;
     font-size: 65px;
@@ -439,19 +444,24 @@ header:hover > nav ul li a {
 }
 
 #Leistungen .ud_leistungen ul li.ud_handarbeit {
-    background: url(../images/leistung_1.png);
+
     background-attachment: fixed;
     background-size:contain;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_1.png);
+    background-repeat: no-repeat;
 }
 #Leistungen .ud_leistungen ul li.ud_projekte_naturholz {
-    background: url(../images/leistung_2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_2.jpg);
     background-attachment: fixed;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 #Leistungen .ud_leistungen ul li.ud_mobel_naturholz {
-    background: url(../images/leistung_3.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_3.png);
+    background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+
 }
 
 @media screen and (max-width: 1150px) {
@@ -489,7 +499,8 @@ header:hover > nav ul li a {
 
 #Kontakt {
     position: relative;
-    background: url(../images/bg_contact.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/bg_contact.png);
+
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
