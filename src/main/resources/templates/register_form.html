@@ -1,43 +1,115 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico"/>
+
+    <title>Rent A Tool</title>
+    <!-- ########################################################################## -->
+    <!-- CSS & Fonts -->
+    <!-- ########################################################################## -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- ########################################################################## -->
+    <!-- jQuery -->
+    <!-- ########################################################################## -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/login.js"></script>
+
 </head>
 <body>
-<h1> User Registration</h1>
-<form action="#" th:action="@{/save}" th:object="${userDummy}" method="post">
+<header>
+    <!-- Logo -->
+    <div id="ud_logo"><a href="#Startseite"><img src="images/logo.jpg" alt=""/></a></div>
 
-    <label>Fullname:</label>
-    <input type="text" th:field="*{name}" /><br>
 
-    <label>E-Mail:</label>
-    <input type="text" th:field="*{email}" /><br>
 
-    <label>Password:</label>
-    <input type="password" th:field="*{password}" /><br>
+    <!-- Navigation -->
+    <nav>
+        <ul>
 
-    <label>Test:</label>
-    <input type="text" th:field="*{test}" /><br>
-<!--    <label>Birthday (yyyy-mm-dd):</label>-->
-<!--    <input type="text" th:field="*{birthday}" /><br>-->
+            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
+            <li><a href="#Startseite">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a href="#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
+            <li><a href="#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            <li><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+            <li><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+        </ul>
+    </nav>
+</header>
 
-    <label>Profession:</label>
-    <select th:field ="*{profession}">
-        <option th:each="p :${professionList}" th:value="${p}" th:text="${p}" />
-    </select>
-    <br>
-    <label>Married?:</label>
-    <input type="checkbox" th:field="*{married}"/><br>
-    <label>Gender:</label>
-    <input type="radio" th:field="*{gender}" value="Male"/>Male
-    <input type="radio" th:field="*{gender}" value="Female"/>Female
-    <br>
-    <label>Note:</label>
-    <textarea rows="5" cols="25" th:field="*{note}"> </textarea>
-    <br>
+<div class="login-page">
+    <div class="form">
+        <form class="login-form" th:action="@{/save}" th:object="${userDummy}" method="post">
+            <input type="text" th:field="*{name}" placeholder="username"/>
+            <input type="text" th:field="*{email}" placeholder="EMail"/>
+            <input type="password" th:field="*{password}" placeholder="password"/>
+            <select th:field ="*{profession}">
+                <option th:each="p :${professionList}" th:value="${p}" th:text="${p}" />
+            </select>
+            <label>Married?:</label>
+            <input type="checkbox" th:field="*{married}" />
+            <label>Gender:</label>
+            <input type="radio" th:field="*{gender}" value="Male"/>Male
+            <input type="radio" th:field="*{gender}" value="Female"/>Female
+            <label>Note:</label>
+            <textarea rows="5" cols="25" th:field="*{note}"> </textarea>
+            <button>Registrierung Abschließen</button>
 
-    <button type="submit">Register</button>
-</form>
+        </form>
+    </div>
+</div>
+
+<section id="Kontakt" class="ud_page">
+    <!-- Headline -->
+    <h2>Kontakt</h2>
+    <div class="ud_h2_balken"></div>
+
+    <!-- Content -->
+    <article class="ud_kontakt">
+        <ul>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="">contact@rentatool.com</a></li>
+            <li><i class="fa fa-location-arrow" aria-hidden="true"></i></span> Beispielstraße 1, Freiburg 23122</li>
+            <li><i class="fa fa-phone-square" aria-hidden="true"></i> 0123 / 12 12 12 5</li>
+        </ul>
+    </article>
+<!-- Footer -->
+<footer>
+
+    <!-- Logo -->
+    <div class="ud_logo"><img src="images/logo.jpg" alt="" /></div>
+
+    <!-- Metanavigation -->
+    <nav id="ud_meta_nav">
+        <ul>
+            <a href="">
+                <li>Impressum</li>
+            </a>
+            <a href="">
+                <li>Datenschutz</li>
+            </a>
+            <a href="">
+                <li>Haftungsausschluss</li>
+            </a>
+        </ul>
+    </nav>
+
+    <!-- Metanavigation -->
+    <div id="ud_copyright">Design by <a href="">KSP-IT Solutions</a></div>
+
+</footer>
+</section>
 </body>
 </html>
