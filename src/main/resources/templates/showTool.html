@@ -53,7 +53,7 @@
 
 <div class="toolManagementHeader">
     <h1>Tool Management</h1>
-    <a href="/new">Create New Tool</a>
+    <a href="/new"><i class="fa fa-plus" aria-hidden="true"></i> Add Tool</a>
 </div>
 <table>
     <caption>Tools</caption>
@@ -65,7 +65,7 @@
         <th scope="col">Toolstatus</th>
         <!--            <th scope="col">Manufacturer</th>-->
         <th scope="col">Description</th>
-        <!--            <th scope="col">Actions</th>-->
+        <th scope="col">Actions</th>
 
     </tr>
     </thead>
@@ -79,6 +79,11 @@
         <td data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</td>
 <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
         <td data-label="Description" th:text="${tool.description}">Description</td>
+        <td>
+            <a th:href="@{'/edit/' + ${tool.id}}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+        </td>
     </tr>
 
     </tbody>
