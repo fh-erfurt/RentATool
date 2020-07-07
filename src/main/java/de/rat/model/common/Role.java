@@ -4,5 +4,5 @@ package de.rat.model.common;
  */
 
 public enum Role {
-    EMPLOYEE, CUSTOMER
+    ADMIN, EMPLOYEE, CUSTOMER
 }
