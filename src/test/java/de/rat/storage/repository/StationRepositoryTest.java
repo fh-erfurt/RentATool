@@ -88,6 +88,7 @@ class StationRepositoryTest {
         log.info("--------------------------------");
         log.info(String.valueOf(station1.getBoxesOfTools().size()));
 
+        //check box size from station from database
         assertEquals(sRepo.findById(station1.getId()).getBoxesOfTools().size(),1);
 
     }
