@@ -513,6 +513,7 @@ header:hover > nav ul li a {
     transform: scale(1,1);
 }
 
+
 @media screen and (max-width: 1150px) {
     #Leistungen {
         width: 100%;

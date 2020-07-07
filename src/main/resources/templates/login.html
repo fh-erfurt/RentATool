@@ -1,20 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico"/>
+
+    <title>Rent A Tool</title>
+    <!-- ########################################################################## -->
+    <!-- CSS & Fonts -->
+    <!-- ########################################################################## -->
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <!-- ########################################################################## -->
+    <!-- jQuery -->
+    <!-- ########################################################################## -->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/login.js"></script>
+
 </head>
 <body>
+<header>
+    <!-- Logo -->
+    <div id="ud_logo"><a href="#Startseite"><img src="images/logo.jpg" alt=""/></a></div>
+
+
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+
+            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
+            <li><a href="#Startseite">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a href="#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
+            <li><a href="#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            <li><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+            <li><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" th:action="@{/login}" method="post">
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button>login</button>
+                <p class="message">Not registered? <a href="/register">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+
 </body>
 </html>
