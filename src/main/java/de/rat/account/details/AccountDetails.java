@@ -1,8 +1,7 @@
-package de.rat.logintest2;
+package de.rat.account.details;
 
 
 import de.rat.model.common.Account;
-import de.rat.model.common.Person;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

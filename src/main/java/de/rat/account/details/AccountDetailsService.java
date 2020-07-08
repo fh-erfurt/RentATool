@@ -1,6 +1,5 @@
-package de.rat.logintest2;
+package de.rat.account.details;
 import de.rat.model.common.Account;
-import de.rat.model.common.Person;
 import de.rat.storage.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
