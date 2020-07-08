@@ -1,14 +1,13 @@
 package de.rat.controller;
 
-import de.rat.model.UserDummy;
 import de.rat.model.common.Account;
 import de.rat.model.common.Address;
 import de.rat.model.common.Date;
 import de.rat.model.common.Person;
 import de.rat.model.customer.Customer;
 import de.rat.storage.repository.AccountRepository;
+import de.rat.storage.repository.AddressRepository;
 import de.rat.storage.repository.CustomerRepository;
-import de.rat.storage.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +24,10 @@ public class RegisterController {
     @Autowired
     private CustomerRepository repositoryCustomer;
     private AccountRepository repositoryAccount;
-
-    public RegisterController(AccountRepository accRepo) {
+    private AddressRepository repositoryAddress;
+    public RegisterController(AccountRepository accRepo, AddressRepository repositoryAddress) {
         this.repositoryAccount = accRepo;
+        this.repositoryAddress = repositoryAddress;
     }
 
     @GetMapping("/register")
@@ -53,9 +53,10 @@ public class RegisterController {
     }
     //save in DB
     @PostMapping("/save")
-    public String saveCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("userAccount") Account userAccount) {
+    public String saveCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("userAccount") Account userAccount,@ModelAttribute("userAddress") Address userAddress) {
         repositoryCustomer.save(newCustomer);
         repositoryAccount.save(userAccount);
+        repositoryAddress.save(userAddress);
         return "redirect:/";
     }
 }

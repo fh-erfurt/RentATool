@@ -11,7 +11,7 @@
     <div class="form">
             <form class="form" th:action="@{/save}" th:object="${newCustomer}"  method="post">
                 <div th:action="@{/save}" th:object="${userAccount}" method="post">
-                    <input type="text" th:value="${userAccount.email}" placeholder="EMail"/>
+                    <input type="text" th:field="*{email}" placeholder="EMail"/>
                     <input type="password" th:field="*{password}" placeholder="password"/>
                     <select th:field ="*{role}">-->
                         <option th:each="p :${roleList}" th:value="${p}" th:text="${p}" />
@@ -30,6 +30,7 @@
                     <input type="text" th:field="*{zip}" placeholder="PLZ"/>
                 </div>
                     <button>Registrierung Abschließen</button>
+
 
             </form>
     </div>
