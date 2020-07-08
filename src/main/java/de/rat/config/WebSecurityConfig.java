@@ -87,8 +87,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         public void commence(HttpServletRequest request, HttpServletResponse response,
                              AuthenticationException authException) throws IOException {
-//            response.sendError(HttpServletResponse.SC_FORBIDDEN,"Access denied");
-            response.getWriter().print("You don't have required role to perform this action.");
+            response.sendError(HttpServletResponse.SC_FORBIDDEN,"Access denied");
         }
     }
 
@@ -97,7 +96,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException arg2)
                 throws IOException, ServletException {
-            response.getWriter().print("You don't have required role to perform this action.");
+            response.sendError(HttpServletResponse.SC_FORBIDDEN,"Access denied");
         }
     }
 
