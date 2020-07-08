@@ -56,6 +56,8 @@ public class RegisterController {
     public String saveCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("userAccount") Account userAccount,@ModelAttribute("userAddress") Address userAddress) {
         repositoryCustomer.save(newCustomer);
         repositoryAccount.save(userAccount);
+       newCustomer.setAddress(userAddress);
+       newCustomer.setAccount(userAccount);
         repositoryAddress.save(userAddress);
         return "redirect:/";
     }
