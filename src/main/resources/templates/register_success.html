@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Registration Succes</title>
-    <style type="text/css">
-        span{
-            display: inline-block;
-            width: 200px;
-            text-align: left;
-        }
-    </style>
-</head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
 <body>
+<header th:replace="fragments/header :: header"></header>
+
+
+
 <h1> Registration Succeeded</h1>
 <div align="center">
 <span>Full name:</span><span th:text="${userDummy.name}"></span><br>
