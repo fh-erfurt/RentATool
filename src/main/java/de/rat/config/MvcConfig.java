@@ -1,7 +1,6 @@
 package de.rat.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,7 +17,7 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/EMPLOYEE").setViewName("EMPLOYEE");
         registry.addViewController("/CUSTOMER").setViewName("CUSTOMER");
         registry.addViewController("/START").setViewName("START");
-        registry.addViewController("/ERROR").setViewName("ERROR");
+        registry.addViewController("/ERROR").setViewName("ERROR2");
 
     }
 

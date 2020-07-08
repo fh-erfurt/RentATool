@@ -33,12 +33,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Autowired
-    UserDetailsService userDetailsService;
+    UserDetailsService accountDetailsService;
 
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService);
+        auth.userDetailsService(accountDetailsService);
     }
 
     @Bean
@@ -50,23 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    public PasswordEncoder passwordEncoder() {
 //        return new BCryptPasswordEncoder();
 //    }
-
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder().encode("password")).roles("ADMIN").and()
-//
-//                .withUser("employee")
-//                .password(passwordEncoder().encode("password")).roles("EMPLOYEE").and()
-//
-//                .withUser("customer")
-//                .password(passwordEncoder().encode("password")).roles("CUSTOMER");;
-//    }
-
-
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -82,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .failureUrl("/login?error")
                     .usernameParameter("username").passwordParameter("password")
-                    .defaultSuccessUrl("/START")
+                    .defaultSuccessUrl("/")
                     .permitAll()
                     .and()
                 .logout()
