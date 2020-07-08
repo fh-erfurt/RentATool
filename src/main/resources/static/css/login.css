@@ -7,6 +7,7 @@ body{
     width: 360px;
     padding: 8% 0 0;
     margin: auto;
+    background-color: #a8a8a8;
 }
 .form {
     position: relative;

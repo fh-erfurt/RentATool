@@ -14,7 +14,7 @@ public class Account extends BaseModel {
     private String password;
     private Role role;      //TODO: how does it look like in the database
 
-    protected Account(){ }
+    public Account(){ }
 
     public Account (Role role, String email, String password){
         this.role= role;
@@ -32,6 +32,10 @@ public class Account extends BaseModel {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
