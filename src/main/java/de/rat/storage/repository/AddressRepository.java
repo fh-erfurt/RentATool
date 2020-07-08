@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
 public interface AddressRepository extends CrudRepository<Address,Integer> {
 
     Address findById(int id);
