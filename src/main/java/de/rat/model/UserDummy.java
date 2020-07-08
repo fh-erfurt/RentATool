@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 @Entity
 public class UserDummy {
+
     @Id
     private String name;
     private String email;
