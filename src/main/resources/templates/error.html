@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/icon.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/error.css">
     <!-- ########################################################################## -->
     <!-- jQuery -->
     <!-- ########################################################################## -->
@@ -50,24 +51,27 @@
     </nav>
 </header>
 
-<div class="login-page">
-    <div class="form">
-        <form class="login-form" th:action="@{/login}" method="post">
-            <input type="text" id="username" name="username" placeholder="username"/>
-            <input type="password" id="password" name="password" placeholder="password"/>
-            <button>login</button>
-            <p class="message">Not registered? <a href="/register">Create an account</a></p>
-        </form>
+
+<h1><td th:text="${status}"/></h1>
+<h2><td th:text="${error}"/></h2>
+<div class="gears">
+    <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
     </div>
 </div>
-
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </body>
 </html>
