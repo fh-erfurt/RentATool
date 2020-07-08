@@ -59,6 +59,6 @@ public class RegisterController {
        newCustomer.setAddress(userAddress);
        newCustomer.setAccount(userAccount);
         repositoryAddress.save(userAddress);
-        return "redirect:/";
+        return "/registrationSuccessfull";
     }
 }
