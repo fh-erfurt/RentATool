@@ -60,8 +60,5 @@ public class RegisterController {
         return "/registrationSuccessfull";
     }
 
-    @GetMapping(value = "/loginSuccessfull")
-    public String currentUserName(Authentication authentication) {
-    return "/loginSuccessfull";
-    }
+
 }
