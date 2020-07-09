@@ -8,12 +8,15 @@ import de.rat.model.customer.Customer;
 import de.rat.storage.repository.AccountRepository;
 import de.rat.storage.repository.AddressRepository;
 import de.rat.storage.repository.CustomerRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,11 +49,6 @@ public class RegisterController {
         model.addAttribute("roleList",roleList);
         return "register_form";
     }
-    //Ausgabe auf Browserebene
-    @PostMapping("/register")
-    public String submitForm(@ModelAttribute("newCustomer") Customer newCustomer){
-        return  "register_success";
-    }
     //save in DB
     @PostMapping("/save")
     public String saveCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("userAccount") Account userAccount,@ModelAttribute("userAddress") Address userAddress) {
@@ -60,5 +58,10 @@ public class RegisterController {
        newCustomer.setAccount(userAccount);
         repositoryAddress.save(userAddress);
         return "/registrationSuccessfull";
+    }
+
+    @GetMapping(value = "/loginSuccessfull")
+    public String currentUserName(Authentication authentication) {
+    return "/loginSuccessfull";
     }
 }

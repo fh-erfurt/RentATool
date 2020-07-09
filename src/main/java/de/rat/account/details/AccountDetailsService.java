@@ -23,4 +23,5 @@ public class AccountDetailsService implements UserDetailsService {
 
         return user.map(AccountDetails::new).get();
     }
+
 }
