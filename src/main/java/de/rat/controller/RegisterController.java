@@ -8,6 +8,8 @@ import de.rat.storage.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +27,7 @@ public class RegisterController {
     private CustomerRepository repositoryCustomer;
     private AccountRepository repositoryAccount;
     private AddressRepository repositoryAddress;
+    private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
     public RegisterController(AccountRepository accRepo, AddressRepository repositoryAddress) {
         this.repositoryAccount = accRepo;
         this.repositoryAddress = repositoryAddress;
@@ -50,8 +53,15 @@ public class RegisterController {
     @PostMapping("/save")
     public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCustomer,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAccount,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAddress) {
         userAccount.setRole(Role.CUSTOMER);
-if(repositoryAccount.findAll().equals(userAccount.getEmail()))
+        Optional<Account> checkAccount = repositoryAccount.findByEmail(userAccount.getEmail());
+
+
+if(checkAccount.isPresent())
 {
+    log.info("Emailadresse");
+    log.info(checkAccount.get().getEmail());
+
+    log.info("Email gibs schon");
     return "register_form";
 }
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
