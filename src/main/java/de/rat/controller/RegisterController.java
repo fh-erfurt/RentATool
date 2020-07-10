@@ -71,6 +71,7 @@ if(checkAccount.isPresent())
 
         repositoryAccount.save(userAccount);
         repositoryAddress.save(userAddress);
+
         newCustomer.setAddress(userAddress);
         newCustomer.setAccount(userAccount);
         repositoryCustomer.save(newCustomer);

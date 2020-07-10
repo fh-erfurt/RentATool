@@ -22,7 +22,7 @@ class AddressRepositoryTest {
 
 
     private Address address1;
-    private Address address3;
+    private Address address2;
 
     @Autowired
     AddressRepository repository;
@@ -75,6 +75,15 @@ class AddressRepositoryTest {
         List<Address> allAddresses = repository.findByCity("Erfurt");
 
         assertTrue(allAddresses.isEmpty());
+
+    }
+
+    @Test
+    public void check_database_for_address(){
+
+        Address checkAddress = repository.findByStreetnameHouseNumberCity("Weg", "1","Erfurt");
+        assertEquals(checkAddress.getStreet(),address1.getStreet());
+
 
     }
 

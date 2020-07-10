@@ -14,7 +14,7 @@ public interface AddressRepository extends CrudRepository<Address,Integer> {
 
     //Query for searching address after street, houseNr and city
     @Query("FROM Address a where a.street=:street AND a.houseNr=:houseNr AND a.city=:city")
-    Address findByStreetnameHouseNumberCity(@Param("street") String street,@Param("houseNr") int houseNr,@Param("city") String city);
+    Address findByStreetnameHouseNumberCity(@Param("street") String street,@Param("houseNr") String houseNr,@Param("city") String city);
 
     List<Address> findByCity(String city);
 }
