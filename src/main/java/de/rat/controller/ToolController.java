@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,10 +31,19 @@ public class ToolController {
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
+        Tool oldTool = repo.findById(aTool.getId());
 
-        repo.save(aTool);
+        if(oldTool != null){
+            oldTool.setDescription(aTool.getDescription());
+            oldTool.setRentPrice(aTool.getRentPrice());
+            repo.save(oldTool);
+        }else {
+            repo.save(aTool);
+        }
         return "redirect:/tools";
     }
+
+
 
     @RequestMapping("/new")
     public String showNewProductPage(Model model,@ModelAttribute Manufacturer manufacturer) {
@@ -57,6 +67,7 @@ public class ToolController {
 
         return mav;
     }
+
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
         repo.deleteById(id);
