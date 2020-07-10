@@ -9,11 +9,12 @@ import javax.persistence.Entity;
 
 @Entity
 public class Account extends BaseModel {
-    private Role role; //TODO: how does it look like in the database
-    private String email;
-    private String password;
 
-    protected Account(){ }
+    private String email;   //TODO: should this be declared as unique?
+    private String password;
+    private Role role;      //TODO: how does it look like in the database
+
+    public Account(){ }
 
     public Account (Role role, String email, String password){
         this.role= role;
@@ -21,13 +22,20 @@ public class Account extends BaseModel {
         this.password= password;
     }
 
-
     public Role getRole() {
         return this.role;
     }
 
+    public String getRolesForAuthority() {
+        return "ROLE_" + role;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

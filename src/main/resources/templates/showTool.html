@@ -1,42 +1,72 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title>Tool Manager</title>
-</head>
-<body>
-<div align="center">
-    <h1>Tool List</h1>
-    <a href="/new">Create New Tool</a>
-    <br/><br/>
-    <table border="1" cellpadding="10">
-        <thead>
-        <tr>
-            <th>Product ID</th>
-            <th>Category</th>
-            <th>Rentprice</th>
-            <th>Toolstatus</th>
-<!--            <th>Manufacturer</th>-->
-            <th>Description</th>
-<!--            <th>Actions</th>-->
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="tool : ${listTools}">
-            <td th:text="${tool.id}">Product ID</td>
-            <td th:text="${tool.category}">Category</td>
-            <td th:text="${tool.rentPrice}">Rentprice</td>
-            <td th:text="${tool.toolStatus}">Toolstatus</td>
-            <td th:text="${tool.manufacturer}">Manufacturer</td>
-            <td th:text="${tool.description}">Description</td>
-            <td>
-                <a th:href="@{'/edit/' + ${tool.id}}">Edit</a>
-                &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/delete/' + ${tool.id}}">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body class="toolsBody">
+<header th:replace="fragments/header :: header"></header>
+
+<div class="toolManagementHeader">
+    <h1>Tool Management</h1>
+    <a href="/new"><i class="fa fa-plus" aria-hidden="true"></i> Add Tool</a>
 </div>
+<table>
+    <caption>Tools</caption>
+    <thead>
+    <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">Category</th>
+        <th scope="col">Rentprice</th>
+        <th scope="col">Toolstatus</th>
+        <!--            <th scope="col">Manufacturer</th>-->
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+
+    </tr>
+    </thead>
+
+    <tr>
+    <tbody>
+    <tr th:each="tool : ${listTools}">
+        <td data-label="Product ID" th:text="${tool.id}">Product ID</td>
+        <td data-label="Category " th:text="${tool.category}">Category</td>
+        <td data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</td>
+        <td data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</td>
+<!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
+        <td data-label="Description" th:text="${tool.description}">Description</td>
+        <td>
+            <a th:href="@{'/edit/' + ${tool.id}}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+            &nbsp;&nbsp;&nbsp;
+            <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!-- ########################################################################## -->
+<!-- Kontakt -->
+<!-- ########################################################################## -->
+
+<section id="Kontakt" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Kontakt</h2>
+    <div class="ud_h2_balken"></div>
+
+    <!-- Content -->
+    <article class="ud_kontakt">
+        <ul>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="">contact@rentatool.com</a></li>
+            <li><i class="fa fa-location-arrow" aria-hidden="true"></i></span> Beispielstraße 1, Freiburg 23122</li>
+            <li><i class="fa fa-phone-square" aria-hidden="true"></i> 0123 / 12 12 12 5</li>
+        </ul>
+    </article>
+
+    <!-- Footer -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</section>
 </body>
 </html>

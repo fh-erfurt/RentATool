@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -23,38 +24,39 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password(passwordEncoder().encode("password")).roles("ADMIN").and()
+    UserDetailsService accountDetailsService;
 
-                .withUser("employee")
-                .password(passwordEncoder().encode("password")).roles("EMPLOYEE").and()
 
-                .withUser("customer")
-                .password(passwordEncoder().encode("password")).roles("CUSTOMER");;
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(accountDetailsService);
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public PasswordEncoder getPasswordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
     }
 
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/START", "/logout", "/ERROR","/404")
-                    .permitAll()
+                    .antMatchers("/", "/home", "/START", "/logout", "/error", "h2-console/**").permitAll()
                     .antMatchers("/ADMIN").hasRole("ADMIN")
                     .antMatchers("/EMPLOYEE").hasAnyRole("EMPLOYEE", "ADMIN")
                     .antMatchers("/CUSTOMER", "/tools/*").hasAnyRole("CUSTOMER","EMPLOYEE", "ADMIN")
@@ -62,7 +64,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .failureUrl("/login?error")
-                    .defaultSuccessUrl("/START")
+                    .usernameParameter("username").passwordParameter("password")
+                    .defaultSuccessUrl("/")
                     .permitAll()
                     .and()
                 .logout()
@@ -72,7 +75,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                     .accessDeniedHandler(new CustomAccessDeniedHandler()).and()
                     .exceptionHandling().authenticationEntryPoint(new CustomHttp403ForbiddenEntryPoint())
-                    .accessDeniedPage("/ERROR");
+                    .accessDeniedPage("/error");
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 
 
@@ -90,7 +96,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         @Override
         public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException arg2)
                 throws IOException, ServletException {
-            response.getWriter().print("You don't have required role to perform this action.");
+            response.sendError(HttpServletResponse.SC_FORBIDDEN,"Access denied");
         }
     }
 

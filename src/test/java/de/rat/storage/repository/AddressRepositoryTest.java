@@ -3,8 +3,13 @@ package de.rat.storage.repository;
 import de.rat.model.common.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
@@ -15,13 +20,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DataJpaTest
 class AddressRepositoryTest {
 
+
     private Address address1;
+    private Address address3;
 
     @Autowired
     AddressRepository repository;
 
     @BeforeEach
     void setUp(){
+        repository.findAll();
         address1 = new Address("Weg", 1,12345,"Erfurt","Deutschland");
         repository.save(address1);
     }

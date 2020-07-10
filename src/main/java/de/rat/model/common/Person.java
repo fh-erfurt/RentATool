@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
  */
 
 @MappedSuperclass
-public abstract class Person extends BaseModel {
+public class Person extends BaseModel {
 
 
     private String lastname;
@@ -24,7 +24,7 @@ public abstract class Person extends BaseModel {
     @OneToOne
     public Account account;
 
-    protected Person(){}
+    public Person(){}
 
     /** constructor for a Person
      *  it´s an abstract class which can inherit zo employee and customer
@@ -60,8 +60,10 @@ public abstract class Person extends BaseModel {
     public String getFirstname()    { return firstname; }
     public String getLastname()     { return lastname; }
 
-
-    //Methods
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+//Methods
     /** creates the Password for an employee or a customer.
      *  @return password (String)
      *
@@ -75,6 +77,25 @@ public abstract class Person extends BaseModel {
         return shortFirstname  + formatter.format(birthday) + shortLastname;
     }
 
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
     @Override
     public String toString() {
