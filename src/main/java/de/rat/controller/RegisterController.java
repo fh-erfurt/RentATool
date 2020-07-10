@@ -50,7 +50,10 @@ public class RegisterController {
     @PostMapping("/save")
     public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCustomer,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAccount,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAddress) {
         userAccount.setRole(Role.CUSTOMER);
-
+if(repositoryAccount.findAll().equals(userAccount.getEmail()))
+{
+    return "register_form";
+}
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
 {
     return "register_form";
