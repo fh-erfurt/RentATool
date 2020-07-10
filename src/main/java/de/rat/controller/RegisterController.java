@@ -5,23 +5,18 @@ import de.rat.model.customer.Customer;
 import de.rat.storage.repository.AccountRepository;
 import de.rat.storage.repository.AddressRepository;
 import de.rat.storage.repository.CustomerRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+
 
 @Controller
 public class RegisterController {
@@ -53,23 +48,19 @@ public class RegisterController {
     }
     //save in DB
     @PostMapping("/save")
-    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCust,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAcc,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAdd) {
+    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCustomer,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAccount,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAddress) {
         userAccount.setRole(Role.CUSTOMER);
-        if (bindingResultAcc.hasErrors()) {
-            return "register_form";
-        }
-        if (bindingResultCust.hasErrors()) {
-            return "register_form";
-        }
 
-        if (bindingResultAdd.hasErrors()) {
-            return "register_form";
-        }
-        repositoryCustomer.save(newCustomer);
+        while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
+{
+    return "register_form";
+}
+
         repositoryAccount.save(userAccount);
-       newCustomer.setAddress(userAddress);
-       newCustomer.setAccount(userAccount);
         repositoryAddress.save(userAddress);
+        newCustomer.setAddress(userAddress);
+        newCustomer.setAccount(userAccount);
+        repositoryCustomer.save(newCustomer);
         return "/registrationSuccessfull";
     }
 
