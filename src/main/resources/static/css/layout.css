@@ -318,9 +318,9 @@ header:hover > nav ul li a {
 #UberUns .ud_motto_bg article .ud_motto {
     display: inline-block;
     margin: 0 auto 0 auto;
-    width: 40%;
+    width: 90%;
     text-align: center;
-    font-size: 65px;
+    font-size: 55px;
     line-height: 55px;
     text-transform: uppercase;
 }
@@ -345,16 +345,16 @@ header:hover > nav ul li a {
     #UberUns .ud_motto_bg article .ud_motto {
         font-size: 27px;
         line-height: 22px;
-        width: 70%;
+        width: 85%;
         margin: 20px 0 20px 0;
     }
 }
 
 @media screen and (min-width: 1600px) {
     #UberUns .ud_motto_bg article .ud_motto {
-        font-size: 110px;
+        font-size: 70px;
         line-height: 90px;
-        width: 70%;
+        width: 85%;
     }
     #UberUns .ud_UberUns article p {
         width: 70%;
@@ -366,9 +366,9 @@ header:hover > nav ul li a {
 
 @media screen and (min-width: 2000px) {
     #UberUns .ud_motto_bg article .ud_motto {
-        font-size: 110px;
+        font-size: 80px;
         line-height: 90px;
-        width: 70%;
+        width: 85%;
     }
     #UberUns .ud_UberUns article p {
         width: 70%;
@@ -382,7 +382,7 @@ header:hover > nav ul li a {
     #UberUns .ud_motto_bg article .ud_motto {
         font-size: 110px;
         line-height: 90px;
-        width: 70%;
+        width: 85%;
     }
     #UberUns .ud_UberUns article p {
         width: 70%;

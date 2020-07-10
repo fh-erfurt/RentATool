@@ -1,74 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico"/>
 
-    <title>Rent A Tool</title>
-    <!-- ########################################################################## -->
-    <!-- CSS & Fonts -->
-    <!-- ########################################################################## -->
+<head th:replace="fragments/head :: head"></head>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="css/icon.css">
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-    <!-- ########################################################################## -->
-    <!-- jQuery -->
-    <!-- ########################################################################## -->
-
-    <script src="js/jquery.js"></script>
-    <script src="js/scroll.js"></script>
-    <script src="js/login.js"></script>
-
-</head>
 <body>
-<header>
-    <!-- Logo -->
-    <div id="ud_logo"><a href="#Startseite"><img src="images/logo.jpg" alt=""/></a></div>
-
-
-
-    <!-- Navigation -->
-    <nav>
-        <ul>
-
-            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
-            <li><a href="#Startseite">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li><a href="#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
-            <li><a href="#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-            <li><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-            <li><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-        </ul>
-    </nav>
-</header>
+<header th:replace="fragments/header :: header"></header>
 
 <div class="login-page">
     <div class="form">
-        <form class="login-form" th:action="@{/save}" th:object="${userDummy}" method="post">
-            <input type="text" th:field="*{name}" placeholder="username"/>
-            <input type="text" th:field="*{email}" placeholder="EMail"/>
-            <input type="password" th:field="*{password}" placeholder="password"/>
-            <select th:field ="*{profession}">
-                <option th:each="p :${professionList}" th:value="${p}" th:text="${p}" />
-            </select>
-            <label>Married?:</label>
-            <input type="checkbox" th:field="*{married}" />
-            <label>Gender:</label>
-            <input type="radio" th:field="*{gender}" value="Male"/>Male
-            <input type="radio" th:field="*{gender}" value="Female"/>Female
-            <label>Note:</label>
-            <textarea rows="5" cols="25" th:field="*{note}"> </textarea>
-            <button>Registrierung Abschließen</button>
+            <form  th:action="@{/save}" th:object="${newCustomer}"  method="post">
+                <div th:action="@{/save}" th:object="${userAccount}" method="post">
+                    <input type="text" th:field="*{email}" placeholder="EMail"/>
+                    <input type="password" th:field="*{password}" placeholder="password"/>
+                    <select th:field ="*{role}">-->
+                        <option th:each="p :${roleList}" th:value="${p}" th:text="${p}" />
+                    </select>
+                </div>
+                <input type="text" th:field="*{firstname}" placeholder="Vorname"/>
+                <input type="text" th:field="*{lastname}" placeholder="Nachname"/>
+<!--                ToDo at the moment it doesen't work with birthday-->
+<!--                <input type="text" th:field="*{birthday}" placeholder="Geburtstag"/>-->
+                <input type="text" th:field="*{phoneNumber}" placeholder="Telefonnummer"/>
+                <div th:action="@{/save}" th:object="${userAddress}" method="post">
+                    <input type="text" th:field="*{city}" placeholder="Stadt"/>
+                    <input type="text" th:field="*{country}" placeholder="Land"/>
+                    <input type="text" th:field="*{houseNr}" placeholder="Hausnummer"/>
+                    <input type="text" th:field="*{street}" placeholder="Straße"/>
+                    <input type="text" th:field="*{zip}" placeholder="PLZ"/>
+                </div>
 
-        </form>
+                    <button>Registrierung Abschließen</button>
+
+
+            </form>
     </div>
 </div>
 
@@ -86,30 +51,7 @@
         </ul>
     </article>
 <!-- Footer -->
-<footer>
-
-    <!-- Logo -->
-    <div class="ud_logo"><img src="images/logo.jpg" alt="" /></div>
-
-    <!-- Metanavigation -->
-    <nav id="ud_meta_nav">
-        <ul>
-            <a href="">
-                <li>Impressum</li>
-            </a>
-            <a href="">
-                <li>Datenschutz</li>
-            </a>
-            <a href="">
-                <li>Haftungsausschluss</li>
-            </a>
-        </ul>
-    </nav>
-
-    <!-- Metanavigation -->
-    <div id="ud_copyright">Design by <a href="">KSP-IT Solutions</a></div>
-
-</footer>
+    <footer th:replace="fragments/footer :: footer"></footer>
 </section>
 </body>
 </html>

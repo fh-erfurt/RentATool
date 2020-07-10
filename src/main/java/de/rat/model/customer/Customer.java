@@ -20,10 +20,18 @@ public class Customer extends Person {
     private static final Logger logger = Logger.getLogger("LOGGER");
     private String phoneNumber;
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @OneToMany // TODO: Check
     private List<Tool> inventory = new ArrayList<Tool>();
 
-    protected Customer(){}
+    public Customer(){}
 
     /** Creates an customer .
      *  @param lastname the lastname from the customer

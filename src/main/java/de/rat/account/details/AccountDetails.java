@@ -1,6 +1,7 @@
-package de.rat.logintest;
+package de.rat.account.details;
 
 
+import de.rat.model.common.Account;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,18 +11,18 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MyUserDetails implements UserDetails {
+public class AccountDetails implements UserDetails {
 
-    private String userName;
+    private String email;
     private String password;
-    private boolean active;
+//    private boolean active;
     private List<GrantedAuthority> authorities;
 
-    public MyUserDetails(LoginUser user) {
-        this.userName = user.getUserName();
-        this.password = user.getPassword();
-        this.active = user.isActive();
-        this.authorities = Arrays.stream(user.getRolesForAuthority().split(","))
+    public AccountDetails(Account account) {
+        this.email = account.getEmail();
+        this.password = account.getPassword();
+//        this.active = person.isActive();
+        this.authorities = Arrays.stream(account.getRolesForAuthority().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
@@ -37,9 +38,7 @@ public class MyUserDetails implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
-        return userName;
-    }
+    public String getUsername() {return email;}
 
     @Override
     public boolean isAccountNonExpired() {
@@ -57,7 +56,5 @@ public class MyUserDetails implements UserDetails {
     }
 
     @Override
-    public boolean isEnabled() {
-        return active;
-    }
+    public boolean isEnabled() {return true;}
 }
