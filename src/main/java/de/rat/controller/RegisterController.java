@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
+
 
 @Controller
 public class RegisterController {
@@ -51,6 +51,7 @@ public class RegisterController {
         model.addAttribute("roleList",roleList);
         return "register_form";
     }
+
     //save in DB
     @PostMapping("/save")
     public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCust,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAcc,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAdd) {
