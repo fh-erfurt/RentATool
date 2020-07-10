@@ -11,6 +11,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,19 +29,10 @@ class CustomerRepositoryTest {
 
     @BeforeEach
     void setUp(){
-        custHans =  new Customer("Müller", "Hans");
+        custHans =  new Customer("Müller", "Hans", LocalDate.of(2005, 8, 29),"hans@web.de","Kastanienallee","1A","01144", "Berlin","DE","0176767676");
         repository.save(custHans);
     }
 
-//    @Test
-//    public void is_customer_finded_by_lastname(){
-//
-//        List<Customer> allCustomer = repository.findByLastname("Müller");
-//        for(Customer customer: allCustomer)
-//        {
-//            assertEquals("Müller",customer.getLastname());
-//        }
-//    }
 
     @Test
     public void  is_first_user_added_to_database() {
