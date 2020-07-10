@@ -34,8 +34,8 @@ class BillTest {
 
     @BeforeEach
     void setUp() {
-        testAddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
-        testUser = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de", "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+        testAddress = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
+        testUser = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de", "Weimarerlandstraße", "53", "99986", "Dresden", "Germany", "561616310651");
         testStation = new Station("S1", 3, testAddress);
         bosch = new Manufacturer("Bosch", testAddress, "Mr Smith", "123456");
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));

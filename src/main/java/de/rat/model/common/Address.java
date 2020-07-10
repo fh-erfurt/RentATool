@@ -1,11 +1,7 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
-import org.hibernate.validator.constraints.Range;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**Represents a class address.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
@@ -13,26 +9,16 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Address extends BaseModel {
-    @NotNull
-    @Size(min=2, max=60 , message = "required")
+
     private String street;
-    @NotNull
-    @Range(min=1, max=300 , message = "required")
-    private int houseNr;
-    //ToDO is zip a string? (01165)
-    @NotNull
-    @Range(message = "required")
-    private int zip;
-    @NotNull
-    @Size(min=2, max=60 , message = "required")
+    private String houseNr;
+    private String zip;
     private String city;
-    @NotNull
-    @Size(min=2, max=100 , message = "required")
     private String country;
 
     public Address(){ }
 
-    public Address(String street, int houseNr, int zip, String city, String country) {
+    public Address(String street, String houseNr, String zip, String city, String country) {
         this.street = street;
         this.houseNr = houseNr;
         this.zip = zip;
@@ -44,11 +30,11 @@ public class Address extends BaseModel {
         return street;
     }
 
-    public int getHouseNr() {
+    public String getHouseNr() {
         return houseNr;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
@@ -64,11 +50,11 @@ public class Address extends BaseModel {
         this.street = street;
     }
 
-    public void setHouseNr(int hauseNr) {
+    public void setHouseNr(String hauseNr) {
         this.houseNr = hauseNr;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
@@ -80,11 +66,11 @@ public class Address extends BaseModel {
         this.country = country;
     }
 
-    public boolean checkAddress(String street, int hauseNr, int zip, String city, String country) {
+    public boolean checkAddress(String street, String hauseNr, String zip, String city, String country) {
         return this.street.equals(street) && this.houseNr == hauseNr && this.zip == zip && this.city.equals(city) && this.country.equals(country);
     }
 
-    public boolean changeAddress(String street, int hauseNr, int zip, String city, String country){
+    public boolean changeAddress(String street, String hauseNr, String zip, String city, String country){
         if(this.checkAddress(street, hauseNr, zip, city, country)){
             return false;
         } else{

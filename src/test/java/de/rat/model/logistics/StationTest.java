@@ -22,7 +22,7 @@ private Station station2;
 
     @BeforeEach
    public void setUp() {
-        testaddress = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        testaddress = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
         station = new Station("S1", 3, testaddress);
          Bosch = new Manufacturer("Bosch", testaddress, "Mr Smith", "123456");
         testtool = new Tool("123", Bosch, "Hammer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal("3.5"));
