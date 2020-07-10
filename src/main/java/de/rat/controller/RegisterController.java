@@ -11,11 +11,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
@@ -50,7 +53,7 @@ public class RegisterController {
     }
     //save in DB
     @PostMapping("/save")
-    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCust,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAcc, @ModelAttribute("userAddress") Address userAddress) {
+    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCust,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAcc,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAdd) {
         userAccount.setRole(Role.CUSTOMER);
         if (bindingResultAcc.hasErrors()) {
             return "register_form";
@@ -59,7 +62,9 @@ public class RegisterController {
             return "register_form";
         }
 
-
+        if (bindingResultAdd.hasErrors()) {
+            return "register_form";
+        }
         repositoryCustomer.save(newCustomer);
         repositoryAccount.save(userAccount);
        newCustomer.setAddress(userAddress);
@@ -67,6 +72,8 @@ public class RegisterController {
         repositoryAddress.save(userAddress);
         return "/registrationSuccessfull";
     }
+
+
 
 
 }
