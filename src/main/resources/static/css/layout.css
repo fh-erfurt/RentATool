@@ -443,20 +443,20 @@ header:hover > nav ul li a {
     margin: 0 0 10px 0;
 }
 
-#Leistungen .ud_leistungen ul li.ud_handarbeit {
+#Leistungen .ud_leistungen ul li.ud_ratWerSeidIhr {
 
     background-attachment: fixed;
     background-size:contain;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_1.png);
     background-repeat: no-repeat;
 }
-#Leistungen .ud_leistungen ul li.ud_projekte_naturholz {
+#Leistungen .ud_leistungen ul li.ud_unsereTools {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_2.jpg);
     background-attachment: fixed;
     background-size: contain;
     background-repeat: no-repeat;
 }
-#Leistungen .ud_leistungen ul li.ud_mobel_naturholz {
+#Leistungen .ud_leistungen ul li.ud_cityToolbox {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_3.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -550,7 +550,6 @@ header:hover > nav ul li a {
 #Kontakt {
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/bg_contact.png);
-
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
