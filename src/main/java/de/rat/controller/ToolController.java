@@ -6,8 +6,12 @@ import de.rat.storage.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -17,6 +21,7 @@ import java.util.List;
 public class ToolController {
     @Autowired
     ToolRepository repo;
+    private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/tools")
     public String listAllTools(Model model)
@@ -31,18 +36,20 @@ public class ToolController {
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
-        Tool oldTool = repo.findById(aTool.getId());
 
-        if(oldTool != null){
-            oldTool.setDescription(aTool.getDescription());
-            oldTool.setRentPrice(aTool.getRentPrice());
-            repo.save(oldTool);
-        }else {
-            repo.save(aTool);
-        }
+        repo.save(aTool);
         return "redirect:/tools";
     }
 
+    @PostMapping("/editTool")
+    public String editTool(@ModelAttribute("tool") Tool aTool, @ModelAttribute("id") int id)
+    {
+        Tool oldTool = repo.findById(id);
+        oldTool.setDescription(aTool.getDescription());
+        oldTool.setRentPrice(aTool.getRentPrice());
+        repo.save(oldTool);
+        return "redirect:/tools";
+    }
 
 
     @RequestMapping("/new")
@@ -56,14 +63,15 @@ public class ToolController {
         model.addAttribute("tool", tool);
         model.addAttribute("manuList",manuList);
 
-
         return "addTool";
     }
+
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("editTool");
         Tool tool = repo.findById(id);
         mav.addObject("tool", tool);
+        mav.addObject("id", tool.getId());
 
         return mav;
     }
