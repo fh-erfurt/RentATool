@@ -11,7 +11,7 @@ class AddressTest {
 
     @BeforeEach
     void setUp() {
-    address1 = new Address("Bosch-Strasse", 1, 99425, "Weimar", "DE");
+    address1 = new Address("Bosch-Strasse", 1, "99425", "Weimar", "DE");
     }
 
     @Test
@@ -19,7 +19,7 @@ class AddressTest {
 
         assertEquals("Bosch-Strasse",address1.getStreet());
         assertEquals(1,address1.getHouseNr());
-        assertEquals(99425,address1.getZip());
+        assertEquals("99425",address1.getZip());
         assertEquals("Weimar",address1.getCity());
         assertEquals("DE",address1.getCountry());
     }
@@ -31,12 +31,12 @@ class AddressTest {
         address1.setCity("Erfurt");
         address1.setCountry("FR");
         address1.setHouseNr(3);
-        address1.setZip(12345);
+        address1.setZip("12345");
 
         //Then
         assertEquals("Linde 2",address1.getStreet());
         assertEquals(3,address1.getHouseNr());
-        assertEquals(12345, address1.getZip());
+        assertEquals("12345", address1.getZip());
         assertEquals("Erfurt",address1.getCity());
         assertEquals("FR",address1.getCountry());
 
@@ -45,13 +45,13 @@ class AddressTest {
     @Test
     void should_give_true_when_the_Address_available()
     {
-        assertFalse(address1.checkAddress("Linde 2", 1, 99425, "Weimar", "DE"));
-        assertTrue(address1.checkAddress("Bosch-Strasse", 1, 99425, "Weimar", "DE"));
+        assertFalse(address1.checkAddress("Linde 2", 1, "99425", "Weimar", "DE"));
+        assertTrue(address1.checkAddress("Bosch-Strasse", 1, "99425", "Weimar", "DE"));
     }
 
     @Test
     void should_be_able_to_chnage_the_address(){
-        assertTrue(address1.changeAddress("Linde 2", 1, 99425, "Weimar", "DE"));
+        assertTrue(address1.changeAddress("Linde 2", 1, "99425", "Weimar", "DE"));
         assertEquals("Linde 2",address1.getStreet());
     }
 

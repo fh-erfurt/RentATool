@@ -46,7 +46,7 @@ public class Customer extends Person {
      *  @param phoneNumber the phoneNumber from the customer
      */
     public Customer(String lastname, String firstname, LocalDate birthday,
-             String email, String street, int houseNr, int zip, String city, String country, String phoneNumber)
+             String email, String street, int houseNr, String zip, String city, String country, String phoneNumber)
     {
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.CUSTOMER, email, createPassword());

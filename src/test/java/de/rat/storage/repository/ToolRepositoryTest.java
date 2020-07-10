@@ -36,7 +36,7 @@ class ToolRepositoryTest {
     @BeforeEach
     void setUp() {
 
-        address2 = new Address("Weg", 1,12345,"Erfurt","Deutschland");
+        address2 = new Address("Weg", 1,"12345","Erfurt","Deutschland");
         addressRepository.save(address2);
 
         manufacture = new Manufacturer("Bosch", address2, "Herr Bosch", "05642-458759");

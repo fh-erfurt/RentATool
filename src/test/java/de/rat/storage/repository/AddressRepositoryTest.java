@@ -30,7 +30,7 @@ class AddressRepositoryTest {
     @BeforeEach
     void setUp(){
         repository.findAll();
-        address1 = new Address("Weg", 1,12345,"Erfurt","Deutschland");
+        address1 = new Address("Weg", 1,"12345","Erfurt","Deutschland");
         repository.save(address1);
     }
 
@@ -38,7 +38,7 @@ class AddressRepositoryTest {
     public void is_address_saved_in_database(){
 
      Address address2 = repository.findById(address1.getId());
-     assertEquals(12345, address2.getZip());
+     assertEquals("12345", address2.getZip());
 
     }
 

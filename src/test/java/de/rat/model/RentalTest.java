@@ -38,7 +38,7 @@ class RentalTest {
     @BeforeEach
     void setUp() {
 
-        musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        musterhausen = new Address("Musterstrasse", 1, "99099", "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
 
@@ -48,16 +48,16 @@ class RentalTest {
         welder2 = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, new BigDecimal("3.5"));
 
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
-                "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+                "Weimarerlandstraße", 53, "99986", "Dresden", "Germany", "561616310651");
         custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
-                "Bahnhofsstraße", 16, 99067, "Gotha", "Germany", "01236/465854");
+                "Bahnhofsstraße", 16, "99067", "Gotha", "Germany", "01236/465854");
 
         empDanny = new Employee("Steinbrecher", "Danny", LocalDate.of(2019, 12, 15),
-                "Johannesstraße", 5, 99084, "Erfurt", "Germany", null);
+                "Johannesstraße", 5, "99084", "Erfurt", "Germany", null);
         empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, 2, 5),
-                "Michaelistraße", 17, 99086, "Erfurt", "Germany", empDanny);
+                "Michaelistraße", 17, "99086", "Erfurt", "Germany", empDanny);
         empJonas = new Employee("Casio", "Jonas", LocalDate.of(2000, 10, 30),
-                "Leipzigerstraße", 99, 99084, "Weimar", "Germany", empDanny);
+                "Leipzigerstraße", 99, "99084", "Weimar", "Germany", empDanny);
 
         EmployeeNotification.addEmployee(empDanny);
         EmployeeNotification.addEmployee(empMichael);

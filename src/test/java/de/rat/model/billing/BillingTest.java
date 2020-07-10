@@ -35,13 +35,13 @@ class BillingTest {
 
     @BeforeEach
     void setUp() {
-        musterhausen = new Address("Musterstrasse", 1, 99099, "Erfurt", "Deutschland");
+        musterhausen = new Address("Musterstrasse", 1, "99099", "Erfurt", "Deutschland");
         stationOne = new Station("S1", 3, musterhausen);
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
-                "Weimarerlandstraße", 53, 99986, "Dresden", "Germany", "561616310651");
+                "Weimarerlandstraße", 53, "99986", "Dresden", "Germany", "561616310651");
         hammer = new Tool("123",bosch,"Hammer", Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("3.5"));
         drill = new Tool("123",bosch,"Hammer", Category.ELECTRICALTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("5.5"));
-        address = new Address("Bosch-Strasse", 1, 99425, "Weimar", "DE");
+        address = new Address("Bosch-Strasse", 1, "99425", "Weimar", "DE");
         bosch =  new Manufacturer("Bosch",address,"Mr. Smith","01234");
         warehouse= new Warehouse();
 

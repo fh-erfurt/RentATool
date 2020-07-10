@@ -41,7 +41,7 @@ class StationRepositoryTest {
     @BeforeEach
     void setUp() {
 
-        boschAddress= new Address("Weg",12,12345,"Erfurt","Deutschland");
+        boschAddress= new Address("Weg",12,"12345","Erfurt","Deutschland");
         aRepo.save(boschAddress);
 
         bosch = new Manufacturer("Bosch",boschAddress,"Schmidt","123456789");
