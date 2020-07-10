@@ -29,11 +29,11 @@
                     <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></label>
                     <input type="text" th:field="*{country}" placeholder="Land"/>
                     <label th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></label>
-                    <input type="number" th:field="*{houseNr}" placeholder="Hausnummer"/>
+                    <input type="text" th:field="*{houseNr}" placeholder="Hausnummer"/>
                     <label th:if="${#fields.hasErrors('houseNr')}" th:errors="*{houseNr}"></label>
                     <input type="text" th:field="*{street}" placeholder="Straße"/>
                     <label th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></label>
-                    <input type="number" th:field="*{zip}" placeholder="PLZ"/>
+                    <input type="text" th:field="*{zip}" placeholder="PLZ"/>
                     <label th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></label>
                 </div>
 
