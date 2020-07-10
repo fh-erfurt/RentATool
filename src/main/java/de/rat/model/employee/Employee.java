@@ -40,8 +40,8 @@ public class Employee extends Person {
      *  @param supervisor the supervisor from the Employee
      */
     public Employee(String lastname, String firstname, LocalDate birthday,
-             String street, int houseNr, String zip, String city, String country,
-             Employee supervisor) {
+                    String street, String houseNr, String zip, String city, String country,
+                    Employee supervisor) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account    = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());
@@ -62,7 +62,7 @@ public class Employee extends Person {
      *  Employee Information
      */
     public Employee(String lastname, String firstname, LocalDate birthday,
-             String street, int houseNr, String zip, String city, String country) {
+                    String street, String houseNr, String zip, String city, String country) {
 
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account    = new Account(Role.EMPLOYEE, createEmail(lastname, firstname), createPassword());

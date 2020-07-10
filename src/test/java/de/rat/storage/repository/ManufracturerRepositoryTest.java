@@ -29,7 +29,7 @@ class ManufracturerRepositoryTest {
 
     @BeforeEach
     void setUp(){
-        address1 = new Address("Weg", 1,"12345","Erfurt","Deutschland");
+        address1 = new Address("Weg", "1","12345","Erfurt","Deutschland");
         aRepo.save(address1);
 
         manufacturer1 = new Manufacturer("Bosch",address1,"Schmidt","0123456");

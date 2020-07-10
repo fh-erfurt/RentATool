@@ -39,7 +39,7 @@ public class Person extends BaseModel {
      *  @param country the country from the Address, where the Person lives
      */
     public Person(String lastname, String firstname, LocalDate birthday,
-                  String street, int houseNr, String zip, String city, String country) {
+                  String street, String houseNr, String zip, String city, String country) {
 
         this.lastname   = lastname;
         this.firstname  = firstname;

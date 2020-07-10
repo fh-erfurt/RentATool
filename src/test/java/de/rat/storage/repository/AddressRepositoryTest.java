@@ -30,7 +30,7 @@ class AddressRepositoryTest {
     @BeforeEach
     void setUp(){
         repository.findAll();
-        address1 = new Address("Weg", 1,"12345","Erfurt","Deutschland");
+        address1 = new Address("Weg", "1","12345","Erfurt","Deutschland");
         repository.save(address1);
     }
 

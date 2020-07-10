@@ -34,14 +34,14 @@ class EmployeeTest {
     void setUp() {
 
         empJonas = new Employee("Hecht", "Jonas", LocalDate.of(2019, 12, 15),
-                "Johannesstraße", 5, "99084", "Weimar", "Germany", null);
+                "Johannesstraße", "5", "99084", "Weimar", "Germany", null);
         empMichael = new Employee("Müller", "Michael", LocalDate.of(2017, 2, 5),
-                "Michaelistraße", 17, "99086", "Erfurt", "Germany", empJonas);
+                "Michaelistraße", "17", "99086", "Erfurt", "Germany", empJonas);
 
         custMartin = new Customer("Schmidt", "Martin", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
-                "Weimarerlandstraße", 53, "99986", "Dresden", "Germany", "561616310651");
+                "Weimarerlandstraße", "53", "99986", "Dresden", "Germany", "561616310651");
 
-        musterhausen = new Address("Musterstrasse", 1, "99099", "Erfurt", "Deutschland");
+        musterhausen = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
         stationOne = new Station("S1", 3, musterhausen);

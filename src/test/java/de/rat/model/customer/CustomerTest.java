@@ -26,7 +26,7 @@ class CustomerTest {
 
     @BeforeEach
     void setUp() {
-        musterhausen = new Address("Musterstrasse", 1, "99099", "Erfurt", "Deutschland");
+        musterhausen = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         station1 = new Station("S1", 3, musterhausen);
 
@@ -37,9 +37,9 @@ class CustomerTest {
 
         //Customer
         custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
-        "Weimarerlandstraße", 53, "99986", "Dresden", "Germany", "561616310651");
+        "Weimarerlandstraße", "53", "99986", "Dresden", "Germany", "561616310651");
         custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
-        "Bahnhofsstraße", 16, "99067", "Gotha", "Germany", "01236/465854");
+        "Bahnhofsstraße", "16", "99067", "Gotha", "Germany", "01236/465854");
 
         station1.addToolToBox(welder);
     }

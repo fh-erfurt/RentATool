@@ -26,7 +26,7 @@ class RentProcessTest {
     @BeforeEach
     void setUp() {
 
-        musterhausen = new Address("Musterstrasse", 1, "99099", "Erfurt", "Deutschland");
+        musterhausen = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
         stationOne = new Station("S1", 3, musterhausen);
         drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
