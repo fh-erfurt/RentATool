@@ -68,11 +68,24 @@ if(checkAccount.isPresent())
 {
     return "register_form";
 }
-
+        log.info("1");
         repositoryAccount.save(userAccount);
-        repositoryAddress.save(userAddress);
+        log.info("2");
+        Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
+        log.info("3");
 
-        newCustomer.setAddress(userAddress);
+
+        if (checkAddress == null ) {
+            log.info("neue Adresse");
+            //log.info(dummy.getName());
+            repositoryAddress.save(userAddress);
+            newCustomer.setAddress(userAddress);
+        }
+        else{
+            log.info("addresse schon vorhanden");
+            //log.info(dummy.getName());
+            newCustomer.setAddress(checkAddress);
+        }
         newCustomer.setAccount(userAccount);
         repositoryCustomer.save(newCustomer);
         return "/registrationSuccessfull";
