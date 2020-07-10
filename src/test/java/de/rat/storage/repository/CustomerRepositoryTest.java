@@ -31,15 +31,15 @@ class CustomerRepositoryTest {
         repository.save(custHans);
     }
 
-    @Test
-    public void is_customer_finded_by_lastname(){
-
-        List<Customer> allCustomer = repository.findByLastname("Müller");
-        for(Customer customer: allCustomer)
-        {
-            assertEquals("Müller",customer.getLastname());
-        }
-    }
+//    @Test
+//    public void is_customer_finded_by_lastname(){
+//
+//        List<Customer> allCustomer = repository.findByLastname("Müller");
+//        for(Customer customer: allCustomer)
+//        {
+//            assertEquals("Müller",customer.getLastname());
+//        }
+//    }
 
     @Test
     public void  is_first_user_added_to_database() {
