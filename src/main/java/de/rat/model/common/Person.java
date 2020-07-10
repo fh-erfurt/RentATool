@@ -2,6 +2,8 @@ package de.rat.model.common;
 
 import de.rat.model.BaseModel;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -12,8 +14,11 @@ import java.time.format.DateTimeFormatter;
 @MappedSuperclass
 public class Person extends BaseModel {
 
-
+    @NotNull(message = "Name cannot be null.")
+    @Size(min = 2, max = 35, message = "Lastname must be 2-35 characters long.")
     private String lastname;
+    @NotNull
+    @Size(min = 2, max = 35, message = "Firstname must be 2-35 characters long.")
     private String firstname;
 
     private LocalDate birthday;

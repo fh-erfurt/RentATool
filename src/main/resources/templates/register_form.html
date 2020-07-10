@@ -12,22 +12,29 @@
             <form  th:action="@{/save}" th:object="${newCustomer}"  method="post">
                 <div th:action="@{/save}" th:object="${userAccount}" method="post">
                     <input type="text" th:field="*{email}" placeholder="EMail"/>
+                    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
                     <input type="password" th:field="*{password}" placeholder="password"/>
-                    <select th:field ="*{role}">-->
-                        <option th:each="p :${roleList}" th:value="${p}" th:text="${p}" />
-                    </select>
+                    <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
                 </div>
                 <input type="text" th:field="*{firstname}" placeholder="Vorname"/>
+                <label th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></label>
                 <input type="text" th:field="*{lastname}" placeholder="Nachname"/>
+                <label th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
 <!--                ToDo at the moment it doesen't work with birthday-->
 <!--                <input type="text" th:field="*{birthday}" placeholder="Geburtstag"/>-->
                 <input type="text" th:field="*{phoneNumber}" placeholder="Telefonnummer"/>
+                <label th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></label>
                 <div th:action="@{/save}" th:object="${userAddress}" method="post">
                     <input type="text" th:field="*{city}" placeholder="Stadt"/>
+                    <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></label>
                     <input type="text" th:field="*{country}" placeholder="Land"/>
-                    <input type="text" th:field="*{houseNr}" placeholder="Hausnummer"/>
+                    <label th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></label>
+                    <input type="number" th:field="*{houseNr}" placeholder="Hausnummer"/>
+                    <label th:if="${#fields.hasErrors('houseNr')}" th:errors="*{houseNr}"></label>
                     <input type="text" th:field="*{street}" placeholder="Straße"/>
-                    <input type="text" th:field="*{zip}" placeholder="PLZ"/>
+                    <label th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></label>
+                    <input type="number" th:field="*{zip}" placeholder="PLZ"/>
+                    <label th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></label>
                 </div>
 
                     <button>Registrierung Abschließen</button>

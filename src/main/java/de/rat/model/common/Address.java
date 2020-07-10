@@ -1,7 +1,11 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
+import org.hibernate.validator.constraints.Range;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**Represents a class address.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
@@ -9,12 +13,21 @@ import javax.persistence.*;
 
 @Entity
 public class Address extends BaseModel {
-
+    @NotNull
+    @Size(min=2, max=60 , message = "required")
     private String street;
+    @NotNull
+    @Range(min=1, max=300 , message = "required")
     private int houseNr;
     //ToDO is zip a string? (01165)
+    @NotNull
+    @Range(message = "required")
     private int zip;
+    @NotNull
+    @Size(min=2, max=60 , message = "required")
     private String city;
+    @NotNull
+    @Size(min=2, max=100 , message = "required")
     private String country;
 
     public Address(){ }

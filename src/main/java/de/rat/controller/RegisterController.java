@@ -1,9 +1,6 @@
 package de.rat.controller;
 
-import de.rat.model.common.Account;
-import de.rat.model.common.Address;
-import de.rat.model.common.Date;
-import de.rat.model.common.Person;
+import de.rat.model.common.*;
 import de.rat.model.customer.Customer;
 import de.rat.storage.repository.AccountRepository;
 import de.rat.storage.repository.AddressRepository;
@@ -13,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,7 +50,16 @@ public class RegisterController {
     }
     //save in DB
     @PostMapping("/save")
-    public String saveCustomer(@ModelAttribute("newCustomer") Customer newCustomer,@ModelAttribute("userAccount") Account userAccount,@ModelAttribute("userAddress") Address userAddress) {
+    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCust,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAcc, @ModelAttribute("userAddress") Address userAddress) {
+        userAccount.setRole(Role.CUSTOMER);
+        if (bindingResultAcc.hasErrors()) {
+            return "register_form";
+        }
+        if (bindingResultCust.hasErrors()) {
+            return "register_form";
+        }
+
+
         repositoryCustomer.save(newCustomer);
         repositoryAccount.save(userAccount);
        newCustomer.setAddress(userAddress);

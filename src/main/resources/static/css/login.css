@@ -2,7 +2,9 @@ body{
     background-color: #a8a8a8;
     font-family: 'Roboto', sans-serif;
 }
-
+label{
+    color: red;
+}
 .login-page {
     width: 360px;
     padding: 8% 0 0;
