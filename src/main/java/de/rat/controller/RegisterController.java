@@ -47,7 +47,7 @@ public class RegisterController {
         model.addAttribute("newDate",newDate);
         List<String> roleList = Arrays.asList("CUSTOMER");
         model.addAttribute("roleList",roleList);
-        return "register_form";
+        return "registerForm";
     }
 
     @PostMapping("/save")
@@ -59,11 +59,11 @@ public class RegisterController {
 if(checkAccount.isPresent())
 {
     bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
-    return "register_form";
+    return "registerForm";
 }
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
 {
-    return "register_form";
+    return "registerForm";
 }
         repositoryAccount.save(userAccount);
         Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
