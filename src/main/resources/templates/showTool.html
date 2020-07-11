@@ -36,7 +36,7 @@
 <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
         <td data-label="Description" th:text="${tool.description}">Description</td>
         <td>
-            <a th:href="@{'/edit/' + ${tool.id}}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+            <a th:href="@{/edit/{id}(id=${tool.id})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
             &nbsp;&nbsp;&nbsp;
             <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
         </td>

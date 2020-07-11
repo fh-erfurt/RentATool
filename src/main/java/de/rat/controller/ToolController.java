@@ -66,15 +66,15 @@ public class ToolController {
         return "addTool";
     }
 
-    @RequestMapping("/edit/{id}")
-    public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("editTool");
-        Tool tool = repo.findById(id);
-        mav.addObject("tool", tool);
-        mav.addObject("id", tool.getId());
-
-        return mav;
-    }
+//    @RequestMapping("/edit/{id}")
+//    public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
+//        ModelAndView mav = new ModelAndView("editTool");
+//        Tool tool = repo.findById(id);
+//        mav.addObject("tool", tool);
+//        mav.addObject("id", tool.getId());
+//
+//        return mav;
+//    }
 
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
