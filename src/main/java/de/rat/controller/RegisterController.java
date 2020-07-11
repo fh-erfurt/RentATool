@@ -6,6 +6,9 @@ import de.rat.storage.repository.AccountRepository;
 import de.rat.storage.repository.AddressRepository;
 import de.rat.storage.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.slf4j.Logger;
@@ -22,6 +25,9 @@ import java.util.Optional;
 
 @Controller
 public class RegisterController {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private CustomerRepository repositoryCustomer;
@@ -56,22 +62,28 @@ public class RegisterController {
         Optional<Account> checkAccount = repositoryAccount.findByEmail(userAccount.getEmail());
 
 
-if(checkAccount.isPresent())
-{
-    bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
-    return "register_form";
-}
+        if(checkAccount.isPresent())
+        {
+            bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
+            return "register_form";
+        }
+
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
-{
-    return "register_form";
-}
+        {
+            return "register_form";
+        }
+
+        String encodedPassword = passwordEncoder.encode(userAccount.getPassword());
+        userAccount.setPassword(encodedPassword);
+
+
+
         repositoryAccount.save(userAccount);
         Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
         if (checkAddress == null ) {
             repositoryAddress.save(userAddress);
             newCustomer.setAddress(userAddress);
-        }
-        else{
+        } else {
             newCustomer.setAddress(checkAddress);
         }
         newCustomer.setAccount(userAccount);
