@@ -94,7 +94,8 @@ public class ToolController {
     @PostMapping("/addToInventory/{Id}")
     public String addToCart(@PathVariable int Id, @ModelAttribute Tool tool, @ModelAttribute Customer customer){
 
-       customer.putToolInInventory(tool);
+    Tool toolForInventory=repositoryTool.findById(Id);
+        customer.putToolInInventory(toolForInventory);
        return"loginSuccessfull";
     }
 
