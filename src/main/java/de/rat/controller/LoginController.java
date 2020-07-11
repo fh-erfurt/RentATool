@@ -9,7 +9,7 @@ public class LoginController {
 
     @GetMapping("/login") //Index
     public String welcome() {
-        return "login";
+        return "loginForm";
     }
 
     @GetMapping(value = "/loginSuccessfull")
