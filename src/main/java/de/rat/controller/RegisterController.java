@@ -53,7 +53,7 @@ public class RegisterController {
         model.addAttribute("newDate",newDate);
         List<String> roleList = Arrays.asList("CUSTOMER");
         model.addAttribute("roleList",roleList);
-        return "register_form";
+        return "registerForm";
     }
 
     @PostMapping("/save")
