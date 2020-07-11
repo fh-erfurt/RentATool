@@ -1,3 +1,5 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <header th:fragment="header">
     <!-- Logo -->
     <div id="ud_logo"><a href="/"><img src="images/logo.jpg" alt=""/></a></div>
@@ -6,12 +8,20 @@
     <nav>
         <ul>
 
-            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
+            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${#authentication.getName()}"></span>!</li>
+<!--            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${authUserName}"></span>!</li>-->
             <li><a href="/">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li><a href="#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
-            <li><a href="#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-            <li><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-            <li><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+            <li><a href="/#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
+            <li><a href="/#Leistungen">Leistungen <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            <li><a href="/#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+
+
+            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
+
+            <li sec:authorize="!isAuthenticated()"><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
+            <li sec:authorize="!isAuthenticated()"><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+            <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
+
         </ul>
     </nav>
 </header>

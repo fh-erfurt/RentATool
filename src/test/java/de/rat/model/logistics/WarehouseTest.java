@@ -19,7 +19,7 @@ class WarehouseTest {
     void setUp(){
         warehouse= new Warehouse();
         hammer = new Tool("123",bosch,"Hammer",Category.HANDTOOL,"Lager",ToolStatus.AVAILABLE,new BigDecimal("3.5"));
-        address = new Address("Bosch-Strasse", 1, 99425, "Weimar", "DE");
+        address = new Address("Bosch-Strasse", "1", "99425", "Weimar", "DE");
         bosch =  new Manufacturer("Bosch",address,"Mr. Smith","01234");
     }
 

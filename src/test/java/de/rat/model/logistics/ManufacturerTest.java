@@ -16,8 +16,8 @@ class ManufacturerTest {
     @BeforeEach
     void setUp() {
 
-       address1 = new Address("Bosch-Str.1", 1, 99425, "Weimar", "DE");
-       address2 = new Address("Bosch-Str.1", 1, 99425, "Erfurt", "DE");
+       address1 = new Address("Bosch-Str.1", "1", "99425", "Weimar", "DE");
+       address2 = new Address("Bosch-Str.1", "1", "99425", "Erfurt", "DE");
        manufacture = new Manufacturer("Bosch", address1, "Herr Bosch", "05642-458759");
     }
 

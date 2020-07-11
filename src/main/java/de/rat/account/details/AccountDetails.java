@@ -1,11 +1,9 @@
 package de.rat.account.details;
 
-
 import de.rat.model.common.Account;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -15,13 +13,11 @@ public class AccountDetails implements UserDetails {
 
     private String email;
     private String password;
-//    private boolean active;
     private List<GrantedAuthority> authorities;
 
     public AccountDetails(Account account) {
         this.email = account.getEmail();
         this.password = account.getPassword();
-//        this.active = person.isActive();
         this.authorities = Arrays.stream(account.getRolesForAuthority().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
@@ -57,4 +53,5 @@ public class AccountDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {return true;}
+
 }

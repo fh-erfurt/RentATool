@@ -33,7 +33,7 @@ public class Station extends BaseModel {
     private Address address;
 
     /* tool management */
-    //ToDo DB und Klasse ja nicht gelich? Listen werden nicht vom Model gehändelt?!
+    //ToDo DB und Klasse ja nicht gleich? Listen werden nicht vom Model gehändelt?!
     @OneToMany
     private List<Tool> boxesOfTools= new ArrayList<Tool>();
 
@@ -84,6 +84,9 @@ public class Station extends BaseModel {
         return this.boxesOfTools.size();
     }
 
+    public List<Tool> getBoxesOfTools() {
+        return boxesOfTools;
+    }
 
     /** add the respective tool in the boxes of tools
      * checkStationLevel check is there one empty box

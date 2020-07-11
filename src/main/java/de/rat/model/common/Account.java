@@ -1,7 +1,11 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.*;
 
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
@@ -9,8 +13,11 @@ import javax.persistence.Entity;
 
 @Entity
 public class Account extends BaseModel {
-
+    @NotEmpty
+    @Column(unique = true)
+    @Email(message = "Enter a valid email address.")
     private String email;   //TODO: should this be declared as unique?
+    @NotEmpty(message="Enter a valid password")
     private String password;
     private Role role;      //TODO: how does it look like in the database
 

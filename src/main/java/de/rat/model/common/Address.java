@@ -11,15 +11,14 @@ import javax.persistence.*;
 public class Address extends BaseModel {
 
     private String street;
-    private int houseNr;
-    //ToDO is zip a string? (01165)
-    private int zip;
+    private String houseNr;
+    private String zip;
     private String city;
     private String country;
 
     public Address(){ }
 
-    public Address(String street, int houseNr, int zip, String city, String country) {
+    public Address(String street, String houseNr, String zip, String city, String country) {
         this.street = street;
         this.houseNr = houseNr;
         this.zip = zip;
@@ -31,11 +30,11 @@ public class Address extends BaseModel {
         return street;
     }
 
-    public int getHouseNr() {
+    public String getHouseNr() {
         return houseNr;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
@@ -51,11 +50,11 @@ public class Address extends BaseModel {
         this.street = street;
     }
 
-    public void setHouseNr(int hauseNr) {
+    public void setHouseNr(String hauseNr) {
         this.houseNr = hauseNr;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
@@ -67,11 +66,11 @@ public class Address extends BaseModel {
         this.country = country;
     }
 
-    public boolean checkAddress(String street, int hauseNr, int zip, String city, String country) {
+    public boolean checkAddress(String street, String hauseNr, String zip, String city, String country) {
         return this.street.equals(street) && this.houseNr == hauseNr && this.zip == zip && this.city.equals(city) && this.country.equals(country);
     }
 
-    public boolean changeAddress(String street, int hauseNr, int zip, String city, String country){
+    public boolean changeAddress(String street, String hauseNr, String zip, String city, String country){
         if(this.checkAddress(street, hauseNr, zip, city, country)){
             return false;
         } else{

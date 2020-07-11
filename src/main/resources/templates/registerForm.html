@@ -6,28 +6,40 @@
 
 <body>
 <header th:replace="fragments/header :: header"></header>
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Registration</h2>
+    <div class="ud_h2_balken"></div>
 
 <div class="login-page">
     <div class="form">
             <form  th:action="@{/save}" th:object="${newCustomer}"  method="post">
                 <div th:action="@{/save}" th:object="${userAccount}" method="post">
                     <input type="text" th:field="*{email}" placeholder="EMail"/>
+                    <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></label>
                     <input type="password" th:field="*{password}" placeholder="password"/>
-                    <select th:field ="*{role}">-->
-                        <option th:each="p :${roleList}" th:value="${p}" th:text="${p}" />
-                    </select>
+                    <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></label>
                 </div>
                 <input type="text" th:field="*{firstname}" placeholder="Vorname"/>
+                <label th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></label>
                 <input type="text" th:field="*{lastname}" placeholder="Nachname"/>
+                <label th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
 <!--                ToDo at the moment it doesen't work with birthday-->
 <!--                <input type="text" th:field="*{birthday}" placeholder="Geburtstag"/>-->
                 <input type="text" th:field="*{phoneNumber}" placeholder="Telefonnummer"/>
+                <label th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></label>
                 <div th:action="@{/save}" th:object="${userAddress}" method="post">
                     <input type="text" th:field="*{city}" placeholder="Stadt"/>
+                    <label th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></label>
                     <input type="text" th:field="*{country}" placeholder="Land"/>
+                    <label th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></label>
                     <input type="text" th:field="*{houseNr}" placeholder="Hausnummer"/>
+                    <label th:if="${#fields.hasErrors('houseNr')}" th:errors="*{houseNr}"></label>
                     <input type="text" th:field="*{street}" placeholder="Straße"/>
+                    <label th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></label>
                     <input type="text" th:field="*{zip}" placeholder="PLZ"/>
+                    <label th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}"></label>
                 </div>
 
                     <button>Registrierung Abschließen</button>
@@ -36,20 +48,8 @@
             </form>
     </div>
 </div>
-
+</section>
 <section id="Kontakt" class="ud_page">
-    <!-- Headline -->
-    <h2>Kontakt</h2>
-    <div class="ud_h2_balken"></div>
-
-    <!-- Content -->
-    <article class="ud_kontakt">
-        <ul>
-            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="">contact@rentatool.com</a></li>
-            <li><i class="fa fa-location-arrow" aria-hidden="true"></i></span> Beispielstraße 1, Freiburg 23122</li>
-            <li><i class="fa fa-phone-square" aria-hidden="true"></i> 0123 / 12 12 12 5</li>
-        </ul>
-    </article>
 <!-- Footer -->
     <footer th:replace="fragments/footer :: footer"></footer>
 </section>

@@ -4,10 +4,14 @@
     --stroke-color: black;
 
 }
+.errorWrapper{
+    position: relative;
+    height: 100%;
+}
 /**/
 .errorBody body {
     background: var(--main-color);
-    height: auto;
+
 }
 .errorBody h1 {
     margin: 0.5em auto 0 auto;

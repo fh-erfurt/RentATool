@@ -8,44 +8,30 @@
 <body>
 <header th:replace="fragments/header :: header"></header>
 
+<section id="UberUns" class="ud_page">
 
-<div align="center">
-    <h1>Create New Tool</h1>
-    <br />
-    <form action="#" th:action="@{/addTool}" th:object="${tool}"
-          method="post">
+    <!-- Headline -->
+    <h2>Toolmanagement</h2>
+    <div class="ud_h2_balken"></div>
 
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Product Name:</td>
-                <td><input type="text" th:field="*{description}" /></td>
-            </tr>
-            <tr>
-                <td>Category:</td>
-                <td><select th:field ="*{category}">
-                        <option th:each="p :${categoryList}" th:value="${p}" th:text="${p}" />
-                    </select></td>
-            </tr>
-            <tr>
-                <td>Rentprice:</td>
-                <td><input type="text" th:field="*{rentPrice}" /></td>
-            </tr>
-            <td>Toolstatus:</td>
-            <td><select th:field ="*{toolStatus}">
-                <option th:each="p :${statusList}" th:value="${p}" th:text="${p}" />
-            </select></td>
-            </tr>
-<!--            <tr>-->
-<!--                <td>Manufacturer:</td>-->
-<!--                <td><select th:field ="*{manufacturer}">-->
-<!--                    <option th:each="p :${manuList}" th:value="${p}" th:text="${p}" />-->
-<!--                </select></td>-->
-<!--            </tr>-->
-            <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
-            </tr>
-        </table>
-    </form>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" th:action="@{/addTool}" th:object="${tool}" method="post">
+                <input type="text" th:field="*{description}" placeholder="Description"/>
+                <select th:field ="*{category}" placeholder="Category">
+                <option th:each="p :${categoryList}" th:value="${p}" th:text="${p}" />
+                </select>
+                <input type="text" th:field="*{rentPrice}" placeholder="Rentprice"/>
+                <select th:field ="*{toolStatus}">
+                    <option th:each="p :${statusList}" th:value="${p}" th:text="${p}" />
+                </select>
+                <button>Save</button>
+            </form>
+        </div>
+
+
 </div>
+</section>
 </body>
 </html>

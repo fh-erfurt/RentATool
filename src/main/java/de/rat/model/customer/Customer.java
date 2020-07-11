@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
+
 /**Represents an customer.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
  */
@@ -18,7 +20,9 @@ public class Customer extends Person {
 
     @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
+    @NotEmpty(message="required")
     private String phoneNumber;
+
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -46,7 +50,7 @@ public class Customer extends Person {
      *  @param phoneNumber the phoneNumber from the customer
      */
     public Customer(String lastname, String firstname, LocalDate birthday,
-             String email, String street, int houseNr, int zip, String city, String country, String phoneNumber)
+                    String email, String street, String houseNr, String zip, String city, String country, String phoneNumber)
     {
         super(lastname, firstname, birthday, street, houseNr,  zip,  city,  country);
         this.account = new Account(Role.CUSTOMER, email, createPassword());
