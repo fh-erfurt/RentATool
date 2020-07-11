@@ -1,5 +1,6 @@
 package de.rat.controller;
 
+import de.rat.model.customer.Customer;
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
 import de.rat.storage.repository.ToolRepository;
@@ -89,6 +90,13 @@ public class ToolController {
     public String deleteTool(@PathVariable(name = "id") int id) {
         repositoryTool.deleteById(id);
         return "redirect:/toolManagement";
+    }
+    @PostMapping("/addToInventory/{Id}")
+    public String addToCart(@PathVariable int Id, @ModelAttribute Tool tool, @ModelAttribute Customer customer){
+
+    Tool toolForInventory=repositoryTool.findById(Id);
+        customer.putToolInInventory(toolForInventory);
+       return"loginSuccessfull";
     }
 
 

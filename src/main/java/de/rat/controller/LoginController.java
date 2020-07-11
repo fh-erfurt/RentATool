@@ -14,7 +14,6 @@ public class LoginController {
 
     @GetMapping(value = "/loginSuccessfull")
     public String currentUserName(Authentication authentication) {
-        return "index";
+        return "redirect:/";
     }
-
-}
+    }
