@@ -52,6 +52,7 @@ public class ToolController {
     @PostMapping("/updateTool")
     public String editTool(@ModelAttribute("tool") Tool aTool, @ModelAttribute("id") int id)
     {
+
         Tool oldTool = repositoryTool.findById(id);
         oldTool.setDescription(aTool.getDescription());
         oldTool.setRentPrice(aTool.getRentPrice());
@@ -74,7 +75,7 @@ public class ToolController {
         return "addTool";
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/editTool/{id}")
     public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("editTool");
         Tool tool = repositoryTool.findById(id);
@@ -87,7 +88,7 @@ public class ToolController {
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
         repositoryTool.deleteById(id);
-        return "redirect:/tools";
+        return "redirect:/toolManagement";
     }
 
 
