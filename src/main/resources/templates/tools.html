@@ -14,7 +14,6 @@
 
 <div class="flexWrapper">
 <div th:each="tool : ${listTools}">
-    <form class="login-form" th:action="@{/addToInventory/{Id}}" method="post">
 <div class="card">
     <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
     <ul class="toolInfo">
@@ -26,9 +25,10 @@
         <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
+    <form  th:action="@{/addToInventory/{Id}}" th:object="${tool}"  method="post">
     <p><button>Reservieren</button></p>
-</div>
     </form>
+</div>
 </div>
 </div>
 </section>
