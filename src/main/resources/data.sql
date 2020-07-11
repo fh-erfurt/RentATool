@@ -9,14 +9,14 @@
 --
 
 --
-
-INSERT INTO ACCOUNT(id, created, modified, email, password, role)
-VALUES (1, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
-
-INSERT INTO ACCOUNT(id, created, modified, email, password, role)
-VALUES (2, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
-
-INSERT INTO ACCOUNT(id, created, modified, email, password, role)
-VALUES (3, null, null, 'customer', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
-
+--
+-- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+-- VALUES (1, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
+--
+-- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+-- VALUES (2, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
+--
+-- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+-- VALUES (3, null, null, 'customer', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+--
 

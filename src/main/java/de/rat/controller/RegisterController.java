@@ -88,7 +88,7 @@ public class RegisterController {
         }
         newCustomer.setAccount(userAccount);
         repositoryCustomer.save(newCustomer);
-        return "registrationSuccessfull";
+        return "registrationSuccessful";
     }
 
 
