@@ -49,7 +49,7 @@ public class RegisterController {
         model.addAttribute("roleList",roleList);
         return "register_form";
     }
-    //save in DB
+
     @PostMapping("/save")
     public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCustomer,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAccount,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAddress) {
         userAccount.setRole(Role.CUSTOMER);
@@ -58,32 +58,20 @@ public class RegisterController {
 
 if(checkAccount.isPresent())
 {
-    log.info("Emailadresse");
-    log.info(checkAccount.get().getEmail());
-
-    log.info("Email gibs schon");
+    bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
     return "register_form";
 }
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
 {
     return "register_form";
 }
-        log.info("1");
         repositoryAccount.save(userAccount);
-        log.info("2");
         Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
-        log.info("3");
-
-
         if (checkAddress == null ) {
-            log.info("neue Adresse");
-            //log.info(dummy.getName());
             repositoryAddress.save(userAddress);
             newCustomer.setAddress(userAddress);
         }
         else{
-            log.info("addresse schon vorhanden");
-            //log.info(dummy.getName());
             newCustomer.setAddress(checkAddress);
         }
         newCustomer.setAccount(userAccount);
