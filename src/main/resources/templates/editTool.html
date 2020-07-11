@@ -7,39 +7,25 @@
 
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
-<div align="center">
-    <h1>Edit Product</h1>
-    <br />
-    <form action="#" th:action="@{/updateTool}" th:object="${tool}"
-          method="post">
+<section id="UberUns" class="ud_page">
 
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Product ID:</td>
-                <td>
-                    <input type="text" th:field="*{id}" readonly="readonly" />
-                </td>
-            </tr>
-            <tr>
-                <td>Tool Name:</td>
-                <td>
-                    <input type="text" th:field="*{description}" />
-                </td>
-            </tr>
-            <tr>
-                <td>Rentprice:</td>
-                <td><input type="text" th:field="*{rentPrice}" /></td>
-            </tr>
-            <!--            <tr>-->
-            <!--                <td>Manufacturer:</td>-->
-            <!--                <td><input type="text" th:field="*{manufacturer}" /></td>-->
-            <!--            </tr>-->
+    <!-- Headline -->
+    <h2>Edit Tool</h2>
+    <div class="ud_h2_balken"></div>
 
-            <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
-            </tr>
-        </table>
-    </form>
-</div>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" th:action="@{/updateTool}" th:object="${tool}" method="post">
+                <input type="text" th:field="*{id}" readonly="readonly" />
+                <input type="text" th:field="*{description}" placeholder="Description"/>
+                <input type="text" th:field="*{rentPrice}" placeholder="Rentprice"/>
+                <button>Save</button>
+            </form>
+        </div>
+
+
+    </div>
+</section>
 </body>
 </html>

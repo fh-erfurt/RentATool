@@ -4,6 +4,14 @@
 <head th:replace="fragments/head :: head"></head>
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
+
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Unsere Tools</h2>
+    <div class="ud_h2_balken"></div>
+
+
 <div class="flexWrapper">
 <div th:each="tool : ${listTools}">
 <div class="card">
@@ -21,5 +29,13 @@
 </div>
 </div>
 </div>
+</section>
+<section id="Kontakt" class="ud_page">
+
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+
+</section>
 </body>
 </html>

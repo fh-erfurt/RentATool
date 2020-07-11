@@ -12,31 +12,29 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
-
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
 public class ToolController {
     @Autowired
-    ToolRepository repo;
+    ToolRepository repositoryTool;
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/toolManagement")
     public String listAllTools(Model model)
     {
-        List<Tool> listTools= (List<Tool>) repo.findAll();
+        List<Tool> listTools= (List<Tool>) repositoryTool.findAll();
 
         model.addAttribute("listTools", listTools);
 
-        return "showTool";
+        return "toolManagement";
     }
 
     @RequestMapping(path="/tools")
     public String listAllTool(Model model)
     {
-        List<Tool> listTools= (List<Tool>) repo.findAll();
+        List<Tool> listTools= (List<Tool>) repositoryTool.findAll();
 
         model.addAttribute("listTools", listTools);
 
@@ -47,17 +45,18 @@ public class ToolController {
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
 
-        repo.save(aTool);
+        repositoryTool.save(aTool);
         return "redirect:/toolManagement";
     }
 
     @PostMapping("/updateTool")
     public String editTool(@ModelAttribute("tool") Tool aTool, @ModelAttribute("id") int id)
     {
-        Tool oldTool = repo.findById(id);
+
+        Tool oldTool = repositoryTool.findById(id);
         oldTool.setDescription(aTool.getDescription());
         oldTool.setRentPrice(aTool.getRentPrice());
-        repo.save(oldTool);
+        repositoryTool.save(oldTool);
         return "redirect:/toolManagement";
     }
 
@@ -76,10 +75,10 @@ public class ToolController {
         return "addTool";
     }
 
-    @RequestMapping("/edit/{id}")
+    @RequestMapping("/editTool/{id}")
     public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("editTool");
-        Tool tool = repo.findById(id);
+        Tool tool = repositoryTool.findById(id);
         mav.addObject("tool", tool);
         mav.addObject("id", tool.getId());
 
@@ -88,8 +87,8 @@ public class ToolController {
 
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
-        repo.deleteById(id);
-        return "redirect:/tools";
+        repositoryTool.deleteById(id);
+        return "redirect:/toolManagement";
     }
 
 

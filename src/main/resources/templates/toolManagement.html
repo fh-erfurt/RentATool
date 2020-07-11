@@ -6,9 +6,13 @@
 
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Toolmanagement</h2>
+    <div class="ud_h2_balken"></div>
 
 <div class="toolManagementHeader">
-    <h1>Tool Management</h1>
     <a href="/newTool"><i class="fa fa-plus" aria-hidden="true"></i> Add Tool</a>
 </div>
 <table>
@@ -36,7 +40,7 @@
 <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
         <td data-label="Description" th:text="${tool.description}">Description</td>
         <td>
-            <a th:href="@{/edit/{id}(id=${tool.id})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+            <a th:href="@{/editTool/{id}(id=${tool.id})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
             &nbsp;&nbsp;&nbsp;
             <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
         </td>
@@ -44,7 +48,7 @@
 
     </tbody>
 </table>
-
+</section>
 
 <section id="Kontakt" class="ud_page">
     <!-- Footer -->
