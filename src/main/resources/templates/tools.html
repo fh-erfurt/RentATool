@@ -4,12 +4,22 @@
 <head th:replace="fragments/head :: head"></head>
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
+<div class="flexWrapper">
+<div th:each="tool : ${listTools}">
 <div class="card">
     <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
-    <h1>Random Tool</h1>
-    <p class="price">$19.99</p>
+    <ul class="toolInfo">
+        <li data-label="Description" th:text="${tool.description}">Description</li>
+    <li data-label="Category " th:text="${tool.category}">Category</li>
+    <li data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</li>
+    <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
+
+        <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
+    </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
-    <p><button>Add to Cart</button></p>
+    <p><button>Reservieren</button></p>
+</div>
+</div>
 </div>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class ToolController {
     ToolRepository repo;
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
-    @RequestMapping(path="/tools")
+    @RequestMapping(path="/toolManagement")
     public String listAllTools(Model model)
     {
         List<Tool> listTools= (List<Tool>) repo.findAll();
@@ -33,12 +33,22 @@ public class ToolController {
         return "showTool";
     }
 
+    @RequestMapping(path="/tools")
+    public String listAllTool(Model model)
+    {
+        List<Tool> listTools= (List<Tool>) repo.findAll();
+
+        model.addAttribute("listTools", listTools);
+
+        return "tools";
+    }
+
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
 
         repo.save(aTool);
-        return "redirect:/tools";
+        return "redirect:/toolManagement";
     }
 
     @PostMapping("/updateTool")
@@ -48,11 +58,11 @@ public class ToolController {
         oldTool.setDescription(aTool.getDescription());
         oldTool.setRentPrice(aTool.getRentPrice());
         repo.save(oldTool);
-        return "redirect:/tools";
+        return "redirect:/toolManagement";
     }
 
 
-    @RequestMapping("/new")
+    @RequestMapping("/newTool")
     public String showNewProductPage(Model model,@ModelAttribute Manufacturer manufacturer) {
         Tool tool = new Tool();
         List<String> categoryList = Arrays.asList("ELECTRICALTOOL", "ACCUTOOL", "HANDTOOL", "GARDENTOOL");
