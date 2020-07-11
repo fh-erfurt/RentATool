@@ -65,12 +65,12 @@ public class RegisterController {
         if(checkAccount.isPresent())
         {
             bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
-            return "register_form";
+            return "registerForm";
         }
 
         while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
         {
-            return "register_form";
+            return "registerForm";
         }
 
         String encodedPassword = passwordEncoder.encode(userAccount.getPassword());
