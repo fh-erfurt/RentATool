@@ -7,15 +7,16 @@
 -- INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (2,'Maier','Makita',5546456455,3);
 -- INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (3,'Schulze','DeWalt',0657456445,2);
 --
---
--- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
--- VALUES (1, null, null, 'admin', 'password', 0);
---
--- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
--- VALUES (2, null, null, 'employee', 'password', 1);
---
--- INSERT INTO ACCOUNT(id, created, modified, email, password, role)
--- VALUES (3, null, null, 'customer', 'password', 2);
 
--- INSERT INTO EMPLOYEE(id, created, modified, birthday, firstname, lastname, account_id, supervisor_id)
--- VALUES (1,null, null, null, null, null, 1, null);
+--
+
+INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+VALUES (1, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
+
+INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+VALUES (2, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
+
+INSERT INTO ACCOUNT(id, created, modified, email, password, role)
+VALUES (3, null, null, 'customer', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+
+
