@@ -27,6 +27,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
                                 + " attempted to access the protected URL: "
                                 + request.getRequestURI());
                 }
+
+                response.setStatus(403);
+                LOG.info(Integer.toString(response.getStatus()));
+
                 response.sendRedirect(request.getContextPath() + "error");
         }
 }
