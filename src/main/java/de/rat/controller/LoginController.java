@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 
+    @GetMapping("/login") //Index
+    public String welcome() {
+        return "login";
+    }
+
     @GetMapping(value = "/loginSuccessfull")
     public String currentUserName(Authentication authentication) {
         return "/loginSuccessfull";
     }
-}
+    }
