@@ -1,26 +1,18 @@
 package de.rat.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
+@Configuration // TODO: delete this Config, because we route this in our controller
 public class MvcConfig implements WebMvcConfigurer {
 
     public void addViewControllers(ViewControllerRegistry registry) {
-
-//        registry.addViewController("/").setViewName("index");
-//        registry.addViewController("/register").setViewName("register_form");
-//        registry.addViewController("/login").setViewName("login");
 
         registry.addViewController("/ADMIN").setViewName("ADMIN");
         registry.addViewController("/EMPLOYEE").setViewName("EMPLOYEE");
         registry.addViewController("/CUSTOMER").setViewName("CUSTOMER");
         registry.addViewController("/START").setViewName("START");
-        registry.addViewController("/ERROR2").setViewName("ERROR2");
 
     }
-
-
 }

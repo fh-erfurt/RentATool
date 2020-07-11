@@ -16,4 +16,5 @@ public class LoginController {
     public String currentUserName(Authentication authentication) {
         return "loginSuccessfull";
     }
-    }
+
+}

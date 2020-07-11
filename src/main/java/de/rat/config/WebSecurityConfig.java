@@ -14,8 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import javax.sql.DataSource;
-
 
 @Configuration
 @EnableWebSecurity
@@ -24,9 +22,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     UserDetailsService accountDetailsService;
-
-    @Autowired
-    DataSource dataSource;
 
     @Bean
     public HttpSessionEventPublisher httpSessionEventPublisher() {
@@ -38,14 +33,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new CustomAccessDeniedHandler();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(accountDetailsService);
-    }
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(accountDetailsService);
     }
 
     @Override
@@ -53,8 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/START", "/logout", "/error", "h2-console/**").permitAll()
-                    .antMatchers("/ADMIN").hasRole("ADMIN")
+                    .antMatchers("/", "/home", "/START", "/logout", "h2-console/**").permitAll()
+                    .antMatchers("/ADMIN", "/tools").hasRole("ADMIN")
                     .antMatchers("/EMPLOYEE").hasAnyRole("EMPLOYEE", "ADMIN")
                     .antMatchers("/CUSTOMER", "/tools/*").hasAnyRole("CUSTOMER","EMPLOYEE", "ADMIN")
                     .and()
@@ -76,15 +71,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .accessDeniedHandler(accessDeniedHandler()).and()
 
                 .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-                    .maximumSessions(1);;
+                    .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
 
         http.csrf().disable();
         http.headers().frameOptions().disable();
     }
-
-
-
-
-
 }
