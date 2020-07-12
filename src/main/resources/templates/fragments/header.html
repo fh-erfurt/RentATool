@@ -1,28 +1,33 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <header th:fragment="header">
-    <!-- Logo -->
-    <div id="ud_logo"><a href="/"><img src="images/logo.jpg" alt=""/></a></div>
 
-    <!-- Navigation -->
+    <div class="NavContent">
+        <a href="/"><img src="images/logo.jpg" alt=""/></a>
+        <a sec:authorize="isAuthenticated()">Angemeldet als <span th:text ="${authUserFirstName} + ' ' + ${authUserLastName}+ '!'"></span></a>
+    </div>
+
     <nav>
-        <ul>
+        <div class="navfloat">
+            <a href="/">Startseite <i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a>
+            <a href="/#Leistungen">Leistungen <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            <a href="/#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+            <a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a>
 
-<!--            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${#authentication.getName()}"></span>!</li>-->
-            <li sec:authorize="isAuthenticated()">Angemeldet als <span th:text ="${authUserFirstName} + ' ' + ${authUserLastName}"></span>!</li>
-            <li><a href="/">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
-            <li><a href="/#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
-            <li><a href="/#Leistungen">Leistungen <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-            <li><a href="/#Kontakt">Kontakt <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fa fa-user fa-2x" aria-hidden="true"></i></button>
+                <div class="dropdown-content">
 
+                    <a sec:authorize="!isAuthenticated()" href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                    <a sec:authorize="!isAuthenticated()" href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    <a sec:authorize="isAuthenticated()" href="/toolManagement">Tool Management</a>
+                    <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>
 
-            <li><a href="tools">Tools <i class="fa fa-wrench" aria-hidden="true"></i></a></li>
-
-            <li sec:authorize="!isAuthenticated()"><a href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a></li>
-            <li sec:authorize="!isAuthenticated()"><a href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
-            <li sec:authorize="isAuthenticated()"><a href="/logout">Logout</a></li>
-
-        </ul>
+                </div>
+            </div>
+        </div>
     </nav>
+
 </header>
 

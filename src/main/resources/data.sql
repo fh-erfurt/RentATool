@@ -20,6 +20,7 @@ INSERT INTO ACCOUNT(id, created, modified, email, password, role)
 VALUES (300000, null, null, 'customer', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
 --
 
+
 INSERT INTO CUSTOMER(id, created, modified, birthday, firstname, lastname, phone_number, account_id, address_id)
 VALUES (100000, null, null, null, 'Danny', 'Steinbrecher', null, 100000, null);
 
