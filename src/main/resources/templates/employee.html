@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body class="toolsBody">
+<header th:replace="fragments/header :: header"></header>
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Employee</h2>
+    <div class="ud_h2_balken"></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th scope="col">Vorname</th>
+            <th scope="col">Nachname</th>
+            <th scope="col">Alter</th>
+            <th scope="col">Rolle</th>
+            <th scope="col">E-Mail</th>
+
+        </tr>
+        </thead>
+
+        <tr>
+            <tbody>
+
+            <tr th:each="employee : ${listEmployee}">
+                <td data-label="firstname" th:text="${employee.firstname}">Product ID</td>
+                <td data-label="lastname " th:text="${employee.lastname}">Category</td>
+                <td data-label="birthday" th:text="${#temporals.formatISO(employee.birthday)}"> >Rentprice</td>
+                <td data-label="role" th:text="${employee.getAccount().role}">Toolstatus</td>
+                <td data-label="email" th:text="${employee.getAccount().email}">Description</td>
+                <!--            <td>-->
+                <!--                <a th:href="@{/editTool/{id}(id=${customer.id})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>-->
+                <!--                &nbsp;&nbsp;&nbsp;-->
+                <!--                <a th:href="@{'/delete/' + ${customer.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>-->
+                <!--            </td>-->
+            </tr>
+
+            </tbody>
+    </table>
+</section>
+
+<section id="footerSection" class="ud_pageFooter">
+    <!-- Footer -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</section>
+</body>
+</html>
