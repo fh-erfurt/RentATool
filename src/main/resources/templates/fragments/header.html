@@ -8,8 +8,8 @@
     <nav>
         <ul>
 
-            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${#authentication.getName()}"></span>!</li>
-<!--            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${authUserName}"></span>!</li>-->
+<!--            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${#authentication.getName()}"></span>!</li>-->
+            <li sec:authorize="isAuthenticated()">Hallo <span th:text ="${authUserName}"></span>!</li>
             <li><a href="/">Startseite <i class="fa fa-home" aria-hidden="true"></i></a></li>
             <li><a href="/#UberUns">Über Uns <i class="fa fa-info" aria-hidden="true"></i></a></li>
             <li><a href="/#Leistungen">Leistungen <i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
