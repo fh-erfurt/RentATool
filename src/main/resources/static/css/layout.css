@@ -60,10 +60,7 @@ footer,
 .ud_page {
     background: #444444;
 }
-ud_pageFooter
-{
-    background: white;
-}
+
 
 #Kontakt h2,
 #Startseite h2,
@@ -93,8 +90,8 @@ footer a {
 
 #UberUns h2,
 #Leistungen h2
-/*header nav ul li a:hover,*/
-/*header #ud_kontakt_icon .ud_kontakt_icon:hover */
+header nav ul li a:hover,
+header #ud_kontakt_icon .ud_kontakt_icon:hover
 {
     color: #111;
 }
@@ -105,7 +102,7 @@ footer a {
 }
 
 p,
-/*header nav ul li,*/
+header nav ul li,
 .ud_button,
 footer,
 #Kontakt .ud_kontakt {
@@ -121,13 +118,13 @@ h2,
     font-family:'Roboto Condensed', sans-serif;
 }
 
-/*header,*/
-/*header #ud_kontakt_icon,*/
+header,
+header #ud_kontakt_icon,
 #ud_kontakt_icon .ud_kontakt_icon
-/*header nav ul li a,*/
-/*header nav ul,*/
-/*header #ud_logo,*/
-/*header #ud_kontakt_icon .ud_kontakt_icon span*/
+header nav ul li a,
+header nav ul,
+header #ud_logo,
+header #ud_kontakt_icon .ud_kontakt_icon span
 {
     transition: all 300ms;
     -moz-transition: all 300ms;
@@ -147,13 +144,7 @@ h2,
     float: left;
 }
 
-.ud_pageFooter
-{
-    width: 100%;
-    min-height: 28%;
-    overflow: hidden;
-    float: left;
-}
+
 
 /* ################################################################## */
 /* Startseite */
@@ -463,11 +454,47 @@ h2,
 /* ################################################################## */
 /* Kontakt */
 /* ################################################################## */
-#footerSection
+.footerWrapper
 {
-    position: relative;
-    background-image: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    padding: 50px 0 0 0;
+    font-size: 10px;
+}
+.footerWrapper .ud_logo
+{
+    width: 100%;
+    text-align: center;
+}
+.footerWrapper .ud_logo img
+{
+    width: 130px;
+    margin: 0 auto;
+}
 
+.footerWrapper #ud_copyright {
+    margin: -10px 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.footerWrapper #ud_meta_nav {
+    margin: 20px 0 0 0;
+}
+.footerWrapper #ud_meta_nav ul {
+    margin: 0;
+    padding: 0;
+}
+.footerWrapper #ud_meta_nav ul li {
+    margin: 0;
+    padding: 0 2px 0 2px;
+    list-style: none;
+    display: inline;
+    border-right: 1px solid #666;
 }
 #Kontakt {
     position: relative;
@@ -479,25 +506,25 @@ h2,
 }
 
 
-#footerSection.ud_kontakt,#Kontakt .ud_kontakt {
+#Kontakt .ud_kontakt {
     width: 100%;
     text-align: center;
 }
-#footerSection.ud_kontakt ul,#Kontakt .ud_kontakt ul {
+#Kontakt .ud_kontakt ul {
     margin: 150px 0 0 0;
     padding: 0;
 }
-#footerSection.ud_kontakt ul li,#Kontakt .ud_kontakt ul li {
+#Kontakt .ud_kontakt ul li {
     margin: 0 0 15px 0;
     padding: 0;
     list-style: none;
     font-size: 17px;
 }
-#footerSection.ud_kontakt ul li a,#Kontakt .ud_kontakt ul li a {
+#Kontakt .ud_kontakt ul li a {
     text-decoration: underline;
 }
 
-#footerSection footer,#Kontakt footer {
+#Kontakt footer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -507,32 +534,33 @@ h2,
     padding: 50px 0 0 0;
     font-size: 10px;
 }
-#footerSection footer .ud_logo,#Kontakt footer .ud_logo {
+#Kontakt footer .ud_logo {
     width: 100%;
+    text-align: center;
 }
-#footerSection footer .ud_logo img,#Kontakt footer .ud_logo img {
+#Kontakt footer .ud_logo img {
     width: 130px;
-    height: auto;
+    margin: 0 auto;
 }
-#footerSection footer #ud_copyright, #Kontakt footer #ud_copyright {
+ #Kontakt footer #ud_copyright {
     margin: -10px 0 0 0;
     padding: 0;
 }
-#footerSection footer #ud_meta_nav,#Kontakt footer #ud_meta_nav {
+#Kontakt footer #ud_meta_nav {
     margin: 20px 0 0 0;
 }
-#footerSection footer #ud_meta_nav ul, #Kontakt footer #ud_meta_nav ul {
+ #Kontakt footer #ud_meta_nav ul {
     margin: 0;
     padding: 0;
 }
-#footerSection footer #ud_meta_nav ul li, #Kontakt footer #ud_meta_nav ul li {
+ #Kontakt footer #ud_meta_nav ul li {
     margin: 0;
     padding: 0 2px 0 2px;
     list-style: none;
     display: inline;
     border-right: 1px solid #666;
 }
-#footerSection footer #ud_meta_nav ul li:last-child, #Kontakt footer #ud_meta_nav ul li:last-child {
+#Kontakt footer #ud_meta_nav ul li:last-child {
     border: none;
 }
 
