@@ -60,6 +60,10 @@ header,
 .ud_page {
     background: #444444;
 }
+ud_pageFooter
+{
+    background: white;
+}
 
 #Kontakt h2,
 #Startseite h2,
@@ -136,6 +140,14 @@ header #ud_kontakt_icon .ud_kontakt_icon span {
 .ud_page {
     width: 100%;
     min-height: 100%;
+    overflow: hidden;
+    float: left;
+}
+
+.ud_pageFooter
+{
+    width: 100%;
+    min-height: 28%;
     overflow: hidden;
     float: left;
 }
@@ -546,7 +558,12 @@ header:hover > nav ul li a {
 /* ################################################################## */
 /* Kontakt */
 /* ################################################################## */
+#footerSection
+{
+    position: relative;
+    background-image: none;
 
+}
 #Kontakt {
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/bg_contact.png);
@@ -556,25 +573,26 @@ header:hover > nav ul li a {
 
 }
 
-#Kontakt .ud_kontakt {
+
+#footerSection.ud_kontakt,#Kontakt .ud_kontakt {
     width: 100%;
     text-align: center;
 }
-#Kontakt .ud_kontakt ul {
+#footerSection.ud_kontakt ul,#Kontakt .ud_kontakt ul {
     margin: 150px 0 0 0;
     padding: 0;
 }
-#Kontakt .ud_kontakt ul li {
+#footerSection.ud_kontakt ul li,#Kontakt .ud_kontakt ul li {
     margin: 0 0 15px 0;
     padding: 0;
     list-style: none;
     font-size: 17px;
 }
-#Kontakt .ud_kontakt ul li a {
+#footerSection.ud_kontakt ul li a,#Kontakt .ud_kontakt ul li a {
     text-decoration: underline;
 }
 
-#Kontakt footer {
+#footerSection footer,#Kontakt footer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -584,32 +602,32 @@ header:hover > nav ul li a {
     padding: 50px 0 0 0;
     font-size: 10px;
 }
-#Kontakt footer .ud_logo {
+#footerSection footer .ud_logo,#Kontakt footer .ud_logo {
     width: 100%;
 }
-#Kontakt footer .ud_logo img {
+#footerSection footer .ud_logo img,#Kontakt footer .ud_logo img {
     width: 130px;
     height: auto;
 }
-#Kontakt footer #ud_copyright {
+#footerSection footer #ud_copyright, #Kontakt footer #ud_copyright {
     margin: -10px 0 0 0;
     padding: 0;
 }
-#Kontakt footer #ud_meta_nav {
+#footerSection footer #ud_meta_nav,#Kontakt footer #ud_meta_nav {
     margin: 20px 0 0 0;
 }
-#Kontakt footer #ud_meta_nav ul {
+#footerSection footer #ud_meta_nav ul, #Kontakt footer #ud_meta_nav ul {
     margin: 0;
     padding: 0;
 }
-#Kontakt footer #ud_meta_nav ul li {
+#footerSection footer #ud_meta_nav ul li, #Kontakt footer #ud_meta_nav ul li {
     margin: 0;
     padding: 0 2px 0 2px;
     list-style: none;
     display: inline;
     border-right: 1px solid #666;
 }
-#Kontakt footer #ud_meta_nav ul li:last-child {
+#footerSection footer #ud_meta_nav ul li:last-child, #Kontakt footer #ud_meta_nav ul li:last-child {
     border: none;
 }
 
