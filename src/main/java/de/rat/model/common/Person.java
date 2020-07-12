@@ -11,9 +11,8 @@ import java.time.format.DateTimeFormatter;
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
-@Entity
-@Inheritance
-//@MappedSuperclass
+
+@MappedSuperclass
 public abstract class Person extends BaseModel {
 
     @NotNull(message = "Name cannot be null.")
