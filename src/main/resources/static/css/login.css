@@ -11,7 +11,7 @@ label{
     margin: auto;
 }
 .form {
-    position: relative;
+    /*position: relative;*/
     z-index: 1;
     background: #ffffff;
     max-width: 360px;

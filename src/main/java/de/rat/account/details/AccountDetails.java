@@ -11,11 +11,13 @@ import java.util.stream.Collectors;
 
 public class AccountDetails implements UserDetails {
 
+    private Integer id;
     private String email;
     private String password;
     private List<GrantedAuthority> authorities;
 
     public AccountDetails(Account account) {
+        this.id = account.getId();
         this.email = account.getEmail();
         this.password = account.getPassword();
         this.authorities = Arrays.stream(account.getRolesForAuthority().split(","))
@@ -23,9 +25,15 @@ public class AccountDetails implements UserDetails {
                 .collect(Collectors.toList());
     }
 
+
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override
