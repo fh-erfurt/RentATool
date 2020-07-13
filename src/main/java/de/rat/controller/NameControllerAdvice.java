@@ -47,6 +47,28 @@ public class NameControllerAdvice {
                 }
             }
         }
+    }
 
+
+    public Person getAuthUser() {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            Object principal = auth.getPrincipal();
+            if (principal instanceof AccountDetails) {
+                AccountDetails account = (AccountDetails) principal;
+                Integer accountId = account.getId();
+
+                Customer customer = customerRepository.findByAccount_id(accountId);
+                Employee employee = employeeRepository.findByAccount_id(accountId);
+
+                if(customer != null){
+                    return customer;
+                }else{
+                    return employee;
+                }
+            }
+        }
+        return null;
     }
 }
