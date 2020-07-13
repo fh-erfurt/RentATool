@@ -92,11 +92,14 @@ public class ToolController {
         return "redirect:/toolManagement";
     }
     @PostMapping("/addToInventory/{Id}")
-    public String addToCart(@PathVariable int Id, @ModelAttribute Tool tool, @ModelAttribute Customer customer){
+    public String addToCart(@PathVariable int Id, @ModelAttribute Tool tool){
 
-    Tool toolForInventory=repositoryTool.findById(Id);
-        customer.putToolInInventory(toolForInventory);
-       return"loginSuccessfull";
+       log.info("111111");
+       log.info(String.valueOf(tool.getId()));
+       log.info(String.valueOf(Id));
+
+      Tool toolForInventory=repositoryTool.findById(Id);
+       return"registrationSuccessfull";
     }
 
 
