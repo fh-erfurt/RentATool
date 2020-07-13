@@ -41,12 +41,12 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String showForm(Model model) {
-        Person newPerson=new Person();
+//        Person newPerson=new Person();
         Customer newCustomer=new Customer();
         Account userAccount =new Account();
         Address userAddress =new Address();
         Date newDate =new Date();
-        model.addAttribute("newPerson", newPerson);
+//        model.addAttribute("newPerson", newPerson);
         model.addAttribute("newCustomer", newCustomer);
         model.addAttribute("userAccount", userAccount);
         model.addAttribute("userAddress",userAddress);
@@ -88,7 +88,7 @@ public class RegisterController {
         }
         newCustomer.setAccount(userAccount);
         repositoryCustomer.save(newCustomer);
-        return "registrationSuccessfull";
+        return "registrationSuccessful";
     }
 
 

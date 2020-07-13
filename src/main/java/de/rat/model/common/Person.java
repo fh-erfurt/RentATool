@@ -11,8 +11,9 @@ import java.time.format.DateTimeFormatter;
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
+
 @MappedSuperclass
-public class Person extends BaseModel {
+public abstract class Person extends BaseModel {
 
     @NotNull(message = "Name cannot be null.")
     @Size(min = 2, max = 35, message = "Lastname must be 2-35 characters long.")

@@ -1,0 +1,181 @@
+/* ################################################################## */
+/* Header */
+/* ################################################################## */
+
+
+
+
+header {
+    background: #fff;
+    color: #999999;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+header nav ul li a:hover {
+    color: #111;
+}
+
+header nav {
+    font-family: "Lato", sant-serif;
+    font-weight: 300;
+    line-height: 25px;
+    word-spacing: 3px;
+}
+
+header #ud_logo {
+    float: left;
+    width: 80px;
+    height: 30px;
+    margin: 5px 0 0 8px;
+}
+
+header #ud_logo img {
+    width: 70%;
+    height: auto;
+}
+
+header nav {
+    float: right;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul {
+    margin: 6px 8px 0 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 10px 0 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+
+header nav ul li a {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+/* ########### */
+
+/*header:hover {*/
+/*    height: 70px;*/
+/*}*/
+
+/*header:hover > #ud_logo {*/
+/*    width: 140px;*/
+/*    margin: 8px 0 0 20px;*/
+/*}*/
+
+/*header:hover > #ud_kontakt_icon {*/
+/*    width: 142px;*/
+/*    height: 70px;*/
+/*}*/
+/*header:hover > #ud_kontakt_icon .ud_kontakt_icon {*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*}*/
+/*header:hover > #ud_kontakt_icon .ud_kontakt_icon span {*/
+/*    margin: 26px 0 0 26px;*/
+/*    font-size: 15px;*/
+/*}*/
+
+/*header:hover > nav ul {*/
+/*    margin: 26px 20px 0 0;*/
+/*}*/
+/*header:hover > nav ul li a {*/
+/*    font-size: 15px;*/
+/*}*/
+
+/* ################################################################## */
+/* Startseite */
+/* ################################################################## */
+
+
+
+/*header nav ul li a,*/
+/*header nav ul li,*/
+/*header #ud_kontakt_icon .ud_kontakt_icon*/
+/*{*/
+/*    color: #999999;*/
+/*}*/
+
+
+
+/*header nav ul li a:hover,*/
+/*header #ud_kontakt_icon .ud_kontakt_icon:hover*/
+/*{*/
+/*    color: #111;*/
+/*}*/
+
+
+/*header nav ul li*/
+/*{*/
+/*    font-family: "Lato", sant-serif;*/
+/*    font-weight: 300;*/
+/*    line-height: 25px;*/
+/*    word-spacing: 3px;*/
+/*}*/
+
+/*header,*/
+/*header #ud_kontakt_icon,*/
+/*header nav ul li a,*/
+/*header nav ul,*/
+/*header #ud_logo,*/
+/*header #ud_kontakt_icon .ud_kontakt_icon span*/
+/*{*/
+/*    transition: all 300ms;*/
+/*    -moz-transition: all 300ms;*/
+/*    -ms-transition: all 300ms;*/
+/*    -o-transition: all 300ms;*/
+/*    -transition: all 300ms;*/
+/*}*/
+
+/*header {*/
+/*    position: fixed;*/
+/*    z-index: 99;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    width: 100%;*/
+
+/*    border-bottom: 1px solid #dfdfdf;*/
+/*}*/
+
+
+/*header #ud_kontakt_icon {*/
+/*    float: right;*/
+/*    width: 72px;*/
+/*    height: 40px;*/
+/*}*/
+/*header #ud_kontakt_icon .ud_kontakt_icon {*/
+/*    font-size: 12px;*/
+/*    width: 35px;*/
+/*    height: 40px;*/
+/*    border-left: 1px solid #dfdfdf;*/
+/*    float: left;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
+/*header #ud_kontakt_icon .ud_kontakt_icon span {*/
+/*    display: block;*/
+/*    margin: 12px 0 0 8px;*/
+/*    cursor: pointer;*/
+/*}*/
