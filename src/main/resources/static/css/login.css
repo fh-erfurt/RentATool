@@ -6,13 +6,14 @@ label{
     color: red;
 }
 .login-page {
-
+padding-bottom: 10em;
     width: 360px;
     /*padding: 8% 0 0;*/
     margin: 0 auto;
 
 }
 .form {
+
     background: #ffffff;
     width: 100%;
     max-width: 360px;
