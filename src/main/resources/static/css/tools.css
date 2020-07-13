@@ -9,17 +9,26 @@
 {
     background-color: white;
 }
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     margin: 5em 2em auto;
     text-align: center;
-    font-family: "Lato", sant-serif;
+    font-family: "Lato", sans-serif;
+}
+.card img
+{
+    padding-top: 2em;
+}
+.card p
+{
+    padding: 1em;
 }
 .toolInfo
 {
     list-style: none;
-    font-family: "Lato", sant-serif;
+    font-family: "Lato", sant-serif, sans-serif;
     text-align: left;
     font-size: 18px;
 }
@@ -29,7 +38,7 @@
     background: #ec6708;
 }
 .card button {
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     outline: 0;
     background: #a8a8a8;
