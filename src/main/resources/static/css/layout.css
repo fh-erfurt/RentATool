@@ -48,7 +48,6 @@ a {
 /* ################################################################## */
 
 footer,
-/*header,*/
 #Startseite .ud_h2_balken,
 #Kontakt .ud_h2_balken,
 #UberUns,
@@ -76,9 +75,6 @@ footer,
 
 p,
 a
-/*header nav ul li a,*/
-/*header nav ul li,*/
-/*header #ud_kontakt_icon .ud_kontakt_icon {*/
 {
     color: #999999;
 }
@@ -354,14 +350,14 @@ header #ud_kontakt_icon .ud_kontakt_icon span
 #Leistungen .ud_leistungen ul li.ud_ratWerSeidIhr {
 
     background-attachment: fixed;
-    background-size:contain;
+    background-size:cover;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_1.png);
     background-repeat: no-repeat;
 }
 #Leistungen .ud_leistungen ul li.ud_unsereTools {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/leistung_2.jpg);
     background-attachment: fixed;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 #Leistungen .ud_leistungen ul li.ud_cityToolbox {
@@ -458,9 +454,9 @@ header #ud_kontakt_icon .ud_kontakt_icon span
 footer
 {
    position: absolute;
-    bottom: 0;
+    bottom: 0; left: 0; right: 0;
     width: 100%;
-    height: 150px;
+    height: 180px;
     text-align: center;
     padding: 50px 0 0 0;
     font-size: 10px;
@@ -498,12 +494,39 @@ footer #ud_meta_nav ul li {
     border-right: 1px solid #666;
     border-left: 1px solid #666;;
 }
+/* ################################################################## */
+/* Footer Rest */
+/* ################################################################## */
+#Footer
+{
+    position: relative;
+    background-image: none;
 
-
+}
+#Footer .ud_kontakt {
+    width: 100%;
+    text-align: center;
+}
+#Footer .ud_kontakt ul {
+    margin: 150px 0 0 0;
+    padding: 0;
+}
+#Footer .ud_kontakt ul li {
+    margin: 0 0 15px 0;
+    padding: 0;
+    list-style: none;
+    font-size: 17px;
+}
+#Footer .ud_kontakt ul li a {
+    text-decoration: underline;
+}
 
 /* ################################################################## */
 /* Kontakt */
 /* ################################################################## */
+
+
+
 #Kontakt {
     position: relative;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(../images/bg_contact.png);
@@ -532,47 +555,7 @@ footer #ud_meta_nav ul li {
     text-decoration: underline;
 }
 
-/*#Kontakt footer {*/
-/*    position: absolute;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 200px;*/
-/*    text-align: center;*/
-/*    padding: 50px 0 0 0;*/
-/*    font-size: 10px;*/
-/*    border-top: 2px solid #ec6708;*/
-/*}*/
-/*#Kontakt footer .ud_logo {*/
-/*    width: 100%;*/
-/*    text-align: center;*/
-/*}*/
-/*#Kontakt footer .ud_logo img {*/
-/*    width: 130px;*/
-/*    margin: 0 auto;*/
-/*}*/
-/* #Kontakt footer #ud_copyright {*/
-/*    margin: -10px 0 0 0;*/
-/*    padding: 0;*/
-/*}*/
-/*#Kontakt footer #ud_meta_nav {*/
-/*    margin: 20px 0 0 0;*/
-/*}*/
-/* #Kontakt footer #ud_meta_nav ul {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
-/* #Kontakt footer #ud_meta_nav ul li {*/
-/*    margin: 0;*/
-/*    padding: 0 2px 0 2px;*/
-/*    list-style: none;*/
-/*    display: inline;*/
-/*    border-right: 1px solid #666;*/
-/*     border-left: 1px solid #666;*/
-/*}*/
-/*#Kontakt footer #ud_meta_nav ul li:last-child {*/
-/*    border: none;*/
-/*}*/
+
 
 @media screen and (max-width: 800px) {
     #Kontakt .ud_kontakt ul {
