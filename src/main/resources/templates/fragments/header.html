@@ -17,8 +17,8 @@
                 <button class="dropbtn"><i class="fa fa-user fa-2x" aria-hidden="true"></i></button>
                 <div class="dropdown-content">
 
-                    <a sec:authorize="!isAuthenticated()" href="register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                    <a sec:authorize="!isAuthenticated()" href="login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    <a sec:authorize="!isAuthenticated()" href="/register">Registrierung <i class="fa fa-user-plus" aria-hidden="true"></i></a>
+                    <a sec:authorize="!isAuthenticated()" href="/login">LogIn <i class="fa fa-sign-in" aria-hidden="true"></i></a>
                     <a sec:authorize="isAuthenticated()" href="/toolManagement">Tool Management</a>
                     <a sec:authorize="hasRole('ADMIN')" href="/userManagement">User Management</a>
                     <a sec:authorize="isAuthenticated()" href="/logout">Logout</a>
