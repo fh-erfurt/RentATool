@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body class="toolsBody">
+<header th:replace="fragments/header :: header"></header>
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Usermanagement</h2>
+    <div class="ud_h2_balken"></div>
+
+    <div class="userManagementCardContainer">
+
+            <div class="userManagementCard ">
+                <a href="customer">
+                <div class="userManagementCardTopic">
+                    Customer
+                </div>
+
+                <div class="userManagementCardSymbol">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </div>
+                </a>
+            </div>
+
+
+<!--        <a href="employee">-->
+            <div class="userManagementCard ">
+                <a href="employee">
+                <div class="userManagementCardTopic">
+                    Employee
+                </div>
+
+                <div class="userManagementCardSymbol">
+
+                    <i class="fas fa-people-carry" aria-hidden="true"></i>
+<!--                    <img src="/images/leistung_2.jpg">-->
+                </div>
+                </a>
+            </div>
+<!--        </a>-->
+    </div>
+
+</section>
+
+<section id="footerSection" class="ud_pageFooter">
+    <!-- Footer -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+</section>
+</body>
+</html>
