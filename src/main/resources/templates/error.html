@@ -3,12 +3,11 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/head :: head"></head>
-<!--    <title>Error</title>-->
 
 <body class="errorBody">
+
 <header th:replace="fragments/header :: header"></header>
 
-<div class="errorWrapper">
     <h1><td th:text="${status}"/></h1>
     <h2><td th:text="${error}"/></h2>
     <div class="gears">
@@ -28,10 +27,7 @@
             <div class="bar"></div>
         </div>
     </div>
-</div>
-<div class="footerWrapper">
-    <!-- Footer -->
-    <footer th:replace="fragments/footer :: footer"></footer>
-</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
