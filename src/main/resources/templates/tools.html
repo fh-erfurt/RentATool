@@ -26,7 +26,7 @@
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
     <form  th:action="@{/addToInventory/{Id}}" th:object="${tool}"  method="post">
-    <p><button>Reservieren</button></p>
+    <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Reservieren</button></p> </a>
     </form>
 </div>
 </div>
