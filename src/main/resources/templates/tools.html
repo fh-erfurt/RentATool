@@ -25,7 +25,7 @@
         <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
-    <form  th:action="@{/addToInventory/{Id}}" th:object="${tool}"  method="post">
+    <form  th:action="@{/addToInventory/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Reservieren</button></p> </a>
     </form>
 </div>
