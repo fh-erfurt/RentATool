@@ -96,11 +96,11 @@ public class ToolController {
     @PostMapping("/addToInventory/{id}")
     public String addToCart(@PathVariable(name = "id") int id){
 
-       //model.addAttribute("tool",tool);
+
        log.info("111111");
        log.info(String.valueOf(id));
 
-       return"registrationSuccessfull";
+       return"registrationSuccessful";
     }
 
 
