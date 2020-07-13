@@ -26,17 +26,17 @@
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
     <form  th:action="@{/addToInventory/{Id}}" th:object="${tool}"  method="post">
-    <p><button>Reservieren</button></p>
+    <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Reservieren</button></p> </a>
     </form>
 </div>
 </div>
 </div>
 </section>
-<section id="footerSection" class="ud_pageFooter">
 
+<section id="Footer" class="ud_page2">
     <footer th:replace="fragments/footer :: footer"></footer>
 
-
 </section>
+
 </body>
 </html>
