@@ -1,9 +1,13 @@
 package de.rat.controller;
 
 import de.rat.account.details.AccountDetails;
+import de.rat.model.common.Person;
 import de.rat.model.customer.Customer;
+import de.rat.model.employee.Employee;
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
+import de.rat.storage.repository.CustomerRepository;
+import de.rat.storage.repository.PersonBaseRepository;
 import de.rat.storage.repository.ToolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +25,10 @@ import java.util.List;
 public class ToolController {
     @Autowired
     ToolRepository repositoryTool;
+
+    @Autowired
+    CustomerRepository customerRepository;
+
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/toolManagement")
@@ -97,8 +105,18 @@ public class ToolController {
     public String addToCart(@PathVariable(name = "id") int id){
 
 
+       NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
+       int AccountId  = nameControllerAdvice.getAuthUser();
+
        log.info("111111");
-       log.info(String.valueOf(id));
+       log.info(String.valueOf(AccountId));
+
+        Customer customer = customerRepository.findByAccount_id(AccountId);
+        log.info("222222");
+        log.info(customer.getFirstname());
+        Tool reservedTool = repositoryTool.findById(id);
+        customer.putToolInInventory(reservedTool);
+        customerRepository.save(customer);
 
        return"registrationSuccessful";
     }

@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -24,6 +26,9 @@ public class NameControllerAdvice {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    private static final Logger log = LoggerFactory.getLogger(ToolController.class);
+
 
     @ModelAttribute
     public void addBugetToModel(Model model) {
@@ -50,7 +55,7 @@ public class NameControllerAdvice {
     }
 
 
-    public Person getAuthUser() {
+    public int getAuthUser() {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
@@ -59,16 +64,22 @@ public class NameControllerAdvice {
                 AccountDetails account = (AccountDetails) principal;
                 Integer accountId = account.getId();
 
-                Customer customer = customerRepository.findByAccount_id(accountId);
-                Employee employee = employeeRepository.findByAccount_id(accountId);
 
-                if(customer != null){
-                    return customer;
-                }else{
-                    return employee;
-                }
+//                Employee employee = employeeRepository.findByAccount_id(accountId);
+//                Customer customer = customerRepository.findByAccount_id(accountId);
+//
+//                log.info("11111");
+//                log.info(employee.getFirstname());
+//                if(customer != null){
+//                    log.info("33333");
+//                    return customer;
+//                }else{
+//                    log.info("22222");
+//                    return employee;
+//                }
+                return accountId;
             }
         }
-        return null;
+        return 999999999;
     }
 }
