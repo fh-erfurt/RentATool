@@ -6,11 +6,11 @@ INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (1,'MÃ
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (2,'Maier','Makita',5546456455,3);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (3,'Schulze','DeWalt',0657456445,2);
 
-INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price,)
-VALUES (100,'null',1,'Hammer','1A',0,2,null);
+INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price)
+VALUES (100,'Bo11A1',1,'Hammer','1A',0,2,null);
 
-INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price,)
-VALUES (101,null,2,'Bohrer','1A',0,0,null);
+INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price)
+VALUES (101,'Mak11A1',2,'Bohrer','1A',0,0,null);
 
 INSERT INTO ACCOUNT(id, created, modified, email, password, role)
 VALUES (1, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
