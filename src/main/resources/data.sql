@@ -7,7 +7,7 @@ INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (2,'Ma
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) values (3,'Schulze','DeWalt',0657456445,2);
 
 INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price,)
-VALUES (100,null,1,'Hammer','1A',0,2,null);
+VALUES (100,'null',1,'Hammer','1A',0,2,null);
 
 INSERT into Tool(id,item_id,manufacturer_id,description,stock,tool_status,category,rent_price,)
 VALUES (101,null,2,'Bohrer','1A',0,0,null);
