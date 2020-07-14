@@ -2,7 +2,7 @@
 {
     margin-top: 10em;
 }
-registerSuccessBody
+.registerSuccessBody
 {
     position: fixed;
 }
@@ -14,6 +14,7 @@ registerSuccessBody
     margin: 40px auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 #upper-side {
@@ -46,6 +47,7 @@ registerSuccessBody
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    border: 1px solid #ec6708;
 }
 
 #message {
