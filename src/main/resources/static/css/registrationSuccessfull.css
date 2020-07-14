@@ -2,7 +2,10 @@
 {
     margin-top: 10em;
 }
-
+registerSuccessBody
+{
+    position: fixed;
+}
 
 #card {
     position: relative;
