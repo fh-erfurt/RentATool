@@ -1,7 +1,7 @@
 package de.rat.storage.repository;
 
 
-import de.rat.model.common.Address;
+import de.rat.model.common.*;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
