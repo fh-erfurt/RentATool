@@ -60,8 +60,9 @@ public class ToolController {
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
 
+        Iterable<Station> stationList=stationRepository.findAll();
+        model.addAttribute("stationList", stationList);
         model.addAttribute("listTools", listTools);
-
         return "tools";
     }
 
