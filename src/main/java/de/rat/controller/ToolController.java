@@ -125,10 +125,8 @@ public class ToolController {
 
        Customer customer = customerRepository.findByAccount_id(AccountId);
        Tool reservedTool = toolRepository.findById(id);
-       Tool testTool = toolRepository.findById(101);
        Warehouse warehouse = warehouseRepository.findById(1);
        warehouse.putToolInWarehouse(reservedTool);
-       warehouse.putToolInWarehouse(testTool);
        Station testStation = stationRepository.findById(1);
 
        customer.putToolInInventory(reservedTool);

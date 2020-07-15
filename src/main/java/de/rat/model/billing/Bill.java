@@ -60,7 +60,8 @@ public class Bill {
     private BillStatus billStatus;
 
     /* several rent processes for on bill possible*/
-    @OneToMany // TODO: Check
+    @OneToMany
+    @JoinTable(name="billRentprocesses",inverseJoinColumns=@JoinColumn(name="rentProcess_id"))
     private List<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
     protected Bill(){}
