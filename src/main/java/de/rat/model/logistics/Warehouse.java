@@ -2,9 +2,7 @@ package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -24,6 +22,7 @@ public class Warehouse extends BaseModel {
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     @OneToMany
+    @JoinTable(name="warehouseTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
     private List<Tool> Stock= new ArrayList<>();
 
     public Warehouse() { }
