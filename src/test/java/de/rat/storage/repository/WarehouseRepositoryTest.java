@@ -69,7 +69,7 @@ class WarehouseRepositoryTest {
         warehouse1.putToolInWarehouse(hammer);
         wRepo.save(warehouse1);
 
-        assertEquals(wRepo.findById(warehouse1.getId()).removeToolFromWarehouse(hammer).getToolStatus(),ToolStatus.AVAILABLE);
+        assertEquals(wRepo.findById(warehouse1.getId()).removeToolFromWarehouse(hammer).getToolStatus(),ToolStatus.ISRENTED);
 
         warehouse1.putToolInWarehouse(hammer);
 
