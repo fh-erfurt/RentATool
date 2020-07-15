@@ -146,7 +146,7 @@ public class ToolController {
        billRepository.save(custBill);
 
 
-       return"registrationSuccessful";
+       return"rentSuccessful";
     }
 
 
