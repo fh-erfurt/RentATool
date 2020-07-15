@@ -2,7 +2,10 @@
 {
     margin-top: 10em;
 }
-
+.registerSuccessBody
+{
+    position: fixed;
+}
 
 #card {
     position: relative;
@@ -11,6 +14,7 @@
     margin: 40px auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 #upper-side {
@@ -43,6 +47,7 @@
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    border: 1px solid #ec6708;
 }
 
 #message {
