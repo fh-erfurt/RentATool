@@ -1,7 +1,7 @@
 package de.rat.storage.repository;
 
 
-import de.rat.model.common.Address;
+import de.rat.model.common.*;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,7 +69,7 @@ class WarehouseRepositoryTest {
         warehouse1.putToolInWarehouse(hammer);
         wRepo.save(warehouse1);
 
-        assertEquals(wRepo.findById(warehouse1.getId()).removeToolFromWarehouse(hammer).getToolStatus(),ToolStatus.AVAILABLE);
+        assertEquals(wRepo.findById(warehouse1.getId()).removeToolFromWarehouse(hammer).getToolStatus(),ToolStatus.ISRENTED);
 
         warehouse1.putToolInWarehouse(hammer);
 

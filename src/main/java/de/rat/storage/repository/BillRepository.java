@@ -27,4 +27,9 @@ public interface BillRepository extends CrudRepository<Bill,Integer>
     List<Bill> findByRentPriceSpan(@Param("lowRentPrice")double lowRentPrice, @Param("highRentPrice")double highRentPrice);
 
 
+
+
+
+
+
 }

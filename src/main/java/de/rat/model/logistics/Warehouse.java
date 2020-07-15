@@ -43,6 +43,9 @@ public class Warehouse extends BaseModel {
         if(tool !=null)
         {
             this.Stock.add(tool);
+            if(tool.getToolStatus() != ToolStatus.AVAILABLE){
+                tool.setToolStatus(ToolStatus.AVAILABLE);
+            }
             logger.info("Das Tool ist im Warenhaus ");
         }
     }
@@ -63,6 +66,7 @@ public class Warehouse extends BaseModel {
                 if(foundedTool.getToolStatus() == ToolStatus.AVAILABLE) {
                     Stock.remove(tool);
                     logger.info("Das Tool ist bereit zum Ausleihen");
+                    tool.setToolStatus(ToolStatus.ISRENTED);
                     return tool;
                 }else{
                     logger.severe("Das Tool ist nicht ausleihbereit");

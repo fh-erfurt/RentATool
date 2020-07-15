@@ -40,9 +40,9 @@ class WarehouseTest {
 
     @Test
     void is_not_available_tool_already_in_warehouse_after_call_remove_tool_from_warehouse() {
-        hammer.setToolStatus(ToolStatus.ISBROKEN);
         warehouse.putToolInWarehouse(hammer);
         int sizeBefore = warehouse.getStock().size();
+        hammer.setToolStatus(ToolStatus.ISBROKEN);
         warehouse.removeToolFromWarehouse(hammer);
         assertEquals(sizeBefore,warehouse.getStock().size());
     }

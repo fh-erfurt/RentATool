@@ -1,10 +1,15 @@
 package de.rat.model.billing;
 
+import de.rat.model.BaseModel;
 import de.rat.model.common.*;
 import de.rat.model.common.Date;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.BatchSize;
 
 import java.time.LocalDate;
@@ -24,15 +29,20 @@ import java.util.logging.Logger;
  * closedBills a list from closed bills
  * checkBills a list from the bills that still have to be checked from the employee
  */
-public class Billing {
+@Entity
+public class Billing extends BaseModel {
 
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     // idea for table 3 columns(Id, Bill, Status), all Bills are in these table and with the 3rd colum you can
     // is it open, check or close -> new class?or just database table not in java?
 
+
+    @OneToMany
     private static List<Bill> openBills = new ArrayList<Bill>();
+    @OneToMany
     private static List<Bill> checkBills = new ArrayList<Bill>();
+    @OneToMany
     private static List<Bill> closedBills = new ArrayList<Bill>();
 
 
