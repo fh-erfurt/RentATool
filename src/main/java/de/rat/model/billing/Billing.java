@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import org.hibernate.annotations.BatchSize;
 
+
 import java.time.LocalDate;
 import javax.persistence.Transient;
 import java.util.*;
@@ -64,6 +65,9 @@ public class Billing extends BaseModel {
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
         LocalDate today =  LocalDate.now();
+
+        logger.info("11111");
+        logger.info(String.valueOf(today));
 
         Bill searchedBill = openBills.stream()
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))

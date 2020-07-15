@@ -1,13 +1,10 @@
 package de.rat.controller;
 
-import de.rat.account.details.AccountDetails;
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
-import de.rat.model.common.Person;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
-import de.rat.model.employee.Employee;
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
@@ -24,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ToolController {
@@ -59,8 +57,14 @@ public class ToolController {
     public String listAllTool(Model model)
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
+        List<Station> stationList= (List<Station>) stationRepository.findAll();
 
-        Iterable<Station> stationList=stationRepository.findAll();
+        Station station1 = stationRepository.findById(1);
+        Station station2 = stationRepository.findById(2);
+        Station station3 = stationRepository.findById(3);
+        model.addAttribute("station",station1);
+        model.addAttribute("station",station2);
+        model.addAttribute("station",station3);
         model.addAttribute("stationList", stationList);
         model.addAttribute("listTools", listTools);
         return "tools";
@@ -119,8 +123,8 @@ public class ToolController {
         return "redirect:/toolManagement";
     }
 
-    @PostMapping("/addToInventory/{id}")
-    public String addToCart(@PathVariable(name = "id") int id){
+    @PostMapping("/rentTool/{id}/{stationId}")
+    public String addToCart(@PathVariable(name = "id") int id,@PathVariable(name = "stationId") int stationId){
 
 
        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
@@ -130,20 +134,29 @@ public class ToolController {
        Tool reservedTool = toolRepository.findById(id);
        Warehouse warehouse = warehouseRepository.findById(1);
        warehouse.putToolInWarehouse(reservedTool);
-       Station testStation = stationRepository.findById(1);
+       Station rentStation = stationRepository.findById(stationId);
 
        customer.putToolInInventory(reservedTool);
 
-       Rental.rentATool(reservedTool,testStation,customer,warehouse);
+       Rental.rentATool(reservedTool,rentStation,customer,warehouse);
        toolRepository.save(reservedTool);
        customerRepository.save(customer);
-       stationRepository.save(testStation);
+       stationRepository.save(rentStation);
        warehouseRepository.save(warehouse);
 
-       Bill custBill = Billing.findOrCreateBill(customer,testStation);
-       RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
-       rentProcessRepository.save(custRentProcess);
-       billRepository.save(custBill);
+       Bill custBill = Billing.findOrCreateBill(customer,rentStation);
+       //ToDo save an optional class repository
+//       if(custBill.getBillNumber() == 0) {
+//           RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
+//           rentProcessRepository.save(custRentProcess);
+//           billRepository.save(custBill);
+//       }else {
+//           Bill existingCustBill = billRepository.findById(custBill.getBillNumber());
+//           RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
+//           rentProcessRepository.save(custRentProcess);
+//           final S save = billRepository.save(existingCustBill);
+//       }
+
 
 
        return"rentSuccessful";

@@ -1,5 +1,6 @@
 package de.rat.model.billing;
 
+import de.rat.model.BaseModel;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;

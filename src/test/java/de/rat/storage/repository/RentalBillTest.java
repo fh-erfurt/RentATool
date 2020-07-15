@@ -113,6 +113,7 @@ public class RentalBillTest {
         wRepo.save(warehouse1);
         Bill testBill = Billing.findOrCreateBill(custHans, station1);
 
+
         // rent tool 2
         Rental.rentATool(bohrer, station1, custHans, warehouse1);
         tRepo.save(bohrer);
@@ -120,6 +121,7 @@ public class RentalBillTest {
         sRepo.save(station1);
         wRepo.save(warehouse1);
         Bill testBill1 = Billing.findOrCreateBill(custHans, station1);
+
         assertEquals(testBill, testBill1);
 
         //compare tools with rentProcesses
