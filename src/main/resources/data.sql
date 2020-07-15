@@ -40,3 +40,8 @@ INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id
 INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (1, null, 'Christian', 'Koenig', 6, 1, null);
 INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (2, null, 'Marco', 'Petzold', 5, 1, 1);
 
+INSERT INTO WAREHOUSE(id) VALUES (1);
+
+INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (1,'Station 1',25,1);
+INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (2,'Station 2',25,2);
+INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (3,'Station 3',25,3);

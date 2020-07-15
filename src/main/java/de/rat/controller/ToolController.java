@@ -1,14 +1,18 @@
 package de.rat.controller;
 
 import de.rat.account.details.AccountDetails;
+import de.rat.model.Rental;
+import de.rat.model.billing.Bill;
+import de.rat.model.billing.Billing;
 import de.rat.model.common.Person;
 import de.rat.model.customer.Customer;
+import de.rat.model.customer.RentProcess;
 import de.rat.model.employee.Employee;
 import de.rat.model.logistics.Manufacturer;
+import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
-import de.rat.storage.repository.CustomerRepository;
-import de.rat.storage.repository.PersonBaseRepository;
-import de.rat.storage.repository.ToolRepository;
+import de.rat.model.logistics.Warehouse;
+import de.rat.storage.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,18 +27,28 @@ import java.util.List;
 
 @Controller
 public class ToolController {
-    @Autowired
-    ToolRepository repositoryTool;
 
     @Autowired
+    ToolRepository toolRepository;
+    @Autowired
     CustomerRepository customerRepository;
+    @Autowired
+    WarehouseRepository warehouseRepository;
+    @Autowired
+    StationRepository stationRepository;
+    @Autowired
+    RentProcessRepository rentProcessRepository;
+    @Autowired
+    BillRepository billRepository;
+    @Autowired
+    BillingRepository billingRepository;
 
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/toolManagement")
     public String listAllTools(Model model)
     {
-        List<Tool> listTools= (List<Tool>) repositoryTool.findAll();
+        List<Tool> listTools= (List<Tool>) toolRepository.findAll();
 
         model.addAttribute("listTools", listTools);
 
@@ -44,7 +58,7 @@ public class ToolController {
     @RequestMapping(path="/tools")
     public String listAllTool(Model model)
     {
-        List<Tool> listTools= (List<Tool>) repositoryTool.findAll();
+        List<Tool> listTools= (List<Tool>) toolRepository.findAll();
 
         model.addAttribute("listTools", listTools);
 
@@ -55,7 +69,7 @@ public class ToolController {
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
 
-        repositoryTool.save(aTool);
+        toolRepository.save(aTool);
         return "redirect:/toolManagement";
     }
 
@@ -63,10 +77,10 @@ public class ToolController {
     public String editTool(@ModelAttribute("tool") Tool aTool, @ModelAttribute("id") int id)
     {
 
-        Tool oldTool = repositoryTool.findById(id);
+        Tool oldTool = toolRepository.findById(id);
         oldTool.setDescription(aTool.getDescription());
         oldTool.setRentPrice(aTool.getRentPrice());
-        repositoryTool.save(oldTool);
+        toolRepository.save(oldTool);
         return "redirect:/toolManagement";
     }
 
@@ -88,7 +102,7 @@ public class ToolController {
     @RequestMapping("/editTool/{id}")
     public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("editTool");
-        Tool tool = repositoryTool.findById(id);
+        Tool tool = toolRepository.findById(id);
         mav.addObject("tool", tool);
         mav.addObject("id", tool.getId());
 
@@ -97,7 +111,7 @@ public class ToolController {
 
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
-        repositoryTool.deleteById(id);
+        toolRepository.deleteById(id);
         return "redirect:/toolManagement";
     }
 
@@ -108,15 +122,27 @@ public class ToolController {
        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
        int AccountId  = nameControllerAdvice.getAuthUser();
 
-       log.info("111111");
-       log.info(String.valueOf(AccountId));
+       Customer customer = customerRepository.findByAccount_id(AccountId);
+       Tool reservedTool = toolRepository.findById(id);
+       Tool testTool = toolRepository.findById(101);
+       Warehouse warehouse = warehouseRepository.findById(1);
+       warehouse.putToolInWarehouse(reservedTool);
+       warehouse.putToolInWarehouse(testTool);
+       Station testStation = stationRepository.findById(1);
 
-        Customer customer = customerRepository.findByAccount_id(AccountId);
-        log.info("222222");
-        log.info(customer.getFirstname());
-        Tool reservedTool = repositoryTool.findById(id);
-        customer.putToolInInventory(reservedTool);
-        customerRepository.save(customer);
+       customer.putToolInInventory(reservedTool);
+
+       Rental.rentATool(reservedTool,testStation,customer,warehouse);
+       toolRepository.save(reservedTool);
+       customerRepository.save(customer);
+       stationRepository.save(testStation);
+       warehouseRepository.save(warehouse);
+
+       Bill custBill = Billing.findOrCreateBill(customer,testStation);
+       RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
+       rentProcessRepository.save(custRentProcess);
+       billRepository.save(custBill);
+
 
        return"registrationSuccessful";
     }
