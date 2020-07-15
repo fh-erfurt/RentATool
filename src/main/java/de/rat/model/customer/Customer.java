@@ -37,6 +37,10 @@ public class Customer extends Person {
 
     public Customer(){}
 
+    public List<Tool> getInventory() {
+        return inventory;
+    }
+
     /** Creates an customer .
      *  @param lastname the lastname from the customer
      *  @param firstname the firstname from the customer
