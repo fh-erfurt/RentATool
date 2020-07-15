@@ -2,6 +2,7 @@ package de.rat.storage.repository;
 
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
+import de.rat.model.billing.BillStatus;
 import de.rat.model.billing.Billing;
 import de.rat.model.common.*;
 import de.rat.model.customer.Customer;
@@ -66,6 +67,7 @@ public class RentalBillTest {
         tRepo.save(bohrer);
         warehouse1 = new Warehouse();
         warehouse1.putToolInWarehouse(hammer);
+        warehouse1.putToolInWarehouse(bohrer);
         wRepo.save(warehouse1);
         station1 = new Station("Station 1",25,address1);
         sRepo.save(station1);
@@ -73,35 +75,89 @@ public class RentalBillTest {
     }
 
     @Test
-    void is_rental_save_all_repositories(){
+    void is_rental_save_all_repositories() {
 
-        Rental.rentATool(hammer,station1,custHans,warehouse1);
+        Rental.rentATool(hammer, station1, custHans, warehouse1);
         tRepo.save(hammer);
         cRepo.save(custHans);
         sRepo.save(station1);
         wRepo.save(warehouse1);
 
-        Bill testBill = Billing.findOrCreateBill(custHans,station1);
+        Bill testBill = Billing.findOrCreateBill(custHans, station1);
         RentProcess testRentProcess = testBill.findRentProcess(hammer);
         rpRepo.save(testRentProcess);
         bRepo.save(testBill);
 
+        assertEquals(hammer, testRentProcess.getRentedTool());
+        assertEquals(testBill.getCustomer(), custHans);
+        assertEquals(testBill.getBillStatus(), BillStatus.OPEN);
 
-//        log.info("5");
-//        log.info(String.valueOf(hammer.getToolStatus()));
-//        log.info(String.valueOf(station1.getNumberOfTools()));
-//        log.info(String.valueOf(testBill.getCustomer().getFirstname()));
-//        log.info(testRentProcess.getRentedTool().getDescription());
+        Rental.returnTool(hammer, station1, custHans, warehouse1);
+        tRepo.save(hammer);
+        cRepo.save(custHans);
+        sRepo.save(station1);
+        wRepo.save(warehouse1);
 
-
-
-
-
+        assertEquals(testBill.getBillStatus(), BillStatus.CHECKED);
+        assertEquals(station1.getNumberOfTools(),0);
     }
-    // Rent a tool
-    // pick up tool
-    // recieve tool
-    // closed rentprocess
+
+    @Test
+    void are_all_data_are_saved_for_rent_and_remove_two_tools_at_one_day() {
+
+        //rent tool 1
+        Rental.rentATool(hammer, station1, custHans, warehouse1);
+        tRepo.save(hammer);
+        cRepo.save(custHans);
+        sRepo.save(station1);
+        wRepo.save(warehouse1);
+        Bill testBill = Billing.findOrCreateBill(custHans, station1);
+
+        // rent tool 2
+        Rental.rentATool(bohrer, station1, custHans, warehouse1);
+        tRepo.save(bohrer);
+        cRepo.save(custHans);
+        sRepo.save(station1);
+        wRepo.save(warehouse1);
+        Bill testBill1 = Billing.findOrCreateBill(custHans, station1);
+        assertEquals(testBill, testBill1);
+
+        //compare tools with rentProcesses
+        RentProcess testRentProcess1 = testBill.findRentProcess(hammer);
+        RentProcess testRentProcess2 = testBill.findRentProcess(bohrer);
+
+        rpRepo.save(testRentProcess1);
+        rpRepo.save(testRentProcess2);
+
+        // all in same bill
+        bRepo.save(testBill);
+
+        assertEquals(hammer, testRentProcess1.getRentedTool());
+        assertEquals(bohrer, testRentProcess2.getRentedTool());
+        assertEquals(testBill.getCustomer(), custHans);
+        assertEquals(testBill.getBillStatus(), BillStatus.OPEN);
+
+        //return first tool
+        Rental.returnTool(hammer, station1, custHans, warehouse1);
+        tRepo.save(hammer);
+        cRepo.save(custHans);
+        sRepo.save(station1);
+        wRepo.save(warehouse1);
+
+        // bill is already open
+        assertEquals(testBill.getBillStatus(), BillStatus.OPEN);
+
+        //return last tool, bill is moved to checked_bills
+        Rental.returnTool(bohrer, station1, custHans, warehouse1);
+
+        tRepo.save(hammer);
+        cRepo.save(custHans);
+        sRepo.save(station1);
+        wRepo.save(warehouse1);
+        assertEquals(testBill.getBillStatus(), BillStatus.CHECKED);
+
+
+        }
 
 
 }
