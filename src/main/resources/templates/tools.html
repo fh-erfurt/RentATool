@@ -26,17 +26,13 @@
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
-    <form  th:action="@{/addToInventory/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
 
-        <select id="station">
-            <option th:each="station : ${stationList}"
-                    th:value="${station}"
-                    th:text="${station.getDescription()}" />
-        </select>
 
+    <form  th:action="@{/addToInventory/{id}(id=${tool.id})}" th:object="${tool}"   method="post">
 
     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Ausleihen</button></p> </a>
     </form>
+
 </div>
 </div>
 </div>

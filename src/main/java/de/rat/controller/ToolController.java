@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,7 +61,11 @@ public class ToolController {
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
 
-        Iterable<Station> stationList=stationRepository.findAll();
+       List<Station> stationList= (List<Station>) stationRepository.findAll();
+
+        model.addAttribute("station", stationRepository.findById(1));
+        model.addAttribute("station", stationRepository.findById(2));
+        model.addAttribute("station", stationRepository.findById(3));
         model.addAttribute("stationList", stationList);
         model.addAttribute("listTools", listTools);
         return "tools";
