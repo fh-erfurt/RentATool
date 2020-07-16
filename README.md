@@ -5,6 +5,7 @@
 [![Deployed on Heroku](https://img.shields.io/badge/heroku-deployed-blueviolet.svg?logo=heroku)](https://github.com/fh-erfurt/RentATool)
 [![Dependabot](https://badgen.net/badge/Dependabot/enabled/green?icon=dependabot)](https://dependabot.com/)
 
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
 https://rent-a-tool-live.herokuapp.com/
 
 # Verleihstation für Werkzeuge
