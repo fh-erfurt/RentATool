@@ -39,8 +39,6 @@ public class StationController {
 
 
 
-
-
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/chooseStation/{id}")
