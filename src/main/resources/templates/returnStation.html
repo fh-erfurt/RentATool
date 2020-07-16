@@ -10,7 +10,7 @@
 <section id="UberUns" class="ud_page">
 
     <!-- Headline -->
-    <h2>Wählen Sie Ihre Station</h2>
+    <h2>Wählen Sie Ihre  für die Rückgabe</h2>
     <div class="ud_h2_balken"></div>
 
     <div th:each="station : ${listStation}" class="login-page">
@@ -18,7 +18,7 @@
             <h3 data-label="Description" th:text="${station.getDescription()}">Description</h3>
             <form  th:action="@{'/setReturnStation/'+ ${tool.id}+'/'+${station.id}}" th:object="${station}"  method="post">
 
-                <button>Ausleihvorgang abschließen</button>
+                <button>Rückgabe abschließen</button>
 
             </form>
         </div>
