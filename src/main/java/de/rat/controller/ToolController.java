@@ -1,10 +1,13 @@
 package de.rat.controller;
 
+import de.rat.account.details.AccountDetails;
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
+import de.rat.model.common.Person;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
+import de.rat.model.employee.Employee;
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
@@ -19,9 +22,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ToolController {
@@ -114,7 +117,7 @@ public class ToolController {
         return "redirect:/toolManagement";
     }
 
-    @PostMapping("/rentTool/{id}")
+    @PostMapping("/addToInventory/{id}")
     public String addToCart(@PathVariable(name = "id") int id){
 
 
@@ -126,23 +129,11 @@ public class ToolController {
        Warehouse warehouse = warehouseRepository.findById(1);
        warehouse.putToolInWarehouse(reservedTool);
 
-       customer.putToolInInventory(reservedTool);
-
-       //ToDo save an optional class repository
-//       if(custBill.getBillNumber() == 0) {
-//           RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
-//           rentProcessRepository.save(custRentProcess);
-//           billRepository.save(custBill);
-//       }else {
-//           Bill existingCustBill = billRepository.findById(custBill.getBillNumber());
-//           RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
-//           rentProcessRepository.save(custRentProcess);
-//           final S save = billRepository.save(existingCustBill);
-//       }
 
 
 
-       return"rentSuccessful";
+
+       return"chooseStation";
     }
 
 
