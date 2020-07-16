@@ -68,22 +68,6 @@ public class StationController {
         Customer lendingCustomer = customerRepository.findByAccount_id(AccountId);
         Warehouse mainWarehouse = warehouseRepository.findById(1);
 
-        List<Bill> billinglist = (List<Bill>) billRepository.findAll();
-        if(Billing.getOpenBills().size()==0&&Billing.getCheckBills().size()==0&&Billing.getClosedBills().size()==0) {
-
-            for (Bill bill : billinglist) {
-                switch (bill.getBillStatus()) {
-                    case OPEN:
-                        Billing.getOpenBills().add(bill);
-                    case CHECKED:
-                        Billing.getCheckBills().add(bill);
-                    case CLOSED:
-                        Billing.getClosedBills().add(bill);
-                    default:
-                }
-
-            }
-        }
         // rent a tool
         Rental.rentATool(rentedTool,rentStation,lendingCustomer,mainWarehouse);
 
