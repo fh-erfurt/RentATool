@@ -7,9 +7,9 @@
 
 
 ### Master
-[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
+[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://rent-a-tool-test.herokuapp.com/)
 ### Development
-[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg?branch=development)](https://github.com/fh-erfurt/RentATool/actions)
+[![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg?branch=development)](https://rent-a-tool-development.herokuapp.com/)
 
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
