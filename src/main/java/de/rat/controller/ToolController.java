@@ -16,8 +16,6 @@ import de.rat.storage.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,7 +42,6 @@ public class ToolController {
     @Autowired
     BillingRepository billingRepository;
 
-    private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/toolManagement")
     public String listAllTools(Model model)
@@ -120,14 +117,7 @@ public class ToolController {
     @PostMapping("/addToInventory/{id}")
     public String addToCart(@PathVariable(name = "id") int id){
 
-
-       NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
-       int AccountId  = nameControllerAdvice.getAuthUser();
-
-       Customer customer = customerRepository.findByAccount_id(AccountId);
-       Tool reservedTool = toolRepository.findById(id);
-       Warehouse warehouse = warehouseRepository.findById(1);
-
+        // just neccessary to deliver toolId to next view
        return"chooseStation";
     }
 

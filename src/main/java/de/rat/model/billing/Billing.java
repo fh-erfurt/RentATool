@@ -66,9 +66,6 @@ public class Billing extends BaseModel {
         // get date of today for comparing with rentDate
         LocalDate today =  LocalDate.now();
 
-        logger.info("11111");
-        logger.info(String.valueOf(today));
-
         Bill searchedBill = openBills.stream()
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
                 .findAny()
