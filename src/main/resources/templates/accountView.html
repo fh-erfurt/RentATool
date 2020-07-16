@@ -25,7 +25,7 @@
                 </ul>
                 <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
-                <form  th:action="@{/returnTool/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
+                <form  th:action="@{/returnStation/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
                     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Zurückgeben</button></p> </a>
                 </form>
             </div>

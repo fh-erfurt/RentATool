@@ -90,4 +90,50 @@ public class StationController {
 
         return "rentSuccessful";
     }
+
+    @RequestMapping(path="/returnStation/{id}")
+    public String listrentedTools(@PathVariable(name = "id") int id,Model model)
+    {
+
+        Tool rentedTool = toolRepository.findById(id);
+        List<Station> listStation= (List<Station>) stationRepository.findAll();
+
+        model.addAttribute("listStation", listStation);
+        model.addAttribute(rentedTool);
+
+        return "returnStation";
+    }
+
+    @PostMapping("/setReturnStation/{toolId}/{stationId}")
+    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
+    {
+        //init object for return tool
+        Station returnStation = stationRepository.findById(stationId);
+        Tool renturnedTool = toolRepository.findById(toolId);
+        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
+        int AccountId  = nameControllerAdvice.getAuthUser();
+        Customer lendingCustomer = customerRepository.findByAccount_id(AccountId);
+        Warehouse mainWarehouse = warehouseRepository.findById(1);
+
+        // return tool method
+        Rental.returnTool(renturnedTool,returnStation,lendingCustomer,mainWarehouse);
+
+        // save data
+        toolRepository.save(renturnedTool);
+        lendingCustomer.getToolFromInventory(renturnedTool);
+        //mainWarehouse.putToolInWarehouse(renturnedTool);
+        customerRepository.save(lendingCustomer);
+        stationRepository.save(returnStation);
+        warehouseRepository.save(mainWarehouse);
+
+        //find data in java logik to save
+        Bill rentBill = Billing.findOpenBillFromCustomer(lendingCustomer);
+        RentProcess rentProcess = rentBill.findRentProcess(renturnedTool);
+        rentProcessRepository.save(rentProcess);
+        billRepository.save(rentBill);
+
+
+        return "rentSuccessful";
+    }
+
 }

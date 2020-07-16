@@ -120,11 +120,12 @@ public class ToolController {
         // just neccessary to deliver toolId to next view
        return"chooseStation";
     }
+
     @PostMapping("/returnTool/{id}")
     public String returnTool(@PathVariable(name = "id") int id){
 
 
-        return"redirect:/returnStation";
+        return"returnStation";
     }
 
 //    @RequestMapping("/getTool")

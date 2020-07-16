@@ -13,24 +13,24 @@
 
 
 <div class="flexWrapper">
-<div th:each="tool : ${listTools}">
+<div th:each="tool1 : ${listTools}">
 <div class="card">
     <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
     <ul class="toolInfo">
-        <li data-label="Description" th:text="${tool.description}">Description</li>
-    <li data-label="Category " th:text="${tool.category}">Category</li>
-    <li data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</li>
+        <li data-label="Description" th:text="${tool1.description}">Description</li>
+    <li data-label="Category " th:text="${tool1.category}">Category</li>
+    <li data-label="Toolstatus" th:text="${tool1.toolStatus}">Toolstatus</li>
     <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
 
-        <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
+        <li data-label="Rentprice" th:text="${tool1.rentPrice}">Rentprice</li>
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
-
-
-    <form  th:action="@{/chooseStation/{id}(id=${tool.id})}" th:object="${tool}"   method="post">
-    <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Ausleihen</button></p> </a>
-    </form>
+      <form  th:action="@{/chooseStation/{id}(id=${tool1.id})}" th:object="${tool}"   method="post">
+        <div >
+        <a sec:authorize="hasRole('CUSTOMER')" > <p ><button>Ausleihen</button></p> </a>
+        </div>
+      </form>
 
 </div>
 </div>
