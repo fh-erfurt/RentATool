@@ -1,4 +1,4 @@
-![CodeFactor](https://img.shields.io/badge/JAVA-13.0.2.8-blue)
+![CodeFactor](https://img.shields.io/badge/JAVA-13-blue)
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/fh-erfurt/RentATool/blob/master/LICENSE)
 [![versionspringboot](https://img.shields.io/badge/dynamic/xml?color=brightgreen&url=https://rawcdn.githack.com/fh-erfurt/RentATool/f69faf42628600a2571aa2b83a096be3895fd56a/pom.xml&query=%2F%2A%5Blocal-name%28%29%3D%27project%27%5D%2F%2A%5Blocal-name%28%29%3D%27parent%27%5D%2F%2A%5Blocal-name%28%29%3D%27version%27%5D&label=springboot)](https://github.com/fh-erfurt/RentATool/blob/master/pom.xml)
@@ -6,7 +6,9 @@
 [![Dependabot](https://badgen.net/badge/Dependabot/enabled/green?icon=dependabot)](https://dependabot.com/)
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
-https://rent-a-tool-live.herokuapp.com/
+
+[Webseite](https://rent-a-tool-live.herokuapp.com/)
+
 
 # Verleihstation für Werkzeuge
 Im Rahmen des Projektes zum Thema Programmierung JAVA 1 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
