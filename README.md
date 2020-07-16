@@ -7,7 +7,7 @@
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
 
-# [--> Webseite](https://rent-a-tool-live.herokuapp.com/)
+## [Webseite](https://rent-a-tool-live.herokuapp.com/)
 
 
 # Verleihstation für Werkzeuge
