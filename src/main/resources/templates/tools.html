@@ -26,12 +26,7 @@
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
-    <form  th:action="@{/rentTool/{id}/{stationId}(id=${tool.id},stationId=${station.id})}" th:object="${tool}"  method="post">
-        <select id="station">
-            <option th:each="station : ${stationList}"
-                    th:value="${station.id}"
-                    th:text="${station.getDescription()}"></option>
-        </select>
+    <form  th:action="@{/rentTool/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Ausleihen</button></p> </a>
     </form>
 </div>

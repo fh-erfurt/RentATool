@@ -57,15 +57,6 @@ public class ToolController {
     public String listAllTool(Model model)
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
-        List<Station> stationList= (List<Station>) stationRepository.findAll();
-
-        Station station1 = stationRepository.findById(1);
-        Station station2 = stationRepository.findById(2);
-        Station station3 = stationRepository.findById(3);
-        model.addAttribute("station",station1);
-        model.addAttribute("station",station2);
-        model.addAttribute("station",station3);
-        model.addAttribute("stationList", stationList);
         model.addAttribute("listTools", listTools);
         return "tools";
     }
@@ -123,8 +114,8 @@ public class ToolController {
         return "redirect:/toolManagement";
     }
 
-    @PostMapping("/rentTool/{id}/{stationId}")
-    public String addToCart(@PathVariable(name = "id") int id,@PathVariable(name = "stationId") int stationId){
+    @PostMapping("/rentTool/{id}")
+    public String addToCart(@PathVariable(name = "id") int id){
 
 
        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
@@ -134,17 +125,9 @@ public class ToolController {
        Tool reservedTool = toolRepository.findById(id);
        Warehouse warehouse = warehouseRepository.findById(1);
        warehouse.putToolInWarehouse(reservedTool);
-       Station rentStation = stationRepository.findById(stationId);
 
        customer.putToolInInventory(reservedTool);
 
-       Rental.rentATool(reservedTool,rentStation,customer,warehouse);
-       toolRepository.save(reservedTool);
-       customerRepository.save(customer);
-       stationRepository.save(rentStation);
-       warehouseRepository.save(warehouse);
-
-       Bill custBill = Billing.findOrCreateBill(customer,rentStation);
        //ToDo save an optional class repository
 //       if(custBill.getBillNumber() == 0) {
 //           RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
