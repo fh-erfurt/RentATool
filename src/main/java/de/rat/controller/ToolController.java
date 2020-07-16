@@ -133,7 +133,7 @@ public class ToolController {
 
 
 
-       return"chooseStation";
+       return"redirect:/chooseStation";
     }
 
 
