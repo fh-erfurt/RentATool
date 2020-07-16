@@ -15,13 +15,14 @@
 
     <div th:each="station : ${listStation}" class="login-page">
         <div class="form">
-            <form  th:action="@{/setStation/{id}(id=${station.id})}" th:object="${station}"  method="post">
+            <form  th:action="@{'/setStation/'+ ${tool.id}+'/'+${station.id}}" th:object="${station}"  method="post">
 
                 <button>Ausleihvorgang abschließen</button>
 
             </form>
         </div>
     </div>
+
 </section>
 <section id="Footer" class="ud_page2">
 
