@@ -1,8 +1,12 @@
 package de.rat.controller;
 
+import de.rat.model.Rental;
+import de.rat.model.billing.Bill;
+import de.rat.model.billing.Billing;
+import de.rat.model.customer.Customer;
+import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
-import de.rat.storage.repository.StationRepository;
-import de.rat.storage.repository.ToolRepository;
+import de.rat.storage.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +26,21 @@ public class StationController {
     StationRepository stationRepository;
     @Autowired
     ToolRepository toolRepository;
+    @Autowired
+    CustomerRepository customerRepository;
+    @Autowired
+    WarehouseRepository warehouseRepository;
+    @Autowired
+    RentProcessRepository rentProcessRepository;
+    @Autowired
+    BillRepository billRepository;
+    @Autowired
+    BillingRepository billingRepository;
+
+
+
+
+
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
     @RequestMapping(path="/chooseStation/{id}")
@@ -41,8 +60,32 @@ public class StationController {
     @PostMapping("/setStation/{toolId}/{stationId}")
     public String rentATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
     {
+        //init object for renting
         Station rentStation = stationRepository.findById(stationId);
         Tool rentedTool = toolRepository.findById(toolId);
+        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
+        int AccountId  = nameControllerAdvice.getAuthUser();
+        Customer lendingCustomer = customerRepository.findByAccount_id(AccountId);
+        Warehouse mainWarehouse = warehouseRepository.findById(1);
+
+        // rent a tool
+        Rental.rentATool(rentedTool,rentStation,lendingCustomer,mainWarehouse);
+
+        // save data
+        toolRepository.save(rentedTool);
+        lendingCustomer.putToolInInventory(rentedTool);
+        customerRepository.save(lendingCustomer);
+        stationRepository.save(rentStation);
+        warehouseRepository.save(mainWarehouse);
+
+
+
+        //find data in java logik to save
+        Bill rentBill = Billing.findOpenBillFromCustomer(lendingCustomer);
+        RentProcess rentProcess = rentBill.findRentProcess(rentedTool);
+        rentProcessRepository.save(rentProcess);
+        billRepository.save(rentBill);
+
 
 
         return "rentSuccessful";

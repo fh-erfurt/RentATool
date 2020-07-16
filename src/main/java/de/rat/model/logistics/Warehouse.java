@@ -23,7 +23,6 @@ public class Warehouse extends BaseModel {
 
     @OneToMany
     @JoinTable(name="warehouseTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
-    @Column(name="id")
     private List<Tool> Stock= new ArrayList<>();
 
     public Warehouse() { }
