@@ -8,7 +8,7 @@
 
 ## Master
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg)](https://github.com/fh-erfurt/RentATool/actions)
-## Development
+### Development
 [![Build Status](https://github.com/fh-erfurt/RentATool/workflows/RentATool/badge.svg?branch=development)](https://github.com/fh-erfurt/RentATool/actions)
 
 
