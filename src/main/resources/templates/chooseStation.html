@@ -15,6 +15,7 @@
 
     <div th:each="station : ${listStation}" class="login-page">
         <div class="form">
+            <h3 data-label="Description" th:text="${station.getDescription()}">Description</h3>
             <form  th:action="@{'/setStation/'+ ${tool.id}+'/'+${station.id}}" th:object="${station}"  method="post">
 
                 <button>Ausleihvorgang abschließen</button>
