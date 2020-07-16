@@ -124,14 +124,7 @@ public class ToolController {
     public String returnTool(@PathVariable(name = "id") int id){
 
 
-        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
-        int AccountId  = nameControllerAdvice.getAuthUser();
-
-        Customer customer = customerRepository.findByAccount_id(AccountId);
-        Tool reservedTool = toolRepository.findById(id);
-        Warehouse warehouse = warehouseRepository.findById(1);
-
-        return"redirect:/chooseStation";
+        return"redirect:/returnStation";
     }
 
 //    @RequestMapping("/getTool")
