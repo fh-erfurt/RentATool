@@ -67,27 +67,15 @@ public class Billing extends BaseModel {
         LocalDate today =  LocalDate.now();
         logger.info("111111");
         logger.info(String.valueOf(today));
-//      Bill searchedBill = openBills.stream().peek(System.out.println()
-//
-//                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().equals(customer))
-//                .findAny()
-//                .orElse(null);
+      Bill searchedBill = openBills.stream()
 
-        for(Bill bill :openBills){
+                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().getId()==(customer.getId()))
+                .findAny()
+                .orElse(null);
 
-            if(Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().getId()==customer.getId()){
-                logger.info("Die Rechnung wurde gefunden!");
-                return bill;
-            }
-            else{
-                logger.info("Es konnte keine passende Offene Rechnung gefunden werden");
+        logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
 
-            }
-        }
-
-        //logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
-        return null;
-        //return searchedBill;
+        return searchedBill;
     }
 
 

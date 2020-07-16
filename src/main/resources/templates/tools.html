@@ -27,7 +27,7 @@
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
       <form  th:action="@{/chooseStation/{id}(id=${tool1.id})}" th:object="${tool}"   method="post">
-        <div >
+        <div>
         <a sec:authorize="hasRole('CUSTOMER')" > <p ><button>Ausleihen</button></p> </a>
         </div>
       </form>
