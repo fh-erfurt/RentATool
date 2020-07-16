@@ -127,11 +127,6 @@ public class ToolController {
        Customer customer = customerRepository.findByAccount_id(AccountId);
        Tool reservedTool = toolRepository.findById(id);
        Warehouse warehouse = warehouseRepository.findById(1);
-       warehouse.putToolInWarehouse(reservedTool);
-
-
-
-
 
        return"redirect:/chooseStation";
     }
