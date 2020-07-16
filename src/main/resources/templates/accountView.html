@@ -25,12 +25,7 @@
                 </ul>
                 <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 
-                <form  th:action="@{/addToInventory/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
-
-                    <!--        <select th:text="station">-->
-                    <!--            <option th:each="station:${stationList}" th:value="${station.getDescription()}" th:text="${station.getDescription()}" />-->
-                    <!--        </select>-->
-
+                <form  th:action="@{/returnTool/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
                     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Zurückgeben</button></p> </a>
                 </form>
             </div>

@@ -27,14 +27,10 @@ public class StationController {
     @RequestMapping(path="/chooseStation/{id}")
     public String listAllTools(@PathVariable(name = "id") int id,Model model)
     {
-        log.info("22222");
+
         Tool rentedTool = toolRepository.findById(id);
         List<Station> listStation= (List<Station>) stationRepository.findAll();
 
-        for (Station station : listStation) {
-            log.info("1111");
-            log.info(String.valueOf(station.getId()));
-        }
         model.addAttribute("listStation", listStation);
         model.addAttribute(rentedTool);
 
@@ -47,8 +43,7 @@ public class StationController {
     {
         Station rentStation = stationRepository.findById(stationId);
         Tool rentedTool = toolRepository.findById(toolId);
-        log.info(rentedTool.getDescription());
-        log.info(rentStation.getDescription());
+
 
         return "rentSuccessful";
     }
