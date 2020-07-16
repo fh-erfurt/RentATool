@@ -60,13 +60,6 @@ public class ToolController {
     public String listAllTool(Model model)
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
-
-       List<Station> stationList= (List<Station>) stationRepository.findAll();
-
-        model.addAttribute("station", stationRepository.findById(1));
-        model.addAttribute("station", stationRepository.findById(2));
-        model.addAttribute("station", stationRepository.findById(3));
-        model.addAttribute("stationList", stationList);
         model.addAttribute("listTools", listTools);
         return "tools";
     }
@@ -135,23 +128,12 @@ public class ToolController {
        Tool reservedTool = toolRepository.findById(id);
        Warehouse warehouse = warehouseRepository.findById(1);
        warehouse.putToolInWarehouse(reservedTool);
-       Station testStation = stationRepository.findById(1);
-
-       customer.putToolInInventory(reservedTool);
-
-       Rental.rentATool(reservedTool,testStation,customer,warehouse);
-       toolRepository.save(reservedTool);
-       customerRepository.save(customer);
-       stationRepository.save(testStation);
-       warehouseRepository.save(warehouse);
-
-       Bill custBill = Billing.findOrCreateBill(customer,testStation);
-       RentProcess custRentProcess = custBill.findRentProcess(reservedTool);
-       rentProcessRepository.save(custRentProcess);
-       billRepository.save(custBill);
 
 
-       return"rentSuccessful";
+
+
+
+       return"chooseStation";
     }
 
 

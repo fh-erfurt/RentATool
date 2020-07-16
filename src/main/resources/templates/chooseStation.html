@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Wählen Sie Ihre Station</h2>
+    <div class="ud_h2_balken"></div>
+
+    <div th:each="station : ${listStation}" class="login-page">
+        <div class="form">
+            <form  th:action="@{/setStation/{id}(id=${station.id})}" th:object="${station}"  method="post">
+
+                <button>Ausleihvorgang abschließen</button>
+
+            </form>
+        </div>
+    </div>
+</section>
+<section id="Footer" class="ud_page2">
+
+    <!-- Footer -->
+    <footer th:replace="fragments/footer :: footer"></footer>
+</section>
+
+</body>
+</html>

@@ -29,7 +29,6 @@
 
 
     <form  th:action="@{/addToInventory/{id}(id=${tool.id})}" th:object="${tool}"   method="post">
-
     <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Ausleihen</button></p> </a>
     </form>
 
