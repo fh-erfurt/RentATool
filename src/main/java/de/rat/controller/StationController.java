@@ -19,7 +19,11 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.*;
 import java.util.List;
+/** Controller for all pages they are handle with the Registration
+ * sets parameter and generate the data for the views
 
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class StationController {
     @Autowired
