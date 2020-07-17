@@ -15,6 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDate;
 import java.util.List;
 
+/** Controller for all pages they are handle with the User
+ * sets parameter and generate the data for the views
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class UserController {
 

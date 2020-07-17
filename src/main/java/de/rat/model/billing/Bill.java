@@ -1,10 +1,8 @@
 package de.rat.model.billing;
 
-
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -19,10 +17,8 @@ import java.util.logging.Logger;
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
- * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
-
-
 
 /** Creates a bill .
  *  billnumber is a static unique number<br>

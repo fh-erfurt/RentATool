@@ -1,29 +1,21 @@
 package de.rat.controller;
 
-import de.rat.account.details.AccountDetails;
-import de.rat.model.Rental;
-import de.rat.model.billing.Bill;
-import de.rat.model.billing.Billing;
-import de.rat.model.common.Person;
-import de.rat.model.customer.Customer;
-import de.rat.model.customer.RentProcess;
-import de.rat.model.employee.Employee;
 import de.rat.model.logistics.Manufacturer;
-import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
-import de.rat.model.logistics.Warehouse;
 import de.rat.storage.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** Controller for all pages they are handle with the Tools
+ * sets parameter and generate the data for the views
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class ToolController {
 

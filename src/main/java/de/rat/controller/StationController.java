@@ -1,7 +1,5 @@
 package de.rat.controller;
 
-import com.lowagie.text.DocumentException;
-import de.rat.config.CustomOpenPdfUserAgent;
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
@@ -102,7 +100,8 @@ public class StationController {
     }
 
     @PostMapping("/setReturnStation/{toolId}/{stationId}")
-    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId) throws IOException, DocumentException {
+    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
+    {
         //init object for return tool
         Station returnStation = stationRepository.findById(stationId);
         Tool renturnedTool = toolRepository.findById(toolId);

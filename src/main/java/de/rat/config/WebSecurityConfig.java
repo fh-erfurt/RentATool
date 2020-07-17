@@ -15,10 +15,15 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/** managed the web security
+ * generate the access to the pages#
+ * has a password hash method
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
 
     @Autowired
     UserDetailsService accountDetailsService;

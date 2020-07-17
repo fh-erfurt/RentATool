@@ -18,11 +18,21 @@
     <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
     <ul class="toolInfo">
         <li data-label="Description" th:text="${tool1.description}">Description</li>
-    <li data-label="Category " th:text="${tool1.category}">Category</li>
-    <li data-label="Toolstatus" th:text="${tool1.toolStatus}">Toolstatus</li>
-    <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
+    <th:block th:switch="${tool1.category}">
+       <li data-label th:case="${T(de.rat.model.logistics.Category).ACCUTOOL}">akkubetrieben</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).ELECTRICALTOOL}">elektrisch betrieben</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).GARDENTOOL}">Gartenwerkzeug</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).HANDTOOL}">ohne Motor</li>
+    </th:block >
 
-        <li data-label="Rentprice" th:text="${tool1.rentPrice}">Rentprice</li>
+    <th:block th:switch="${tool1.toolStatus}">
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).AVAILABLE}">ist vorhanden</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISBROKEN}">derzeit defekt</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISINREPAIR}">in Reperatur</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISRENTED}">derzeit verliehen</li>
+    </th:block >
+
+        <li data-label="Rentprice" th:text="${tool1.rentPrice}+' €'">Rentprice</li>
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
 

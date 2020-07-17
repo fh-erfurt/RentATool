@@ -9,6 +9,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/** Provides core user information
+ * They simply store user information which is later encapsulated into Authentication objects. <br>
+ * This allows non-security related user information (such as email addresses, telephone numbers etc) to be stored in a convenient location.
+ *
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
+
 public class AccountDetails implements UserDetails {
 
     private Integer id;
@@ -24,8 +32,6 @@ public class AccountDetails implements UserDetails {
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -61,5 +67,4 @@ public class AccountDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {return true;}
-
 }
