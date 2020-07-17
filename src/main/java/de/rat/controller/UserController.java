@@ -55,12 +55,6 @@ public class UserController {
 
         return "employee";
     }
-    @RequestMapping(path="/bill")
-    public String listBill(Model model)
-    {
-        model.addAttribute("localDate", LocalDate.now());
 
-        return "billPDF";
-    }
 
 }

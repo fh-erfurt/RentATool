@@ -135,20 +135,20 @@ public class StationController {
             rentProcessRepository.save(rentProcess);
             billRepository.save(alreadyOpenBill);
         }
-        final String baseDir = System.getProperty("user.dir");
-        System.out.println("About to convert html to pdf");
-        File output = new File(baseDir + "\\output.pdf");
-        ITextRenderer renderer = new ITextRenderer();
-
-        renderer.getSharedContext()
-                .setUserAgentCallback(new CustomOpenPdfUserAgent(renderer.getOutputDevice()));
-
-        renderer.setDocument("templates/billPDF.html");
-        renderer.layout();
-        OutputStream outputStream = new FileOutputStream(output);
-        renderer.createPDF(outputStream);
-        outputStream.close();
-        System.out.println("Done");
+//        final String baseDir = System.getProperty("user.dir");
+//        System.out.println("About to convert html to pdf");
+//        File output = new File(baseDir + "\\output.pdf");
+//        ITextRenderer renderer = new ITextRenderer();
+//
+//        renderer.getSharedContext()
+//                .setUserAgentCallback(new CustomOpenPdfUserAgent(renderer.getOutputDevice()));
+//
+//        renderer.setDocument("templates/billForm.html");
+//        renderer.layout();
+//        OutputStream outputStream = new FileOutputStream(output);
+//        renderer.createPDF(outputStream);
+//        outputStream.close();
+//        System.out.println("Done");
 
 
 

@@ -31,15 +31,18 @@
                 <table>
                     <tr>
                         <td>
-                            Sparksuite, Inc.<br>
-                            12345 Sunny Road<br>
-                            Sunnyville, CA 12345
+                            <label th:text ="${authUserFirstName} + ' ' + ${authUserLastName}"></label><br>
+                            <label th:text ="${authUserAddressStreet}+ ' ' + ${authUserAddressHnr}"></label><br>
+                            <label th:text ="${authUserAddressCity}+ ' ' + ${authUserAddressZip}">"></label><br>
+                            <label th:text ="${authUserAddressCountry}"></label><br>
+                            <label th:text ="${authUserPhone}"></label>
                         </td>
 
                         <td>
-                            Acme Corp.<br>
-                            John Doe<br>
-                            john@example.com
+                            RentATool, Inc.<br>
+                            12345 Hammer Street<br>
+                            94585, Hammerhausen<br>
+                            timallen@rat.de
                         </td>
                     </tr>
                 </table>
@@ -52,17 +55,17 @@
             </td>
 
             <td>
-                Check #
+                PayPal
             </td>
         </tr>
 
         <tr class="details">
             <td>
-                Check
+                PayPal
             </td>
 
             <td>
-                1000
+                965824568
             </td>
         </tr>
 
