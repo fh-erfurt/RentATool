@@ -137,7 +137,7 @@ public class StationController {
             billRepository.save(alreadyOpenBill);
         }
 
-        return "rentSuccessful";
+        return "returnSuccessful";
     }
 
 }
