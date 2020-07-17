@@ -6,15 +6,11 @@ import de.rat.model.common.Date;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
-import javax.persistence.*;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import org.hibernate.annotations.BatchSize;
 
 
 import java.time.LocalDate;
-import javax.persistence.Transient;
 import java.util.*;
 import java.util.logging.Logger;
 

@@ -5,7 +5,6 @@ import de.rat.model.common.Address;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**Represents an manufacturer.
  * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani

@@ -22,7 +22,6 @@ public class RentProcess extends BaseModel {
     @ManyToOne // TODO: Check
     private Tool rentedTool;
 
-//    @Temporal(TemporalType.DATE)
     private LocalDate returnDate;
 
     @ManyToOne // TODO: Check

@@ -1,6 +1,5 @@
 package de.rat.controller;
 
-import com.lowagie.text.DocumentException;
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
@@ -17,10 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.Context;
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -109,7 +104,8 @@ public class StationController {
     }
 
     @PostMapping("/setReturnStation/{toolId}/{stationId}")
-    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId) throws IOException, DocumentException {
+    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
+    {
         //init object for return tool
         Station returnStation = stationRepository.findById(stationId);
         Tool renturnedTool = toolRepository.findById(toolId);

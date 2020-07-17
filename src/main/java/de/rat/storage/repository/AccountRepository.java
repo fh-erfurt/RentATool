@@ -11,9 +11,6 @@ import java.util.Optional;
 public interface AccountRepository extends CrudRepository<Account,Integer> {
 
     Account findById(int id);
-//    Account findBy(int CustomerId);
-//    Account findByEmail(String email);  //ToDo test if it works
-
     List<Account> findByRole(Role role);
     Optional<Account> findByEmail(String email);
 }

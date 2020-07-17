@@ -1,6 +1,5 @@
 package de.rat.storage.repository;
 
-import de.rat.model.billing.Bill;
 import de.rat.model.logistics.Category;
 import de.rat.model.logistics.ToolStatus;
 import de.rat.model.logistics.Tool;

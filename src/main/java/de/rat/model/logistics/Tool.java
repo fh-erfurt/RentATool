@@ -7,9 +7,7 @@ package de.rat.model.logistics;
 import de.rat.model.BaseModel;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 
 /** Creates a tool .
@@ -25,14 +23,12 @@ import java.math.BigDecimal;
 public class Tool extends BaseModel {
 
     private String itemId;
-
     @ManyToOne
     private Manufacturer manufacturer;
     private String description;
-    //ToDo Flag in der DB oder nicht mit nehmen?
-    private Category category;  //TODO: how does it look like in the database
+    private Category category;
     private String stock;
-    private ToolStatus toolStatus;  //TODO: how does it look like in the database
+    private ToolStatus toolStatus;
     private BigDecimal rentPrice;
     public Tool(){};
 
@@ -55,15 +51,15 @@ public class Tool extends BaseModel {
         this.toolStatus = toolStatus;
         this.rentPrice = rentPrice;
     }
-//erstmal nur Test
-public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
-    this.itemId = itemId;
+    //erstmal nur Test
+    public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
+        this.itemId = itemId;
 
-    this.description = description;
-    this.category = category;
-    this.stock = stock;
-    this.toolStatus = toolStatus;
-    this.rentPrice = rentPrice;
+        this.description = description;
+        this.category = category;
+        this.stock = stock;
+        this.toolStatus = toolStatus;
+        this.rentPrice = rentPrice;
 }
 
      /** get the manufacturer for a tool .
