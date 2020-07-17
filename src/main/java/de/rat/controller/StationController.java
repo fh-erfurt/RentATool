@@ -116,16 +116,26 @@ public class StationController {
         toolRepository.save(renturnedTool);
         lendingCustomer.getToolFromInventory(renturnedTool);
         //mainWarehouse.putToolInWarehouse(renturnedTool);
+
         customerRepository.save(lendingCustomer);
         stationRepository.save(returnStation);
         warehouseRepository.save(mainWarehouse);
 
-        //find data in java logik to save
-        Bill rentBill = Billing.findOpenBillFromCustomer(lendingCustomer);
-        RentProcess rentProcess = rentBill.findRentProcess(renturnedTool);
-        rentProcessRepository.save(rentProcess);
-        billRepository.save(rentBill);
-
+        // make a difference if bill process is finished or not
+        // par example with two tools the process is not finished when jut one tool is returned
+        Bill finishedBill = Billing.findCheckedBillFromCustomer(lendingCustomer);
+        if(finishedBill != null){
+            RentProcess rentProcess = finishedBill.findRentProcess(renturnedTool);
+            Billing.moveFromCheckToClosed(finishedBill);
+            rentProcessRepository.save(rentProcess);
+            billRepository.save(finishedBill);
+        }
+        else {
+            Bill alreadyOpenBill = Billing.findOpenBillFromCustomer(lendingCustomer);
+            RentProcess rentProcess = alreadyOpenBill.findRentProcess(renturnedTool);
+            rentProcessRepository.save(rentProcess);
+            billRepository.save(alreadyOpenBill);
+        }
 
         return "rentSuccessful";
     }

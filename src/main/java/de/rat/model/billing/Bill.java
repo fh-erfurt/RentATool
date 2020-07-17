@@ -237,9 +237,11 @@ public class Bill {
      */
     public RentProcess findRentProcess(Tool searchedTool){
 
+
         for (RentProcess foundedRentProcess : this.listOfRentProcesses)
         {
-            if(foundedRentProcess.getRentedTool().equals(searchedTool))
+
+            if(foundedRentProcess.getRentedTool().getId()== (searchedTool.getId()))
             {
 
                 return foundedRentProcess;

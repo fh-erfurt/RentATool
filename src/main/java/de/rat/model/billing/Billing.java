@@ -65,11 +65,26 @@ public class Billing extends BaseModel {
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
         LocalDate today =  LocalDate.now();
-        logger.info("111111");
-        logger.info(String.valueOf(today));
       Bill searchedBill = openBills.stream()
 
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().getId()==(customer.getId()))
+                .findAny()
+                .orElse(null);
+
+        logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
+
+        return searchedBill;
+    }
+
+    /** Find a checked bill from the customer .
+     * @return A class bill when the customer has a checked bill, otherwise
+     * @return null if there are no checked bills
+     */
+    public static Bill findCheckedBillFromCustomer(Customer customer){
+        // get date of today for comparing with rentDate
+        Bill searchedBill = checkBills.stream()
+
+                .filter(bill -> bill.getCustomer().getId()==(customer.getId()))
                 .findAny()
                 .orElse(null);
 
@@ -88,11 +103,11 @@ public class Billing extends BaseModel {
         LocalDate today = LocalDate.now();
         for (Bill foundedBill : openBills) {
 
-            RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
+            RentProcess rentProcess = foundedBill.findRentProcess(wantedTool);
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer) && rentprocess!= null) {
+            if (foundedBill.getCustomer().getId()==(customer.getId()) && rentProcess.getRentedTool() != null) {
 
-                rentprocess.completeRentProcess(removeStation, today);
+                rentProcess.completeRentProcess(removeStation, today);
                 logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
             }
@@ -126,7 +141,7 @@ public class Billing extends BaseModel {
         Iterator<Bill> iterator = openBills.iterator();
         while (iterator.hasNext()) {
             Bill bill = iterator.next();
-            if (bill.getCustomer().equals(customer)) {
+            if (bill.getCustomer().getId()==(customer.getId())) {
                 if(bill.checkIfAllRentProcessesFromABillAreClosed()) {
                     bill.setFullRentPrice();
                     logger.info("Der Gesamtpreis wurde eingetragen!");
