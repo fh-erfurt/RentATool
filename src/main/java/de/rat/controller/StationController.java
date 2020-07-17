@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 import java.util.List;
 
+/** Controller for all pages they are handle with the Stations
+ * sets parameter and generate the data for the views
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class StationController {
     @Autowired

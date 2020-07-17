@@ -6,8 +6,6 @@ import de.rat.storage.repository.AccountRepository;
 import de.rat.storage.repository.AddressRepository;
 import de.rat.storage.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +20,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+/** Controller for all pages they are handle with the Registration
+ * sets parameter and generate the data for the views
 
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class RegisterController {
 
