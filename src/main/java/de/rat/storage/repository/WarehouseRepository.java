@@ -2,7 +2,6 @@ package de.rat.storage.repository;
 
 import de.rat.model.logistics.Warehouse;
 import org.springframework.data.repository.CrudRepository;
-
 import java.util.List;
 
 

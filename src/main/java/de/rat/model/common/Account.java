@@ -4,7 +4,6 @@ import de.rat.model.BaseModel;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.*;
 
 /**Represents a class account.

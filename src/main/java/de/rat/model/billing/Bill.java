@@ -1,6 +1,6 @@
 package de.rat.model.billing;
 
-import de.rat.model.BaseModel;
+
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
@@ -46,13 +46,13 @@ public class Bill {
     @Id
     private int billNumber;
 
-    @ManyToOne // TODO: Check
+    @ManyToOne
     private Customer customer;
 
 
-    private LocalDate rentDate; // TODO: Date?
+    private LocalDate rentDate;
 
-    @ManyToOne // TODO: Check
+    @ManyToOne
     private Station rentStation;
 
     private int discount;

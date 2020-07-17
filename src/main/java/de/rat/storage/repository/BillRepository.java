@@ -1,7 +1,6 @@
 package de.rat.storage.repository;
 
 import de.rat.model.billing.Bill;
-import de.rat.model.customer.Customer;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

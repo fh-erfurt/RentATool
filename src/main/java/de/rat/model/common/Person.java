@@ -69,7 +69,7 @@ public abstract class Person extends BaseModel {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-//Methods
+    //Methods
     /** creates the Password for an employee or a customer.
      *  @return password (String)
      *
