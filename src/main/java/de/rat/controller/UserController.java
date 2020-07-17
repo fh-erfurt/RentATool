@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -49,6 +50,12 @@ public class UserController {
 
         return "employee";
     }
+    @RequestMapping(path="/bill")
+    public String listBill(Model model)
+    {
+        model.addAttribute("localDate", LocalDate.now());
 
+        return "billPDF";
+    }
 
 }
