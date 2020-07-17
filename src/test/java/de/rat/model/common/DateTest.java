@@ -24,8 +24,6 @@ class DateTest {
 
         date1 = LocalDate.of(2005, 8, 29);
         date2 = LocalDate.of(2005, 8, 30);
-        date3 = LocalDate.now();
-        date4 = LocalDate.of(2020,7,16);
     }
 
     @Test
@@ -41,8 +39,7 @@ class DateTest {
     void compareDates() {
 
         assertTrue(Date.compareDates(date1, Operator.LESS, date2));
-        //TODO: added all Tests
-        assertTrue(Date.compareDates(date3,Operator.EQUAL,date4));
+
 //        return dateOne == dateTwo;
 
 //        return dateOne != dateTwo;
