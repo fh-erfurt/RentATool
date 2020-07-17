@@ -1,5 +1,7 @@
 package de.rat.controller;
 
+import com.lowagie.text.DocumentException;
+import de.rat.config.CustomOpenPdfUserAgent;
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
@@ -10,18 +12,14 @@ import de.rat.storage.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Iterator;
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -104,8 +102,7 @@ public class StationController {
     }
 
     @PostMapping("/setReturnStation/{toolId}/{stationId}")
-    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
-    {
+    public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId) throws IOException, DocumentException {
         //init object for return tool
         Station returnStation = stationRepository.findById(stationId);
         Tool renturnedTool = toolRepository.findById(toolId);
@@ -139,24 +136,20 @@ public class StationController {
             rentProcessRepository.save(rentProcess);
             billRepository.save(alreadyOpenBill);
         }
-        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML");
-
-        TemplateEngine templateEngine = new TemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver);
-
-        Context context = new Context();
-        context.setVariable("name", "Thomas");
-
-// Get the plain HTML with the resolved ${name} variable!
-        String html = templateEngine.process("billPDF", context);
-        OutputStream outputStream = new FileOutputStream("message.pdf");
+        final String baseDir = System.getProperty("user.dir");
+        System.out.println("About to convert html to pdf");
+        File output = new File(baseDir + "\\output.pdf");
         ITextRenderer renderer = new ITextRenderer();
-        renderer.setDocumentFromString(html);
+
+        renderer.getSharedContext()
+                .setUserAgentCallback(new CustomOpenPdfUserAgent(renderer.getOutputDevice()));
+
+        renderer.setDocument("templates/billPDF.html");
         renderer.layout();
+        OutputStream outputStream = new FileOutputStream(output);
         renderer.createPDF(outputStream);
         outputStream.close();
+        System.out.println("Done");
 
 
 

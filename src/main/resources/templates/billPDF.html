@@ -1,5 +1,10 @@
-<html>
-<body>
-<h1>Hi! My name is [[${name}]]!</h1>
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head"></head>
+<body class="toolsBody">
+<header th:replace="fragments/header :: header"></header>
+
+<h1 class="textStyle">Hi!<br/>Ich bin eine Rechnung.</h1>
 </body>
 </html>
