@@ -2,9 +2,9 @@ package de.rat.controller;
 
 import de.rat.model.common.*;
 import de.rat.model.customer.Customer;
-import de.rat.storage.repository.AccountRepository;
-import de.rat.storage.repository.AddressRepository;
-import de.rat.storage.repository.CustomerRepository;
+import de.rat.repositories.AccountRepository;
+import de.rat.repositories.AddressRepository;
+import de.rat.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

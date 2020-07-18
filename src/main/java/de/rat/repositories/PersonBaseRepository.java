@@ -1,4 +1,4 @@
-package de.rat.storage.repository;
+package de.rat.repositories;
 
 import de.rat.model.common.Person;
 import org.springframework.data.jpa.repository.Query;

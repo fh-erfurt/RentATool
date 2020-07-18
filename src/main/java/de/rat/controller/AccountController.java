@@ -2,7 +2,7 @@ package de.rat.controller;
 
 import de.rat.model.customer.Customer;
 import de.rat.model.logistics.Tool;
-import de.rat.storage.repository.CustomerRepository;
+import de.rat.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

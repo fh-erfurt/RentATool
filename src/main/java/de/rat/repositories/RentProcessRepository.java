@@ -1,4 +1,4 @@
-package de.rat.storage.repository;
+package de.rat.repositories;
 
 import de.rat.model.customer.RentProcess;
 import org.springframework.data.repository.CrudRepository;

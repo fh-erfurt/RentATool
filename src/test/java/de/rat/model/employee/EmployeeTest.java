@@ -5,16 +5,13 @@ import de.rat.model.common.*;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.billing.*;
-import de.rat.storage.repository.RentalBillTest;
+import de.rat.repositories.RentalBillTest;
 import org.junit.jupiter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
