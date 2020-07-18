@@ -47,10 +47,10 @@ public class StationController {
      * @return  registerForm
      * gets all user information
      * add all attributes to the model
-     * redirect to registerForm.html
+     * redirect to chooseStation.html
      */
     @RequestMapping(path="/chooseStation/{id}")
-    public String listAllTools(@PathVariable(name = "id") int id,Model model)
+    public String listAllStations(@PathVariable(name = "id") int id,Model model)
     {
         Tool rentedTool = toolRepository.findById(id);
         List<Station> listStation= (List<Station>) stationRepository.findAll();
