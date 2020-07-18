@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.xhtmlrenderer.pdf.ITextRenderer;
 
-import java.io.*;
 import java.util.List;
+
 /** Controller for all pages they are handle with the Registration
  * sets parameter and generate the data for the views
 
@@ -42,6 +41,7 @@ public class StationController {
     BillingRepository billingRepository;
 
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
+    private int WarehouseId = 100000;
 
     /**
      * @return  registerForm
@@ -70,17 +70,17 @@ public class StationController {
     @PostMapping("/setStation/{toolId}/{stationId}")
     public String rentATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
     {
+
         //init object for renting
         Station rentStation = stationRepository.findById(stationId);
         Tool rentedTool = toolRepository.findById(toolId);
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer lendingCustomer = customerRepository.findByAccount_id(AccountId);
-        Warehouse mainWarehouse = warehouseRepository.findById(1);
+        Warehouse mainWarehouse = warehouseRepository.findById(WarehouseId);
 
         // rent a tool
         Rental.rentATool(rentedTool,rentStation,lendingCustomer,mainWarehouse);
-
         // save data
         toolRepository.save(rentedTool);
         rentStation.removeToolFromBox(rentedTool);
@@ -130,7 +130,7 @@ public class StationController {
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer lendingCustomer = customerRepository.findByAccount_id(AccountId);
-        Warehouse mainWarehouse = warehouseRepository.findById(1);
+        Warehouse mainWarehouse = warehouseRepository.findById(WarehouseId);
         returnStation.addToolToBox(renturnedTool);
         // return tool method
         Rental.returnTool(renturnedTool,returnStation,lendingCustomer,mainWarehouse);
