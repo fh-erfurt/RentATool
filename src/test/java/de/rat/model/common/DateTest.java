@@ -26,10 +26,7 @@ class DateTest {
 
     @Test
     void calculateDifferenceBetweenDates() {
-
-        int diffrence = Date.calculateDifferenceBetweenDates(date2, date1);
-        assertEquals(diffrence, 2);
-
+        assertEquals(Date.calculateDifferenceBetweenDates(date2, date1), 2);
     }
 
 
