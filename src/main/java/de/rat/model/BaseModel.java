@@ -36,4 +36,9 @@ public abstract class BaseModel {
     public int getId() {return id;}
     public Date getCreated() {return created;}
     public Date getModified() {return modified;}
+
+    public void setId(int Id){
+        this.id=Id;
+    }
+
 }

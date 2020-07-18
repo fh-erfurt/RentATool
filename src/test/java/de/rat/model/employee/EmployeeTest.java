@@ -30,7 +30,7 @@ class EmployeeTest {
     private Customer custMartin;
 
     private Warehouse warehouse;
-    private Tool drill;
+    private Tool saw;
     private Manufacturer bosch;
     private Station stationOne;
     private Address musterhausen;
@@ -48,7 +48,7 @@ class EmployeeTest {
 
         musterhausen = new Address("Musterstrasse", "1", "99099", "Erfurt", "Deutschland");
         bosch = new Manufacturer("Bosch", musterhausen, "Mr Smith", "123456");
-        drill = new Tool("123", bosch, "Bohrer", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
+        saw = new Tool("1111", bosch, "Säge", Category.HANDTOOL, "1-4-5", ToolStatus.AVAILABLE, new BigDecimal(3));
         stationOne = new Station("S1", 3, musterhausen);
 
         warehouse = new Warehouse();
@@ -85,12 +85,10 @@ class EmployeeTest {
     void should_set_the_discount_and_move_bills_to_Close_Bills(){
 
 
-        warehouse.putToolInWarehouse(drill);
-        Rental.rentATool(drill, stationOne, custMartin, warehouse);
+        warehouse.putToolInWarehouse(saw);
+        Rental.rentATool(saw, stationOne, custMartin, warehouse);
         Bill bill2 = Billing.findOpenBillFromCustomer(custMartin);
-
-        Rental.returnTool(drill,stationOne,custMartin,warehouse);
-
+        Rental.returnTool(saw,stationOne,custMartin,warehouse);
 
 
         assertTrue(empJonas.setDiscountAndMoveBillsToCloseBills(bill2, 5));

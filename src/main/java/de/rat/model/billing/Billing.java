@@ -99,7 +99,9 @@ public class Billing extends BaseModel {
         LocalDate today = LocalDate.now();
         for (Bill foundedBill : openBills) {
 
+
             RentProcess rentProcess = foundedBill.findRentProcess(wantedTool);
+
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
             if (foundedBill.getCustomer().getId()==(customer.getId()) && rentProcess.getRentedTool() != null) {
 
