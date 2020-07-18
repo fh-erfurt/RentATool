@@ -4,8 +4,9 @@ import de.rat.model.billing.Bill;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.Tool;
-import de.rat.storage.repository.BillRepository;
-import de.rat.storage.repository.CustomerRepository;
+import de.rat.repositories.CustomerRepository;
+import de.rat.repositories.BillRepository;
+import de.rat.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +18,8 @@ import java.util.List;
 @Controller
 public class BillController {
 @Autowired
-    CustomerRepository customerRepository;
-BillRepository billRepository;
+CustomerRepository customerRepository;
+BillRepository  billRepository;
 
     @RequestMapping(path="/bill")
     public String listBill(Model model)
