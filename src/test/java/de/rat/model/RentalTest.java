@@ -57,6 +57,8 @@ class RentalTest {
                 "Weimarerlandstraße", "53", "99986", "Dresden", "Germany", "561616310651");
         custDennis = new Customer("Ebert", "Dennis", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
                 "Bahnhofsstraße", "16", "99067", "Gotha", "Germany", "01236/465854");
+
+        // required because methods compare Ids
         custLuise.setId(111111);
 
         empDanny = new Employee("Steinbrecher", "Danny", LocalDate.of(2019, 12, 15),
