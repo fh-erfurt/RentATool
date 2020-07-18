@@ -11,22 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/** Custom Access Denied Handler for the Error 403
+ * if a user goes on a page which he hasnt the püermission, than we send him to the error403 page
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
+
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
         public static final Logger LOG = LoggerFactory.getLogger(CustomAccessDeniedHandler.class);
 
+        /**
+         * load the account by the email
+         * @param  request HttpServletRequest
+         * @param  response HttpServletResponse
+         * @param  exc AccessDeniedException
+         * @throws ServletException IOException
+         * makes an redirect to the error403 page
+         */
         @Override
         public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException exc)
                 throws IOException, ServletException {
 
-                Authentication auth
-                        = SecurityContextHolder.getContext().getAuthentication();
+                Authentication auth = SecurityContextHolder.getContext().getAuthentication();
                 if (auth != null) {
                         LOG.warn("User: " + auth.getName()
                                 + " attempted to access the protected URL: "
                                 + request.getRequestURI());
                 }
-
-                response.setStatus(403);
                 response.sendRedirect(request.getContextPath() + "/error403");
         }
 }

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CustomerTest {
 
     //Variable declaration
-    private Customer custMaria;
+    private Customer custTina;
     private Customer custLudwig;
 
     private Address musterhausen;
@@ -36,7 +36,7 @@ class CustomerTest {
         welder = new Tool("ewv133", bosch, "Schweißgerät", Category.HANDTOOL, "1-4-7", ToolStatus.ISRENTED, new BigDecimal("3.5"));
 
         //Customer
-        custMaria = new Customer("Schmidt", "Maria", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
+        custTina = new Customer("Schmidt", "Tina", LocalDate.of(2005, 8, 29), "maria.schmidt@web.de",
         "Weimarerlandstraße", "53", "99986", "Dresden", "Germany", "561616310651");
         custLudwig = new Customer("Ebert", "Ludwig", LocalDate.of(1937, 12, 17), "crazyemail@web.de",
         "Bahnhofsstraße", "16", "99067", "Gotha", "Germany", "01236/465854");
@@ -47,17 +47,17 @@ class CustomerTest {
     // Customer Information
     @Test
     void create_correct_password_for_customer_and_employee(){
-        assertEquals("ma290805sc", custMaria.getAccount().getPassword());
+        assertEquals("ti290805sc", custTina.getAccount().getPassword());
     }
 
     @Test
     void set_correct_email_for_the_customer(){
-        assertEquals("maria.schmidt@web.de", custMaria.getAccount().getEmail());
+        assertEquals("maria.schmidt@web.de", custTina.getAccount().getEmail());
     }
 
     @Test
     void set_correct_role_for_the_customer(){
-        assertEquals(Role.CUSTOMER, custMaria.getAccount().getRole());
+        assertEquals(Role.CUSTOMER, custTina.getAccount().getRole());
     }
 
     // Customer Interactions

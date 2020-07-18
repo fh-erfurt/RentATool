@@ -3,7 +3,6 @@ package de.rat.model.billing;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -18,10 +17,8 @@ import java.util.logging.Logger;
 /**Represents a class bill.
  * Hold a list of every rentprocess from a customer
  * for a specific date.
- * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
-
-
 
 /** Creates a bill .
  *  billnumber is a static unique number<br>
@@ -45,13 +42,13 @@ public class Bill {
     @Id
     private int billNumber;
 
-    @ManyToOne // TODO: Check
+    @ManyToOne
     private Customer customer;
 
 
-    private LocalDate rentDate; // TODO: Date?
+    private LocalDate rentDate;
 
-    @ManyToOne // TODO: Check
+    @ManyToOne
     private Station rentStation;
 
     private int discount;
@@ -60,7 +57,8 @@ public class Bill {
     private BillStatus billStatus;
 
     /* several rent processes for on bill possible*/
-    @OneToMany // TODO: Check
+    @OneToMany
+    @JoinTable(name="billRentprocesses",inverseJoinColumns=@JoinColumn(name="rentProcess_id"))
     private List<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
     protected Bill(){}
@@ -180,13 +178,20 @@ public class Bill {
      */
     public void setFullRentPrice() {
 
-        for (RentProcess foundedProcesses :listOfRentProcesses)
+
+
+
+        for (RentProcess foundedProcesses : listOfRentProcesses)
         {
             // get the dates of the return and rented Date and calculate the difference.
-            int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(),this.getRentDate());
 
-            // multiply the rented days with the rentPrice for each tool
-            this.fullRentPrice = this.fullRentPrice.add((foundedProcesses.getRentedTool().getRentPrice()).multiply(new BigDecimal(days)));
+            if(foundedProcesses.getReturnDate() != null) {
+                int days = Date.calculateDifferenceBetweenDates(foundedProcesses.getReturnDate(), this.getRentDate());
+
+                // multiply the rented days with the rentPrice for each tool
+                this.fullRentPrice = this.fullRentPrice.add((foundedProcesses.getRentedTool().getRentPrice()).multiply(new BigDecimal(days)));
+
+            }
         }
 
         this.fullRentPrice = this.fullRentPrice.subtract(this.fullRentPrice.multiply(new BigDecimal(discount)).divide(new BigDecimal(100),3, RoundingMode.CEILING));
@@ -235,9 +240,11 @@ public class Bill {
      */
     public RentProcess findRentProcess(Tool searchedTool){
 
+
         for (RentProcess foundedRentProcess : this.listOfRentProcesses)
         {
-            if(foundedRentProcess.getRentedTool().equals(searchedTool))
+
+            if(foundedRentProcess.getRentedTool().getId()== (searchedTool.getId()))
             {
 
                 return foundedRentProcess;

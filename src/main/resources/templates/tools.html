@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: head"></head>
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
@@ -13,30 +13,44 @@
 
 
 <div class="flexWrapper">
-<div th:each="tool : ${listTools}">
+<div th:each="tool1 : ${listTools}">
 <div class="card">
     <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
     <ul class="toolInfo">
-        <li data-label="Description" th:text="${tool.description}">Description</li>
-    <li data-label="Category " th:text="${tool.category}">Category</li>
-    <li data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</li>
-    <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
+        <li data-label="Description" th:text="${tool1.description}">Description</li>
+    <th:block th:switch="${tool1.category}">
+       <li data-label th:case="${T(de.rat.model.logistics.Category).ACCUTOOL}">akkubetrieben</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).ELECTRICALTOOL}">elektrisch betrieben</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).GARDENTOOL}">Gartenwerkzeug</li>
+       <li data-label th:case="${T(de.rat.model.logistics.Category).HANDTOOL}">ohne Motor</li>
+    </th:block >
 
-        <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
+    <th:block th:switch="${tool1.toolStatus}">
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).AVAILABLE}">ist vorhanden</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISBROKEN}">derzeit defekt</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISINREPAIR}">in Reperatur</li>
+        <li data-label th:case="${T(de.rat.model.logistics.ToolStatus).ISRENTED}">derzeit verliehen</li>
+    </th:block >
+
+        <li data-label="Rentprice" th:text="${tool1.rentPrice}+' €'">Rentprice</li>
     </ul>
     <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
-    <form  th:action="@{/addToInventory/{Id}}" th:object="${tool}"  method="post">
-    <p><button>Reservieren</button></p>
-    </form>
+
+      <form  th:action="@{/chooseStation/{id}(id=${tool1.id})}" th:object="${tool}"   method="post">
+          <div th:if="${tool1.getToolStatus() == T(de.rat.model.logistics.ToolStatus).AVAILABLE}">
+            <a sec:authorize="hasRole('CUSTOMER')" > <p ><button>Ausleihen</button></p> </a>
+          </div>
+      </form>
+
 </div>
 </div>
 </div>
 </section>
-<section id="footerSection" class="ud_pageFooter">
 
+<section id="Footer" class="ud_page2">
     <footer th:replace="fragments/footer :: footer"></footer>
 
-
 </section>
+
 </body>
 </html>

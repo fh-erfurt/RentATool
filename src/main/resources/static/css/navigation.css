@@ -1,19 +1,13 @@
 nav {
     position: fixed;
-    /*overflow: hidden;*/
     padding-right: 20px;    /* margin to the right side, to get space for the submenue */
     width:100%;
     float:right;
     display: block;
-    height: 50px;
-
     color: #999999;
     background: #fff;
     z-index: 100;
-    border-bottom: solid;
-    border-width: 2px;
-    border-color: #ec6708;
-
+    border-bottom: 2px solid #ec6708;
 }
 
 i{
@@ -55,9 +49,6 @@ nav a {
     box-sizing: border-box;
     height: 50px;
     vertical-align: middle;
-
-
-
 }
 
 nav a{
@@ -110,13 +101,11 @@ nav a{
 }
 
 nav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover, .dropdown-content input:hover {
-    /*background-color: var(--hover-color);*/
     color: #111;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-
 }
 
 input#responsive-nav,
@@ -131,11 +120,8 @@ label.responsive-nav-label {
     position: fixed;
     display: block;
     height: 50px;
-    /*font-size: 2em;*/
     white-space: nowrap;
-    /*padding: 10px;*/
     margin-left: 10px;
-    /*width:100%;*/
     z-index: 110;
     background-color: transparent;
 }
@@ -144,14 +130,11 @@ label.responsive-nav-label {
     vertical-align: 9px;
     display: inline;
     margin-left: 10px;
-    /*color: var(--secondary-text-color);*/
 }
 
 .NavContent img {
     display: inline;
-    /*margin: 10px;*/
     height: 100%;
-    /*padding: 10px;*/
 }
 
 .NavContent a {
@@ -167,10 +150,61 @@ label.responsive-nav-label {
     font-weight: bold;
 }
 
-
-
-/* color selected navigation section */
-.NavContent :hover {
-    /*color: var(--hover-color);            !* set the font color from the links *!*/
+@media(max-width: 1000px) {
+    .NavContent  {
+        font-size: 0;
+    }
 }
+
+@media(max-width: 800px) {
+    /* ----------------------------------   Navigation   ---------------------------------- */
+    nav {
+        padding-right: 0; /* margin to the right side, to get space for the submenu */
+        overflow: unset;
+        border: none;
+    }
+
+    .navfloat {
+        display: none;
+        float: none;
+
+    }
+
+    label.responsive-nav-label {
+        text-align: right;
+        display: block;
+        padding: 13px;
+        cursor: pointer;
+        color: #999999;
+        height: 50px;
+        box-sizing: border-box;
+        border-bottom: 2px solid #ec6708;
+    }
+
+    nav a, .dropdown {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+    }
+
+    .dropdown-content {
+        margin-left: auto;
+        width: 100%;
+    }
+
+    input#responsive-nav[type=checkbox]:checked ~ .navfloat {
+        display: block;
+    }
+
+    .NavContent  {
+        font-size: inherit;
+    }
+}
+
 

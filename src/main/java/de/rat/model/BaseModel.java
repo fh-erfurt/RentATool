@@ -11,7 +11,7 @@ import java.util.Date;
 public abstract class BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,4 +36,11 @@ public abstract class BaseModel {
     public int getId() {return id;}
     public Date getCreated() {return created;}
     public Date getModified() {return modified;}
+
+
+    // only used for tests
+    public void setId(int Id){
+        this.id=Id;
+    }
+
 }

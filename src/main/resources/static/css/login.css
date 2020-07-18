@@ -1,27 +1,37 @@
-body{
-    background-color: #a8a8a8;
-    font-family: 'Roboto', sans-serif;
+/* ################################################################## */
+/* Umfassende Objekte & Klassen */
+/* ################################################################## */
+
+.ud_page2 {
+    width: 100%;
+    min-height: 30%;
+    overflow: hidden;
+    float: left;
+    margin-top: 2em;
 }
+
 label{
     color: red;
 }
 .login-page {
     width: 360px;
-    padding: 8% 0 0;
-    margin: auto;
+    /*padding: 8% 0 0;*/
+    margin: 0 auto;
+    margin-bottom: 2em;
+
 }
 .form {
-    /*position: relative;*/
-    z-index: 1;
+    z-index: 0;
     background: #ffffff;
+    width: 100%;
     max-width: 360px;
-    margin: 0 auto 100px;
+    margin-left:-2.2em  ;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato", sans-serif;
     outline: 0;
     background: #f2f2f2;
     width: 100%;
@@ -32,7 +42,7 @@ label{
     font-size: 14px;
 }
 .form button {
-    font-family: "Roboto", sans-serif;
+    font-family: "Lato", sans-serif;
     text-transform: uppercase;
     outline: 0;
     background: #a8a8a8;

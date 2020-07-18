@@ -32,10 +32,15 @@ public class Customer extends Person {
         this.phoneNumber = phoneNumber;
     }
 
-    @OneToMany // TODO: Check
+    @OneToMany
+    @JoinTable(name="customerTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
     private List<Tool> inventory = new ArrayList<Tool>();
 
     public Customer(){}
+
+    public List<Tool> getInventory() {
+        return inventory;
+    }
 
     /** Creates an customer .
      *  @param lastname the lastname from the customer

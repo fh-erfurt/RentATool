@@ -37,7 +37,7 @@ class DateTest {
     void compareDates() {
 
         assertTrue(Date.compareDates(date1, Operator.LESS, date2));
-        //TODO: added all Tests
+
 //        return dateOne == dateTwo;
 
 //        return dateOne != dateTwo;

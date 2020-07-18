@@ -2,7 +2,10 @@
 {
     margin-top: 10em;
 }
-
+.registerSuccessBody
+{
+    position: fixed;
+}
 
 #card {
     position: relative;
@@ -11,6 +14,8 @@
     margin: 40px auto;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+
+
 }
 
 #upper-side {
@@ -20,6 +25,7 @@
     color: #fff;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 #checkmark {
@@ -43,6 +49,7 @@
     display: block;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    border: 1px solid #ec6708;
 }
 
 #message {

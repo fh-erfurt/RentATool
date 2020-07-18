@@ -1,21 +1,22 @@
 /**/
-:root {
-    --main-color: #eaeaea;
-    --stroke-color: black;
+/*:root {*/
+/*    --main-color: #eaeaea;*/
+/*    --stroke-color: black;*/
 
-}
-.errorWrapper{
-    position: relative;
-    height: 100%;
-}
+/*}*/
+/*.errorWrapper{*/
+/*    position: relative;*/
+/*    height: 100%;*/
+/*}*/
 /**/
-.errorBody body {
-    background: var(--main-color);
 
+.errorBody {
+    position: fixed;
 }
+
 .errorBody h1 {
     margin: 0.5em auto 0 auto;
-    color: var(--stroke-color);
+    color: black;
     font-family: 'Encode Sans Semi Condensed', Verdana, sans-serif;
     font-size: 10rem; line-height: 10rem;
     font-weight: 200;
@@ -44,14 +45,14 @@
     width: 120px; height: 120px;
     margin: 0 auto;
     border-radius: 50%;
-    background: var(--stroke-color);
+    background: #ec6708;
 }
 .errorBody .gear:before{
     position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
     z-index: 2;
     content: "";
     border-radius: 50%;
-    background: var(--main-color);
+    background: white;
 }
 .errorBody .gear:after {
     position: absolute; left: 25px; top: 25px;
@@ -59,9 +60,9 @@
     content: "";
     width: 70px; height: 70px;
     border-radius: 50%;
-    border: 5px solid var(--stroke-color);
+    border: 5px solid black;
     box-sizing: border-box;
-    background: var(--main-color);
+    background: white;
 }
 .errorBody .gear.one {
     left: -130px;
@@ -79,14 +80,14 @@
     width: 150px; height: 30px;
     margin-top: -15px;
     border-radius: 5px;
-    background: var(--stroke-color);
+    background: #ec6708;
 }
 .errorBody .gear .bar:before {
     position: absolute; left: 5px; top: 5px; right: 5px; bottom: 5px;
     z-index: 1;
     content: "";
     border-radius: 2px;
-    background: var(--main-color);
+    background: white;
 }
 .errorBody .gear .bar:nth-child(2) {
     transform: rotate(60deg);

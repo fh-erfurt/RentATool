@@ -1,14 +1,16 @@
 package de.rat.model.billing;
 
+import de.rat.model.BaseModel;
 import de.rat.model.common.*;
 import de.rat.model.common.Date;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
-import org.hibernate.annotations.BatchSize;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 
 import java.time.LocalDate;
-import javax.persistence.Transient;
 import java.util.*;
 import java.util.logging.Logger;
 
@@ -24,15 +26,20 @@ import java.util.logging.Logger;
  * closedBills a list from closed bills
  * checkBills a list from the bills that still have to be checked from the employee
  */
-public class Billing {
+@Entity
+public class Billing extends BaseModel {
 
     private static final Logger logger = Logger.getLogger("LOGGER");
 
     // idea for table 3 columns(Id, Bill, Status), all Bills are in these table and with the 3rd colum you can
     // is it open, check or close -> new class?or just database table not in java?
 
+
+    @OneToMany
     private static List<Bill> openBills = new ArrayList<Bill>();
+    @OneToMany
     private static List<Bill> checkBills = new ArrayList<Bill>();
+    @OneToMany
     private static List<Bill> closedBills = new ArrayList<Bill>();
 
 
@@ -54,9 +61,26 @@ public class Billing {
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
         LocalDate today =  LocalDate.now();
+      Bill searchedBill = openBills.stream()
 
-        Bill searchedBill = openBills.stream()
-                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.GREATER_OR_EQUAL, today) && bill.getCustomer().equals(customer))
+                .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().getId()==(customer.getId()))
+                .findAny()
+                .orElse(null);
+
+        logger.info( (searchedBill != null ) ? "Die Rechnung wurde gefunden!" : "Es konnte keine passende Offene Rechnung gefunden werden");
+
+        return searchedBill;
+    }
+
+    /** Find a checked bill from the customer .
+     * @return A class bill when the customer has a checked bill, otherwise
+     * @return null if there are no checked bills
+     */
+    public static Bill findCheckedBillFromCustomer(Customer customer){
+        // get date of today for comparing with rentDate
+        Bill searchedBill = checkBills.stream()
+
+                .filter(bill -> bill.getCustomer().getId()==(customer.getId()))
                 .findAny()
                 .orElse(null);
 
@@ -75,11 +99,13 @@ public class Billing {
         LocalDate today = LocalDate.now();
         for (Bill foundedBill : openBills) {
 
-            RentProcess rentprocess = foundedBill.findRentProcess(wantedTool);
-            // use only the founded Bill, customer is the same and today is the rentDay of the Bill
-            if (foundedBill.getCustomer().equals(customer) && rentprocess!= null) {
 
-                rentprocess.completeRentProcess(removeStation, today);
+            RentProcess rentProcess = foundedBill.findRentProcess(wantedTool);
+
+            // use only the founded Bill, customer is the same and today is the rentDay of the Bill
+            if (foundedBill.getCustomer().getId()==(customer.getId()) && rentProcess.getRentedTool() != null) {
+
+                rentProcess.completeRentProcess(removeStation, today);
                 logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
             }
@@ -113,7 +139,7 @@ public class Billing {
         Iterator<Bill> iterator = openBills.iterator();
         while (iterator.hasNext()) {
             Bill bill = iterator.next();
-            if (bill.getCustomer().equals(customer)) {
+            if (bill.getCustomer().getId()==(customer.getId())) {
                 if(bill.checkIfAllRentProcessesFromABillAreClosed()) {
                     bill.setFullRentPrice();
                     logger.info("Der Gesamtpreis wurde eingetragen!");

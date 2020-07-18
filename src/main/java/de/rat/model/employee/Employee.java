@@ -116,10 +116,12 @@ public class Employee extends Person {
      *
      */
     public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount) {
+
+
         if(checkBill != null){
+
             checkBill.setDiscount(discount);
             checkBill.setFullRentPrice();
-
             Billing.moveFromCheckToClosed(checkBill);
 
             logger.info("Rechnung wurde erfolgreich geprüft und bearbeitet.");

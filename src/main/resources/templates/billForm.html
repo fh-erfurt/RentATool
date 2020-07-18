@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title th:remove="all">Taxi invoice</title>
+    <link rel="stylesheet" th:href="@{css/billPDF.css}" media="all" />
+</head>
+<body>
+<div class="invoice-box">
+    <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td class="title">
+                            <img src="/../images/logo.jpg" style="width:100%; max-width:200px;">
+                        </td>
+
+                        <td>
+                            Invoice #: 123<br>
+                            Created:  <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label><br>
+                            Due: <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="information">
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <label th:text ="${authUserFirstName} + ' ' + ${authUserLastName}"></label><br>
+                            <label th:text ="${authUserAddressStreet}+ ' ' + ${authUserAddressHnr}"></label><br>
+                            <label th:text ="${authUserAddressCity}+ ' ' + ${authUserAddressZip}">"></label><br>
+                            <label th:text ="${authUserAddressCountry}"></label><br>
+                            <label th:text ="${authUserPhone}"></label>
+                        </td>
+
+                        <td>
+                            RentATool, Inc.<br>
+                            12345 Hammer Street<br>
+                            94585, Hammerhausen<br>
+                            timallen@rat.de
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>
+                Payment Method
+            </td>
+
+            <td>
+                PayPal
+            </td>
+        </tr>
+
+        <tr class="details">
+            <td>
+                PayPal
+            </td>
+
+            <td>
+                965824568
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>
+                Item
+            </td>
+
+            <td>
+                Price
+            </td>
+        </tr>
+
+        <tr class="item">
+            <td>
+                Website design
+            </td>
+
+            <td>
+                $300.00
+            </td>
+        </tr>
+
+        <tr class="item">
+            <td>
+                Hosting (3 months)
+            </td>
+
+            <td>
+                $75.00
+            </td>
+        </tr>
+
+        <tr class="item last">
+            <td>
+                Domain name (1 year)
+            </td>
+
+            <td>
+                $10.00
+            </td>
+        </tr>
+
+        <tr class="total">
+            <td></td>
+
+            <td>
+                Total: $385.00
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
