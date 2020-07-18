@@ -1,4 +1,4 @@
-package de.rat.storage.repository;
+package de.rat.repositories;
 
 import de.rat.model.Rental;
 import de.rat.model.billing.Bill;
@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

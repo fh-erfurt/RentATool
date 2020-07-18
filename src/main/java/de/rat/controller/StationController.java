@@ -6,7 +6,7 @@ import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
-import de.rat.storage.repository.*;
+import de.rat.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,8 +40,6 @@ public class StationController {
     BillRepository billRepository;
     @Autowired
     BillingRepository billingRepository;
-
-
 
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 

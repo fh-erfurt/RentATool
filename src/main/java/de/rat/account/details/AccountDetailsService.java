@@ -1,7 +1,7 @@
 package de.rat.account.details;
 
 import de.rat.model.common.Account;
-import de.rat.storage.repository.AccountRepository;
+import de.rat.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

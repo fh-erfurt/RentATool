@@ -5,7 +5,7 @@ import de.rat.model.customer.*;
 import de.rat.model.employee.*;
 import de.rat.model.logistics.*;
 
-import de.rat.storage.repository.RentalBillTest;
+import de.rat.repositories.RentalBillTest;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 

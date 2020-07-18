@@ -2,17 +2,13 @@ package de.rat.controller;
 
 import de.rat.model.customer.Customer;
 import de.rat.model.employee.Employee;
-import de.rat.model.logistics.Tool;
-import de.rat.storage.repository.CustomerRepository;
-import de.rat.storage.repository.EmployeeRepository;
-import de.rat.storage.repository.ToolRepository;
+import de.rat.repositories.CustomerRepository;
+import de.rat.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.time.LocalDate;
 import java.util.List;
 
 /** Controller for all pages they are handle with the User
