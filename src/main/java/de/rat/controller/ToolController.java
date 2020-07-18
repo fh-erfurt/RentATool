@@ -35,16 +35,26 @@ public class ToolController {
     BillingRepository billingRepository;
 
 
+    /**
+     * @return  toolManagement
+     * gets all tools
+     * add all attributes to the model
+     * redirect to toolManagement.html
+     */
     @RequestMapping(path="/toolManagement")
     public String listAllTools(Model model)
     {
         List<Tool> listTools= (List<Tool>) toolRepository.findAll();
-
         model.addAttribute("listTools", listTools);
-
         return "toolManagement";
     }
 
+    /**
+     * @return  tools
+     * gets all tools
+     * add all attributes to the model
+     * redirect to tools.html
+     */
     @RequestMapping(path="/tools")
     public String listAllTool(Model model)
     {
@@ -53,21 +63,29 @@ public class ToolController {
         return "tools";
     }
 
-
-
-
+    /**
+     * @return  toolManagement
+     * @param aTool Tool
+     * save the Tool in the Database
+     * redirect to toolManagement.html
+     */
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
-
         toolRepository.save(aTool);
         return "redirect:/toolManagement";
     }
 
+    /**
+     * @return  toolManagement
+     * @param aTool Tool
+     * @param id int
+     * update the Tool in the Database
+     * redirect to toolManagement.html
+     */
     @PostMapping("/updateTool")
     public String editTool(@ModelAttribute("tool") Tool aTool, @ModelAttribute("id") int id)
     {
-
         Tool oldTool = toolRepository.findById(id);
         oldTool.setDescription(aTool.getDescription());
         oldTool.setRentPrice(aTool.getRentPrice());
@@ -76,6 +94,13 @@ public class ToolController {
     }
 
 
+    /**
+     * @return  addTool
+     * @param model Model
+     * @param manufacturer Manufacturer
+     * create a new Tool in the Database
+     * redirect to addTool.html
+     */
     @RequestMapping("/newTool")
     public String showNewProductPage(Model model,@ModelAttribute Manufacturer manufacturer) {
         Tool tool = new Tool();
@@ -90,6 +115,11 @@ public class ToolController {
         return "addTool";
     }
 
+    /**
+     * @return  mav
+     * @param id int
+     * shows the Tool which will be edit
+     */
     @RequestMapping("/editTool/{id}")
     public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("editTool");
@@ -100,12 +130,22 @@ public class ToolController {
         return mav;
     }
 
+    /**
+     * @return  toolManagement
+     * @param id int
+     * delete a new Tool in the Database
+     * redirect to toolManagement.html
+     */
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
         toolRepository.deleteById(id);
         return "redirect:/toolManagement";
     }
 
+
+    /**
+     * TODO: JavaDocs
+     */
     @PostMapping("/addToInventory/{id}")
     public String addToInventory(@PathVariable(name = "id") int id){
 
@@ -113,13 +153,16 @@ public class ToolController {
        return"chooseStation";
     }
 
+    /**
+     * TODO: JavaDocs
+     */
     @PostMapping("/returnTool/{id}")
     public String returnTool(@PathVariable(name = "id") int id){
-
 
         return"returnStation";
     }
 
+    // TODO: Delete?
 //    @RequestMapping("/getTool")
 //    public ModelAndView getTool(@RequestParam int id)
 //    {

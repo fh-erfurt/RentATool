@@ -14,13 +14,17 @@ import java.util.List;
 
  * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
-
 @Controller
 public class AccountController {
-@Autowired
+
+    @Autowired
     CustomerRepository customerRepository;
 
-
+    /**
+     * @param  model Model
+     * @return  accountView
+     * listed all rented Tools
+     */
     @RequestMapping(path="/accountView")
     public String listAllrentedTool(Model model)
     {

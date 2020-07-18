@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
 
+    /**
+     * @return  index
+     * redirect to index.html
+     */
     @GetMapping("/") //Index
     public String welcome() {
         return "index";

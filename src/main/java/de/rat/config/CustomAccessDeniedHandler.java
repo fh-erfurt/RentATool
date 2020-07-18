@@ -20,6 +20,14 @@ import java.io.IOException;
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
         public static final Logger LOG = LoggerFactory.getLogger(CustomAccessDeniedHandler.class);
 
+        /**
+         * load the account by the email
+         * @param  request HttpServletRequest
+         * @param  response HttpServletResponse
+         * @param  exc AccessDeniedException
+         * @throws ServletException IOException
+         * makes an redirect to the error403 page
+         */
         @Override
         public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException exc)
                 throws IOException, ServletException {

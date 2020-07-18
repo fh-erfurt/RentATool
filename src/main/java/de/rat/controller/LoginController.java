@@ -13,11 +13,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 
+    /**
+     * @return  login
+     * redirect to loginForm.html
+     */
     @GetMapping("/login") //Index
     public String welcome() {
         return "loginForm";
     }
 
+    /**
+     * @return  /
+     * @param authentication Authentication
+     * redirect to index.html
+     */
     @GetMapping(value = "/loginSuccessfull")
     public String currentUserName(Authentication authentication) {
         return "redirect:/";

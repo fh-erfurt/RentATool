@@ -26,31 +26,43 @@ public class UserController {
     EmployeeRepository employeeRepository;
 
 
+    /**
+     * @return  userManagement
+     * redirect to userManagement.html
+     */
     @GetMapping("/userManagement")
     public String welcome() {
         return "userManagement";
     }
 
 
+    /**
+     * @return  customer
+     * @param model Model
+     * add all Customers to the Model
+     * redirect to customer.html
+     */
     @RequestMapping(path="/customer")
     public String listAllCustomer(Model model)
     {
         List<Customer> listCustomer= (List<Customer>) customerRepository.findAll();
-
         model.addAttribute("listCustomer", listCustomer);
 
         return "customer";
     }
 
+    /**
+     * @return  employee
+     * @param model Model
+     * add all Employees to the Model
+     * redirect to employee.html
+     */
     @RequestMapping(path="/employee")
     public String listAllEmployees(Model model)
     {
         List<Employee> listEmployee= (List<Employee>) employeeRepository.findAll();
-
         model.addAttribute("listEmployee", listEmployee);
 
         return "employee";
     }
-
-
 }

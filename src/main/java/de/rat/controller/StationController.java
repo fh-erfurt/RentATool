@@ -43,10 +43,15 @@ public class StationController {
 
     private static final Logger log = LoggerFactory.getLogger(ToolController.class);
 
+    /**
+     * @return  registerForm
+     * gets all user information
+     * add all attributes to the model
+     * redirect to registerForm.html
+     */
     @RequestMapping(path="/chooseStation/{id}")
     public String listAllTools(@PathVariable(name = "id") int id,Model model)
     {
-
         Tool rentedTool = toolRepository.findById(id);
         List<Station> listStation= (List<Station>) stationRepository.findAll();
 
@@ -57,6 +62,11 @@ public class StationController {
     }
 
 
+    /**
+     * @return  rentSuccessful
+     * TODO: JavaDocs
+     * redirect to rentSuccessful.html
+     */
     @PostMapping("/setStation/{toolId}/{stationId}")
     public String rentATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
     {
@@ -88,6 +98,11 @@ public class StationController {
         return "rentSuccessful";
     }
 
+    /**
+     * @return  returnStation
+     * TODO: JavaDocs
+     * redirect to returnStation.html
+     */
     @RequestMapping(path="/returnStation/{id}")
     public String listrentedTools(@PathVariable(name = "id") int id,Model model)
     {
@@ -101,6 +116,11 @@ public class StationController {
         return "returnStation";
     }
 
+    /**
+     * @return  returnSuccessful
+     * TODO: JavaDocs
+     * redirect to returnSuccessful.html
+     */
     @PostMapping("/setReturnStation/{toolId}/{stationId}")
     public String returnATool(@PathVariable("toolId") int toolId,@PathVariable("stationId") int stationId)
     {

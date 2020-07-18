@@ -41,28 +41,56 @@ public class RegisterController {
         this.repositoryAddress = repositoryAddress;
     }
 
+    /**
+     * @return  registerForm
+     * gets all user information
+     * add all attributes to the model
+     * redirect to registerForm.html
+     */
     @GetMapping("/register")
     public String showForm(Model model) {
-//        Person newPerson=new Person();
+
         Customer newCustomer=new Customer();
         Account userAccount =new Account();
         Address userAddress =new Address();
         Date newDate =new Date();
-//        model.addAttribute("newPerson", newPerson);
+
         model.addAttribute("newCustomer", newCustomer);
         model.addAttribute("userAccount", userAccount);
         model.addAttribute("userAddress",userAddress);
         model.addAttribute("newDate",newDate);
+
         List<String> roleList = Arrays.asList("CUSTOMER");
         model.addAttribute("roleList",roleList);
         return "registerForm";
     }
 
+    /**
+     * @return  registerForm
+     * @return  registrationSuccessful
+     * @param  newCustomer Customer
+     * @param  bindingResultCustomer BindingResult
+     * @param  userAccount Account
+     * @param  bindingResultAccount BindingResult
+     * @param  userAddress Address
+     * @param  bindingResultAddress BindingResult
+
+     * check the if the user is already exists
+     * adds a error message if the user is existing
+     * generate a password hash
+     * save all user informations
+     * redirect to registerForm.html
+     */
     @PostMapping("/save")
-    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,BindingResult bindingResultCustomer,@Valid @ModelAttribute("userAccount") Account userAccount,BindingResult bindingResultAccount,@Valid @ModelAttribute("userAddress") Address userAddress,BindingResult bindingResultAddress) {
+    public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,
+                               BindingResult bindingResultCustomer,
+                               @Valid @ModelAttribute("userAccount") Account userAccount,
+                               BindingResult bindingResultAccount,
+                               @Valid @ModelAttribute("userAddress") Address userAddress,
+                               BindingResult bindingResultAddress)
+    {
         userAccount.setRole(Role.CUSTOMER);
         Optional<Account> checkAccount = repositoryAccount.findByEmail(userAccount.getEmail());
-
 
         if(checkAccount.isPresent())
         {
@@ -78,8 +106,6 @@ public class RegisterController {
         String encodedPassword = passwordEncoder.encode(userAccount.getPassword());
         userAccount.setPassword(encodedPassword);
 
-
-
         repositoryAccount.save(userAccount);
         Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
         if (checkAddress == null ) {
@@ -92,8 +118,4 @@ public class RegisterController {
         repositoryCustomer.save(newCustomer);
         return "registrationSuccessful";
     }
-
-
-
-
 }

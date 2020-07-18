@@ -24,6 +24,11 @@ public class AccountDetails implements UserDetails {
     private String password;
     private List<GrantedAuthority> authorities;
 
+
+    /**
+     * set the AccountDetails
+     * @param  account Account
+     */
     public AccountDetails(Account account) {
         this.id = account.getId();
         this.email = account.getEmail();
@@ -33,20 +38,32 @@ public class AccountDetails implements UserDetails {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * @return authorities
+     */
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
+    /**
+     * @return id
+     */
     public Integer getId() {
         return id;
     }
 
+    /**
+     * @return password
+     */
     @Override
     public String getPassword() {
         return password;
     }
 
+    /**
+     * @return email
+     */
     @Override
     public String getUsername() {return email;}
 
