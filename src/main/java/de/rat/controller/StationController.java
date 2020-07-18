@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.List;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
-/** Controller for all pages they are handle with the Stations
+import java.io.*;
+import java.util.List;
+/** Controller for all pages they are handle with the Registration
  * sets parameter and generate the data for the views
 
  * @author Marco Petzold, Christian König, Danny Steinbrecher
@@ -155,6 +157,22 @@ public class StationController {
             rentProcessRepository.save(rentProcess);
             billRepository.save(alreadyOpenBill);
         }
+//        final String baseDir = System.getProperty("user.dir");
+//        System.out.println("About to convert html to pdf");
+//        File output = new File(baseDir + "\\output.pdf");
+//        ITextRenderer renderer = new ITextRenderer();
+//
+//        renderer.getSharedContext()
+//                .setUserAgentCallback(new CustomOpenPdfUserAgent(renderer.getOutputDevice()));
+//
+//        renderer.setDocument("templates/billForm.html");
+//        renderer.layout();
+//        OutputStream outputStream = new FileOutputStream(output);
+//        renderer.createPDF(outputStream);
+//        outputStream.close();
+//        System.out.println("Done");
+
+
 
         return "returnSuccessful";
     }
