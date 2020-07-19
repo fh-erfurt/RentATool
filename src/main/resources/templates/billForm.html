@@ -13,9 +13,9 @@
                         </td>
 
                         <td>
-                            Invoice #: <label th:text="${customerBill.getBillNumber()}"></label><br>
-                            Created:  <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label><br>
-                            Due: <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label>
+                            Billnumber #: <data-label th:text="${customerBill.getBillNumber()}"></data-label><br>
+                            Created:  <data-label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></data-label><br>
+                            Due: <data-label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></data-label>
                         </td>
                     </tr>
                 </table>
@@ -27,11 +27,11 @@
                 <table>
                     <tr>
                         <td>
-                            <label th:text ="${authUserFirstName} + ' ' + ${authUserLastName}"></label><br>
-                            <label th:text ="${authUserAddressStreet}+ ' ' + ${authUserAddressHnr}"></label><br>
-                            <label th:text ="${authUserAddressCity}+ ' ' + ${authUserAddressZip}">"></label><br>
-                            <label th:text ="${authUserAddressCountry}"></label><br>
-                            <label th:text ="${authUserPhone}"></label>
+                            <data-label th:text ="${authUserFirstName} + ' ' + ${authUserLastName}"></data-label><br>
+                            <data-label th:text ="${authUserAddressStreet}+ ' ' + ${authUserAddressHnr}"></data-label><br>
+                            <data-label th:text ="${authUserAddressCity}+ ' ' + ${authUserAddressZip}">"></data-label><br>
+                            <data-label th:text ="${authUserAddressCountry}"></data-label><br>
+                            <data-label th:text ="${authUserPhone}"></data-label>
                         </td>
 
                         <td>
@@ -67,7 +67,7 @@
 
         <tr class="heading">
             <td>
-                Item
+                Tool
             </td>
 
             <td>
@@ -75,44 +75,18 @@
             </td>
         </tr>
 
-        <tr class="item">
-            <td>
-
-                <li data-label="Description" th:text="${customerBill.getBillNumber()}">Description</li>
-                Website design
-
+        <tr class="item"th:each="rentProcess : ${listOfRentprocess}">
+            <td >
+                <data-label th:text="${rentProcess.getRentedTool().getDescription()}"></data-label>
             </td>
-
             <td>
-                $300.00
+                <data-label th:text="${rentProcess.getRentedTool().getRentPrice()}"></data-label>
             </td>
         </tr>
-
-        <tr class="item">
-            <td>
-                Hosting (3 months)
-            </td>
-
-            <td>
-                $75.00
-            </td>
-        </tr>
-
-        <tr class="item last">
-            <td>
-                Domain name (1 year)
-            </td>
-
-            <td>
-                $10.00
-            </td>
-        </tr>
-
         <tr class="total">
             <td></td>
-
             <td>
-                Total: $385.00
+                Total: <data-label th:text="${customerBill.getFullRentPrice()}"></data-label>
             </td>
         </tr>
     </table>

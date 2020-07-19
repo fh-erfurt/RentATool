@@ -3,8 +3,10 @@ package de.rat.controller;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
+import de.rat.model.customer.RentProcess;
 import de.rat.repositories.CustomerRepository;
 import de.rat.repositories.BillRepository;
+import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,8 @@ import java.util.List;
 public class BillController {
 @Autowired
 CustomerRepository customerRepository;
-BillRepository  billRepository;
+RentProcessRepository rentProcessRepository;
+
 
     private static final Logger log = Logger.getLogger("LOGGER");
 
@@ -51,7 +54,10 @@ BillRepository  billRepository;
         for(Bill bill : listOfBills){
             if(bill.getBillNumber()==id)
                 mav.addObject("customerBill", bill);
+            List<RentProcess> listOfRentprocess=bill.getListOfRentProcesses();
+            mav.addObject("listOfRentprocess", listOfRentprocess);
         }
+
         mav.addObject("authUserFirstName", customer.getFirstname());
         mav.addObject("authUserLastName", customer.getLastname());
         mav.addObject("authUserAddressStreet", customer.getAddress().getStreet());
