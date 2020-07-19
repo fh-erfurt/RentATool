@@ -1,6 +1,7 @@
 package de.rat.controller;
 
 import de.rat.model.billing.Bill;
+import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.Tool;
@@ -10,7 +11,10 @@ import de.rat.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.logging.Logger;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,17 +25,31 @@ public class BillController {
 CustomerRepository customerRepository;
 BillRepository  billRepository;
 
-    @RequestMapping(path="/bill")
-    public String listBill(Model model)
+    private static final Logger log = Logger.getLogger("LOGGER");
+
+    @RequestMapping(path="/billView")
+    public String listOfCustomerBills(Model model)
     {
+        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
+        int AccountId1  = nameControllerAdvice.getAuthUser();
+        Customer customer1 = customerRepository.findByAccount_id(AccountId1);
+        List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer1);
+
+        if(listOfBills != null) {
+            model.addAttribute("listOfBills", listOfBills);
+        }
+        return "billView";
+    }
+
+    @RequestMapping(path="/bill/{id}")
+    public String listBill(Model model,@PathVariable(name = "id") int billNumber)
+    {
+
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
-        System.out.println(customer.getLastname());
-        Bill customerBill= (Bill) billRepository.findByCustomer(customer.getLastname());
-        System.out.println(customerBill.getBillNumber());
-        model.addAttribute("customerBill", customerBill);
-
+        Bill custBill = billRepository.findByBillNumber(billNumber);
+        model.addAttribute("customerBill", custBill);
         model.addAttribute("authUserFirstName", customer.getFirstname());
         model.addAttribute("authUserLastName", customer.getLastname());
         model.addAttribute("authUserAddressStreet", customer.getAddress().getStreet());
@@ -44,4 +62,5 @@ BillRepository  billRepository;
 
         return "billForm";
     }
+
 }

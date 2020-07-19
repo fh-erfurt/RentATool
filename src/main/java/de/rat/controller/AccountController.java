@@ -42,11 +42,11 @@ public class AccountController {
         model.addAttribute("listTools", listTools);
         return "rentedToolView";
     }
-    @RequestMapping(path="/billView")
-    public String billView()
-    {
-        return "billView";
-    }
+//    @RequestMapping(path="/billView")
+//    public String billView()
+//    {
+//        return "billView";
+//    }
 
 
 }

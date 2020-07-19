@@ -11,23 +11,27 @@
 
 
     <div class="ud_h2_balken"></div>
-    <table>
-        <thead>
-        <tr>
-            <th scope="col">Rechnung</th>
-        </tr>
-        </thead>
-
-        <tr>
-            <tbody>
+        <table>
+            <caption>Tools</caption>
+            <thead>
             <tr>
-                <td><a href="/bill"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Bill </a></td>
+                <th scope="col">Bill Number</th>
+                <th scope="col"></th>
 
             </tr>
+            </thead>
 
-            </tbody>
-    </table>
+            <tr>
+                <tbody>
+                <tr th:each="bill : ${listOfBills}">
+                    <td data-label="Product ID" th:text="${bill.billNumber}">Product ID</td>
+                    <td>
+                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    </td>
+                </tr>
 
+                </tbody>
+        </table>
 </section>
 
 <section id="Footer" class="ud_page2">
