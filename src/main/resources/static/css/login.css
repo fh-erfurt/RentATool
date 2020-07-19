@@ -104,5 +104,17 @@ label{
 .container .info span .fa {
     color: #EF3B3A;
 }
+select {
+    font-family: "Lato", sans-serif;
+    padding: 15px;
+    /*box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 1);*/
+    background-color: #f2f2f2;
+    color: #4d4d4d;
+    width: 100%;
+    margin: 0 0 15px;
+    border:none;
+
+}
+
 
 
