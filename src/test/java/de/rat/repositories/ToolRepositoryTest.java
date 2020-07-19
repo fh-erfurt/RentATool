@@ -42,7 +42,7 @@ class ToolRepositoryTest {
         manufacture = new Manufacturer("Bosch", address2, "Herr Bosch", "05642-458759");
         manufracturerRepository.save(manufacture);
 
-        tool1= new Tool("1",manufacture,"Hammer",Category.HANDTOOL,"1A",ToolStatus.AVAILABLE,new BigDecimal("5.00"));
+        tool1= new Tool("1",manufacture,"Bohrer",Category.HANDTOOL,"1A",ToolStatus.AVAILABLE,new BigDecimal("5.00"));
         tool2= new Tool("2",manufacture,"Axt",Category.HANDTOOL,"1B",ToolStatus.AVAILABLE,new BigDecimal("6.00"));
 
 

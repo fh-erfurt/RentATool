@@ -61,7 +61,7 @@ public class Bill {
     @JoinTable(name="billRentprocesses",inverseJoinColumns=@JoinColumn(name="rentProcess_id"))
     private List<RentProcess> listOfRentProcesses = new ArrayList<RentProcess>();
 
-    protected Bill(){}
+    public Bill(){}
 
     /**
      * constructor for the class bill<br>

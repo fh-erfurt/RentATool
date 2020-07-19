@@ -26,30 +26,37 @@ class DateTest {
 
     @Test
     void calculateDifferenceBetweenDates() {
-
-        int diffrence = Date.calculateDifferenceBetweenDates(date2, date1);
-        assertEquals(diffrence, 2);
-
+        assertEquals(Date.calculateDifferenceBetweenDates(date2, date1), 2);
     }
 
 
     @Test
     void compareDates() {
 
+        // EQUAL:
+        assertTrue(Date.compareDates(date1, Operator.EQUAL, date1));
+        assertFalse(Date.compareDates(date1, Operator.EQUAL, date2));
+
+        // NOT_EQUAL:
+        assertTrue(Date.compareDates(date1, Operator.NOT_EQUAL, date2));
+        assertFalse(Date.compareDates(date1, Operator.NOT_EQUAL, date1));
+
+        // GREATER:
+        assertTrue(Date.compareDates(date2, Operator.GREATER, date1));
+        assertFalse(Date.compareDates(date1, Operator.GREATER, date2));
+
+        // GREATER_OR_EQUAL:
+        assertTrue(Date.compareDates(date1, Operator.GREATER_OR_EQUAL, date1));
+        assertTrue(Date.compareDates(date2, Operator.GREATER_OR_EQUAL, date1));
+        assertFalse(Date.compareDates(date1, Operator.GREATER_OR_EQUAL, date2));
+
+        // LESS:
         assertTrue(Date.compareDates(date1, Operator.LESS, date2));
+        assertFalse(Date.compareDates(date2, Operator.LESS, date1));
 
-//        return dateOne == dateTwo;
-
-//        return dateOne != dateTwo;
-
-//        return dateOne.compareTo(dateTwo) > 0;
-
-//        return dateOne.compareTo(dateTwo) >= 0;
-
-//        return dateOne.compareTo(dateTwo) < 0;
-
-//        return dateOne.compareTo(dateTwo) <= 0;
-
-
+        // LESS_OR_EQUAL:
+        assertTrue(Date.compareDates(date1, Operator.LESS_OR_EQUAL, date1));
+        assertTrue(Date.compareDates(date1, Operator.LESS_OR_EQUAL, date2));
+        assertFalse(Date.compareDates(date2, Operator.LESS_OR_EQUAL, date1));
     }
 }

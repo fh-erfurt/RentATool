@@ -1,64 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="fragments/head :: head"></head>
+
 <body class="toolsBody">
 <header th:replace="fragments/header :: header"></header>
-
 <section id="UberUns" class="ud_page">
 
     <!-- Headline -->
-    <h2>Ihre ausgeliehenen Tools</h2>
+    <h2>Account Detail</h2>
     <div class="ud_h2_balken"></div>
 
-    <div class="flexWrapper">
-        <div th:each="tool : ${listTools}">
-            <div class="card">
-                <img src="/images/leistung_2.jpg" alt="TOOLdummy" style="width:80%">
-                <ul class="toolInfo">
-                    <li data-label="Description" th:text="${tool.description}">Description</li>
-                    <li data-label="Category " th:text="${tool.category}">Category</li>
-                    <li data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</li>
-                    <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
+    <div class="userManagementCardContainer">
 
-                    <li data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</li>
-                </ul>
-                <p>Some text about the Tool. Super slim and comfy lorem ipsum lorem toolsum. Lorem toolmsun denim lorem toolmsun.</p>
+            <div class="userManagementCard ">
+                <a href="rentedToolView">
+                <div class="userManagementCardTopic">
+                    Rented Tools
+                </div>
 
-                <form  th:action="@{/returnStation/{id}(id=${tool.id})}" th:object="${tool}"  method="post">
-                    <a sec:authorize="hasRole('CUSTOMER')"> <p><button>Zurückgeben</button></p> </a>
-                </form>
+                <div class="userManagementCardSymbol">
+                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                </div>
+                </a>
             </div>
-        </div>
+
+
+<!--        <a href="employee">-->
+            <div class="userManagementCard ">
+                <a href="billView">
+                <div class="userManagementCardTopic">
+                    Bills
+                </div>
+
+                <div class="userManagementCardSymbol">
+
+                    <i class="fas fa fa-sticky-note-o" aria-hidden="true"></i>
+<!--                    <img src="/images/leistung_2.jpg">-->
+                </div>
+                </a>
+            </div>
+<!--        </a>-->
     </div>
-</section>
-<section id="Leistungen" class="ud_page">
 
-    <!-- Headline -->
-    <h2>Ihre Rechnung</h2>
-
-
-    <div class="ud_h2_balken"></div>
-    <table>
-        <thead>
-        <tr>
-            <th scope="col">Rechnung</th>
-        </tr>
-        </thead>
-
-        <tr>
-            <tbody>
-            <tr>
-                <td><a href="/bill"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> Bill </a></td>
-
-            </tr>
-
-            </tbody>
-    </table>
-<
 </section>
 
-<section id="Footer" class="ud_page2">
+<section id="footerSection" class="ud_pageFooter">
     <!-- Footer -->
     <footer th:replace="fragments/footer :: footer"></footer>
 

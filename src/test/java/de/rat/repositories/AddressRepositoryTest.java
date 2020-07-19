@@ -25,7 +25,7 @@ class AddressRepositoryTest {
     @BeforeEach
     void setUp(){
         repository.findAll();
-        address1 = new Address("Weg", "1","12345","Erfurt","Deutschland");
+        address1 = new Address("Strasse", "1","12345","Arnstadt","Deutschland");
         repository.save(address1);
     }
 
@@ -40,10 +40,10 @@ class AddressRepositoryTest {
     @Test
     public void is_address_finded_by_city(){
 
-        List<Address> allAddresses = repository.findByCity("Erfurt");
+        List<Address> allAddresses = repository.findByCity("Arnstadt");
         for(Address address: allAddresses)
         {
-            assertEquals("Erfurt",address1.getCity());
+            assertEquals("Arnstadt",address1.getCity());
         }
 
     }
@@ -67,7 +67,7 @@ class AddressRepositoryTest {
     public void is_address_deleted(){
 
         repository.delete(address1);
-        List<Address> allAddresses = repository.findByCity("Erfurt");
+        List<Address> allAddresses = repository.findByCity("Arnstadt");
 
         assertTrue(allAddresses.isEmpty());
 
@@ -76,7 +76,7 @@ class AddressRepositoryTest {
     @Test
     public void check_database_for_address(){
 
-        Address checkAddress = repository.findByStreetnameHouseNumberCity("Weg", "1","Erfurt");
+        Address checkAddress = repository.findByStreetnameHouseNumberCity("Strasse", "1","Arnstadt");
         assertEquals(checkAddress.getStreet(),address1.getStreet());
 
 

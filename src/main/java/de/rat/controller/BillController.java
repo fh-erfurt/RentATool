@@ -1,16 +1,21 @@
 package de.rat.controller;
 
 import de.rat.model.billing.Bill;
+import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
-import de.rat.model.logistics.Tool;
 import de.rat.repositories.CustomerRepository;
 import de.rat.repositories.BillRepository;
-import de.rat.repositories.CustomerRepository;
+import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
+import java.util.logging.Logger;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,32 +24,51 @@ import java.util.List;
 public class BillController {
 @Autowired
 CustomerRepository customerRepository;
-BillRepository  billRepository;
+RentProcessRepository rentProcessRepository;
 
-    @RequestMapping(path="/bill")
-    public String listBill(Model model)
+
+    private static final Logger log = Logger.getLogger("LOGGER");
+
+    @RequestMapping(path="/billView")
+    public String listOfCustomerBills(Model model)
     {
+        NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
+        int AccountId1  = nameControllerAdvice.getAuthUser();
+        Customer customer1 = customerRepository.findByAccount_id(AccountId1);
+        List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer1);
+
+        if(listOfBills != null) {
+            model.addAttribute("listOfBills", listOfBills);
+        }
+        return "billView";
+    }
+
+    @RequestMapping(path="/bill/{id}")
+    public ModelAndView showBill(@PathVariable(name = "id") int id)
+    {
+        ModelAndView mav = new ModelAndView("billForm");
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
-        List<Bill> listCustomerBill=billRepository.findByCustomer(customer.getLastname());
-        List<RentProcess> listRentProcesses= listCustomerBill.get(0).getListOfRentProcesses();
-        for(RentProcess rentProcess:listRentProcesses)
-        {
-            model.addAttribute("getRentedTool",rentProcess.getRentedTool());
+        List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer);
+        for(Bill bill : listOfBills){
+            if(bill.getBillNumber()==id)
+                mav.addObject("customerBill", bill);
+            List<RentProcess> listOfRentprocess=bill.getListOfRentProcesses();
+            mav.addObject("listOfRentprocess", listOfRentprocess);
         }
-        model.addAttribute("listCustomerBill",listCustomerBill);
 
-        model.addAttribute("authUserFirstName", customer.getFirstname());
-        model.addAttribute("authUserLastName", customer.getLastname());
-        model.addAttribute("authUserAddressStreet", customer.getAddress().getStreet());
-        model.addAttribute("authUserAddressHnr", customer.getAddress().getHouseNr());
-        model.addAttribute("authUserAddressCity", customer.getAddress().getCity());
-        model.addAttribute("authUserAddressZip", customer.getAddress().getZip());
-        model.addAttribute("authUserAddressCountry", customer.getAddress().getCountry());
-        model.addAttribute("authUserPhone", customer.getPhoneNumber());
-        model.addAttribute("localDate", LocalDate.now());
+        mav.addObject("authUserFirstName", customer.getFirstname());
+        mav.addObject("authUserLastName", customer.getLastname());
+        mav.addObject("authUserAddressStreet", customer.getAddress().getStreet());
+        mav.addObject("authUserAddressHnr", customer.getAddress().getHouseNr());
+        mav.addObject("authUserAddressCity", customer.getAddress().getCity());
+        mav.addObject("authUserAddressZip", customer.getAddress().getZip());
+        mav.addObject("authUserAddressCountry", customer.getAddress().getCountry());
+        mav.addObject("authUserPhone", customer.getPhoneNumber());
+        mav.addObject("localDate", LocalDate.now());
 
-        return "billForm";
+        return mav;
     }
+
 }

@@ -166,4 +166,5 @@ class BillingTest {
         assertNull(Billing.findBillInListByReference(bill4, (ArrayList<Bill>) Billing.getOpenBills()));
 
     }
+
 }

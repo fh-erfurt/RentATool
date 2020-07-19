@@ -12,11 +12,6 @@ import java.util.List;
 public interface BillRepository extends CrudRepository<Bill,Integer>
 {
 
-    Bill findByBillNumber(int id);
-
-    List<Bill> findByRentDate(LocalDate date);
-    List<Bill> findByFullRentPrice(double rentPrice);
-
     //Query for searching Bill after customers lastname
     @Query("FROM Bill b where b.customer.lastname=:customerLastName ")
     List<Bill> findByCustomer(@Param("customerLastName") String customerLastName);
@@ -24,11 +19,6 @@ public interface BillRepository extends CrudRepository<Bill,Integer>
     //Query for searching bill after prices between a range
     @Query("FROM Bill b WHERE b.fullRentPrice between :lowRentPrice and :highRentPrice ")
     List<Bill> findByRentPriceSpan(@Param("lowRentPrice")double lowRentPrice, @Param("highRentPrice")double highRentPrice);
-
-
-
-
-
 
 
 }

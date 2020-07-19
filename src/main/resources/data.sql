@@ -1,6 +1,6 @@
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','de',87,'Poststraße',05687);
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','de',87,'Musterstraße',05687);
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','de',87,'Asbachstraße',05687);
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','de',87,'Poststraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','de',87,'Musterstraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','de',87,'Asbachstraße','05687');
 
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (100000,'Müller','Bosch',065386445,100000);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (200000,'Maier','Makita',5546456455,300000);
