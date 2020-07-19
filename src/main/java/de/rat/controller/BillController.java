@@ -3,17 +3,16 @@ package de.rat.controller;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
-import de.rat.model.customer.RentProcess;
-import de.rat.model.logistics.Tool;
 import de.rat.repositories.CustomerRepository;
 import de.rat.repositories.BillRepository;
-import de.rat.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import java.time.LocalDate;
@@ -41,26 +40,32 @@ BillRepository  billRepository;
         return "billView";
     }
 
-    @RequestMapping(path="/bill/{id}")
-    public String listBill(Model model,@PathVariable(name = "id") int billNumber)
+    @RequestMapping(path="/billForm/{id}")
+    public ModelAndView showBill(@PathVariable(name = "id") int id)
     {
-
+        ModelAndView mav = new ModelAndView("billForm");
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
-        Bill custBill = billRepository.findByBillNumber(billNumber);
-        model.addAttribute("customerBill", custBill);
-        model.addAttribute("authUserFirstName", customer.getFirstname());
-        model.addAttribute("authUserLastName", customer.getLastname());
-        model.addAttribute("authUserAddressStreet", customer.getAddress().getStreet());
-        model.addAttribute("authUserAddressHnr", customer.getAddress().getHouseNr());
-        model.addAttribute("authUserAddressCity", customer.getAddress().getCity());
-        model.addAttribute("authUserAddressZip", customer.getAddress().getZip());
-        model.addAttribute("authUserAddressCountry", customer.getAddress().getCountry());
-        model.addAttribute("authUserPhone", customer.getPhoneNumber());
-        model.addAttribute("localDate", LocalDate.now());
+        List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer);
+        for(Bill bill : listOfBills){
+            log.info("1111");
+            log.info(String.valueOf(bill.getBillNumber()));
+            if(bill.getBillNumber()==id)
+                mav.addObject("customerBill", bill);
+        }
 
-        return "billForm";
+        mav.addObject("authUserFirstName", customer.getFirstname());
+        mav.addObject("authUserLastName", customer.getLastname());
+        mav.addObject("authUserAddressStreet", customer.getAddress().getStreet());
+        mav.addObject("authUserAddressHnr", customer.getAddress().getHouseNr());
+        mav.addObject("authUserAddressCity", customer.getAddress().getCity());
+        mav.addObject("authUserAddressZip", customer.getAddress().getZip());
+        mav.addObject("authUserAddressCountry", customer.getAddress().getCountry());
+        mav.addObject("authUserPhone", customer.getPhoneNumber());
+        mav.addObject("localDate", LocalDate.now());
+
+        return mav;
     }
 
 }

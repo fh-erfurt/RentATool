@@ -26,7 +26,7 @@
                 <tr th:each="bill : ${listOfBills}">
                     <td data-label="Product ID" th:text="${bill.billNumber}">Product ID</td>
                     <td>
-                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <a th:href="@{/billForm/{id}(id=${bill.billNumber})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
                     </td>
                 </tr>
 

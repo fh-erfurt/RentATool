@@ -12,6 +12,7 @@ import java.util.List;
 public interface BillRepository extends CrudRepository<Bill,Integer>
 {
 
+
     Bill findByBillNumber(int id);
 
     List<Bill> findByRentDate(LocalDate date);

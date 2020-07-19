@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <title th:remove="all">Taxi invoice</title>
-    <link rel="stylesheet" th:href="@{css/billForm.css}" media="all" />
-</head>
+<head th:replace="fragments/head :: head"></head>
 <body>
 <div class="invoice-box">
     <table cellpadding="0" cellspacing="0">
@@ -17,7 +13,7 @@
                         </td>
 
                         <td>
-                            Invoice #: 123<br>
+                            Invoice #: <label th:text="${customerBill.getBillNumber()}"></label><br>
                             Created:  <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label><br>
                             Due: <label th:text="${#temporals.format(localDate, 'dd-MM-yyyy')}"></label>
                         </td>
