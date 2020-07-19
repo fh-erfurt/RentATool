@@ -27,13 +27,10 @@ BillRepository  billRepository;
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
-        List<Bill> listCustomerBill=billRepository.findByCustomer(customer.getLastname());
-        List<RentProcess> listRentProcesses= listCustomerBill.get(0).getListOfRentProcesses();
-        for(RentProcess rentProcess:listRentProcesses)
-        {
-            model.addAttribute("getRentedTool",rentProcess.getRentedTool());
-        }
-        model.addAttribute("listCustomerBill",listCustomerBill);
+        System.out.println(customer.getLastname());
+        Bill customerBill= (Bill) billRepository.findByCustomer(customer.getLastname());
+        System.out.println(customerBill.getBillNumber());
+        model.addAttribute("customerBill", customerBill);
 
         model.addAttribute("authUserFirstName", customer.getFirstname());
         model.addAttribute("authUserLastName", customer.getLastname());

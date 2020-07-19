@@ -20,19 +20,33 @@ public class AccountController {
     @Autowired
     CustomerRepository customerRepository;
 
+
+    @RequestMapping(path="/accountView")
+    public String listAllrentedTool()
+    {
+
+        return "accountView";
+    }
     /**
-     * @param  model Model
-     * @return  accountView
+     * @param  Model model
+     * @return  rentedToolView
      * listed all rented Tools
      */
-    @RequestMapping(path="/accountView")
-    public String listAllrentedTool(Model model)
+    @RequestMapping(path="/rentedToolView")
+    public String rentedToolView(Model model)
     {
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
         List<Tool> listTools= (List<Tool>) customer.getInventory();
         model.addAttribute("listTools", listTools);
-        return "accountView";
+        return "rentedToolView";
     }
+    @RequestMapping(path="/billView")
+    public String billView()
+    {
+        return "billView";
+    }
+
+
 }
