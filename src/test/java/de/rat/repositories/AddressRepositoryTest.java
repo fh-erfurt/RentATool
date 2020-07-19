@@ -5,19 +5,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 
 @DataJpaTest
 class AddressRepositoryTest {
 
-
     private Address address1;
-    private Address address2;
 
     @Autowired
     AddressRepository repository;
@@ -34,9 +29,9 @@ class AddressRepositoryTest {
 
      Address address2 = repository.findById(address1.getId());
      assertEquals("12345", address2.getZip());
-
     }
 
+    // TODO: warum eine for schleife, wenn man dann mit einem statischen Object arbeitet?
     @Test
     public void is_address_finded_by_city(){
 
@@ -45,11 +40,10 @@ class AddressRepositoryTest {
         {
             assertEquals("Arnstadt",address1.getCity());
         }
-
     }
 
 
-    // representativ update test for all repositories
+    // representative update test for all repositories
     @Test
     public void is_street_changing(){
 
@@ -59,10 +53,9 @@ class AddressRepositoryTest {
 
         Address address3 = repository.findById(address1.getId());
         assertEquals("Strasse",address3.getStreet());
-
     }
 
-    // representativ delete test for all repositories
+    // representative delete test for all repositories
     @Test
     public void is_address_deleted(){
 
@@ -70,7 +63,6 @@ class AddressRepositoryTest {
         List<Address> allAddresses = repository.findByCity("Arnstadt");
 
         assertTrue(allAddresses.isEmpty());
-
     }
 
     @Test
@@ -78,8 +70,5 @@ class AddressRepositoryTest {
 
         Address checkAddress = repository.findByStreetnameHouseNumberCity("Strasse", "1","Arnstadt");
         assertEquals(checkAddress.getStreet(),address1.getStreet());
-
-
     }
-
 }

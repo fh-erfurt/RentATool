@@ -1,13 +1,12 @@
 package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 /**Represents a bill.
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 /** Creates a bill .
@@ -48,8 +47,6 @@ public class Warehouse extends BaseModel {
             logger.info("Das Tool ist im Warenhaus ");
         }
     }
-
-
 
     /** remove the respective tool from the warehouse
      *  @return  the tool

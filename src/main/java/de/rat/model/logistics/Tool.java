@@ -1,14 +1,14 @@
 package de.rat.model.logistics;
-/**Represents a class tool.
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
- */
-
 
 import de.rat.model.BaseModel;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
+
+/**Represents a class tool.
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
+ */
+
 
 /** Creates a tool .
  *  itemId this is a ID that comes from the manufacturer. Like this: A120-B20W
@@ -51,10 +51,11 @@ public class Tool extends BaseModel {
         this.toolStatus = toolStatus;
         this.rentPrice = rentPrice;
     }
+
+    // TODO: delete???
     //erstmal nur Test
     public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
         this.itemId = itemId;
-
         this.description = description;
         this.category = category;
         this.stock = stock;
@@ -122,15 +123,6 @@ public class Tool extends BaseModel {
      */
     public String getStock() {
         return stock;
-    }
-
-
-    /** set the stock for a tool .
-     *  @param  stock this is a the respective stock
-     *
-     */
-    public void setStock(String stock) {
-        this.stock = stock;
     }
 
 

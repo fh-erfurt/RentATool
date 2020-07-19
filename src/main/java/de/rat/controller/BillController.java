@@ -5,30 +5,26 @@ import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.repositories.CustomerRepository;
-import de.rat.repositories.BillRepository;
-import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Optional;
 import java.util.logging.Logger;
-
 import java.time.LocalDate;
 import java.util.List;
 
+//TODO: JavaDocs
+
 @Controller
 public class BillController {
-@Autowired
-CustomerRepository customerRepository;
-RentProcessRepository rentProcessRepository;
-
-
     private static final Logger log = Logger.getLogger("LOGGER");
 
+    @Autowired
+    CustomerRepository customerRepository;
+
+    //TODO: JavaDocs
     @RequestMapping(path="/billView")
     public String listOfCustomerBills(Model model)
     {
@@ -43,6 +39,7 @@ RentProcessRepository rentProcessRepository;
         return "billView";
     }
 
+    //TODO: JavaDocs
     @RequestMapping(path="/bill/{id}")
     public ModelAndView showBill(@PathVariable(name = "id") int id)
     {
@@ -70,5 +67,4 @@ RentProcessRepository rentProcessRepository;
 
         return mav;
     }
-
 }

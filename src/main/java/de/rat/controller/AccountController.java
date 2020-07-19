@@ -28,7 +28,7 @@ public class AccountController {
         return "accountView";
     }
     /**
-     * @param  Model model
+     * @param  model Model
      * @return  rentedToolView
      * listed all rented Tools
      */
@@ -42,11 +42,14 @@ public class AccountController {
         model.addAttribute("listTools", listTools);
         return "rentedToolView";
     }
-//    @RequestMapping(path="/billView")
-//    public String billView()
-//    {
-//        return "billView";
-//    }
+
+    // TODO: Delete: @RequestMapping(path="/billView")????
+
+    //    @RequestMapping(path="/billView")
+    //    public String billView()
+    //    {
+    //        return "billView";
+    //    }
 
 
 }

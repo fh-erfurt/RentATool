@@ -4,21 +4,13 @@ import de.rat.model.common.*;
 import de.rat.model.customer.*;
 import de.rat.model.employee.*;
 import de.rat.model.logistics.*;
-
-import de.rat.repositories.RentalBillTest;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 class RentalTest {
 
-    private static final Logger log = LoggerFactory.getLogger(RentalBillTest.class);
 
     //Variable declaration
     private Customer custLuise;
@@ -29,7 +21,6 @@ class RentalTest {
     private Warehouse warehouse;
     private Manufacturer bosch;
 
-
     private Tool drill;
     private Tool hammer;
     private Tool welder;
@@ -38,8 +29,6 @@ class RentalTest {
     private Employee empDanny;
     private Employee empMichael;
     private Employee empJonas;
-
-
 
     @BeforeEach
     void setUp() {

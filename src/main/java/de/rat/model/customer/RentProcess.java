@@ -3,11 +3,10 @@ package de.rat.model.customer;
 import de.rat.model.BaseModel;
 import de.rat.model.logistics.Station;
 import de.rat.model.logistics.Tool;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 /**Represents an RentProcess.
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 /** Creates an customer .
@@ -19,12 +18,13 @@ import java.time.LocalDate;
 
 @Entity
 public class RentProcess extends BaseModel {
-    @ManyToOne // TODO: Check
+
+    @ManyToOne
     private Tool rentedTool;
 
     private LocalDate returnDate;
 
-    @ManyToOne // TODO: Check
+    @ManyToOne
     private Station returnStation;
 
     protected RentProcess(){}

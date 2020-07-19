@@ -4,7 +4,6 @@ import de.rat.model.billing.*;
 import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 import de.rat.model.common.*;
-
 import java.time.LocalDate;
 import java.util.logging.Logger;
 import javax.persistence.Entity;
@@ -13,7 +12,7 @@ import javax.persistence.*;
 
 /**Represents an Employee.
  * extends from Person
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 @Entity
 public class Employee extends Person {
@@ -86,15 +85,6 @@ public class Employee extends Person {
     }
 
 
-    /** set the tool status for the tool that was returned to the warehouse
-     * @return true if the tool status was set from the warehouse method setToolStatus
-     *
-     */
-    public boolean setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse) {
-        return warehouse.setToolStatus(tool, toolStatus);
-    }
-
-
     /** is a notification for the employee to checked the array list check bills
      *
      */
@@ -116,7 +106,6 @@ public class Employee extends Person {
      *
      */
     public boolean setDiscountAndMoveBillsToCloseBills(Bill checkBill, int discount) {
-
 
         if(checkBill != null){
 

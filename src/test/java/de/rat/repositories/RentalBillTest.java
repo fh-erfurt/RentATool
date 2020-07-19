@@ -70,7 +70,6 @@ public class RentalBillTest {
         wRepo.save(warehouse1);
         station1 = new Station("Station 1",25,address1);
         sRepo.save(station1);
-
     }
 
     @Test
@@ -111,7 +110,6 @@ public class RentalBillTest {
         sRepo.save(station1);
         wRepo.save(warehouse1);
         Bill testBill = Billing.findOrCreateBill(custHans, station1);
-
 
         // rent tool 2
         Rental.rentATool(bohrer, station1, custHans, warehouse1);
@@ -156,9 +154,5 @@ public class RentalBillTest {
         sRepo.save(station1);
         wRepo.save(warehouse1);
         assertEquals(testBill.getBillStatus(), BillStatus.CHECKED);
-
-
         }
-
-
 }

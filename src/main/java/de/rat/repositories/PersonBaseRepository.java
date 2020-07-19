@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
 
+//TODO: JavaDocs
 @NoRepositoryBean
 public interface PersonBaseRepository <T extends Person> extends CrudRepository<T, Integer> {
 

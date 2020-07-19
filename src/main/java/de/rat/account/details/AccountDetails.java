@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
  *
  * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
-
 public class AccountDetails implements UserDetails {
 
     private Integer id;

@@ -3,7 +3,6 @@ package de.rat.model.logistics;
 import de.rat.model.common.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManufacturerTest {
@@ -22,18 +21,14 @@ class ManufacturerTest {
     }
 
 
-
     // Main Test --------------------------------
-@Test
+    @Test
     void can_changed_the_attributes_of_manufacturer()
-{
-    manufacture.changeManufacture("Makita", address2,"Herr Makita","9999-9999");
-    assertEquals("Makita", manufacture.getName());
-    assertEquals(address2, manufacture.getAddress());
-    assertEquals("Herr Makita", manufacture.getAgent());
-    assertEquals("9999-9999", manufacture.getPhoneNumber());
-
-}
-
-
+    {
+        manufacture.changeManufacture("Makita", address2,"Herr Makita","9999-9999");
+        assertEquals("Makita", manufacture.getName());
+        assertEquals(address2, manufacture.getAddress());
+        assertEquals("Herr Makita", manufacture.getAgent());
+        assertEquals("9999-9999", manufacture.getPhoneNumber());
+    }
 }

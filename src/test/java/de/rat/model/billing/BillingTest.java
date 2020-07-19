@@ -3,19 +3,12 @@ package de.rat.model.billing;
 import de.rat.model.Rental;
 import de.rat.model.common.Address;
 import de.rat.model.customer.Customer;
-import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BillingTest {
@@ -24,14 +17,11 @@ class BillingTest {
     private Customer custMaria;
     private Address musterhausen;
     private Station stationOne;
-    private Bill billMaria;
-    private RentProcess rentProcessMariaHammer;
     private Tool hammer;
     private Tool drill;
     private Manufacturer bosch;
     private Address address;
     private Warehouse warehouse;
-
 
     @BeforeEach
     void setUp() {
@@ -46,7 +36,6 @@ class BillingTest {
         warehouse= new Warehouse();
 
     }
-
 
     @Test
     void is_a_bill_in_openBills_after_customer_rent_a_tool() throws InterruptedException {
@@ -147,7 +136,6 @@ class BillingTest {
         Rental.rentATool(drill,stationOne,custMaria,warehouse);
         Bill searchedBill2 = Billing.findOpenBillFromCustomer(custMaria);
 
-
         assertEquals(searchedBill,searchedBill2);
     }
 
@@ -164,7 +152,5 @@ class BillingTest {
         //Billing.getOpenBills().add(bill42);
         assertEquals(bill3,Billing.findBillInListByReference(bill3, (ArrayList<Bill>) Billing.getOpenBills()));
         assertNull(Billing.findBillInListByReference(bill4, (ArrayList<Bill>) Billing.getOpenBills()));
-
     }
-
 }

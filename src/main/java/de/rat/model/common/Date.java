@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 import java.time.temporal.ChronoUnit;
 
 /**Represents a class date.
- * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
 public class Date extends GregorianCalendar {
 

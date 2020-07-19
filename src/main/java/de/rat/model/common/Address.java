@@ -4,7 +4,7 @@ import de.rat.model.BaseModel;
 import javax.persistence.*;
 
 /**Represents a class address.
- * @author Marco Petzold, Christian König, Danny Steinbrecher, Bilal Alnani
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
 
 @Entity

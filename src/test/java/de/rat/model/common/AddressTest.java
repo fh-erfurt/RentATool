@@ -39,7 +39,6 @@ class AddressTest {
         assertEquals("12345", address1.getZip());
         assertEquals("Erfurt",address1.getCity());
         assertEquals("FR",address1.getCountry());
-
     }
 
     @Test
@@ -54,7 +53,5 @@ class AddressTest {
         assertTrue(address1.changeAddress("Linde 2", "1", "99425", "Weimar", "DE"));
         assertEquals("Linde 2",address1.getStreet());
     }
-
-
 }
 

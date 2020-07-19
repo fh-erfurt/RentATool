@@ -3,13 +3,14 @@ package de.rat.model.logistics;
 import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
 import org.springframework.data.annotation.Transient;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+
+
 /**Represents a class station.
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 /** Creates station .
@@ -24,6 +25,7 @@ public class Station extends BaseModel {
 
     @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
+
     private String description;
     private int numberOfBoxes;
 
@@ -38,7 +40,7 @@ public class Station extends BaseModel {
     private List<Tool> boxesOfTools= new ArrayList<Tool>();
 
 
-    protected Station(){};
+    protected Station(){}
 
     /** Creates station .
      *  @param description this is the discription from the station
@@ -46,7 +48,6 @@ public class Station extends BaseModel {
      *  @param address where the station is installed
      *
      */
-
     public Station(String description, int numberOfBoxes, Address address) {
         this.description = description;
         this.numberOfBoxes = numberOfBoxes;
