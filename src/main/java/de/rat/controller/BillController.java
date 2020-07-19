@@ -40,7 +40,7 @@ BillRepository  billRepository;
         return "billView";
     }
 
-    @RequestMapping(path="/billForm/{id}")
+    @RequestMapping(path="/bill/{id}")
     public ModelAndView showBill(@PathVariable(name = "id") int id)
     {
         ModelAndView mav = new ModelAndView("billForm");
@@ -49,12 +49,9 @@ BillRepository  billRepository;
         Customer customer = customerRepository.findByAccount_id(AccountId);
         List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer);
         for(Bill bill : listOfBills){
-            log.info("1111");
-            log.info(String.valueOf(bill.getBillNumber()));
             if(bill.getBillNumber()==id)
                 mav.addObject("customerBill", bill);
         }
-
         mav.addObject("authUserFirstName", customer.getFirstname());
         mav.addObject("authUserLastName", customer.getLastname());
         mav.addObject("authUserAddressStreet", customer.getAddress().getStreet());
