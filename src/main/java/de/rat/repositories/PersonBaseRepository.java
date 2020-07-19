@@ -6,7 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.query.Param;
 
-//TODO: JavaDocs
+/** Base Repository for the Person
+ *  sets some basic Methods which can be used from the Employee and the Customer
+ */
 @NoRepositoryBean
 public interface PersonBaseRepository <T extends Person> extends CrudRepository<T, Integer> {
 

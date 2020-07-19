@@ -99,11 +99,14 @@ public class StationController {
 
     /**
      * @return  returnStation
-     * TODO: JavaDocs
+     * add the Tool to the Model
+     * add all Stations to the Model
      * redirect to returnStation.html
      */
+
+    //TODO: should be renamed?
     @RequestMapping(path="/returnStation/{id}")
-    public String listrentedTools(@PathVariable(name = "id") int id,Model model)
+    public String listRentedTools(@PathVariable(name = "id") int id,Model model)
     {
 
         Tool rentedTool = toolRepository.findById(id);

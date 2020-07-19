@@ -24,7 +24,7 @@ public class BillController {
 
     @Autowired
     CustomerRepository customerRepository;
-    RentProcessRepository rentProcessRepository; //TODO: ERRRORRRRR
+    RentProcessRepository rentProcessRepository;
 
     //TODO: JavaDocs
     @RequestMapping(path="/billView")

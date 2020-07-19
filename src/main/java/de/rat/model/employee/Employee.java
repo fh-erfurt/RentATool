@@ -20,7 +20,7 @@ public class Employee extends Person {
     @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
 
-    @ManyToOne //TODO: Check
+    @ManyToOne
     private Employee supervisor;
 
     protected Employee(){};

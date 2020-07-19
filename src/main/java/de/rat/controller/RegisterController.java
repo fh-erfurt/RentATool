@@ -34,7 +34,6 @@ public class RegisterController {
     private AccountRepository repositoryAccount;
     private AddressRepository repositoryAddress;
 
-    //TODO: JavaDocs
     public RegisterController(AccountRepository accRepo, AddressRepository repositoryAddress) {
         this.repositoryAccount = accRepo;
         this.repositoryAddress = repositoryAddress;
