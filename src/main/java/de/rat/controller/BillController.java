@@ -5,6 +5,7 @@ import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.repositories.CustomerRepository;
+import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ public class BillController {
 
     @Autowired
     CustomerRepository customerRepository;
+    RentProcessRepository rentProcessRepository; //TODO: ERRRORRRRR
 
     //TODO: JavaDocs
     @RequestMapping(path="/billView")

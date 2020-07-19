@@ -33,6 +33,10 @@ public class Customer extends Person {
         return phoneNumber;
     }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public List<Tool> getInventory() {
         return inventory;
     }

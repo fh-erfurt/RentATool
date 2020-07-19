@@ -126,6 +126,15 @@ public class Tool extends BaseModel {
     }
 
 
+    /** set the stock for a tool .
+     *  @param  stock this is a the respective stock
+     *
+     */
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+
     /** get the tool status for a tool .
      *  @return  toolStatus this is a the respective tool status
      *  enum AVAILABLE, ISRENTED, ISBROKEN, ISINREPAIR;

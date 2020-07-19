@@ -33,6 +33,9 @@ public abstract class BaseModel {
     public void setCreated(Date created) {this.created = created;}
     public void setModified(Date modified) {this.modified = modified;}
 
+    public Date getCreated() {return created;}
+    public Date getModified() {return modified;}
+
     public int getId() {return id;}
 
     // TODO: delete?

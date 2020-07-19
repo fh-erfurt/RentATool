@@ -84,6 +84,13 @@ public class Employee extends Person {
         return firstname.toLowerCase() + "." + lastname.toLowerCase() + "@rat.de";
     }
 
+    /** set the tool status for the tool that was returned to the warehouse
+     * @return true if the tool status was set from the warehouse method setToolStatus
+     *
+     */
+    public boolean setToolStatus(Tool tool,ToolStatus toolStatus,Warehouse warehouse) {
+        return warehouse.setToolStatus(tool, toolStatus);
+    }
 
     /** is a notification for the employee to checked the array list check bills
      *
