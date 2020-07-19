@@ -7,12 +7,12 @@
 
 <section id="UberUns" class="ud_page">
     <!-- Headline -->
-    <h2>Ihre Rechnung</h2>
+    <h2>Ihre Rechnungen</h2>
 
 
     <div class="ud_h2_balken"></div>
         <table>
-            <caption>Tools</caption>
+
             <thead>
             <tr>
                 <th scope="col">Bill Number</th>
@@ -26,7 +26,7 @@
                 <tr th:each="bill : ${listOfBills}">
                     <td data-label="Product ID" th:text="${bill.billNumber}">Product ID</td>
                     <td>
-                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}" target="_blank"><i class="fa fa-eur" aria-hidden="true"></i> Click to show</a>
                     </td>
                 </tr>
 
