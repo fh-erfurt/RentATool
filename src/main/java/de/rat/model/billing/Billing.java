@@ -71,9 +71,9 @@ public class Billing extends BaseModel {
     }
 
 
-    /** Find a open bill from the customer where the date is the actual date.
-     * @return A class bill when the customer has a open bill, otherwise
-     * @return null if there are no open bills
+    /** Find a closed bill from the customer.
+     * @return A class bill when the customer has a closed bill, otherwise
+     * @return null if there are no closed bills
      */
     public static List<Bill> findClosedBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate

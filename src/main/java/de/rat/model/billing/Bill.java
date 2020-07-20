@@ -188,7 +188,8 @@ public class Bill {
                 this.fullRentPrice = this.fullRentPrice.add((foundedProcesses.getRentedTool().getRentPrice()).multiply(new BigDecimal(days)));
             }
         }
-        this.fullRentPrice = this.fullRentPrice.subtract(this.fullRentPrice.multiply(new BigDecimal(discount)).divide(new BigDecimal(100),3, RoundingMode.CEILING));
+        BigDecimal roundedRentPrice=this.fullRentPrice.subtract(this.fullRentPrice.multiply(new BigDecimal(discount)).divide(new BigDecimal(100),3, RoundingMode.CEILING));
+        this.fullRentPrice = roundedRentPrice.setScale(2,BigDecimal.ROUND_UP);
     }
 
     /**

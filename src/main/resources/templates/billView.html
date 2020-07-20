@@ -15,7 +15,7 @@
 
             <thead>
             <tr>
-                <th scope="col">Bill Number</th>
+                <th scope="col">Rechnungsnummer</th>
                 <th scope="col"></th>
 
             </tr>
@@ -26,7 +26,7 @@
                 <tr th:each="bill : ${listOfBills}">
                     <td data-label="Product ID" th:text="${bill.billNumber}">Product ID</td>
                     <td>
-                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}" target="_blank"><i class="fa fa-eur" aria-hidden="true"></i> Click to show</a>
+                    <a th:href="@{/bill/{id}(id=${bill.billNumber})}" target="_blank"><i class="fa fa-eur" aria-hidden="true"></i> zum Anzeigen klicken</a>
                     </td>
                 </tr>
 

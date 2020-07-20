@@ -17,7 +17,7 @@
         <tr>
             <th scope="col">Vorname</th>
             <th scope="col">Nachname</th>
-            <th scope="col">Alter</th>
+<!--            <th scope="col">Alter</th>-->
             <th scope="col">Rolle</th>
             <th scope="col">E-Mail</th>
 
@@ -30,7 +30,7 @@
             <tr th:each="employee : ${listEmployee}">
                 <td data-label="firstname" th:text="${employee.firstname}">Product ID</td>
                 <td data-label="lastname " th:text="${employee.lastname}">Category</td>
-                <td data-label="birthday" th:text="${#temporals.formatISO(employee.birthday)}"> >Rentprice</td>
+<!--                <td data-label="birthday" th:text="${#temporals.formatISO(employee.birthday)}"> >Rentprice</td>-->
                 <td data-label="role" th:text="${employee.getAccount().role}">Toolstatus</td>
                 <td data-label="email" th:text="${employee.getAccount().email}">Description</td>
                 <!--            <td>-->
