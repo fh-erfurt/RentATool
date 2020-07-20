@@ -1,6 +1,6 @@
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','de',87,'Poststraße','05687');
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','de',87,'Musterstraße','05687');
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','de',87,'Asbachstraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','Deutschland',87,'Poststraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','Deutschland',87,'Musterstraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','Deutschland',87,'Asbachstraße','05687');
 
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (100000,'Müller','Bosch',065386445,100000);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (200000,'Maier','Makita',5546456455,300000);
@@ -46,10 +46,10 @@ INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100003
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100004, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100005, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
 
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, null, 'Danny', 'Steinbrecher', '12345', 100000, 100000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, null, 'Nietzsche', 'Friedrich', '12345', 100001, 200000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100002, null, 'Sigmund', 'Freud', '12345', 100002, 300000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100003, null, 'Wladimir', 'Lenin', '12345', 100003, 100000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, null, 'Danny', 'Steinbrecher', '0176 12345', 100000, 100000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, null, 'Nietzsche', 'Friedrich', '0162012345', 100001, 200000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100002, null, 'Sigmund', 'Freud', '0177 012345', 100002, 300000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100003, null, 'Wladimir', 'Lenin', '0361 12345', 100003, 100000);
 
 INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100000, null, 'Christian', 'Koenig', 100005, 200000, null);
 INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100001, null, 'Marco', 'Petzold', 100004, 100000, 100000);
