@@ -16,8 +16,11 @@ import java.util.logging.Logger;
 import java.time.LocalDate;
 import java.util.List;
 
-//TODO: JavaDocs
+/** Controller for all pages they are handle with the Bill
+ * sets parameter and generate the data for the views
 
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class BillController {
     private static final Logger log = Logger.getLogger("LOGGER");
@@ -26,7 +29,12 @@ public class BillController {
     CustomerRepository customerRepository;
     RentProcessRepository rentProcessRepository;
 
-    //TODO: JavaDocs
+    /**
+     * @param model Model
+     * @return  billView
+     * adds all Bills from the customer to the Model
+     * redirect to billView.html
+     */
     @RequestMapping(path="/billView")
     public String listOfCustomerBills(Model model)
     {
@@ -41,7 +49,11 @@ public class BillController {
         return "billView";
     }
 
-    //TODO: JavaDocs
+    /**
+     * @param id int
+     * @return  mav
+     * generate a BillView for the selected Bill with all Tools
+     */
     @RequestMapping(path="/bill/{id}")
     public ModelAndView showBill(@PathVariable(name = "id") int id)
     {
