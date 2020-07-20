@@ -15,20 +15,22 @@
 <div class="login-page">
         <div class="form">
             <form class="login-form" th:action="@{/login}" method="post">
+                <div th:if="${param.logout}">
+                    You have been logged out.
+                </div>
+                <div th:if="${param.error}">
+                    Invalid username and password.
+                </div>
                 <input type="text" id="username" name="username" placeholder="username"/>
                 <input type="password" id="password" name="password" placeholder="password"/>
+
                 <button>login</button>
                 <p class="message">Not registered? <a href="/register">Create an account</a></p>
+
+
             </form>
         </div>
     </div>
-
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
 </section>
 
 
