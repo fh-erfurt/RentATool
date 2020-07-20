@@ -46,7 +46,7 @@ INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100003
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100004, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100005, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
 
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, '1988-08-05', 'Danny', 'Steinbrecher', '0176 12345', 100000, 100000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, '1989-12-24', 'Danny', 'Steinbrecher', '0176 12345', 100000, 100000);
 INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, '1844-10-15', 'Nietzsche', 'Friedrich', '0162012345', 100001, 200000);
 INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100002, '1856-05-06', 'Sigmund', 'Freud', '0177 012345', 100002, 300000);
 INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100003, '1870-04-22', 'Wladimir', 'Lenin', '0361 12345', 100003, 100000);
