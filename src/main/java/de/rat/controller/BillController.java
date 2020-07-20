@@ -62,11 +62,12 @@ public class BillController {
         int AccountId  = nameControllerAdvice.getAuthUser();
         Customer customer = customerRepository.findByAccount_id(AccountId);
         List <Bill> listOfBills = Billing.findClosedBillFromCustomer(customer);
-        for(Bill bill : listOfBills){
-            if(bill.getBillNumber()==id)
+        for(Bill bill : listOfBills) {
+            if (bill.getBillNumber() == id) {
                 mav.addObject("customerBill", bill);
-            List<RentProcess> listOfRentprocess=bill.getListOfRentProcesses();
-            mav.addObject("listOfRentprocess", listOfRentprocess);
+                List<RentProcess> listOfRentprocess = bill.getListOfRentProcesses();
+                mav.addObject("listOfRentprocess", listOfRentprocess);
+            }
         }
 
         mav.addObject("authUserFirstName", customer.getFirstname());
