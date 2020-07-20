@@ -3,9 +3,7 @@ package de.rat.model.logistics;
 import de.rat.model.common.Address;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class WarehouseTest {
@@ -46,5 +44,4 @@ class WarehouseTest {
         warehouse.removeToolFromWarehouse(hammer);
         assertEquals(sizeBefore,warehouse.getStock().size());
     }
-
 }

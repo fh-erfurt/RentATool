@@ -1,6 +1,5 @@
 package de.rat.repositories;
 
-
 import de.rat.model.common.Address;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,10 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -62,7 +58,6 @@ class StationRepositoryTest {
 
         // if tool is already in station, adding tool to box failed
         assertFalse(sRepo.findById(station1.getId()).addToolToBox(hammer));
-
     }
 
     @Test
@@ -88,6 +83,5 @@ class StationRepositoryTest {
 
         //check box size from station from database
         assertEquals(sRepo.findById(station1.getId()).getBoxesOfTools().size(),1);
-
     }
 }

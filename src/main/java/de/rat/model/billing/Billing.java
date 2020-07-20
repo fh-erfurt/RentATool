@@ -8,8 +8,6 @@ import de.rat.model.logistics.*;
 import de.rat.model.employee.*;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-
-
 import java.time.LocalDate;
 import java.util.*;
 import java.util.logging.Logger;
@@ -31,9 +29,10 @@ public class Billing extends BaseModel {
 
     private static final Logger logger = Logger.getLogger("LOGGER");
 
+    //TODO: Delete comment????
+
     // idea for table 3 columns(Id, Bill, Status), all Bills are in these table and with the 3rd colum you can
     // is it open, check or close -> new class?or just database table not in java?
-
 
     @OneToMany
     private static List<Bill> openBills = new ArrayList<Bill>();
@@ -41,7 +40,6 @@ public class Billing extends BaseModel {
     private static List<Bill> checkBills = new ArrayList<Bill>();
     @OneToMany
     private static List<Bill> closedBills = new ArrayList<Bill>();
-
 
     public static List<Bill> getOpenBills() {
         return openBills;
@@ -61,7 +59,7 @@ public class Billing extends BaseModel {
     public static Bill findOpenBillFromCustomer(Customer customer){
         // get date of today for comparing with rentDate
         LocalDate today =  LocalDate.now();
-      Bill searchedBill = openBills.stream()
+        Bill searchedBill = openBills.stream()
 
                 .filter(bill -> Date.compareDates(bill.getRentDate(), Operator.EQUAL, today) && bill.getCustomer().getId()==(customer.getId()))
                 .findAny()
@@ -71,6 +69,8 @@ public class Billing extends BaseModel {
 
         return searchedBill;
     }
+
+
     /** Find a open bill from the customer where the date is the actual date.
      * @return A class bill when the customer has a open bill, otherwise
      * @return null if there are no open bills
@@ -113,7 +113,6 @@ public class Billing extends BaseModel {
         LocalDate today = LocalDate.now();
         for (Bill foundedBill : openBills) {
 
-
             RentProcess rentProcess = foundedBill.findRentProcess(wantedTool);
 
             // use only the founded Bill, customer is the same and today is the rentDay of the Bill
@@ -123,7 +122,6 @@ public class Billing extends BaseModel {
                 logger.info("Die Rechnung wurde gefunden");
                 return foundedBill;
             }
-
         }
         EmployeeNotification.sendNotificationToAllEmployeesToCheckTheOpenBills(customer);
         logger.severe("Die Rechnung wurde nicht gefunden!");

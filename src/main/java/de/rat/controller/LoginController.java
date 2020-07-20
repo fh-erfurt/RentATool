@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 
-
     /**
      * @return  login
      * redirect to loginForm.html

@@ -66,9 +66,7 @@ public abstract class Person extends BaseModel {
     public String getFirstname()    { return firstname; }
     public String getLastname()     { return lastname; }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+
     //Methods
     /** creates the Password for an employee or a customer.
      *  @return password (String)
@@ -87,10 +85,6 @@ public abstract class Person extends BaseModel {
         return birthday;
     }
 
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
     public void setAddress(Address address) {
         this.address = address;
     }
@@ -99,11 +93,13 @@ public abstract class Person extends BaseModel {
         this.account = account;
     }
 
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
-
-
 
     @Override
     public String toString() {

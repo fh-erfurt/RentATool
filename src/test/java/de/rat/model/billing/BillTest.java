@@ -8,11 +8,8 @@ import de.rat.model.customer.RentProcess;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BillTest {
@@ -22,13 +19,10 @@ class BillTest {
     private Station testStation;
     private Manufacturer bosch;
     private Bill testBill;
-
     private Tool hammer;
     private Tool drill;
-
     private RentProcess rentHammer;
     private RentProcess rentDrill;
-
     private LocalDate date1;
     private LocalDate date2;
 
@@ -60,7 +54,6 @@ class BillTest {
     {
         LocalDate today = LocalDate.now();
         assertTrue(Date.compareDates(today, Operator.EQUAL, testBill.getRentDate()));
-
     }
 
     @Test
@@ -70,7 +63,6 @@ class BillTest {
         rentHammer.setReturnDate(date2);
         testBill.getListOfRentProcesses().add(rentHammer);
         testBill.setFullRentPrice();
-
 
         assertEquals(new BigDecimal("10.000"), testBill.getFullRentPrice());
     }
@@ -84,7 +76,6 @@ class BillTest {
         testBill.setFullRentPrice();
 
         assertEquals(new BigDecimal("8.000"),testBill.getFullRentPrice());
-
     }
 
     @Test
@@ -102,7 +93,6 @@ class BillTest {
 
         // seceond process rentHammer is not closed
         assertFalse(testBill.checkIfAllRentProcessesFromABillAreClosed());
-
     }
 
     @Test
@@ -111,5 +101,4 @@ class BillTest {
         testBill.getListOfRentProcesses().add(rentHammer);
         assertEquals(rentHammer,testBill.findRentProcess(hammer));
     }
-
 }

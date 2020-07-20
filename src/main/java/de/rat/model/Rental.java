@@ -5,7 +5,7 @@ import de.rat.model.customer.*;
 import de.rat.model.logistics.*;
 
 /**Represents an rental.
- * @author Danny Steinbrecher, Marco Petzold, Christian König, Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 public class Rental {

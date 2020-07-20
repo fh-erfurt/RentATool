@@ -2,7 +2,6 @@ package de.rat.model.customer;
 
 import de.rat.model.common.*;
 import de.rat.model.logistics.*;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
 /**Represents an customer.
- * @author Danny Steinbrecher, Marco Petzold, Christian König,Bilal Alnani
+ * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
 @Entity
@@ -20,9 +19,15 @@ public class Customer extends Person {
 
     @Transient
     private static final Logger logger = Logger.getLogger("LOGGER");
+
     @NotEmpty(message="required")
     private String phoneNumber;
 
+    @OneToMany
+    @JoinTable(name="customerTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
+    private List<Tool> inventory = new ArrayList<Tool>();
+
+    public Customer(){}
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -31,12 +36,6 @@ public class Customer extends Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    @OneToMany
-    @JoinTable(name="customerTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
-    private List<Tool> inventory = new ArrayList<Tool>();
-
-    public Customer(){}
 
     public List<Tool> getInventory() {
         return inventory;
@@ -116,8 +115,5 @@ public class Customer extends Person {
     public boolean returnToolToStation(Tool wantedTool, Station removeStation){
         return removeStation.addToolToBox(wantedTool);
     }
-
-
-
 }
 

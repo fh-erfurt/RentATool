@@ -2,7 +2,6 @@ package de.rat.model.logistics;
 
 import de.rat.model.BaseModel;
 import de.rat.model.common.Address;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 

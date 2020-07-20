@@ -1,6 +1,5 @@
 package de.rat.repositories;
 
-
 import de.rat.model.common.*;
 import de.rat.model.logistics.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,10 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -81,13 +77,7 @@ class WarehouseRepositoryTest {
         log.info("--------------------------------");
         log.info(String.valueOf(warehouse1.getStock().size()));
 
-        //hammer is in warehouse, but toolstatus is not availeble so it cant remove
+        //hammer is in warehouse, but toolstatus is not available so it cant remove
         assertNull(wRepo.findById(warehouse1.getId()).removeToolFromWarehouse(hammer));
-
-
-
-
-
     }
-
 }

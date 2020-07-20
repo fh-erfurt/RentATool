@@ -130,6 +130,7 @@ public class ToolController {
         return mav;
     }
 
+
     /**
      * @return  toolManagement
      * @param id int
@@ -144,7 +145,7 @@ public class ToolController {
 
 
     /**
-     * TODO: JavaDocs
+     * deliver toolId to next view
      */
     @PostMapping("/addToInventory/{id}")
     public String addToInventory(@PathVariable(name = "id") int id){
@@ -154,7 +155,7 @@ public class ToolController {
     }
 
     /**
-     * TODO: JavaDocs
+     * deliver toolId to next view
      */
     @PostMapping("/returnTool/{id}")
     public String returnTool(@PathVariable(name = "id") int id){

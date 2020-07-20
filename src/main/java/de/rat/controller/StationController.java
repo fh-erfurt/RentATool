@@ -13,9 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.List;
 
 /** Controller for all pages they are handle with the Registration
@@ -40,7 +37,6 @@ public class StationController {
     @Autowired
     BillingRepository billingRepository;
 
-    private static final Logger log = LoggerFactory.getLogger(ToolController.class);
     private int WarehouseId = 100000;
 
     /**
@@ -64,7 +60,9 @@ public class StationController {
 
     /**
      * @return  rentSuccessful
-     * TODO: JavaDocs
+     * controller with all necessary methods to rent a tool
+     * save data in the database
+     * creates a bill
      * redirect to rentSuccessful.html
      */
     @PostMapping("/setStation/{toolId}/{stationId}")
@@ -98,13 +96,17 @@ public class StationController {
         return "rentSuccessful";
     }
 
+
     /**
      * @return  returnStation
-     * TODO: JavaDocs
+     * add the Tool to the Model
+     * add all Stations to the Model
      * redirect to returnStation.html
      */
+
+    //TODO: should be renamed?
     @RequestMapping(path="/returnStation/{id}")
-    public String listrentedTools(@PathVariable(name = "id") int id,Model model)
+    public String listRentedTools(@PathVariable(name = "id") int id,Model model)
     {
 
         Tool rentedTool = toolRepository.findById(id);
@@ -116,9 +118,11 @@ public class StationController {
         return "returnStation";
     }
 
+
     /**
      * @return  returnSuccessful
-     * TODO: JavaDocs
+     * controller with all necessary methods to return a tool
+     * finish the bill, when all tools are returned for this bill
      * redirect to returnSuccessful.html
      */
     @PostMapping("/setReturnStation/{toolId}/{stationId}")
@@ -157,6 +161,9 @@ public class StationController {
             rentProcessRepository.save(rentProcess);
             billRepository.save(alreadyOpenBill);
         }
+
+        //TODO: Delete???
+
 //        final String baseDir = System.getProperty("user.dir");
 //        System.out.println("About to convert html to pdf");
 //        File output = new File(baseDir + "\\output.pdf");
@@ -171,8 +178,6 @@ public class StationController {
 //        renderer.createPDF(outputStream);
 //        outputStream.close();
 //        System.out.println("Done");
-
-
 
         return "returnSuccessful";
     }

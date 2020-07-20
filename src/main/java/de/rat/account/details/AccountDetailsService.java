@@ -12,10 +12,9 @@ import java.util.Optional;
 /** Provides specific user information
  *  It is used throughout the framework as a user DAO and is the strategy used by the DaoAuthenticationProvider.
  *  The interface requires only one read-only method, which simplifies support for new data-access strategies.
-
+ *
  * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
-
 @Service
 public class AccountDetailsService implements UserDetailsService {
 

@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface AccountRepository extends CrudRepository<Account,Integer> {
 
     Account findById(int id);
-    List<Account> findByRole(Role role);
+    List<Account> findByRole(Role role); //TODO: delete?
     Optional<Account> findByEmail(String email);
 }

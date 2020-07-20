@@ -14,11 +14,9 @@ class RentProcessTest {
 
     private Tool drill;
     private Tool hammer;
-
     private Address musterhausen;
     private Station stationOne;
     private Station stationTwo;
-    private Warehouse warehouse;
     private Manufacturer bosch;
     private LocalDate date;
 
@@ -36,16 +34,12 @@ class RentProcessTest {
     @Test
     void is_the_rent_process_complete_with_a_useful_tool_date_and_station(){
         RentProcess testProcess = new RentProcess(drill);
-
         assertTrue(testProcess.completeRentProcess(stationOne,date));
-
     }
 
     @Test
     void does_the_rent_process_not_complete_with_wrong_params(){
         RentProcess testProcess = new RentProcess(hammer);
-
         assertFalse(testProcess.completeRentProcess(stationTwo,date));
     }
-
 }

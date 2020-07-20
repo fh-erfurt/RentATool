@@ -30,14 +30,15 @@ public abstract class BaseModel {
         this.setModified(new Date());
     }
 
-    public void setCreated(Date created) {this.created = created;}          //TODO: should thad be private?
-    public void setModified(Date modified) {this.modified = modified;}      //TODO: should thad be private?
+    public void setCreated(Date created) {this.created = created;}
+    public void setModified(Date modified) {this.modified = modified;}
 
-    public int getId() {return id;}
     public Date getCreated() {return created;}
     public Date getModified() {return modified;}
 
+    public int getId() {return id;}
 
+    // TODO: delete?
     // only used for tests
     public void setId(int Id){
         this.id=Id;

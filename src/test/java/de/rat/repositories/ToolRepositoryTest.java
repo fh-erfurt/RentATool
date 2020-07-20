@@ -11,9 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
@@ -44,8 +42,6 @@ class ToolRepositoryTest {
 
         tool1= new Tool("1",manufacture,"Bohrer",Category.HANDTOOL,"1A",ToolStatus.AVAILABLE,new BigDecimal("5.00"));
         tool2= new Tool("2",manufacture,"Axt",Category.HANDTOOL,"1B",ToolStatus.AVAILABLE,new BigDecimal("6.00"));
-
-
     }
 
 //ToDo Test im Moment ohne manufacturer, da Fehler mit transient kommt
@@ -74,5 +70,4 @@ class ToolRepositoryTest {
         log.info("");
         assertEquals(tool.getStock(),"1B");
     }
-
 }

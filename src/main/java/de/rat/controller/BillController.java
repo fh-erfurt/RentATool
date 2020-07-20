@@ -5,7 +5,6 @@ import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.repositories.CustomerRepository;
-import de.rat.repositories.BillRepository;
 import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,22 +12,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Optional;
 import java.util.logging.Logger;
-
 import java.time.LocalDate;
 import java.util.List;
 
+/** Controller for all pages they are handle with the Bill
+ * sets parameter and generate the data for the views
+
+ * @author Marco Petzold, Christian König, Danny Steinbrecher
+ */
 @Controller
 public class BillController {
-@Autowired
-CustomerRepository customerRepository;
-RentProcessRepository rentProcessRepository;
-
-
     private static final Logger log = Logger.getLogger("LOGGER");
 
+    @Autowired
+    CustomerRepository customerRepository;
+    RentProcessRepository rentProcessRepository;
+
+    /**
+     * @param model Model
+     * @return  billView
+     * adds all Bills from the customer to the Model
+     * redirect to billView.html
+     */
     @RequestMapping(path="/billView")
     public String listOfCustomerBills(Model model)
     {
@@ -43,6 +49,11 @@ RentProcessRepository rentProcessRepository;
         return "billView";
     }
 
+    /**
+     * @param id int
+     * @return  mav
+     * generate a BillView for the selected Bill with all Tools
+     */
     @RequestMapping(path="/bill/{id}")
     public ModelAndView showBill(@PathVariable(name = "id") int id)
     {
@@ -70,5 +81,4 @@ RentProcessRepository rentProcessRepository;
 
         return mav;
     }
-
 }
