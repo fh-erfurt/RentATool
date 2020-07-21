@@ -14,9 +14,9 @@ public class Account extends BaseModel {
 
     @NotEmpty
     @Column(unique = true)
-    @Email(message = "Enter a valid email address.")
+    @Email(message = "Gib eine gültige Emailadresse ein.")
     private String email;
-    @NotEmpty(message="Enter a valid password")
+    @NotEmpty(message="Gib ein gültiges Passwort ein")
     private String password;
     private Role role;
 

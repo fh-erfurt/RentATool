@@ -27,7 +27,8 @@
                 <input type="text" th:field="*{lastname}" placeholder="Nachname"/>
                 <label th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
 <!--                ToDo at the moment it doesen't work with birthday-->
-<!--                <input type="text" th:field="*{birthday}" placeholder="Geburtstag"/>-->
+                <input type="text" th:value="*{birthday}" th:field="*{birthday}" placeholder="yyyy-MM-dd"/>
+                <label th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></label>
                 <input type="text" th:field="*{phoneNumber}" placeholder="Telefonnummer"/>
                 <label th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></label>
                 <div th:action="@{/save}" th:object="${userAddress}" method="post">
