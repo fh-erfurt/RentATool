@@ -57,3 +57,9 @@ INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id,
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100000,'Station 1',25,100000);
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100001,'Station 2',25,200000);
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100002,'Station 3',25,300000);
+
+INSERT INTO BILL(bill_number, bill_status, discount, full_rent_price, rent_date, customer_id, rent_station_id) VALUES (9999, 2, 0, 4,'2020-07-20', 100000, 100000);
+
+INSERT INTO RENT_PROCESS(id, return_date, rented_tool_id, return_station_id) VALUES (10000,'2020-07-21',10001,100000);
+
+INSERT INTO BILL_RENTPROCESSES(bill_bill_number,rent_process_id) VALUES (9999,10000);
