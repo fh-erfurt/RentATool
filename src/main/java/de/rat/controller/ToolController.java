@@ -2,6 +2,7 @@ package de.rat.controller;
 
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
+import de.rat.model.logistics.ToolStatus;
 import de.rat.model.logistics.Warehouse;
 import de.rat.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +76,9 @@ public class ToolController {
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
         Warehouse mainWarehouse = warehouseRepository.findById(10000);
-        mainWarehouse.putToolInWarehouse(aTool);
+        if(aTool.getToolStatus() == ToolStatus.AVAILABLE) {
+            mainWarehouse.putToolInWarehouse(aTool);
+        }
         toolRepository.save(aTool);
 
 
