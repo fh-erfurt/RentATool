@@ -71,10 +71,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/START", "/logout", "h2-console/**").permitAll()
-                    .antMatchers("/userManagement").hasRole("ADMIN")
-                    .antMatchers("/EMPLOYEE").hasAnyRole("EMPLOYEE", "ADMIN")
-                    .antMatchers("/CUSTOMER", "/tools/*").hasAnyRole("CUSTOMER","EMPLOYEE", "ADMIN")
+                    .antMatchers().denyAll()
+                    .antMatchers("/", "/login", "/logout",  "/register",  "/save", "h2-console/**", "/tools").permitAll()
+                    .antMatchers("/userManagement", "/customer", "/employee").hasRole("ADMIN")
+                    .antMatchers("/toolManagement", "/addTool", "/editTool", "/delete/*").hasAnyRole("EMPLOYEE", "ADMIN")
+                    .antMatchers("/accountView", "/billForm", "/billView", "/rentSuccessful", "/returnSuccessful",  "/rentedToolView",  "/chooseStation",  "/returnStation").hasAnyRole("CUSTOMER")
                     .and()
 
                 .formLogin()
