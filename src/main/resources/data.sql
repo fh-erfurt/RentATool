@@ -6,7 +6,7 @@ INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (10000
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (200000,'Maier','Makita',5546456455,300000);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (300000,'Schulze','DeWalt',0657456445,200000);
 
-INSERT INTO WAREHOUSE(id) VALUES (100000);
+INSERT INTO WAREHOUSE(id) VALUES (10000);
 
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10000,'Bo11A1',100000,'Hammer','1A',0,2,3.00);
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10001,'Mak11A1',200000,'Schlagohrer','2A',0,0,4.00);
@@ -26,17 +26,17 @@ INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status,
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10015,'Bo11A6',100000,'Rüttelplatte','16A',2,0,12.00);
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10016,'Mak11A6',200000,'Zementmischer','17A',2,2,20.00);
 
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10000);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10001);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10002);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10003);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10004);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10005);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10006);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10007);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10008);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10009);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10010);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10000);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10001);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10002);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10003);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10004);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10005);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10006);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10007);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10008);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10009);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10010);
 
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100000, null, null, 'customer1', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100001, null, null, 'customer2', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);

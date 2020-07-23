@@ -37,7 +37,7 @@ public class StationController {
     @Autowired
     BillingRepository billingRepository;
 
-    private int WarehouseId = 100000;
+    private int WarehouseId = 10000;
 
     /**
      * @return  registerForm

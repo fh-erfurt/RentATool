@@ -2,6 +2,7 @@ package de.rat.controller;
 
 import de.rat.model.logistics.Manufacturer;
 import de.rat.model.logistics.Tool;
+import de.rat.model.logistics.Warehouse;
 import de.rat.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,7 @@ public class ToolController {
     BillRepository billRepository;
     @Autowired
     BillingRepository billingRepository;
+
 
 
     /**
@@ -72,7 +74,11 @@ public class ToolController {
     @PostMapping("/addTool")
     public String addTool(@ModelAttribute("tool") Tool aTool)
     {
+        Warehouse mainWarehouse = warehouseRepository.findById(10000);
+        mainWarehouse.putToolInWarehouse(aTool);
         toolRepository.save(aTool);
+
+
         return "redirect:/toolManagement";
     }
 
