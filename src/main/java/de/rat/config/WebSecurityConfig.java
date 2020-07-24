@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-//                    .antMatchers().denyAll() // TODO: after finished the problem with the delete Tool, deny all permissions
+                    .antMatchers().denyAll()
                     .antMatchers("/", "/login", "/logout",  "/register",  "/save", "h2-console/**", "/tools").permitAll()
                     .antMatchers("/userManagement", "/customer", "/employee").hasRole("ADMIN")
                     .antMatchers("/toolManagement", "/addTool", "/editTool", "/delete").hasAnyRole("EMPLOYEE", "ADMIN")
