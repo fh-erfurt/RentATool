@@ -3,7 +3,8 @@ package de.rat.model.common;
 import de.rat.model.BaseModel;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher
