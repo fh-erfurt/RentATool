@@ -208,18 +208,6 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 ---
 
-
-- Right now we should work with the H2 Database
- later we will implement the database (MySQL) on the server
-- BaseModel is OK
-- Repository is maybe not necessary with Spring. So no further action about this.
-- Specific Repositorys could be important, when we need some special methods for some classes.
-- Now Focus on Spring - we will implement the Database with Spring on Heroku Server
-- The Date Annotations should work wit our Date Class. Her we need a test later
-- Decide what our Project could do in the end (Website / Webservice). At the end we dont need to implement all of this
-- Create the First Presentation
-
-
 **1. Types**
 - ändern von ArrayList zu List ist ok
 
