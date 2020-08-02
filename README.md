@@ -255,16 +255,21 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 </details>
 
 <details>
-	<summary> Java 2 </summary>
+<summary> Java 2 </summary>
 <br>
 
-aksdfhakfakjdfbkjsadbfkjadfjkbad
-skdjfbsd
-sdfjsdbf
-sdfkj
 
 
 
+TODO: Add Lessons Learned from Java 2
+
+
+
+
+
+
+
+</details>
 </details>
 
 <details>
