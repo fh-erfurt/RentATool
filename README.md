@@ -18,7 +18,7 @@
 
 
 # Verleihstation für Werkzeuge
-Im Rahmen des Projektes zum Thema Programmierung JAVA 1 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
+Im Rahmen des Projektes zum Thema Programmierung JAVA 1 & 2 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
 
 <details>
 <summary> Allgemeine Projektübersicht </summary>
@@ -30,7 +30,7 @@ Das Unternehmen „KSP IT-Solutions“ wurde 2018 von
 * **Marco Petzold** - [Profil](https://github.com/monschey)
 * **Christian König** - [Profil](https://github.com/christiankoenig)
 
-gegründet. Die Kernkompetenzen liegen im Entwickeln, Designen und Implementieren von Datenbankanwendungen. Unsere Kunden stammen meistens aus mittelständischen und Kleinunternehmen. Die meisten unserer Projekte sind speziell für den Kunden zugeschnitten und erfüllen stets die gewünschten Anforderungen.
+gegründet. Die Kernkompetenzen liegen im Entwickeln, Designen und Implementieren von Webseiten und Datenbankanwendungen. Unsere Kunden stammen meistens aus mittelständischen und Kleinunternehmen. Die meisten unserer Projekte sind speziell für den Kunden zugeschnitten und erfüllen stets die gewünschten Anforderungen.
 
 ## Manifest
 https://github.com/fh-erfurt/RentATool/blob/master/share/MANIFEST.md
@@ -70,6 +70,11 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <details>
 <summary> Diagramme </summary>
 <br>
+
+## Deployprozess auf Heroku
+
+![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/2020-08-02%2011_09_45-UML-Klassendiagramm_%20Lucidchart%20-%20Brave.png?raw=true)
+
 
 ## Klassendiagramm
 
