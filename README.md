@@ -204,6 +204,39 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <summary> Java 2 </summary>
 <br>
 
+### Besprechung 08.06.2020
+
+---
+
+
+- Right now we should work with the H2 Database
+ later we will implement the database (MySQL) on the server
+- BaseModel is OK
+- Repository is maybe not necessary with Spring. So no further action about this.
+- Specific Repositorys could be important, when we need some special methods for some classes.
+- Now Focus on Spring - we will implement the Database with Spring on Heroku Server
+- The Date Annotations should work wit our Date Class. Her we need a test later
+- Decide what our Project could do in the end (Website / Webservice). At the end we dont need to implement all of this
+- Create the First Presentation
+
+
+**1. Types**
+- ändern von ArrayList zu List ist ok
+
+**2. Database**
+- aktuell sollten wir die H2-Datenbank nutzen
+- später werden wir eine Datenbank auf einem Server bereitstellen
+- wird auf Heroku deployed
+
+**3. Klassen**
+- BaseModel ist OK
+- Repository ist mit Spring ggf nicht mehr nötig
+- die spezifischen Repositorys können mit Spring dann wieder wichtig sein
+- unsere Datumsklasse sollte mit Spring gehen
+
+**4. Projekt**
+- wichtig ist zu entscheiden, ob unser Projekt eine Webseite oder einen Webservice seien soll
+- wir müssen nicht alles implementieren
 
 
 
