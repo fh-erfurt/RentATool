@@ -239,6 +239,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 
 <details>
 <summary> Lessons Learned </summary>
+	<summary> Java 1 </summary>
 <br>
 
 - Da wir in diesem Projekt 4 Teammitglieder waren, wurde die Kommunikation und Koordination noch etwas schwieriger und Aufwändiger.
@@ -248,6 +249,16 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - Die größte Schwierigkeit bei diesem Projekt war das Umdenken von der Datenbankbasierten Logik. Hier hatten wir vor allem am Anfang noch viel zu Kämpfen.
 - Die Tests helfen enorm bei der Programmierung. Eine schnelle und einfache Kontrolle ist nach Änderungen möglich. Man spart somit viel manuelle Prüfarbeit.
 
+	<summary> Java 2 </summary>
+<br>
+
+aksdfhakfakjdfbkjsadbfkjadfjkbad
+skdjfbsd
+sdfjsdbf
+sdfkj
+
+
+</details>
 </details>
 
 <details>
