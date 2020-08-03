@@ -37,7 +37,7 @@ public class StationController {
     @Autowired
     BillingRepository billingRepository;
 
-    private int WarehouseId = 100000;
+    private int WarehouseId = 10000;
 
     /**
      * @return  registerForm
@@ -161,23 +161,6 @@ public class StationController {
             rentProcessRepository.save(rentProcess);
             billRepository.save(alreadyOpenBill);
         }
-
-        //TODO: Delete???
-
-//        final String baseDir = System.getProperty("user.dir");
-//        System.out.println("About to convert html to pdf");
-//        File output = new File(baseDir + "\\output.pdf");
-//        ITextRenderer renderer = new ITextRenderer();
-//
-//        renderer.getSharedContext()
-//                .setUserAgentCallback(new CustomOpenPdfUserAgent(renderer.getOutputDevice()));
-//
-//        renderer.setDocument("templates/billForm.html");
-//        renderer.layout();
-//        OutputStream outputStream = new FileOutputStream(output);
-//        renderer.createPDF(outputStream);
-//        outputStream.close();
-//        System.out.println("Done");
 
         return "returnSuccessful";
     }

@@ -1,8 +1,12 @@
 package de.rat.model.common;
 
 import de.rat.model.BaseModel;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,6 +26,7 @@ public abstract class Person extends BaseModel {
     @Size(min = 2, max = 35, message = "Firstname must be 2-35 characters long.")
     private String firstname;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate birthday;
 
     @ManyToOne
@@ -99,6 +104,10 @@ public abstract class Person extends BaseModel {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     @Override

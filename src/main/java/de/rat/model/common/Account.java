@@ -3,7 +3,8 @@ package de.rat.model.common;
 import de.rat.model.BaseModel;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 /**Represents a class account.
  * @author Marco Petzold, Christian König, Danny Steinbrecher
@@ -14,9 +15,9 @@ public class Account extends BaseModel {
 
     @NotEmpty
     @Column(unique = true)
-    @Email(message = "Enter a valid email address.")
+    @Email(message = "Gib eine gültige Emailadresse ein.")
     private String email;
-    @NotEmpty(message="Enter a valid password")
+    @NotEmpty(message="Gib ein gültiges Passwort ein")
     private String password;
     private Role role;
 

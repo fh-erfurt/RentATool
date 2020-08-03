@@ -13,16 +13,16 @@
     <div class="ud_h2_balken"></div>
 
 <div class="toolManagementHeader">
-    <a href="/newTool"><i class="fa fa-plus" aria-hidden="true"></i> Add Tool</a>
+    <a href="/newTool"><i class="fa fa-plus" aria-hidden="true"></i> Werkzeug hinzufügen</a>
 </div>
 <table>
-    <caption>Tools</caption>
+    <caption>Werkzeuge</caption>
     <thead>
     <tr>
         <th scope="col">Product ID</th>
-        <th scope="col">Category</th>
-        <th scope="col">Rentprice</th>
-        <th scope="col">Toolstatus</th>
+        <th scope="col">Kategorie</th>
+        <th scope="col">Leihpreis</th>
+        <th scope="col">Werkzeugstatus</th>
         <!--            <th scope="col">Manufacturer</th>-->
         <th scope="col">Description</th>
         <th scope="col">Actions</th>
@@ -34,9 +34,19 @@
     <tbody>
     <tr th:each="tool : ${listTools}">
         <td data-label="Product ID" th:text="${tool.id}">Product ID</td>
-        <td data-label="Category " th:text="${tool.category}">Category</td>
-        <td data-label="Rentprice" th:text="${tool.rentPrice}">Rentprice</td>
-        <td data-label="Toolstatus" th:text="${tool.toolStatus}">Toolstatus</td>
+        <th:block th:switch="${tool.category}">
+            <td data-label="Category " th:case="${T(de.rat.model.logistics.Category).ACCUTOOL}">akkubetrieben</td>
+            <td data-label="Category " th:case="${T(de.rat.model.logistics.Category).ELECTRICALTOOL}">elektrisch betrieben</td>
+            <td data-label="Category " th:case="${T(de.rat.model.logistics.Category).GARDENTOOL}">Gartenwerkzeug</td>
+            <td data-label="Category " th:case="${T(de.rat.model.logistics.Category).HANDTOOL}">ohne Motor</td>
+        </th:block >
+        <td data-label="Rentprice" th:text="${tool.rentPrice}+' €'">Rentprice</td>
+        <th:block th:switch="${tool.toolStatus}">
+            <td data-label="Toolstatus" th:case="${T(de.rat.model.logistics.ToolStatus).AVAILABLE}">ist vorhanden</td>
+            <td data-label="Toolstatus" th:case="${T(de.rat.model.logistics.ToolStatus).ISBROKEN}">derzeit defekt</td>
+            <td data-label="Toolstatus" th:case="${T(de.rat.model.logistics.ToolStatus).ISINREPAIR}">in Reperatur</td>
+            <td data-label="Toolstatus" th:case="${T(de.rat.model.logistics.ToolStatus).ISRENTED}">derzeit verliehen</td>
+        </th:block >
 <!--        <td data-label="Manufacturer" th:text="${tool.manufacturer}">Manufacturer</td>-->
         <td data-label="Description" th:text="${tool.description}">Description</td>
         <td>

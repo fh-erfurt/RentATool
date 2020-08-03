@@ -1,12 +1,12 @@
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','de',87,'Poststraße','05687');
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','de',87,'Musterstraße','05687');
-INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','de',87,'Asbachstraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (100000,'Weimar','Deutschland',87,'Poststraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (200000,'Erfurt','Deutschland',87,'Musterstraße','05687');
+INSERT into ADDRESS (id, city,country,house_nr,street,zip) VALUES (300000,'Gotha','Deutschland',87,'Asbachstraße','05687');
 
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (100000,'Müller','Bosch',065386445,100000);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (200000,'Maier','Makita',5546456455,300000);
 INSERT into MANUFACTURER  (id, agent,name,phone_number,address_id) VALUES (300000,'Schulze','DeWalt',0657456445,200000);
 
-INSERT INTO WAREHOUSE(id) VALUES (100000);
+INSERT INTO WAREHOUSE(id) VALUES (10000);
 
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10000,'Bo11A1',100000,'Hammer','1A',0,2,3.00);
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10001,'Mak11A1',200000,'Schlagohrer','2A',0,0,4.00);
@@ -26,17 +26,17 @@ INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status,
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10015,'Bo11A6',100000,'Rüttelplatte','16A',2,0,12.00);
 INSERT into TOOL (id, item_id, manufacturer_id, description, stock, tool_status, category, rent_price) VALUES (10016,'Mak11A6',200000,'Zementmischer','17A',2,2,20.00);
 
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10000);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10001);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10002);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10003);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10004);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10005);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10006);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10007);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10008);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10009);
-INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (100000,10010);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10000);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10001);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10002);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10003);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10004);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10005);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10006);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10007);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10008);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10009);
+INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10010);
 
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100000, null, null, 'customer1', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100001, null, null, 'customer2', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
@@ -46,14 +46,20 @@ INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100003
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100004, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
 INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100005, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
 
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, null, 'Danny', 'Steinbrecher', '12345', 100000, 100000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, null, 'Nietzsche', 'Friedrich', '12345', 100001, 200000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100002, null, 'Sigmund', 'Freud', '12345', 100002, 300000);
-INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100003, null, 'Wladimir', 'Lenin', '12345', 100003, 100000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, '1989-12-24', 'Danny', 'Steinbrecher', '0176 12345', 100000, 100000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, '1844-10-15', 'Nietzsche', 'Friedrich', '0162012345', 100001, 200000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100002, '1856-05-06', 'Sigmund', 'Freud', '0177 012345', 100002, 300000);
+INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100003, '1870-04-22', 'Wladimir', 'Lenin', '0361 12345', 100003, 100000);
 
-INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100000, null, 'Christian', 'Koenig', 100005, 200000, null);
-INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100001, null, 'Marco', 'Petzold', 100004, 100000, 100000);
+INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100000, '1987-10-15', 'Christian', 'Koenig', 100005, 200000, null);
+INSERT INTO EMPLOYEE(id, birthday, firstname, lastname,  account_id, address_id, supervisor_id) VALUES (100001, '1988-06-19', 'Marco', 'Petzold', 100004, 100000, 100000);
 
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100000,'Station 1',25,100000);
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100001,'Station 2',25,200000);
 INSERT INTO STATION(id,description,number_of_boxes,address_id) VALUES (100002,'Station 3',25,300000);
+
+INSERT INTO BILL(bill_number, bill_status, discount, full_rent_price, rent_date, customer_id, rent_station_id) VALUES (9999, 2, 0, 4,'2020-07-20', 100000, 100000);
+
+INSERT INTO RENT_PROCESS(id, return_date, rented_tool_id, return_station_id) VALUES (10000,'2020-07-21',10001,100000);
+
+INSERT INTO BILL_RENTPROCESSES(bill_bill_number,rent_process_id) VALUES (9999,10000);

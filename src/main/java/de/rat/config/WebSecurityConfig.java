@@ -15,7 +15,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-/** managed the web security
+/** managed the web security.
  * generate the access to the pages
  * has a password hash method
 
@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * @param  http HttpSecurity
      * @throws Exception Exception
-     * configure the ccess to the pages
+     * configure the access to the pages
      * configure the login
      * configure the logout
      * configure the accessDeniedHandler
@@ -71,17 +71,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/home", "/START", "/logout", "h2-console/**").permitAll()
-                    .antMatchers("/userManagement").hasRole("ADMIN")
-                    .antMatchers("/EMPLOYEE").hasAnyRole("EMPLOYEE", "ADMIN")
-                    .antMatchers("/CUSTOMER", "/tools/*").hasAnyRole("CUSTOMER","EMPLOYEE", "ADMIN")
+                    .antMatchers().denyAll()
+                    .antMatchers("/", "/login", "/logout",  "/register",  "/save", "h2-console/**", "/tools").permitAll()
+                    .antMatchers("/userManagement", "/customer", "/employee").hasRole("ADMIN")
+                    .antMatchers("/toolManagement", "/addTool", "/editTool", "/delete").hasAnyRole("EMPLOYEE", "ADMIN")
+                    .antMatchers("/accountView", "/billForm", "/billView", "/rentSuccessful", "/returnSuccessful",  "/rentedToolView",  "/chooseStation",  "/returnStation").hasAnyRole("CUSTOMER")
                     .and()
 
                 .formLogin()
                     .loginPage("/login")
                     .failureUrl("/login?error")
                     .usernameParameter("username").passwordParameter("password")
-                    .defaultSuccessUrl("/loginSuccessfull",true)
+                    .defaultSuccessUrl("/loginSuccessfull", true)
                     .permitAll()
                     .and()
 

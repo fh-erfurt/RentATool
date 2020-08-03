@@ -64,7 +64,7 @@ class BillTest {
         testBill.getListOfRentProcesses().add(rentHammer);
         testBill.setFullRentPrice();
 
-        assertEquals(new BigDecimal("10.000"), testBill.getFullRentPrice());
+        assertEquals(new BigDecimal("10.00"), testBill.getFullRentPrice());
     }
 
     @Test
@@ -75,7 +75,7 @@ class BillTest {
         testBill.setDiscount(20);
         testBill.setFullRentPrice();
 
-        assertEquals(new BigDecimal("8.000"),testBill.getFullRentPrice());
+        assertEquals(new BigDecimal("8.00"),testBill.getFullRentPrice());
     }
 
     @Test
