@@ -131,17 +131,20 @@ public class ToolController {
     }
 
 
+    /* TODO: create Method to make a tool inactive
     /**
      * @return  toolManagement
      * @param id int
-     * delete a new Tool in the Database
+     * delete a new Tool from the Database
      * redirect to toolManagement.html
-     */
+     /
     @RequestMapping("/delete/{id}")
     public String deleteTool(@PathVariable(name = "id") int id) {
         toolRepository.deleteById(id);
         return "redirect:/toolManagement";
     }
+
+    */
 
 
     /**

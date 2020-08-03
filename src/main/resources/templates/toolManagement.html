@@ -41,8 +41,8 @@
         <td data-label="Description" th:text="${tool.description}">Description</td>
         <td>
             <a th:href="@{/editTool/{id}(id=${tool.id})}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-            &nbsp;&nbsp;&nbsp;
-            <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+<!--           TODO: create a option to make a tool inaktive  &nbsp;&nbsp;&nbsp;-->
+<!--            <a th:href="@{'/delete/' + ${tool.id}}"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>-->
         </td>
     </tr>
 
