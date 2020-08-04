@@ -13,15 +13,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-/** Controller for all pages they are handle with the Registration
+/**
+ * Controller for all pages they are handle with the Registration
  * sets parameter and generate the data for the views
-
+ *
  * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
 @Controller
@@ -41,7 +43,7 @@ public class RegisterController {
     }
 
     /**
-     * @return  registerForm
+     * @return registerForm
      * gets all user information
      * add all attributes to the model
      * redirect to registerForm.html
@@ -49,36 +51,35 @@ public class RegisterController {
     @GetMapping("/register")
     public String showForm(Model model) {
 
-        Customer newCustomer=new Customer();
-        Account userAccount =new Account();
-        Address userAddress =new Address();
-        Date newDate =new Date();
+        Customer newCustomer = new Customer();
+        Account userAccount = new Account();
+        Address userAddress = new Address();
+        Date newDate = new Date();
 
         model.addAttribute("newCustomer", newCustomer);
         model.addAttribute("userAccount", userAccount);
-        model.addAttribute("userAddress",userAddress);
-        model.addAttribute("newDate",newDate);
+        model.addAttribute("userAddress", userAddress);
+        model.addAttribute("newDate", newDate);
 
         List<String> roleList = Arrays.asList("CUSTOMER");
-        model.addAttribute("roleList",roleList);
+        model.addAttribute("roleList", roleList);
         return "registerForm";
     }
 
     /**
-     * @return  registerForm
-     * @return  registrationSuccessful
-     * @param  newCustomer Customer
-     * @param  bindingResultCustomer BindingResult
-     * @param  userAccount Account
-     * @param  bindingResultAccount BindingResult
-     * @param  userAddress Address
-     * @param  bindingResultAddress BindingResult
-
-     * check the if the user is already exists
-     * adds a error message if the user is existing
-     * generate a password hash
-     * save all user informations
-     * redirect to registerForm.html
+     * @param newCustomer           Customer
+     * @param bindingResultCustomer BindingResult
+     * @param userAccount           Account
+     * @param bindingResultAccount  BindingResult
+     * @param userAddress           Address
+     * @param bindingResultAddress  BindingResult
+     *                              <p>
+     *                              check the if the user is already exists
+     *                              adds a error message if the user is existing
+     *                              generate a password hash
+     *                              save all user information
+     *                              redirect to registerForm.html
+     * @return registrationSuccessful
      */
     @PostMapping("/save")
     public String saveCustomer(@Valid @ModelAttribute("newCustomer") Customer newCustomer,
@@ -86,19 +87,16 @@ public class RegisterController {
                                @Valid @ModelAttribute("userAccount") Account userAccount,
                                BindingResult bindingResultAccount,
                                @Valid @ModelAttribute("userAddress") Address userAddress,
-                               BindingResult bindingResultAddress)
-    {
+                               BindingResult bindingResultAddress) {
         userAccount.setRole(Role.CUSTOMER);
         Optional<Account> checkAccount = repositoryAccount.findByEmail(userAccount.getEmail());
 
-        if(checkAccount.isPresent())
-        {
-            bindingResultAccount.rejectValue("email", "error.userAccount","An account already exists for this email.");
+        if (checkAccount.isPresent()) {
+            bindingResultAccount.rejectValue("email", "error.userAccount", "An account already exists for this email.");
             return "registerForm";
         }
 
-        while (bindingResultAccount.hasErrors() ||bindingResultCustomer.hasErrors()||bindingResultAddress.hasErrors())
-        {
+        while (bindingResultAccount.hasErrors() || bindingResultCustomer.hasErrors() || bindingResultAddress.hasErrors()) {
             return "registerForm";
         }
 
@@ -106,8 +104,8 @@ public class RegisterController {
         userAccount.setPassword(encodedPassword);
 
         repositoryAccount.save(userAccount);
-        Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(),userAddress.getHouseNr(),userAddress.getCity());
-        if (checkAddress == null ) {
+        Address checkAddress = repositoryAddress.findByStreetnameHouseNumberCity(userAddress.getStreet(), userAddress.getHouseNr(), userAddress.getCity());
+        if (checkAddress == null) {
             repositoryAddress.save(userAddress);
             newCustomer.setAddress(userAddress);
         } else {

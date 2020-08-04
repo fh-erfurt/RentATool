@@ -86,6 +86,21 @@ public class ToolController {
     }
 
     /**
+     * @return  mav
+     * @param id int
+     * shows the Tool which will be edit
+     */
+    @RequestMapping("/editTool/{id}")
+    public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("editTool");
+        Tool tool = toolRepository.findById(id);
+        mav.addObject("tool", tool);
+        mav.addObject("id", tool.getId());
+
+        return mav;
+    }
+
+    /**
      * @return  toolManagement
      * @param aTool Tool
      * @param id int
@@ -124,20 +139,7 @@ public class ToolController {
         return "addTool";
     }
 
-    /**
-     * @return  mav
-     * @param id int
-     * shows the Tool which will be edit
-     */
-    @RequestMapping("/editTool/{id}")
-    public ModelAndView showEditToolPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("editTool");
-        Tool tool = toolRepository.findById(id);
-        mav.addObject("tool", tool);
-        mav.addObject("id", tool.getId());
 
-        return mav;
-    }
 
 
     /* TODO: create Method to make a tool inactive

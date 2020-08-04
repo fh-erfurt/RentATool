@@ -75,7 +75,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/", "/login", "/logout",  "/register",  "/save", "h2-console/**", "/tools").permitAll()
                     .antMatchers("/userManagement", "/customer", "/employee").hasRole("ADMIN")
                     .antMatchers("/toolManagement", "/addTool", "/editTool", "/delete").hasAnyRole("EMPLOYEE", "ADMIN")
-                    .antMatchers("/accountView", "/billForm", "/billView", "/rentSuccessful", "/returnSuccessful",  "/rentedToolView",  "/chooseStation",  "/returnStation").hasAnyRole("CUSTOMER")
+                    .antMatchers("/accountView", "/billForm", "/billView", "/rentSuccessful", "/returnSuccessful",
+                                            "/rentedToolView",  "/chooseStation",  "/returnStation", "/editCustomerAccount").hasAnyRole("CUSTOMER")
                     .and()
 
                 .formLogin()

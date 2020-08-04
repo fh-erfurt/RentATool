@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head"></head>
+
+<body>
+<header th:replace="fragments/header :: header"></header>
+<section id="UberUns" class="ud_page">
+
+    <!-- Headline -->
+    <h2>Account bearbeiten</h2>
+    <div class="ud_h2_balken"></div>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" th:action="@{/updateCustomerAccount}" th:object="${customerAccount}" method="post">
+                <input type="text" th:field="*{id}" readonly="readonly"/>
+
+                <input type="text" th:field="*{account.email}" placeholder="EMail"/>
+                <label th:if="${#fields.hasErrors('account.email')}" th:errors="*{account.email}"></label>
+
+                <input type="password" th:field="*{account.password}" placeholder="password"/>
+                <label th:if="${#fields.hasErrors('account.password')}" th:errors="*{account.password}"></label>
+
+
+                <input type="text" th:field="*{firstname}" placeholder="Vorname"/>
+                <label th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></label>
+
+                <input type="text" th:field="*{lastname}" placeholder="Nachname"/>
+                <label th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></label>
+
+                <input type="text" th:value="*{birthday}" th:field="*{birthday}" placeholder="yyyy-MM-dd"/>
+                <label th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></label>
+
+                <input type="text" th:field="*{phoneNumber}" placeholder="Telefonnummer"/>
+                <label th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></label>
+
+
+                <input type="text" th:field="*{address.city}" placeholder="Stadt"/>
+                <label th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}"></label>
+
+                <input type="text" th:field="*{address.country}" placeholder="Land"/>
+                <label th:if="${#fields.hasErrors('address.country')}" th:errors="*{address.country}"></label>
+
+                <input type="text" th:field="*{address.houseNr}" placeholder="Hausnummer"/>
+                <label th:if="${#fields.hasErrors('address.houseNr')}" th:errors="*{address.houseNr}"></label>
+
+                <input type="text" th:field="*{address.street}" placeholder="Straße"/>
+                <label th:if="${#fields.hasErrors('address.street')}" th:errors="*{address.street}"></label>
+
+                <input type="text" th:field="*{address.zip}" placeholder="PLZ"/>
+                <label th:if="${#fields.hasErrors('address.zip')}" th:errors="*{address.zip}"></label>
+
+                <button>Speichern</button>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

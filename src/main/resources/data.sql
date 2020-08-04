@@ -38,13 +38,13 @@ INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10008);
 INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10009);
 INSERT INTO WAREHOUSE_TOOLS (warehouse_id,tool_id) VALUES (10000,10010);
 
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100000, null, null, 'customer1', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100001, null, null, 'customer2', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100002, null, null, 'customer3', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100003, null, null, 'customer4', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100000, null, null, 'customer1@test.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100001, null, null, 'customer2@test.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100002, null, null, 'customer3@test.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100003, null, null, 'customer4@test.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 2);
 
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100004, null, null, 'employee', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
-INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100005, null, null, 'admin', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100004, null, null, 'employee@rat.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 1);
+INSERT INTO ACCOUNT(id, created, modified, email, password, role) VALUES (100005, null, null, 'admin@rat.de', '$2a$10$Ijtq5paiwKrZ7RG4RAadHux0SrXBcCKiu7fkNQUrMStruqhDFh8ia', 0);
 
 INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100000, '1989-12-24', 'Danny', 'Steinbrecher', '0176 12345', 100000, 100000);
 INSERT INTO CUSTOMER(id, birthday, firstname, lastname, phone_number, account_id, address_id) VALUES (100001, '1844-10-15', 'Nietzsche', 'Friedrich', '0162012345', 100001, 200000);
