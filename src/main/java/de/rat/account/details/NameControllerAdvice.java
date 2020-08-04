@@ -1,4 +1,4 @@
-package de.rat.controller;
+package de.rat.account.details;
 
 import de.rat.account.details.AccountDetails;
 import de.rat.model.customer.Customer;

@@ -1,13 +1,12 @@
 package de.rat.controller;
 
+import de.rat.account.details.NameControllerAdvice;
 import de.rat.model.billing.Bill;
 import de.rat.model.billing.BillStatus;
-import de.rat.model.billing.Billing;
 import de.rat.model.customer.Customer;
 import de.rat.model.customer.RentProcess;
 import de.rat.repositories.BillRepository;
 import de.rat.repositories.CustomerRepository;
-import de.rat.repositories.RentProcessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
