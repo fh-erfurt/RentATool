@@ -34,7 +34,7 @@ public class LoginControllerTest {
 
     //TODO: Test doesnt work.
     @Test
-    public void testTheLogin(){
+    public void testTheLogin() {
         given().auth().form("customer1@test.de", "123", springSecurity().withLoggingEnabled(new LogConfig())).when().get();
     }
 }
