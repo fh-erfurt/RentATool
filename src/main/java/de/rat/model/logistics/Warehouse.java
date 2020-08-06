@@ -6,13 +6,11 @@ import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.*;
 
-//TODO: Java Docs für Tool?
-/**Represents a bill.
+/**Represents a Warehouse.
  * @author Danny Steinbrecher, Marco Petzold, Christian König
  */
 
-/** Creates a bill .
- *  Stock is a array list of tools
+/** Creates a Warehouse .
  *
  */
 

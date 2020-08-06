@@ -31,14 +31,13 @@ class AddressRepositoryTest {
      assertEquals("12345", address2.getZip());
     }
 
-    // TODO: warum eine for schleife, wenn man dann mit einem statischen Object arbeitet?
     @Test
     public void is_address_finded_by_city(){
 
         List<Address> allAddresses = repository.findByCity("Arnstadt");
         for(Address address: allAddresses)
         {
-            assertEquals("Arnstadt",address1.getCity());
+            assertEquals("Arnstadt",address.getCity());
         }
     }
 

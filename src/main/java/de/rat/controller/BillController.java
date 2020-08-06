@@ -52,10 +52,8 @@ public class BillController {
             }
         }
 
-        //TODO: listOfBills is always not null, but it can be empty? Should we check the size or should we remove the if statement
-        if(listOfBills != null) {
-            model.addAttribute("listOfBills", listOfBills);
-        }
+        model.addAttribute("listOfBills", listOfBills);
+
         return "billView";
     }
 
