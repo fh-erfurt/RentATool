@@ -31,7 +31,7 @@ public class UserController {
      * redirect to userManagement.html
      */
     @GetMapping("/userManagement")
-    public String welcome() {
+    public String showUserManagement() {
         return "userManagement";
     }
 
@@ -43,8 +43,7 @@ public class UserController {
      * redirect to customer.html
      */
     @RequestMapping(path="/customer")
-    public String listAllCustomer(Model model)
-    {
+    public String listAllCustomer(Model model) {
         List<Customer> listCustomer= (List<Customer>) customerRepository.findAll();
         model.addAttribute("listCustomer", listCustomer);
 
@@ -58,8 +57,7 @@ public class UserController {
      * redirect to employee.html
      */
     @RequestMapping(path="/employee")
-    public String listAllEmployees(Model model)
-    {
+    public String addAllEmployeesToTheModel(Model model) {
         List<Employee> listEmployee= (List<Employee>) employeeRepository.findAll();
         model.addAttribute("listEmployee", listEmployee);
 

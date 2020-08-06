@@ -13,9 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,7 +24,6 @@ import java.util.List;
  */
 @Controller
 public class BillController {
-    private static final Logger log = Logger.getLogger("LOGGER");
 
     @Autowired
     CustomerRepository customerRepository;
@@ -41,8 +38,7 @@ public class BillController {
      * redirect to billView.html
      */
     @RequestMapping(path="/billView")
-    public String listOfCustomerBills(Model model)
-    {
+    public String listOfCustomerBills(Model model) {
 
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId1  = nameControllerAdvice.getAuthUser();
@@ -56,6 +52,7 @@ public class BillController {
             }
         }
 
+        //TODO: listOfBills is always not null, but it can be empty? Should we check the size or should we remove the if statement
         if(listOfBills != null) {
             model.addAttribute("listOfBills", listOfBills);
         }

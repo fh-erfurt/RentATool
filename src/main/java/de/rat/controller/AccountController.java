@@ -6,8 +6,6 @@ import de.rat.model.customer.Customer;
 import de.rat.model.logistics.Tool;
 import de.rat.repositories.AccountRepository;
 import de.rat.repositories.CustomerRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +26,6 @@ import java.util.Optional;
  */
 @Controller
 public class AccountController {
-
-    public static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 
     @Autowired
     CustomerRepository customerRepository;
@@ -50,12 +45,10 @@ public class AccountController {
 
     /**
      * @return mav
-     * <p>
-     * shows the Tool which will be edit
+     * generate the mav for the EditCustomerAccount Page
      */
     @RequestMapping("/editCustomerAccount")
-    public ModelAndView showEditToolPage() {
-
+    public ModelAndView showEditCustomerAccountPage() {
 
         NameControllerAdvice nameControllerAdvice = new NameControllerAdvice();
         int AccountId = nameControllerAdvice.getAuthUser();
@@ -67,16 +60,15 @@ public class AccountController {
         mav.addObject("customerId", customer.getId());
 
         return mav;
-
     }
 
     /**
      * @param aCustomer Customer
-     *                  update the Customer Account in the Database
-     *                  redirect to index.html
+     * update the Customer Account in the Database
+     * redirect to index.html
      */
     @PostMapping("/updateCustomerAccount")
-    public String editTool(@ModelAttribute("customerAccount") Customer aCustomer,
+    public String editCustomerAccount(@ModelAttribute("customerAccount") Customer aCustomer,
                            BindingResult bindingResultAccount,
                            BindingResult bindingResultCustomer,
                            BindingResult bindingResultAddress) {
@@ -102,7 +94,6 @@ public class AccountController {
             String encodedPassword = passwordEncoder.encode(aCustomer.getAccount().getPassword());
             oldCustomer.getAccount().setPassword(encodedPassword);
         }
-
 
         oldCustomer.setFirstname(aCustomer.getFirstname());
         oldCustomer.setLastname(aCustomer.getLastname());
@@ -134,14 +125,4 @@ public class AccountController {
         model.addAttribute("listTools", listTools);
         return "rentedToolView";
     }
-
-    // TODO: Delete: @RequestMapping(path="/billView")????
-
-    //    @RequestMapping(path="/billView")
-    //    public String billView()
-    //    {
-    //        return "billView";
-    //    }
-
-
 }

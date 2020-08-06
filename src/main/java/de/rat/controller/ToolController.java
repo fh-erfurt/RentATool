@@ -37,7 +37,6 @@ public class ToolController {
     BillingRepository billingRepository;
 
 
-
     /**
      * @return  toolManagement
      * gets all tools
@@ -80,7 +79,6 @@ public class ToolController {
             mainWarehouse.putToolInWarehouse(aTool);
         }
         toolRepository.save(aTool);
-
 
         return "redirect:/toolManagement";
     }
@@ -140,20 +138,19 @@ public class ToolController {
     }
 
 
-
-
     /* TODO: create Method to make a tool inactive
-    /**
-     * @return  toolManagement
-     * @param id int
-     * delete a new Tool from the Database
-     * redirect to toolManagement.html
-     /
-    @RequestMapping("/delete/{id}")
-    public String deleteTool(@PathVariable(name = "id") int id) {
-        toolRepository.deleteById(id);
-        return "redirect:/toolManagement";
-    }
+
+       /**
+         * @return  toolManagement
+         * @param id int
+         * delete a new Tool from the Database
+         * redirect to toolManagement.html
+         /
+        @RequestMapping("/delete/{id}")
+        public String deleteTool(@PathVariable(name = "id") int id) {
+            toolRepository.deleteById(id);
+            return "redirect:/toolManagement";
+        }
 
     */
 
@@ -176,15 +173,4 @@ public class ToolController {
 
         return"returnStation";
     }
-
-    // TODO: Delete?
-//    @RequestMapping("/getTool")
-//    public ModelAndView getTool(@RequestParam int id)
-//    {
-//        ModelAndView mv=new ModelAndView("showTool");
-//        Tool tool= repo.findById(id);
-//        mv.addObject(tool);
-//        return mv;
-//    }
-
 }

@@ -147,6 +147,7 @@ public class StationController {
         customerRepository.save(lendingCustomer);
         stationRepository.save(returnStation);
         warehouseRepository.save(mainWarehouse);
+
         // make a difference if bill process is finished or not
         // par example with two tools the process is not finished when jut one tool is returned
         Bill finishedBill = Billing.findCheckedBillFromCustomer(lendingCustomer);
@@ -165,5 +166,4 @@ public class StationController {
 
         return "returnSuccessful";
     }
-
 }

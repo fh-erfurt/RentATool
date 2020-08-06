@@ -13,9 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -73,12 +71,11 @@ public class RegisterController {
      * @param bindingResultAccount  BindingResult
      * @param userAddress           Address
      * @param bindingResultAddress  BindingResult
-     *                              <p>
-     *                              check the if the user is already exists
-     *                              adds a error message if the user is existing
-     *                              generate a password hash
-     *                              save all user information
-     *                              redirect to registerForm.html
+     * check the if the user is already exists
+     * adds a error message if the user is existing
+     * generate a password hash
+     * save all user information
+     * redirect to registerForm.html
      * @return registrationSuccessful
      */
     @PostMapping("/save")

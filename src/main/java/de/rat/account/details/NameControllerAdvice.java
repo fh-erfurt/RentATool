@@ -1,6 +1,5 @@
 package de.rat.account.details;
 
-import de.rat.account.details.AccountDetails;
 import de.rat.model.customer.Customer;
 import de.rat.model.employee.Employee;
 import de.rat.repositories.CustomerRepository;

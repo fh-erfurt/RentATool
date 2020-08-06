@@ -48,7 +48,6 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -70,7 +69,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
@@ -91,8 +89,6 @@
             </exclusions>
         </dependency>
 
-
-    <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
@@ -142,24 +138,18 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
             <version>5.3.3.RELEASE</version>
         </dependency>
 
-
-
-
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>4.3.1</version>
             <scope>test</scope>
         </dependency>
-        <!--Added required depeendencies due to : https://github.com/rest-assured/rest-assured/issues/1168 -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured-common</artifactId>

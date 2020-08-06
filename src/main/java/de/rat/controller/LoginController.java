@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /** Controller for all pages they are handle with the Login
  * sets parameter and generate the data for the views
-
+ *
  * @author Marco Petzold, Christian König, Danny Steinbrecher
  */
 @Controller
@@ -16,7 +16,7 @@ public class LoginController {
      * @return  login
      * redirect to loginForm.html
      */
-    @GetMapping("/login") //Index
+    @GetMapping("/login")
     public String welcome() {
         return "loginForm";
     }
