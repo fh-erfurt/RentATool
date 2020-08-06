@@ -32,10 +32,7 @@ public class Station extends BaseModel {
     @ManyToOne
     private Address address;
 
-    /* tool management */
-    //ToDo DB und Klasse ja nicht gleich? Listen werden nicht vom Model gehändelt?!
     @OneToMany
-
     @JoinTable(name="stationTools",inverseJoinColumns=@JoinColumn(name="tool_id"))
     private List<Tool> boxesOfTools= new ArrayList<Tool>();
 

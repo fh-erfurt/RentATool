@@ -52,8 +52,6 @@ public class Tool extends BaseModel {
         this.rentPrice = rentPrice;
     }
 
-    // TODO: delete???
-    //erstmal nur Test
     public Tool(String itemId, String description,Category category,String stock, ToolStatus toolStatus, BigDecimal rentPrice) {
         this.itemId = itemId;
         this.description = description;

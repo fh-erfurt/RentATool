@@ -44,7 +44,6 @@ class ToolRepositoryTest {
         tool2= new Tool("2",manufacture,"Axt",Category.HANDTOOL,"1B",ToolStatus.AVAILABLE,new BigDecimal("6.00"));
     }
 
-//ToDo Test im Moment ohne manufacturer, da Fehler mit transient kommt
     @Test
     void  find_tool_by_description() {
 

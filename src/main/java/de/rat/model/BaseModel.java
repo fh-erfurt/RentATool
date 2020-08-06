@@ -38,8 +38,6 @@ public abstract class BaseModel {
 
     public int getId() {return id;}
 
-    // TODO: delete?
-    // only used for tests
     public void setId(int Id){
         this.id=Id;
     }

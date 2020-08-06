@@ -34,12 +34,11 @@ class ManufracturerRepositoryTest {
         mRepo.save(manufacturer1);
     }
 
-    //TODO: Manufacturer2 wird nicht benutzt?
     @Test
     public void is_manufracturer_saved_in_database(){
 
         Optional<Manufacturer> manufacturer2 = mRepo.findById(manufacturer1.getId());
-        assertEquals("Bosch",manufacturer1.getName());
+        assertEquals("Bosch",manufacturer2.get().getName());
     }
 
 }
