@@ -57,7 +57,7 @@ public class AccountController {
         ModelAndView mav = new ModelAndView("editAccount");
 
         mav.addObject("customerAccount", customer);
-        mav.addObject("customerId", customer.getId());
+        mav.addObject("customerId", customer.getAccount().getId());
 
         return mav;
     }
@@ -83,7 +83,8 @@ public class AccountController {
 
         Optional<Account> checkAccount = accountRepository.findByEmail(aCustomer.getAccount().getEmail());
 
-        if (checkAccount.isPresent() && checkAccount.get().getId() != oldCustomer.getId()) {
+        if (checkAccount.isPresent() && checkAccount.get().getId() != oldCustomer.getAccount().getId()) {
+            System.out.println(checkAccount.get().getId() + " = " + oldCustomer.getId());
             bindingResultAccount.rejectValue("account.email", "error.userAccount", "An account already exists for this email.");
             return "editAccount";
         }
