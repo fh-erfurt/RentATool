@@ -266,7 +266,7 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 - lediglich Gregorian Calendar musste man auf LocalDate umbauen
 - Probleme mit Testdaten und Application Properties
 - Viele Stunden beim durch forsten von Google und Stackoverflow vergangen
-- 4. Semester… mittlerweile kann man doch programmieren
+- 4.Semester… mittlerweile kann man doch programmieren
 
 </details>
 </details>
