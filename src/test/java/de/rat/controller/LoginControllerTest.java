@@ -32,9 +32,9 @@ public class LoginControllerTest {
         given().when().request("GET", "/loginSuccessfull").then().statusCode(200);
     }
 
-    //TODO: Test doesnt work.
+    //TODO: Test doesnt work. Here we have the same problem like in the api tests
     @Test
     public void testTheLogin() {
-        given().auth().form("customer1@test.de", "123", springSecurity().withLoggingEnabled(new LogConfig())).when().get();
+        given().auth().form("customer1@test.de", "1234", springSecurity().withLoggingEnabled(new LogConfig())).when().get();
     }
 }
