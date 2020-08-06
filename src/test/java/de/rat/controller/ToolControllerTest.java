@@ -16,7 +16,7 @@ public class ToolControllerTest {
 
     @BeforeEach
     public void init() {
-        RestAssured.baseURI = "http://localhost/api";
+        RestAssured.baseURI = "http://localhost";
         RestAssured.port = port;
     }
 
