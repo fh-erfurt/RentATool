@@ -29,11 +29,6 @@ public class Billing extends BaseModel {
 
     private static final Logger logger = Logger.getLogger("LOGGER");
 
-    //TODO: Delete comment????
-
-    // idea for table 3 columns(Id, Bill, Status), all Bills are in these table and with the 3rd colum you can
-    // is it open, check or close -> new class?or just database table not in java?
-
     @OneToMany
     private static List<Bill> openBills = new ArrayList<Bill>();
     @OneToMany

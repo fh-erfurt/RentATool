@@ -36,9 +36,6 @@ class CustomerRepositoryTest {
 //        }
 //    }
 
-    //ToDo cust tests ausbauen
-
-
     @Test
     public void  is_first_user_added_to_database() {
 
