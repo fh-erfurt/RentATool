@@ -257,11 +257,31 @@ Hier werden lediglich Schnittstellen bereitgestellt, damit die erforderlichen Da
 <details>
 <summary> Java 2 </summary>
 <br>
+	
+	
+
+Frameworks wie Spring anfangs undurchsichtig/schwer verständlich
+ - zum Ende des Projekts hat man gutes Verständnis aufgebaut	
+
+Heroku funktioniert einwandfrei, wenn man es denn richtig konfiguriert hat
+
+Thymeleaf als Java Pendant zu PHP konnte gut implementiert werden
+
+Anfangs Unklarheiten welche DB genutzt werden soll
+ - H2 für Tests und Postgres für Heroku
+
+Java 1 – Projekt war eine gute Basis (Packages, Methoden, Tests)
+lediglich Gregorian Calendar musste man auf LocalDate umbauen
+
+
+Probleme mit Testdaten und Application Properties
+Viele Stunden beim durch forsten von Google und Stackoverflow vergangen
+
+4. Semester… mittlerweile kann man doch programmieren
 
 
 
 
-TODO: Add Lessons Learned from Java 2
 
 
 
