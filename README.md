@@ -16,9 +16,7 @@
 
 
 [![Live](http://img.shields.io/:Heroku-Live-blue.svg)](https://rent-a-tool-live.herokuapp.com/)
-
 [![Test](http://img.shields.io/:Heroku-Test-blue.svg)](https://rent-a-tool-test.herokuapp.com/)
-
 [![Dev](http://img.shields.io/:Heroku-Dev-blue.svg)](https://rent-a-tool-development.herokuapp.com/)
 
 Login for the Website:
