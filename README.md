@@ -15,15 +15,11 @@
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
 
 
-[![Live](http://img.shields.io/:build-Heroku-blue.svg)](https://rent-a-tool-live.herokuapp.com/)
+[![Live](http://img.shields.io/:Heroku-Live-blue.svg)](https://rent-a-tool-live.herokuapp.com/)
 
-![CodeFactor](https://img.shields.io/badge/Live-blue)(https://rent-a-tool-live.herokuapp.com/)
+[![Test](http://img.shields.io/:Heroku-Test-blue.svg)](https://rent-a-tool-test.herokuapp.com/)
 
-## [Live](https://rent-a-tool-live.herokuapp.com/)
-
-## [Test](https://rent-a-tool-test.herokuapp.com/)
-
-## [Dev](https://rent-a-tool-development.herokuapp.com/)
+[![Dev](http://img.shields.io/:Heroku-Dev-blue.svg)](https://rent-a-tool-development.herokuapp.com/)
 
 Login for the Website:
 
