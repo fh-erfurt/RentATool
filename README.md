@@ -16,11 +16,11 @@
 
 ## [Webseite](https://rent-a-tool-live.herokuapp.com/)
 
-| USER  | username  | password  |   |   |
-|---|---|---|---|---|
-| ADMIN | admin@rat.de  | 123  |   |   |
-| EMPLOYEE | employee@rat.de  | 123  |   |   |
-| CUSTOMER | customer1@test.de  | 123  |   |   |
+| USER | username | password |  
+|---|---|---|
+| ADMIN | admin@rat.de | 123 |  
+| EMPLOYEE | employee@rat.de | 123 |  
+| CUSTOMER | customer1@test.de | 123 | 
 
 Login for the Website:
 ADMIN: admin@rat.de 123
