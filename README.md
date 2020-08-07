@@ -14,18 +14,19 @@
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
 
-## [Webseite](https://rent-a-tool-live.herokuapp.com/)
+## [Live](https://rent-a-tool-live.herokuapp.com/)
+
+## [Test](https://rent-a-tool-test.herokuapp.com/)
+
+## [Dev](https://rent-a-tool-development.herokuapp.com/)
+
+Login for the Website:
 
 | USER | username | password |  
 |---|---|---|
 | ADMIN | admin@rat.de | 123 |  
 | EMPLOYEE | employee@rat.de | 123 |  
 | CUSTOMER | customer1@test.de | 123 | 
-
-Login for the Website:
-ADMIN: admin@rat.de 123
-employee@rat.de 123
-customer1@test.de 123
 
 
 # Verleihstation für Werkzeuge
