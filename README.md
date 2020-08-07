@@ -16,6 +16,17 @@
 
 ## [Webseite](https://rent-a-tool-live.herokuapp.com/)
 
+| USER  | username  | password  |   |   |
+|---|---|---|---|---|
+| ADMIN | admin@rat.de  | 123  |   |   |
+| EMPLOYEE | employee@rat.de  | 123  |   |   |
+| CUSTOMER | customer1@test.de  | 123  |   |   |
+
+Login for the Website:
+ADMIN: admin@rat.de 123
+employee@rat.de 123
+customer1@test.de 123
+
 
 # Verleihstation für Werkzeuge
 Im Rahmen des Projektes zum Thema Programmierung JAVA 1 & 2 haben wir uns entschieden einen Werkzeugverleih (analog zur Packstation) zu Programmieren.
