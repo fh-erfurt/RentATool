@@ -14,6 +14,9 @@
 
 ![alt text](https://github.com/fh-erfurt/RentATool/blob/master/share/images/logo.jpg?raw=true)
 
+
+[![Build2](http://img.shields.io/:build-mit-blue.svg)](https://rent-a-tool-live.herokuapp.com/)
+
 ![CodeFactor](https://img.shields.io/badge/Live-blue)(https://rent-a-tool-live.herokuapp.com/)
 
 ## [Live](https://rent-a-tool-live.herokuapp.com/)
